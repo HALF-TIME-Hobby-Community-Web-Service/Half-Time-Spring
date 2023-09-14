@@ -1,0 +1,57 @@
+* {
+    font-family: 'IBM Plex Sans', sans-serif;
+    box-sizing: border-box;
+    border-style: none;
+}
+
+body{
+    background-color: #e5e2d1;
+}
+
+.login_findID_class, .login_findPW_class{
+    max-width: 80%;
+    width: 600px;
+    height: 30%;
+    padding: 15px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+
+.login_container_logo{
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    height: 30%; /* 컨테이너의 높이를 뷰포트 높이의 10%로 설정합니다 */
+    text-align: center;
+    margin-top: 50px;
+}
+
+#logo {
+    text-decoration: none;/* a태그에 스타일을 없앤다*/
+    color: black;
+    font-size: 70px;    
+    margin-bottom: 10px;
+}
+
+#logo:hover {
+    color: rgb(205, 199, 170);
+    font-weight: normal;
+}
+
+.login_container_findID, .login_container_findPW{
+  
+    padding: 30px;
+    border: 1px solid;
+    border-radius: 20px;
+
+}
+
+footer{
+    max-width: 80%;
+    width: 60%;
+    height: 30%;
+    padding: 15px;
+    margin: 0 auto;
+    text-align: center;
+}

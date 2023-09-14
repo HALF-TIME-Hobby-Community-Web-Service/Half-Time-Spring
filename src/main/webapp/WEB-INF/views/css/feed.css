@@ -1,0 +1,62 @@
+/* 네비게이션과 박스의 위치 조정을 위해 아래 스타일을 추가합니다 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+div#side_nav {
+    float: left;
+    margin-right: 20px;
+    /* 네비게이션과 박스 사이의 간격을 추가합니다 */
+}
+
+.feedbox {
+    float: left;
+    /* align-items: center; */
+    width: 545px;
+    height: 450px;
+    border: 5px solid #c9c5a6;
+    border-radius: 10px;
+    margin: 10px;
+    z-index: -9999;
+}
+
+.feed_content {
+    float: left;
+    width: 80%;
+    overflow-y: scroll;
+    height: 915px;
+}
+
+/* 스타일링을 위한 CSS 코드 */
+div.feed_container {
+    display: hidden;
+
+}
+
+.feed_container_append {
+    display: flex;
+}
+
+
+
+.feed_box img {
+    max-width: 100%;
+    /* 이미지의 너비를 상자에 맞도록 제한합니다 */
+    max-height: 50%;
+    /* 이미지의 높이를 상자에 맞도록 제한합니다 */
+    border-radius: 10px;
+    /* 선택 사항: 이미지에 둥근 모서리를 추가합니다 */
+    margin-top: 5%;
+    /* 선택 사항: 텍스트와 이미지 사이에 여백을 추가합니다 */
+    z-index: 0;
+}

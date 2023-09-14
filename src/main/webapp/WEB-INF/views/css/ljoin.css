@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 모달 전체*/
+.ljoin_content {
+  display: none;
+
+  position: fixed;
+
+  overflow-y: auto;
+  width: 850px;
+  height: 600px;
+
+  top: 20%;
+  left: 27.5%;
+
+  margin-top: 10px;
+  margin-left: 10px;
+
+  background: white;
+  border: 5px solid;
+}
+
+/* ⚡번개 신청 */
+.ljoin_title {
+  display: block;
+
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  border-bottom: 0.5px solid rgb(0, 0, 0, 0.3);
+
+  font-size: 40px;
+}
+
+/* 닫기 버튼 */
+.ljoin_closebtn {
+  font-size: 30px;
+  float: right;
+}
+
+/* 번개신청 입력 창*/
+.ljoin_box {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 20px;
+
+  height: 300px;
+
+  background: #fffae5;
+
+  margin: 30px;
+
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.ljoin_box_clone {
+  display: none;
+}
+
+.ljoin_box_title {
+  font-size: 30px;
+  border-bottom: 1px solid;
+}
+
+.ljoin_box_date {
+  /* font-style: bold; */
+}
+
+.ljoin_box_dday {
+  color: red;
+}
+
+.ljoin_box_container {
+  margin-top: 20px;
+}
+
+.ljoin_box_container > p {
+  font-size: 25px;
+}
+
+.ljoin_box_container button {
+  float: right;
+}

@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+section.commu_content {
+  display: inline-block;
+  float: left;
+  width: 100%;
+  /* height: 1600px; */
+
+  border: 1px solid #000;
+}
+
+/* 상단 탭박스*/
+div.tabbox {
+  display: flex;
+  justify-content: center;
+  float: left;
+  text-align: center;
+
+  margin-top: 30px;
+  width: 50%;
+  height: 60px;
+
+  margin-left: 15%;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 33.3%;
+  height: 80%;
+
+  cursor: pointer;
+  border-radius: 3px;
+  background-color: #f6f4eb;
+}
+
+div.active {
+  background-color: #fffae5;
+}
+
+.commu_container {
+  width: 88%;
+  height: 745px;
+  float: left;
+  overflow-y: auto;
+  padding: 30px;
+}
+
+/* 탭 박스 - 커뮤니티 */
+.commu_list_group {
+  display: flex;
+  height: 0px;
+  width: 100%;
+  /* overflow: hidden; */
+  transition: all 0.5s;
+  list-style: none;
+}
+
+.commu_list-item {
+  height: 100%;
+  border: 1px solid yellow;
+}
+
+.show {
+  height: 125px;
+  transition: all 0.5s;
+}
+
+/* 모든 커뮤 박스 (공지, 게시판, 히스토리) */
+.commu_box {
+  width: 95%;
+  height: fit-content;
+  margin-left: 2.5%;
+
+  border: 3px solid;
+  border-radius: 5px;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+/* 커뮤니티 소개 */
+div.intro {
+}
+
+.introTitleBox {
+  margin-top: 15px;
+  font-size: 30px;
+  border-bottom: 2px solid;
+  width: 90%;
+  padding-bottom: 15px;
+  margin-left: 5%;
+}
+
+.introTitle{
+  font-size: 40px;
+}
+
+div.intro > img.mainImage {
+  margin-top: 30px;
+  height: 300px;
+}
+
+.introText {
+  width: 90%;
+
+  margin-top: 2%;
+  margin-left: 5%;
+
+  text-align: left;
+  padding: 3%;
+  font-size: 20px;
+  font-weight: bold;
+
+  background: white;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+/* display */
+.board {
+  
+}
+
+.board_container {
+  background: #f6f4eb;
+}
+
+.boardBox_clone {
+  display: none;
+}
+
+.boardBox {
+  background-color: #fffae5;
+  width: 90%;
+  margin: 3%;
+
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.board_imgbox {
+  width: 90%;
+  margin-left: 5%;
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.boardimg {
+  height: 200px;
+}
+
+.boardTitle {
+  width: 90%;
+  padding-top: 10px;
+  margin-left: 5%;
+  /* border-bottom: 1px solid; */
+  font-size: 20px;
+}
+
+.boardBox_topbox {
+  border-bottom: 1px solid;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.boardbox_top {
+  margin: 20px;
+}
+
+.boardTitleIntro {
+  font-size: 40px;
+}
+
+.boardimg {
+  height: 200px;
+}
+
+.boardTextBox {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding-top: 20px;
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.boardText {
+  font-size: 20px;
+}
+
+/* 댓글 */
+.board_comment_box {
+  width: 90%;
+  margin-left: 5%;
+  margin-bottom: 20px;
+  text-align: left;  
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.board_comment {
+  margin-left: 10px;
+}
+
+/* 히스토리 */
+.history {  
+  justify-content: center;
+  align-items: center;
+  border: 0px;
+  padding-left: 4%;
+  /* background-color: #fffae5; */
+}
+
+.history_text{
+  width: 1200px;
+  padding-top: 25px;
+  margin-right: 50px;
+  font-size: 40px;
+
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  background: #fffae5;
+
+  word-spacing: 25px;
+}
+
+.historyBox {
+  /* display: flex; */
+  float: left;
+  /* border: 1px solid; */
+}
+
+.history_box_img {
+  padding: 1px;
+  width: 400px;
+  height: 400px;
+}
+
+/* 우측 네비게이션 바 */
+div.right_nav {
+  width: 12%;
+  height: 100vh;
+  float: right;
+  background-color: #f6f4eb;
+  /* background-color: #fffae5; */
+}
+
+.lightning {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+  margin-bottom: 50px;
+}
+
+.lightningBtn {
+  font-size: 25px;
+  margin: 3px;
+}
+
+.calendarBox {
+  margin-bottom: 50px;
+
+  cursor: pointer;
+}
+
+.lightningSummary {
+  text-align: center;
+  margin-bottom: 50px;
+  border: 1px solid;
+
+  cursor: pointer;
+}
+
+.memberList {
+  padding-left: 20px;
+
+  border: 1px solid;
+
+  cursor: pointer;
+}
+
+.memberTitle {
+  text-align: center;
+  font-size: 30px;
+}
+
+.member {
+}
+
+.member > img {
+  width: 20px;
+}
+
+/* overflow-y: auto */
+.member_table{
+  border:1px solid;
+  border-radius: 5px;
+  width:125%;
+  height: 200%;
+  text-align: center;
+  color: rgb(10, 10, 10);
+}

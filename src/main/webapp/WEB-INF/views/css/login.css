@@ -1,0 +1,78 @@
+* {
+    font-family: 'IBM Plex Sans', sans-serif;
+    box-sizing: border-box;
+    border-style: none;
+}
+
+body{
+    background-color: #e5e2d1;
+}
+
+.login_class{
+    max-width: 80%;
+    width: 60%;
+    height: 30%;
+    padding: 15px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.login_container_logo{
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    height: 30%; /* 컨테이너의 높이를 뷰포트 높이의 10%로 설정합니다 */
+    text-align: center;
+    margin-top: 50px;
+}
+
+#logo {
+    text-decoration: none;/* a태그에 스타일을 없앤다*/
+    color: black;
+    font-size: 70px;    
+    margin-bottom: 10px;
+}
+
+#logo:hover {
+    color: rgb(205, 199, 170);
+    font-weight: normal;
+}
+
+.login_container_login{
+    margin: auto;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login_container_login_inside {
+    margin-top: 50px; /* 로고와 아이디 입력 부분 사이의 간격을 조정하려면 값을 조정하세요. */
+}
+
+input{
+    width: 50%;
+    text-align: center;
+    font-size: 30px;
+    border-bottom: 2px solid #333;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.join_button, .login_button{
+    margin-top: 5%;
+    width: 50%;
+    font-size: 30px;
+}
+
+div.login_container_or {
+    display: inline; /* div.loginOr 요소를 인라인 블록으로 변환합니다. */
+    vertical-align: middle; /* 텍스트와 세로 정렬을 위해 vertical-align을 추가합니다. */
+}
+
+.login_or::before,
+.login_or::after {
+    content: '─────────────'; 
+    color: rgb(0, 0, 0); /* "-"의 색상을 설정합니다. */
+}
+
+button{
+    width: 20%;
+}
