@@ -51,20 +51,16 @@ public class CommuService {
 
 	public List<Gathering> getGathering() {
 
-		return mapper.selectGathering();
+		return mapper.getGathering();
 	}
 
 	public List<Commumember> getCommumember() {
 
-		return mapper.selectAllCommumember();
-	}
-
-	public List<CommuList> getCommuList(Criteria cri) {
-		return mapper.getCommuList(cri);
+		return mapper.getAllCommumember();
 	}
 
 	public List<Post> getCommuPost(String commuID) {
-		return mapper.selectCommuPost(commuID);
+		return mapper.getCommuPost(commuID);
 	}
 
 }

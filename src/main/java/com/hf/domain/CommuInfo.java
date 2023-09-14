@@ -1,5 +1,7 @@
 package com.hf.domain;
 
+import java.math.BigDecimal;
+
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
@@ -13,13 +15,14 @@ public class CommuInfo {
 	private String commuIntro;
 	private String commuCategory;
 	private String commuLocation;
-	
-	public CommuInfo(String commuID, String commuName, String commuIntro, String commuCategory, String commuLocation) {
-		this.commuID = commuID;
+
+	public CommuInfo(BigDecimal commuID, String commuName, String commuIntro, 
+			String commuCategory, String commuLocation) {
+		this.commuID = commuID.toString();
 		this.commuName = commuName;
 		this.commuIntro = commuIntro;
 		this.commuCategory = commuCategory;
 		this.commuLocation = commuLocation;
 	}
-	
+
 }
