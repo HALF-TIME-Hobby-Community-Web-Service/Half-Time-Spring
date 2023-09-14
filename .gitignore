@@ -13,6 +13,8 @@ local.properties
 .settings/
 .loadpath
 .recommenders
+target
+.git
 
 # External tool builders
 .externalToolBuilders/

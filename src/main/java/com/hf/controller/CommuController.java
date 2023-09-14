@@ -1,5 +1,7 @@
 package com.hf.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,15 +19,15 @@ import com.hf.domain.Criteria;
 import com.hf.domain.Gathering;
 import com.hf.domain.Post;
 
-import java.util.List;
+import lombok.Setter;
 
 @CrossOrigin("*")
 @Controller
 @RequestMapping(value = "/commu/*", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
 public class CommuController {
-    @Autowired
+	
+    @Setter(onMethod_ = @Autowired)
     private CommuService service;
-
    
     @ResponseBody
     @GetMapping("/list")
@@ -82,16 +84,16 @@ public class CommuController {
             @RequestParam("price") int price  
         ) {
             
-            System.out.println("? œëª?: " + title);
-            System.out.println("?‹œ?‘ ?‹œê°?: " + startTime);
-            System.out.println("ì¢…ë£Œ ?‹œê°?: " + endTime);
+            System.out.println("?ï¿½ï¿½ï¿½?: " + title);
+            System.out.println("?ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½ï¿½?: " + startTime);
+            System.out.println("ì¢…ë£Œ ?ï¿½ï¿½ï¿½?: " + endTime);
             System.out.println("ì²´í¬ë°•ìŠ¤: " + check);
-            System.out.println("ì§??—­: " + location);
-            System.out.println("?‚´?š©: " + text);
-            System.out.println("? •?›: " + capacity);
-            System.out.println("?šŒë¹?: " + price);
+            System.out.println("ï¿½??ï¿½ï¿½: " + location);
+            System.out.println("?ï¿½ï¿½?ï¿½ï¿½: " + text);
+            System.out.println("?ï¿½ï¿½?ï¿½ï¿½: " + capacity);
+            System.out.println("?ï¿½ï¿½ï¿½?: " + price);
 
-            // ?´ ë¶?ë¶„ì—?„œ Gathering ê°ì²´ë¥? ?ƒ?„±?•˜ê³? ?„œë¹„ìŠ¤ë¥? ?˜¸ì¶œí•˜?Š” ë¡œì§?„ ì¶”ê??•´?•¼ ?•©?‹ˆ?‹¤.
+            // ?ï¿½ï¿½ ï¿½?ë¶„ì—?ï¿½ï¿½ Gathering ê°ì²´ï¿½? ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ë¹„ìŠ¤ï¿½? ?ï¿½ï¿½ì¶œí•˜?ï¿½ï¿½ ë¡œì§?ï¿½ï¿½ ì¶”ï¿½??ï¿½ï¿½?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½.
             service.lmake(new Gathering(title, startTime, endTime, location, text, price, capacity));
 
             return "1";

@@ -20,18 +20,18 @@ import lombok.extern.log4j.Log4j;
 
 @Log4j
 @Service
-	public class CommuService{
-	
+public class CommuService {
+
 	private SqlSessionTemplate sqlSession;
-	
+
 	@Autowired
 	public CommuService(SqlSessionTemplate sqlSession) {
-	    this.sqlSession = sqlSession;
+		this.sqlSession = sqlSession;
 	}
-	
-	@Setter(onMethod_=@Autowired)
+
+	@Setter(onMethod_ = @Autowired)
 	private CommuMapper mapper;
-	
+
 	public CommuInfo getCommuInfo(String commuID) {
 		return mapper.getCommuInfo(commuID);
 	}
@@ -45,29 +45,24 @@ import lombok.extern.log4j.Log4j;
 //		return sqlSession.selectList("com.hf.commu.mapper.CommuMapper.getCommuList", commuID);
 //	}
 
-
 	public void lmake(Gathering gObj) {
 		mapper.insertGathering(gObj);
 	}
 
-
 	public List<Gathering> getGathering() {
-		
+
 		return mapper.selectGathering();
 	}
 
-	
 	public List<Commumember> getCommumember() {
-		
+
 		return mapper.selectAllCommumember();
 	}
 
-	
 	public List<CommuList> getCommuList(Criteria cri) {
 		return mapper.getCommuList(cri);
 	}
 
-	
 	public List<Post> getCommuPost(String commuID) {
 		return mapper.selectCommuPost(commuID);
 	}
