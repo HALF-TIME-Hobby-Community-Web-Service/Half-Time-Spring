@@ -1,10 +1,14 @@
 package com.hf.domain;
 
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
-@Data@Component
+@Data
+@Component
 public class Post {
 	private String COMMUPOSTID;
 	private String COMMUID;
@@ -14,15 +18,15 @@ public class Post {
 	private String TEXT;
 	private String POSTTIME;
 	
-	public Post(String cOMMUPOSTID, String cOMMUID, String wRITER, String tITLE, String pOSTTYPE, String tEXT,
-			String pOSTTIME) {
-		COMMUPOSTID = cOMMUPOSTID;
-		COMMUID = cOMMUID;
+	public Post(BigDecimal cOMMUPOSTID, BigDecimal cOMMUID, String wRITER, String tITLE, BigDecimal pOSTTYPE, String tEXT,
+			Timestamp pOSTTIME) {
+		COMMUPOSTID = cOMMUPOSTID.toString();
+		COMMUID = cOMMUID.toString();
 		WRITER = wRITER;
 		TITLE = tITLE;
-		POSTTYPE = pOSTTYPE;
+		POSTTYPE = pOSTTYPE.toString();
 		TEXT = tEXT;
-		POSTTIME = pOSTTIME;
+		POSTTIME = pOSTTIME.toString();
 	}
 	
 }
