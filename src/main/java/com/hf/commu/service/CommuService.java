@@ -46,17 +46,17 @@ public class CommuService {
 //	}
 
 	public void lmake(Gathering gObj) {
-		mapper.insertGathering(gObj);
+		mapper.insertGathering(gObj,"1");
 	}
 
 	public List<Gathering> getGathering() {
 
-		return mapper.getGathering();
+		return mapper.getGathering("1");
 	}
 
 	public List<Commumember> getCommumember() {
 
-		return mapper.getAllCommumember();
+		return mapper.getAllCommumember("1");
 	}
 
 	public List<Post> getCommuPost(String commuID) {

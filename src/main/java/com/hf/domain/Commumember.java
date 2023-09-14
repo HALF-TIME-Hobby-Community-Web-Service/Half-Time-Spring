@@ -1,41 +1,42 @@
 package com.hf.domain;
 
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
 
-@Data@Component
+@Data
+@Component
 public class Commumember {
 
 	private String commuID; 
 	private String cNickName;
 	private String userID;
-	private String cAutho;
+	private String cAuth;
 	private String memberState;
 	private String gender;
-	private String birth;
+	private String birth;	
 	
-	public Commumember(String commuID, String cNickName, String userID, String cAutho, String memberState,
-			String gender, String birth) {
-		
-		this.commuID = commuID;
+	public Commumember(BigDecimal commuID, String cNickName, String userID, BigDecimal cAuth, BigDecimal memberState,
+			BigDecimal gender, Timestamp birth) {		
+		this.commuID = commuID.toString();
 		this.cNickName = cNickName;
 		this.userID = userID;
-		this.cAutho = cAutho;
-		this.memberState = memberState;
-		this.gender = gender;
-		this.birth = birth;
+		this.cAuth = cAuth.toString();
+		this.memberState = memberState.toString();
+		this.gender = gender.toString();
+		this.birth = birth.toString();
 	}
 	
-	public Commumember(String commuID, String cNickName, String userID, String cAutho, String memberState) {
-		
-		this.commuID = commuID;
+	public Commumember(BigDecimal commuID, String cNickName, String userID, BigDecimal cAuth, BigDecimal memberState) {		
+		this.commuID = commuID.toString();
 		this.cNickName = cNickName;
 		this.userID = userID;
-		this.cAutho = cAutho;
-		this.memberState = memberState;
-		
-		
+		this.cAuth = cAuth.toString();
+		this.memberState = memberState.toString();		
 	}
+
 }
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.hf.commu.service.CommuService;
 import com.hf.domain.CommuInfo;
@@ -22,7 +23,7 @@ import com.hf.domain.Post;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
-@Controller
+@RestController
 @RequestMapping(value = "/commu/*", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
 @Log4j
 public class CommuController {
@@ -30,14 +31,12 @@ public class CommuController {
 	@Setter(onMethod_ = @Autowired)
 	private CommuService service;
 
-	@ResponseBody
 	@GetMapping("/member")
 	public List<Commumember> getCommumemberList() {
 		List<Commumember> cList = service.getCommumember();
 		return cList;
 	}
 
-	@ResponseBody
 	@GetMapping("/board")
 	public List<Post> getBoard(@RequestParam("commuID") String commuID) {
 
@@ -46,7 +45,6 @@ public class CommuController {
 		return boardList;
 	}
 
-	@ResponseBody
 	@GetMapping("/info")
 	public CommuInfo getCommuInfo(@RequestParam("commuID") String commuID) {
 		CommuInfo commuInfo = service.getCommuInfo(commuID);
@@ -54,7 +52,6 @@ public class CommuController {
 		return commuInfo;
 	}
 
-	@ResponseBody
 	@GetMapping("/lget")
 	public List<Gathering> getGathering() {
 
@@ -63,7 +60,6 @@ public class CommuController {
 		return gatheringList;
 	}
 
-	@ResponseBody
 	@GetMapping("/lmake")
 	public String lmake(@RequestParam("title") String title, @RequestParam("startTime") String startTime,
 			@RequestParam("endTime") String endTime, @RequestParam("check") String check,
