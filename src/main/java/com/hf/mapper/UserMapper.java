@@ -11,4 +11,6 @@ public interface UserMapper {
     void insertUserLocation(@Param("id") String id , @Param("location") String location);
     void insertUserCategory(User user);
     int joinIDcheckpage(String id);
+	public User userLogin(@Param("ID") String ID, @Param("PWD")String PWD);
+
 }

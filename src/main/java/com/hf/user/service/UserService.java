@@ -25,4 +25,10 @@ public class UserService {
     public int joinIDcheckpage(String id) {
         return mapper.joinIDcheckpage(id);
     }
+    
+    public User login(String ID, String PWD) {
+		User dto = mapper.userLogin(ID,PWD);
+		return dto;
+		
+	};
 }
