@@ -4,8 +4,10 @@ $(document).ready(() => {
         rootMargin: '0px',
         threshold: 0.5
     };
-    const observer = new IntersectionObserver(loadMoreContent, options);
-    observer.observe($('.feed_content').get(0));
+    const observer = new IntersectionObserver((entries)=>{
+    loadMoreContent()
+    }, options);
+    observer.observe($('.feed_content'));
 
 
 
@@ -14,11 +16,14 @@ $(document).ready(() => {
 let isloading = false;
 
 function loadMoreContent() {
-    if (isloading) return;
+    if (isloading) {
+    	return;
+    }
+    
 
     isloading = true;
     $.ajax({
-        url: 'http://localhost:8888/hf/momentlist',
+        url: 'http://localhost:8889/moment/list',
         method: 'POST',
         dataType: 'json',
         success: function (data) {

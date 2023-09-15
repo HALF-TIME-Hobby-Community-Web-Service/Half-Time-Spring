@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,12 +23,13 @@
   <link rel="stylesheet" href="../css/commulist.css" />
 
   <!-- js-->
+  <script src="../js/navbar.js"></script>
   <script src="../js/commulist.js"></script>
   
 </head>
 
 <body>
-  <!-- <header>
+  <header>
     <nav class="navbar navbar-expand-lg" style="background-color: #f6f4eb;" id="navtop">
       <div class="container-fluid">
         <a class="navbar-brand" href="#" id="logo">HALF-TIME</a>
@@ -79,7 +78,7 @@
           </ul>
       </div>
   </div>
-  </header> -->
+  </header>
   <div id="modalWrap">
     <div id="modalBody">
 
@@ -93,14 +92,13 @@
         <!-- <p class="commumember">정원 3/40</p> -->
       </div>
       <section class="btns">
-        <button class="modalbtn">가입신청</button>
+        <button class="modalbtn" id="commuSignup">가입신청</button>
         <button class="modalclose">닫기</button>
       </section>
     </div>
   </div>
   <div class="commuevery">
     <div class="tabBox">
-      <div class="tab active" data-tab="community">커뮤니티</div>
     </div>
     <div class="filteringBox">
       <span class="filtering">최신순</span>
@@ -117,7 +115,7 @@
       </div>
     </div>
 
-
+    
 
     
 

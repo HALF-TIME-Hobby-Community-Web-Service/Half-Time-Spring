@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.hf.domain.Gathering;
 import com.hf.mapper.CommuMapper;
 
 import lombok.Setter;
@@ -19,9 +20,23 @@ public class TestCommuMapper {
 	@Setter(onMethod_ = @Autowired)
 	private CommuMapper mapper;
 	
+	//@Test
+	public void testGathering() {
+		Gathering gObj= new Gathering();
+		gObj.setTitle("야호");
+		gObj.setText("야야호");
+		gObj.setStartTime("2023/09/14");
+		gObj.setEndTime("2023/09/14");
+		gObj.setCapacity(8);
+		gObj.setLocation("우리집");
+		gObj.setPrice(10000);
+		gObj.setOrganizer("코스타남신김수열");
+		mapper.insertGathering(gObj, "1");
+	}
+	
 	@Test
 	public void test() {
-		log.info("getCommuPost: " + mapper.getCommuPost("4"));
+		log.info(mapper.getAllCommumember("1"));		
 	}
 
 }

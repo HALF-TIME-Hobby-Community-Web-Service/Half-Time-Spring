@@ -1,38 +1,33 @@
 package com.hf.domain;
 
-import org.springframework.stereotype.Component;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-import lombok.Data;
-
-
-@Data
-@Component
+@Setter
+@Getter
+@ToString
 public class Criteria {
-    private Integer start;   
-    private Integer perPage;
+	private Integer pageNum;
+	private Integer amount;
 
-    public Criteria() {
-        this.start = 1;
-        this.perPage = 5; 
-    }
+	private String type;
+	private String keyword;
 
-    public void setPage(int page) {
-        if (page <= 0) {
-            this.start = 1;
-        } else {
-            this.start = page;
-        }
-    }
 
-    public void setPerPage(int perPage) {
-        if (perPage <= 0 || perPage > 100) { 
-            this.perPage = 5;
-        } else {
-            this.perPage = perPage;
-        }
-    }
+	public Criteria() {
+		
+		this(1, 10);
+	}
 
-    public int getStart() {
-        return (start - 1) * perPage;
-    }
+	public Criteria(int pageNum, int amount) {
+		this.pageNum = pageNum;
+		this.amount = amount;
+	}
+	
+	public String[] getTypeArr() {
+		return type==null? new String[] {}:type.split("");
+	}
+
 }
+

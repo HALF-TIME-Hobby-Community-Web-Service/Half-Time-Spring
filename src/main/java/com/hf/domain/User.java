@@ -2,9 +2,10 @@ package com.hf.domain;
 
 import org.springframework.stereotype.Component;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data@Component
+@Data@Component@AllArgsConstructor
 public class User {
 	private String id;
 	private String idch;
@@ -15,9 +16,10 @@ public class User {
 	private String birth; 
 	private int gender; 
 	private String address; 
-	private String pnum;
+	private String phoneNum;
 	private String location; 
 	private String category; 
+	private String profileImg;
 	
 
 	//비밀번호 찾기 생성자
@@ -26,7 +28,7 @@ public class User {
 		this.name=name;
 		this.gender=gender;
 		this.birth=birth;
-		this.pnum=pnum;
+		this.phoneNum=pnum;
 	}
 	public User() {
 	
@@ -45,7 +47,7 @@ public class User {
 		this.birth = birth; 
 		this.gender = gender;
 		this.address = address; 
-		this.pnum = pnum; 
+		this.phoneNum = pnum; 
 		this.nickname = nickname;				
 	}
 
@@ -60,5 +62,22 @@ public class User {
 	public User(String id) {
 		this.id = id;
 	}
+	public User(String id, String pwd, String nickname, String name, String birth, int gender, String address,
+			String pnum, String profileImg) {
+		super();
+		this.id = id;
+		this.pwd = pwd;
+		this.name = name;
+		this.nickname = nickname;
+		this.gender = gender;
+		this.birth = birth;
+		this.phoneNum = pnum;
+		this.address = address;
+		this.profileImg = profileImg;
+		
+	}
+	
+	
+	
 
 }
