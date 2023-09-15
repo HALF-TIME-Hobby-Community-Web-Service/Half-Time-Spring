@@ -26,60 +26,11 @@
 
   <!-- js-->
   <script src="../js/commulist.js"></script>
-  
+
 </head>
 
 <body>
-  <!-- <header>
-    <nav class="navbar navbar-expand-lg" style="background-color: #f6f4eb;" id="navtop">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#" id="logo">HALF-TIME</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="searchul">
-            <form class="d-flex" role="search" id="searchform">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                id="feed_searchinput">
-              <button type="button" class="btn btn-outline-dark btn-outline-success" id="nav-searchbtn"
-                type="submit">Search</button>
-            </form>
-        </div>
-      </div>
-    </nav>
-    <div id="side_nav">
-      <div>
-          <ul class="nav flex-column">
-              <li class="nav_item" id="sidefirst">
-                  <img src="../IMG/sideItem/login.svg" alt="Login"><a href="./login.html" id="loginBtn"
-                      class="atag">LOGIN</a>
-              </li>
-              <li class="nav_line">──────</li>
-              <li class="nav_item">
-                  <img src="../IMG/sideItem/journal.svg" alt="Moment"><a href="#" id="momentBtn"
-                      class="atag">MOMENT</a>
-              </li>
-              <li class="nav_item">
-                  <img src="../IMG/sideItem/people.svg" alt="Community"><a href="#" id="commuBtn"
-                      class="atag">COMMUNITY</a>
-              </li>
-              <li class="nav_line">──────</li>
-              <li class="nav_item">
-                  <img src="../IMG/sideItem/hand-index.svg" alt="Interest"><a href="#" class="atag">INTEREST</a>
-              </li>
-              <li class="nav_item">
-                  <img src="../IMG/sideItem/geo-alt.svg" alt="Location"><a href="#" class="atag">LOCATION</a>
-              </li>
-              <li class="nav_line">──────</li>
-              <li class="nav_item">
-                  <img src="../IMG/sideItem/chat-left-dots.svg" alt="Chatting"><a href="#" class="atag">CHATTING</a>
-              </li>
-          </ul>
-      </div>
-  </div>
-  </header> -->
+
   <div id="modalWrap">
     <div id="modalBody">
 
