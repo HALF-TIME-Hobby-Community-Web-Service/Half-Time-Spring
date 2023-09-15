@@ -4,6 +4,7 @@
 <html>
 
 <head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <meta charset="UTF-8">
@@ -12,31 +13,14 @@
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet" href="/resources/css/login.css">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 
 <title>Login page</title>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<script>
-	let form = $(".login_form");
-	let login_btn=$(".login_button");
-	login_btn.on("click",function(e) {
-		alert("로그인 버튼 클릭");
-		 $.ajax({
-			url:"/user/login",
-			type:"post",
-			data: form.serialize(),
-			success: function(data){
-				alert(data);
-			},
-			error: function(jqXhr,status){
-				alert("실패");
-			} 	
-		});
-	});
-    </script>
+
 </head>
 
 <body>
@@ -77,7 +61,36 @@
 		<!-- </form> -->
 	</div>
 
-
+<script>
+	let form = $(".login_form");
+	let login_btn=$(".login_button");
+	
+	login_btn.on("click",function(e) {
+		e.preventDefault();
+		alert("로그인 버튼 클릭");
+		console.log("에러1");
+		 $.ajax({
+			url:"/user/login",
+			type:"post",
+			dataType: "json",
+			data: form.serialize(),
+			success: function(data){
+				
+				if(!data.result){
+					alert("false"+ data.result);
+					
+					location.href="/user/login";
+				}else{
+					alert("true"+data.result);
+					location.href="/moment/list";			
+				}
+			},
+			error: function(jqXhr,status){
+				alert("status : " + status);
+			} 	
+		});
+	})
+    </script>
 </body>
 
 </html>
