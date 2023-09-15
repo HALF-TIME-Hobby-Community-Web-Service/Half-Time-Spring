@@ -7,14 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hf.domain.CommuInfo;
-import com.hf.domain.CommuList;
 import com.hf.domain.Commumember;
-import com.hf.domain.Criteria;
 import com.hf.domain.Gathering;
 import com.hf.domain.Post;
 import com.hf.mapper.CommuMapper;
 
-import lombok.AllArgsConstructor;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
@@ -35,6 +32,10 @@ public class CommuService {
 	public CommuInfo getCommuInfo(String commuID) {
 		return mapper.getCommuInfo(commuID);
 	}
+	public List<CommuInfo> getCommuList(){
+		return mapper.getCommuList();
+	}
+	
 
 //	@Override
 //	@Autowired
@@ -45,6 +46,10 @@ public class CommuService {
 //		return sqlSession.selectList("com.hf.commu.mapper.CommuMapper.getCommuList", commuID);
 //	}
 
+	public List<CommuInfo> getCommuList1(){
+		return mapper.getCommuList();
+	}
+	
 	public void lmake(Gathering gObj) {
 		mapper.insertGathering(gObj);
 	}

@@ -15,4 +15,5 @@ public interface CommuMapper {
 	public void insertGathering(Gathering gObj);
 	public List<Gathering> getGathering();
 	public List<Commumember> getAllCommumember();
+	public List<CommuInfo> getCommuList();
 }

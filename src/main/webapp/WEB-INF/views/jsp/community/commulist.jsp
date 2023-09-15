@@ -101,8 +101,6 @@
   <div class="commuevery">
     <div class="tabBox">
       <div class="tab active" data-tab="community">커뮤니티</div>
-      <div class="tab" data-tab="lightning">라이트닝</div>
-      <div class="tab" data-tab="challenge">챌린지</div>
     </div>
     <div class="filteringBox">
       <span class="filtering">최신순</span>
@@ -119,29 +117,9 @@
       </div>
     </div>
 
-    <div class="list lightning">
-      <div class="commuBox" id="lightning">
-        <p class="commuName">마블 팬클럽</p>
-        <img src="../img/commu1.jpg" alt="독서" class="img">
-        <div class="introduce">
-          <p class="commuintro">마블 영화 보러 갈사람~~~</p>
-          <p class="commuintro">마블짱</p>
-          <p class="commuintro">마조쿠 구합니다아~~~</p>
-        </div>
-      </div>
-    </div>
 
-    <div class="list challenge">
-      <div class="commuBox" id="challenge">
-        <div class="commuName">농조쿠들</div>
-        <img src="../img/challenge1.jpg" alt="슬램덩크" class="img">
-        <div class="introduce">
-          <p class="commuintro">농구 좋아하시는 분들 welcome</p>
-          <p class="commuintro">농구 직관 드가자</p>
-          <p class="commuintro">농구 할 사람 다모여~</p>
-        </div>
-      </div>
-    </div>
+
+    
 
 
   </div>

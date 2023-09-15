@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,9 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hf.commu.service.CommuService;
 import com.hf.domain.CommuInfo;
-import com.hf.domain.CommuList;
 import com.hf.domain.Commumember;
-import com.hf.domain.Criteria;
 import com.hf.domain.Gathering;
 import com.hf.domain.Post;
 
@@ -30,6 +27,15 @@ public class CommuController {
 	@Setter(onMethod_ = @Autowired)
 	private CommuService service;
 
+	
+	
+	@ResponseBody
+	@GetMapping("/list")
+	public String getCommuList(){
+		List<CommuInfo> cList = service.getCommuList();
+		return "commulist";
+	}
+	
 	@ResponseBody
 	@GetMapping("/member")
 	public List<Commumember> getCommumemberList() {
