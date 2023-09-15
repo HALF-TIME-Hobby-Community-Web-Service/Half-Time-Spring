@@ -52,7 +52,7 @@ $(() => {
 
   commuBtn.click((e) => {
     $.ajax({
-      url: 'http://127.0.0.1:5500/front/html/commulist.html', // 불러올 페이지의 경로
+      url: 'src/main/webapp/WEB-INF/views/jsp/community/commulist.jsp', // 불러올 페이지의 경로
       method: 'get', // GET 요청
 
       success: (response) => {

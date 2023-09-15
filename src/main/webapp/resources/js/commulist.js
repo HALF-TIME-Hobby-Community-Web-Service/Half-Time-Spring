@@ -3,7 +3,7 @@ $(() => {
     const closeBtn = document.getElementById('closeBtn');
     const commubox = $('.commuBox');
     const feedContent = $('.commuevery');
-    
+    let commuID;
     // AJAX로 서버에서 데이터 가져오기
     $.ajax({
         url: 'http://localhost:8888/hf/commulist', // API 엔드포인트
@@ -12,7 +12,8 @@ $(() => {
 
             
             // 서버에서 받은 데이터(response) 활용하여 동적으로 커뮤니티 박스 생성 및 추가
-            response.forEach((community) => {
+            response.forEach((community) => {                
+                commuID = community.commuID;
                 const communityBox = $('.commuBox_clone').clone().addClass('commuBox').removeClass('commuBox_clone');
                 communityBox.find('.commuName').html(community.commuName); // 커뮤니티 이름 설정
                 communityBox.find('.img').attr('src', community.imagePath); // 이미지 설정
@@ -46,25 +47,21 @@ $(() => {
    
 
 
-    $('.modalbtn').click(() => {
-        
-        
-        $.ajax({
-            
-            url: 'http://127.0.0.1:5500/front/html/commuPage.html', // 불러올 페이지의 경로
+    $('#commuSignup').click(() => {            
+        $.ajax({            
+            url: 'http://127.0.0.1:5500/html/commuPage.html', // 불러올 페이지의 경로
             method: 'get', // GET 요청
-      
+            data: {commuID: commuID},            
             success: (response) => {
+                alert(response);
                 modal.style.display = 'none';  
-              feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
-
+                 feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
             },
             error: (jqXhr, status) => {
               alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
             },
 
-        })
-        
+        })        
     });
 
 

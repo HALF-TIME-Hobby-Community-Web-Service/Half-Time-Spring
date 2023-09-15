@@ -7,6 +7,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<jsp:include page="../header.jsp"/>
 
   <!-- 폰트 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,65 +22,16 @@
 
 
   <!-- css -->
-  <link rel="stylesheet" href="../css/navbar.css" />
-  <link rel="stylesheet" href="../css/commulist.css" />
+  <link rel="stylesheet" href="/resources/css/navbar.css" />
+  <link rel="stylesheet" href="/resources/css/commulist.css" />
 
   <!-- js-->
-  <script src="../js/commulist.js"></script>
-  
+  <script src="/resources/js/navbar.js"></script>
+  <script src="/resources/js/commulist.js"></script>
+
 </head>
 
 <body>
-  <!-- <header>
-    <nav class="navbar navbar-expand-lg" style="background-color: #f6f4eb;" id="navtop">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#" id="logo">HALF-TIME</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="searchul">
-            <form class="d-flex" role="search" id="searchform">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                id="feed_searchinput">
-              <button type="button" class="btn btn-outline-dark btn-outline-success" id="nav-searchbtn"
-                type="submit">Search</button>
-            </form>
-        </div>
-      </div>
-    </nav>
-    <div id="side_nav">
-      <div>
-          <ul class="nav flex-column">
-              <li class="nav_item" id="sidefirst">
-                  <img src="../IMG/sideItem/login.svg" alt="Login"><a href="./login.html" id="loginBtn"
-                      class="atag">LOGIN</a>
-              </li>
-              <li class="nav_line">──────</li>
-              <li class="nav_item">
-                  <img src="../IMG/sideItem/journal.svg" alt="Moment"><a href="#" id="momentBtn"
-                      class="atag">MOMENT</a>
-              </li>
-              <li class="nav_item">
-                  <img src="../IMG/sideItem/people.svg" alt="Community"><a href="#" id="commuBtn"
-                      class="atag">COMMUNITY</a>
-              </li>
-              <li class="nav_line">──────</li>
-              <li class="nav_item">
-                  <img src="../IMG/sideItem/hand-index.svg" alt="Interest"><a href="#" class="atag">INTEREST</a>
-              </li>
-              <li class="nav_item">
-                  <img src="../IMG/sideItem/geo-alt.svg" alt="Location"><a href="#" class="atag">LOCATION</a>
-              </li>
-              <li class="nav_line">──────</li>
-              <li class="nav_item">
-                  <img src="../IMG/sideItem/chat-left-dots.svg" alt="Chatting"><a href="#" class="atag">CHATTING</a>
-              </li>
-          </ul>
-      </div>
-  </div>
-  </header> -->
   <div id="modalWrap">
     <div id="modalBody">
 
@@ -93,16 +45,13 @@
         <!-- <p class="commumember">정원 3/40</p> -->
       </div>
       <section class="btns">
-        <button class="modalbtn">가입신청</button>
+        <button class="modalbtn" id="commuSignup">가입신청</button>
         <button class="modalclose">닫기</button>
       </section>
     </div>
   </div>
   <div class="commuevery">
     <div class="tabBox">
-      <div class="tab active" data-tab="community">커뮤니티</div>
-      <div class="tab" data-tab="lightning">라이트닝</div>
-      <div class="tab" data-tab="challenge">챌린지</div>
     </div>
     <div class="filteringBox">
       <span class="filtering">최신순</span>
@@ -118,36 +67,6 @@
         </div>
       </div>
     </div>
-
-    <div class="list lightning">
-      <div class="commuBox" id="lightning">
-        <p class="commuName">마블 팬클럽</p>
-        <img src="../img/commu1.jpg" alt="독서" class="img">
-        <div class="introduce">
-          <p class="commuintro">마블 영화 보러 갈사람~~~</p>
-          <p class="commuintro">마블짱</p>
-          <p class="commuintro">마조쿠 구합니다아~~~</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="list challenge">
-      <div class="commuBox" id="challenge">
-        <div class="commuName">농조쿠들</div>
-        <img src="../img/challenge1.jpg" alt="슬램덩크" class="img">
-        <div class="introduce">
-          <p class="commuintro">농구 좋아하시는 분들 welcome</p>
-          <p class="commuintro">농구 직관 드가자</p>
-          <p class="commuintro">농구 할 사람 다모여~</p>
-        </div>
-      </div>
-    </div>
-
-
   </div>
-
-
-
 </body>
-
 </html>
