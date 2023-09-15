@@ -7,9 +7,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hf.controller.HomeController;
-import com.hf.domain.Criteria;
-import com.hf.domain.MomentWithContent;
 import com.hf.mapper.MomentMapper;
 
 import lombok.Setter;

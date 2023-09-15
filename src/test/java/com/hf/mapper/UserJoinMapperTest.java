@@ -1,13 +1,10 @@
 package com.hf.mapper;
 
-import org.apache.ibatis.annotations.Param;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import com.hf.domain.User;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -18,7 +15,7 @@ import lombok.extern.log4j.Log4j;
 public class UserJoinMapperTest {
 
 	@Setter(onMethod_ = @Autowired)
-	private UserJoinMapper mapper; 
+	private UserMapper mapper; 
 	
 	@Test
 	public void test() {

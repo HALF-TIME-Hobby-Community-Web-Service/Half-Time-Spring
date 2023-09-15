@@ -4,7 +4,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hf.mapper.UserMapper">
 
-
+  <insert id="insertUser">
+    <![CDATA[
+        INSERT INTO Users (id, pwd, name, nickname, gender, birth, phonenum, address)
+        VALUES (#{id}, #{pwd}, #{name}, #{nickname}, #{gender}, #{birth}, #{pnum}, #{address})
+        ]]>
+    </insert>
+    
+    
+    <!-- 여기까지 했다 -->
+    <insert id="insertUserLocation" >
+        <![CDATA[
+        INSERT INTO Userlocation 
+        VALUES (userlocation_seq.nextval, #{id}, '집', #{location})
+         ]]>
+    </insert>
+    
+    <insert id="insertUserCategory">
+    <![CDATA[
+        INSERT INTO Usercategory 
+        VALUES (userlocation_seq.nextval,#{id}, #{category})
+        ]]>
+    </insert>
+    
+    <select id="joinIDcheckpage" resultType="int">
+    <![CDATA[
+        SELECT COUNT(*) FROM users WHERE id = #{id}
+        ]]>
+    </select>
 
 
 </mapper>

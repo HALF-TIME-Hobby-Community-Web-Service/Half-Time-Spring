@@ -2,9 +2,6 @@ package com.hf.domain;
 
 import java.util.Date;
 
-import org.springframework.stereotype.Component;
-
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

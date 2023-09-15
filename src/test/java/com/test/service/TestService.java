@@ -1,13 +1,11 @@
 package com.test.service;
 
-import org.apache.ibatis.annotations.Param;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.hf.mapper.CommuMapper;
 import com.hf.mapper.MomentMapper;
 
 import lombok.Setter;
