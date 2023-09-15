@@ -19,44 +19,31 @@ import lombok.extern.log4j.Log4j;
 @Service
 public class CommuService {
 
-	private SqlSessionTemplate sqlSession;
-
-	@Autowired
-	public CommuService(SqlSessionTemplate sqlSession) {
-		this.sqlSession = sqlSession;
-	}
-
 	@Setter(onMethod_ = @Autowired)
 	private CommuMapper mapper;
 
 	public CommuInfo getCommuInfo(String commuID) {
+		log.info("service/getCommuInfo");
 		return mapper.getCommuInfo(commuID);
 	}
 
-//	@Override
-//	@Autowired
-//	public List<Post> getCommuPost(String commuID, SqlSessionTemplate sqlSession) {
-//		
-//		this.sqlSession = sqlSession;
-//		
-//		return sqlSession.selectList("com.hf.commu.mapper.CommuMapper.getCommuList", commuID);
-//	}
-
 	public void lmake(Gathering gObj) {
+		log.info("service/lmake");
 		mapper.insertGathering(gObj,"1");
 	}
 
 	public List<Gathering> getGathering() {
-
+		log.info("service/getGathering");
 		return mapper.getGathering("1");
 	}
 
 	public List<Commumember> getCommumember() {
-
+		log.info("service/getCommumember");
 		return mapper.getAllCommumember("1");
 	}
 
 	public List<Post> getCommuPost(String commuID) {
+		log.info("service/getCommuPost");
 		return mapper.getCommuPost(commuID);
 	}
 
