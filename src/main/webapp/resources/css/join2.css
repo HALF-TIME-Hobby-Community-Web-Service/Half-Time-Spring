@@ -1,1 +1,47 @@
-<!--아직안했어용-->
+* {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+body{
+    background-color: #e5e2d1;
+}
+
+.login_container_logo{
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    height: 30%; /* 컨테이너의 높이를 뷰포트 높이의 10%로 설정합니다 */
+    text-align: center;
+    margin-top: 50px;
+}
+
+#logo {
+    text-decoration: none;/* a태그에 스타일을 없앤다*/
+    color: black;
+    font-size: 70px;    
+    margin-bottom: 10px;
+}
+
+#logo:hover {
+    color: rgb(205, 199, 170);
+    font-weight: normal;
+}
+
+
+.join_container{
+    padding: 15px;
+    padding-left: 34%;
+    /* text-align: center; */
+}
+
+.join_container_border{
+    padding: 30px;
+    margin-right: 50%;
+    border: 1PX solid;
+    border-radius: 20px;
+}
+
+.join_pagebtn{
+	margin-left: 22%;
+    margin-top: 30px;
+}

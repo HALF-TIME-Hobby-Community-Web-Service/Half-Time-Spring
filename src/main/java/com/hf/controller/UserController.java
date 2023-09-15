@@ -25,10 +25,16 @@ public class UserController {
 	   @Setter(onMethod_ = @Autowired)
 	    public UserService service; 
 
-	    @PostMapping
+	   // 회원가입 페이지 1 
+	   @GetMapping("/join1")
+	    public String getjoinUser() {
+	    	return "./jsp/register/join";
+	    }
+	   
+	    @PostMapping("/join1")
 	    @ResponseBody
 	    public int joinUser(
-	        @RequestParam("join_ID1") String ida,
+	        @RequestParam("join_ID") String ida,
 	        @RequestParam("join_ID2") String idb,
 	        @RequestParam("join_PW") String pwd,
 	        @RequestParam("join_name") String name,
@@ -45,17 +51,42 @@ public class UserController {
 
 	        User user = new User(id, pwd, name, birth, gender, address, phonenum, nickname);
 
-	        System.out.println("ȸ������:" + " ID:" + id + " PWD:" + pwd +
+	        System.out.println("회원가입정보" + " ID:" + id + " PWD:" + pwd +
 	                " NAME:" + name + " BIRTH:" + birth +
 	                " GENDER:" + gender + " ADDRESS:" + address +
 	                " PHONENUM:" + phonenum + " NICKNAME" + nickname);
 
 	        int state = service.joinCheck(user);
-	        System.out.println("���� : " + state);
+	        System.out.println("가입 : " + state + "페이지작성완료");
 	        
 	        return state;
 	    }
 	    
+	    //회원가입 페이지2
+		  @GetMapping("/join2")
+		  public String getjoinUser2() {
+			  return "./jsp/register/join2";
+		    }
+		  
+		 @PostMapping("/join2")
+		 @ResponseBody
+		    public int joinUser2(
+		        @RequestParam("userlocation") String location,
+		        @RequestParam("usercategory") String category,
+		        @RequestParam("userid") String id
+		    ) {
+		        User user = new User(location, category, id);
+
+		        System.out.println(id + "회원의 관심지역: " + location + "과 관심사: " + category);
+
+		        int state = service.joinCheck(user);
+		        System.out.println("가입 " + state + "페이지 작성 완료");
+
+		        return state;
+		    }
+		  
+		  
+	    //로그인 페이지
 	    @GetMapping("/login")
 	    public String getLogin() {
 	    	return "./jsp/login/login";
@@ -74,7 +105,7 @@ public class UserController {
 			
 			dto = service.login(id, pwd);
 			
-			log.info("�����~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+dto);
+			log.info("�����~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+dto);
 			
 			if(dto != null) {
 				log.info(session.getAttribute("id"));
@@ -85,6 +116,10 @@ public class UserController {
 				return "./jsp/login/login";
 			}  
 	    
- 
+
 	    }
+	
+
+	    
+	    
 }

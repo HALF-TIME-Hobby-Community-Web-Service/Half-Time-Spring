@@ -13,14 +13,16 @@ $(() => {
   $(formObj).submit(() => {
       sessionStorage.setItem('userid', id.val()+email.val());
       $.ajax({
-        url: 'http://localhost:8888/hf/join', 
+        url: 'http://localhost:8888/user/join1', 
         method: 'POST',
         data: formObj.serialize(), 
-
+		dataType: "JSON" , 
+		 
         success: (response) => {  
          alert('다음페이지로 이동합니다');
-          if (response == '1') {
-            location.href = './join2.html';
+          if (response == 1) {
+            location.href = 'http://localhost:8888/user/join2';
+  
           } else {
             alert('전부작성해주세요')
           }
@@ -41,15 +43,15 @@ $(() => {
    
     $(checkObj).click(() => { 
       
-      //alert(id.val()+email.val())
+      alert(id.val()+email.val());
       $.ajax({
-        url: 'http://localhost:8888/hf/idcheck', 
+        url: 'http://localhost:8888/user/idcheck', 
         method: 'POST',
         data:{
-          join_ID: id.val(),
-          join_ID2: email.val()
+          ida: id.val(),
+          idb: email.val()
         },
-  
+  		
         success: (response) => {  
             // alert(response);
           if (response == '0') {
