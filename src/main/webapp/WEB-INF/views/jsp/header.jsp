@@ -17,7 +17,6 @@
     <link rel="stylesheet" type="text/css" href="/resources/css/floatingBtn.css">
     <link rel="stylesheet" type="text/css" href="/resources/css/feed_inside.css">
     <link rel="stylesheet" type="text/css" href="/resources/css/feed_modal.css">
-    <script src="/resources/js/feed.js"></script>
     <script src="/resources/js/modal.js"></script>
     <script src="/resources/js/modalfeed_inside.js"></script>
     <script src="/resources/js/floatingbtn.js"></script>
