@@ -2,7 +2,6 @@ package com.hf.commu.service;
 
 import java.util.List;
 
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,19 +26,19 @@ public class CommuService {
 		return mapper.getCommuInfo(commuID);
 	}
 
-	public void lmake(Gathering gObj) {
+	public void lmake(Gathering gObj, String commuID) {
 		log.info("service/lmake");
-		mapper.insertGathering(gObj,"1");
+		mapper.insertGathering(gObj, commuID);
 	}
 
-	public List<Gathering> getGathering() {
+	public List<Gathering> getGathering(String commuID) {
 		log.info("service/getGathering");
-		return mapper.getGathering("1");
+		return mapper.getGathering(commuID);
 	}
 
-	public List<Commumember> getCommumember() {
+	public List<Commumember> getCommumember(String commuID) {
 		log.info("service/getCommumember");
-		return mapper.getAllCommumember("1");
+		return mapper.getAllCommumember(commuID);
 	}
 
 	public List<Post> getCommuPost(String commuID) {

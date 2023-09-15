@@ -23,6 +23,7 @@
     <script src="/resources/js/floatingbtn.js"></script>
     <script src="/resources/js/write.js"></script>
     <script src="/resources/js/moment_post.js"></script>
+    <script src="/resources/js/navbar.js"></script>
 
 </head>
  <header>
@@ -76,7 +77,6 @@
 
 
 <div class="fab">
-
     <img src="/resources/items/floatitem/close.png" alt="">
 </div>
 
