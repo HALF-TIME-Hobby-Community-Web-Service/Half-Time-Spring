@@ -4,35 +4,12 @@
 <html>
 
 <head>
-<<<<<<< HEAD
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/resources/css/modalwrite.css">
-    <link rel="stylesheet" type="text/css" href="/resources/css/navbar.css">
-    <link rel="stylesheet" type="text/css" href="/resources/css/feed.css">
-    <link rel="stylesheet" type="text/css" href="/resources/css/floatingBtn.css">
-    <link rel="stylesheet" type="text/css" href="/resources/css/feed_inside.css">
-    <link rel="stylesheet" type="text/css" href="/resources/css/feed_modal.css">
-    <script src="/resources/js/feed.js"></script>
-    <script src="/resources/js/modal.js"></script>
-    <script src="/resources/js/modalfeed_inside.js"></script>
-    <script src="/resources/js/floatingbtn.js"></script>
-    <script src="/resources/js/write.js"></script>
-    <script src="/resources/js/moment_post.js"></script>
-    <script src="/resources/js/navbar.js"></script>
-
-=======
-	<jsp:include page="../header.jsp"/>
->>>>>>> 33c765d1240957d45548ace7ca0e1789a4325da1
+	<jsp:include page="header.jsp"/>
 </head>
 
 
 <div class="fab">
+
     <img src="/resources/items/floatitem/close.png" alt="">
 </div>
 
@@ -98,8 +75,5 @@
 <footer>
 
 </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
 
 </html>

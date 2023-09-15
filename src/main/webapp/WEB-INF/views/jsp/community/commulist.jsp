@@ -26,10 +26,11 @@
   <!-- js-->
   <script src="../js/navbar.js"></script>
   <script src="../js/commulist.js"></script>
-  
+
 </head>
 
 <body>
+<<<<<<< HEAD
   <header>
     <nav class="navbar navbar-expand-lg" style="background-color: #f6f4eb;" id="navtop">
       <div class="container-fluid">
@@ -80,6 +81,9 @@
       </div>
   </div>
   </header>
+=======
+
+>>>>>>> 33c765d1240957d45548ace7ca0e1789a4325da1
   <div id="modalWrap">
     <div id="modalBody">
 
