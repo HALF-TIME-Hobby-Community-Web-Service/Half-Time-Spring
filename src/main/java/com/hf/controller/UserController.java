@@ -1,15 +1,20 @@
 package com.hf.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.hf.domain.User;
 import com.hf.user.service.UserService;
@@ -61,12 +66,12 @@ public class UserController {
 	    	return "./jsp/login/login";
 	    }
 	    
-	    
+	    @ResponseBody
 	    @PostMapping("/login")
-		public String postLogin(@RequestParam("id") String id,@RequestParam("pwd") String pwd, HttpServletRequest request) {
+		public Map<String,Object> postLogin(@RequestParam("id") String id,@RequestParam("pwd") String pwd, HttpServletRequest request) {
 
 			//HttpSession session = request.getSession();
-
+	    	Map<String,Object> result = new HashMap<String, Object>();
 			HttpSession session = request.getSession();
 			session.setAttribute("id", id);
 			session.setMaxInactiveInterval(1800);
@@ -79,12 +84,11 @@ public class UserController {
 			if(dto != null) {
 				log.info(session.getAttribute("id"));
 				log.info(session.getMaxInactiveInterval());
-				return "./jsp/moment/feed";
+				
+				result.put("result", true);
+			}else {
+				result.put("result", false);	
 			}
-			else {
-				return "./jsp/login/login";
-			}  
-	    
- 
+		    return result;			
 	    }
 }
