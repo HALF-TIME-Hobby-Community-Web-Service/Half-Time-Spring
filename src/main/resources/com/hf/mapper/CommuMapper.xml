@@ -4,7 +4,69 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hf.mapper.CommuMapper">
 
+	<select id="getCommuInfo" resultType="com.hf.domain.CommuInfo">
+        <![CDATA[
+        SELECT * FROM commu WHERE commuid = #{commuID}
+        ]]>
+	</select>
 
+	<select id="getCommuPost" resultType="com.hf.domain.Post">
+        <![CDATA[
+		SELECT * FROM commupost WHERE commuid = #{commuID} order by postTime
+        ]]>
+	</select>
 
+	<insert id="insertGathering">
+        <![CDATA[
+		INSERT INTO gathering 
+		VALUES ( 
+			gathering_seq.nextval, #{gObj.title}, #{gObj.text}, #{commuID}, #{gObj.organizer}, 
+ 			TO_DATE(#{gObj.startTime}, 'YYYY/MM/DD HH24:MI'), TO_DATE(#{gObj.endTime}, 'YYYY/MM/DD HH24:MI'), 
+ 			#{gObj.price}, #{gObj.location}, #{gObj.capacity})
+        ]]>
+	</insert>
+
+	<select id="getGathering" resultType="com.hf.domain.Gathering">
+        <![CDATA[
+		SELECT GatheringID, title, Text, CommuID, Organizer, 
+		       TO_CHAR(startTime, 'YYYY-MM-DD HH24:MI') AS startTime, TO_CHAR(endTime, 'YYYY-MM-DD HH24:MI') AS endTime, 
+		       price, Location, CAPACITY
+		FROM gathering
+		WHERE commuid = #{commuID}
+		      AND TO_CHAR(startTime, 'YYYY-MM-DD') >= TO_CHAR(sysdate, 'YYYY-MM-DD')
+		ORDER BY startTime
+        ]]>
+	</select>
+
+	<select id="getAllCommumember" resultMap="commumemberResultMap">
+	    <![CDATA[
+	    SELECT 
+	        c.commuID, 
+	        c.cNickname, 
+	        c.userID, 
+	        c.cAuth, 
+	        c.memberState, 
+	        u.Gender, 
+	        u.birth 
+	    FROM 
+	        commumember c 
+	    JOIN 
+	        USERS u 
+	    ON 
+	        c.userID = u.ID 
+	    WHERE 
+	        c.commuID = #{commuID}
+	    ]]>
+	</select>
+	
+	<resultMap id="commumemberResultMap" type="com.hf.domain.Commumember">
+	    <id property="commuID" column="commuID" />
+	    <result property="cNickName" column="cNickName" />
+	    <result property="userID" column="userID" />
+	    <result property="cAuth" column="cAuth" />
+	    <result property="memberState" column="memberState" />
+	    <result property="gender" column="Gender" />
+	    <result property="birth" column="birth" />
+</resultMap>
 
 </mapper>

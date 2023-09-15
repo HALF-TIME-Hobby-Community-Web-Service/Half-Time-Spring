@@ -2,9 +2,10 @@ package com.hf.domain;
 
 import org.springframework.stereotype.Component;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@Data@Component
+@Data@Component@AllArgsConstructor
 public class User {
 	private String id;
 	private String idch;

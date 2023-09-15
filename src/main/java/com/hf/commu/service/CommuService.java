@@ -46,25 +46,21 @@ public class CommuService {
 //	}
 
 	public void lmake(Gathering gObj) {
-		mapper.insertGathering(gObj);
+		mapper.insertGathering(gObj,"1");
 	}
 
 	public List<Gathering> getGathering() {
 
-		return mapper.selectGathering();
+		return mapper.getGathering("1");
 	}
 
 	public List<Commumember> getCommumember() {
 
-		return mapper.selectAllCommumember();
-	}
-
-	public List<CommuList> getCommuList(Criteria cri) {
-		return mapper.getCommuList(cri);
+		return mapper.getAllCommumember("1");
 	}
 
 	public List<Post> getCommuPost(String commuID) {
-		return mapper.selectCommuPost(commuID);
+		return mapper.getCommuPost(commuID);
 	}
 
 }
