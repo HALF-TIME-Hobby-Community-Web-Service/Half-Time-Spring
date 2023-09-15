@@ -19,15 +19,13 @@ import lombok.extern.log4j.Log4j;
 @Service
 public class MomentService {
 	List<Map<String,Object>> maplist = new ArrayList();
-		
+	
 	@Setter(onMethod_ = @Autowired)
 	private MomentMapper momentMapper;
 
-    public List<MomentWithContent> getMomentsWithContentByCriteria(int page) {
-        Criteria criteria = new Criteria();
-        criteria.setPage(page);
-        
-        return momentMapper.selectMomentsWithContentByCriteria(criteria);
+    public List<Map<String,Object>> getMomentsWithContent(int pageNum) {
+        maplist = momentMapper.selectMomentsWithContent(pageNum);
+        return maplist;
     }
     public int countMomentsWithContent() {
         return momentMapper.countMomentsWithContent();

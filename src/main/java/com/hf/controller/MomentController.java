@@ -19,6 +19,7 @@ import com.hf.domain.Criteria;
 import com.hf.domain.MomentWithContent;
 import com.hf.moment.service.MomentService;
 
+import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 /**
@@ -28,14 +29,15 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @RequestMapping(value="/moment", method=RequestMethod.GET)
 public class MomentController {
-	
-	 @Autowired
+	int pageNum=1;
+	 @Setter(onMethod_ =@Autowired)
 	    private MomentService momentService;
 
 	  @GetMapping("/list")
 	    public String list(Model model) {
-	        model.addAttribute("list", momentService.getMomentsWithContentByCriteria(1));
-	        return "feed"; // ∫‰ ¿Ã∏ß (list.jsp)
+	        model.addAttribute("list", momentService.getMomentsWithContent(pageNum));
+	        pageNum++;
+	        return "./jsp/moment/feed";
 	    }
 	    
 	    @GetMapping("moment/write")
