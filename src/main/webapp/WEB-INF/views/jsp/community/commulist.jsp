@@ -9,6 +9,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+<jsp:include page="../header.jsp"/>
 
   <!-- 폰트 -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,6 +30,7 @@
   <!-- js-->
   <script src="/resources/js/navbar.js"></script>
   <script src="/resources/js/commulist.js"></script>
+<<<<<<< HEAD
   
 </head>
 
@@ -83,6 +85,12 @@
       </div>
   </div>
   </header>
+=======
+
+</head>
+
+<body>
+>>>>>>> 3d0313ade25fb0dc1178d41f6c74c605053c4e84
   <div id="modalWrap">
     <div id="modalBody">
 
@@ -118,16 +126,15 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
 
     
 
     
 
 
+=======
+>>>>>>> 3d0313ade25fb0dc1178d41f6c74c605053c4e84
   </div>
-
-
-
 </body>
-
 </html>

@@ -1,14 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
 <head>
-	<jsp:include page="../header.jsp"/>
+	<jsp:include page="header.jsp"/>
 </head>
 
 
 <div class="fab">
+
     <img src="/resources/items/floatitem/close.png" alt="">
 </div>
 
@@ -56,18 +57,23 @@
     <span class="float-item float-item3"><img src="/resources/items/floatitem/mypage.png" alt=""></span>
     <span class="float-item float-item4"><img src="/resources/items/floatitem/setting.png" alt=""></span>
 </div>
-
+</div>
 
 <div class="feed_content">
 
+
+    <!--부트스트랩에서 가져왔습니다-->
+
+
+
+
+
+</div>
+</div>
 </div>
 
 <footer>
 
 </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
 
 </html>

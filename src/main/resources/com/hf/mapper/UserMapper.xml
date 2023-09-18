@@ -4,15 +4,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hf.mapper.UserMapper">
 
-  <insert id="insertUser">
+	<!-- junit test 성공 -->
+    <insert id="insertUser">
     <![CDATA[
-        INSERT INTO Users (id, pwd, name, nickname, gender, birth, phonenum, address)
-        VALUES (#{id}, #{pwd}, #{name}, #{nickname}, #{gender}, #{birth}, #{pnum}, #{address})
+        INSERT INTO Users (id, pwd, name, nickname, gender, birth, phoneNum, address)
+        VALUES (#{id}, #{pwd}, #{name}, #{nickname}, #{gender}, #{birth}, #{phoneNum}, #{address})
         ]]>
     </insert>
     
-    
-    <!-- 여기까지 했다 -->
+    <!-- junit test 성공 -->
     <insert id="insertUserLocation" >
         <![CDATA[
         INSERT INTO Userlocation 
@@ -20,13 +20,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          ]]>
     </insert>
     
+    <!-- junit test 성공 -->
     <insert id="insertUserCategory">
     <![CDATA[
         INSERT INTO Usercategory 
-        VALUES (userlocation_seq.nextval,#{id}, #{category})
+        VALUES (userlocation_seq.nextval, #{id}, #{category})
         ]]>
     </insert>
     
+    <!-- junit test 성공 -->
     <select id="joinIDcheckpage" resultType="int">
     <![CDATA[
         SELECT COUNT(*) FROM users WHERE id = #{id}

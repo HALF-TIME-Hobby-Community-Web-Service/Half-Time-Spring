@@ -3,7 +3,11 @@ package com.hf.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.ui.Model;
+=======
+import org.springframework.stereotype.Controller;
+>>>>>>> 3d0313ade25fb0dc1178d41f6c74c605053c4e84
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +23,8 @@ import com.hf.domain.Post;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
-@RestController
+//@RestController
+@Controller
 @RequestMapping(value = "/commu/*", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
 @Log4j
 public class CommuController {
@@ -35,31 +40,26 @@ public class CommuController {
 	
 
 	@GetMapping("/member")
-	public List<Commumember> getCommumemberList() {
-		List<Commumember> cList = service.getCommumember();
+	public List<Commumember> getCommumemberList(String commuID) {
+		List<Commumember> cList = service.getCommumember(commuID);
 		return cList;
 	}
 
 	@GetMapping("/board")
 	public List<Post> getBoard(@RequestParam("commuID") String commuID) {
-
 		List<Post> boardList = service.getCommuPost(commuID);
-
 		return boardList;
 	}
 
 	@GetMapping("/info")
 	public CommuInfo getCommuInfo(@RequestParam("commuID") String commuID) {
 		CommuInfo commuInfo = service.getCommuInfo(commuID);
-
 		return commuInfo;
 	}
 
 	@GetMapping("/lget")
-	public List<Gathering> getGathering() {
-
-		List<Gathering> gatheringList = service.getGathering();
-
+	public List<Gathering> getGathering(String commuID) {
+		List<Gathering> gatheringList = service.getGathering(commuID);
 		return gatheringList;
 	}
 
@@ -78,8 +78,13 @@ public class CommuController {
 		log.info("정원: " + capacity);
 		log.info("회비: " + price);
 
-		service.lmake(new Gathering(title, startTime, endTime, location, text, price, capacity));
+		service.lmake(new Gathering(title, startTime, endTime, location, text, price, capacity), "1");
 
 		return "1";
+	}
+	
+	@GetMapping("1")
+	public String hello() {
+		return "jsp/community/commulist";
 	}
 }
