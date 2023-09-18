@@ -7,9 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/login_find.css">
+    <link rel="stylesheet" href="/resources/css/login_find.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/login_findPW.js"></script>
+    <script src="/resources/js/login_findPW.js"></script>
     <title>Login find_PW page</title>
 </head>
 

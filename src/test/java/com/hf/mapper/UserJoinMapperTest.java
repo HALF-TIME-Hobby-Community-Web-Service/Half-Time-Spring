@@ -21,7 +21,7 @@ public class UserJoinMapperTest {
 	public void test() {
 		
 		//User user = new User();
-		mapper.insertUserLocation("sungmin456","경기도");
+		mapper.loginfindPW_IDCheck("minkyu@nate.com");
 		log.info("성공");
 	}
 
