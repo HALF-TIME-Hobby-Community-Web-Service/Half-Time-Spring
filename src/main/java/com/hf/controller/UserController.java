@@ -110,7 +110,7 @@ public class UserController {
 			
 			dto = service.login(id, pwd);
 			
-			log.info("�����~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+dto);
+			log.info("결과는~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+dto);
 			
 			if(dto != null) {
 				log.info(session.getAttribute("id"));
@@ -120,15 +120,8 @@ public class UserController {
 			}else {
 				result.put("result", false);	
 			}
-<<<<<<< HEAD
-			else {
-				return "./jsp/login/login";
-			}  
-	    
 
-=======
 		    return result;			
->>>>>>> 52826dc2e50e65761a7482c4b83a7082d00f1fba
 	    }
 	
 
