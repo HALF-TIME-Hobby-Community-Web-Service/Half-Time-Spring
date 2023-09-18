@@ -28,5 +28,10 @@ public class HomeController {
 		pageNum++;
 		return "./jsp/moment/feed";
 	}
-
+	
+	@GetMapping("/commulist")
+	public String commuList() {
+		return "./jsp/community/commulist";
+	}
+	
 }

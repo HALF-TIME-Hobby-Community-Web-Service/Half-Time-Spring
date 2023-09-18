@@ -49,14 +49,14 @@
         <div>
             <ul class="nav flex-column">
                 <li class="nav_item" id="sidefirst">
-                    <img src="/resources/items/sideItem/login.svg" alt="Login"><a href="" class="atag">LOGIN</a>
+                    <img src="/resources/items/sideItem/login.svg" alt="Login"><a id ="loginBtn" href="" class="atag">LOGIN</a>
                 </li>
                 <li class="nav_line">──────</li>
                 <li class="nav_item">
-                    <img src="/resources/items/sideItem/journal.svg" alt="Moment"><a href="" class="atag">MOMENT</a>
+                    <img src="/resources/items/sideItem/journal.svg" alt="Moment"><a id="momentBtn" href="" class="atag">MOMENT</a>
                 </li>
                 <li class="nav_item">
-                    <img src="/resources/items/sideItem/people.svg" alt="Community"><a href="" class="atag">COMMUNITY</a>
+                    <img src="/resources/items/sideItem/people.svg" alt="Community"><a id="commuBtn" href="" class="atag">COMMUNITY</a>
                 </li>
                 <li class="nav_line">──────</li>
                 <li class="nav_item">
@@ -75,4 +75,8 @@
             </ul>
         </div>
 </header> 
+<script>
+
+
+</script>
 </html>

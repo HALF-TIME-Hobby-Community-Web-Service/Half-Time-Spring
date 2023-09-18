@@ -9,8 +9,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<jsp:include page="../header.jsp"/>
-
   <!-- css -->
   <link rel="stylesheet" href="/resources/css/navbar.css" />
   <link rel="stylesheet" href="/resources/css/commulist.css" />

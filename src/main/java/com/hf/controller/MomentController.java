@@ -1,5 +1,8 @@
 package com.hf.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,15 +31,16 @@ public class MomentController {
 
 	  
 	  @GetMapping("/list")
-	    public String list(Model model) {
-	        model.addAttribute("list", momentService.getMomentsWithContent(1));
+	    public String list() {
 	        return "./jsp/moment/feed";
 	    }
 	  
+	  @ResponseBody
 	  @PostMapping("/feed")
-	    public Model feed(Model model,@RequestParam("pageNum") int pageNum) {
-	        log.info(momentService.getMomentsWithContent(pageNum));
-	        return model.addAttribute("data", momentService.getMomentsWithContent(pageNum));
+	    public List<MomentWithContent> feed(Model model,@RequestParam("pageNum") int pageNum) {
+		  List<MomentWithContent> list = momentService.getMomentsWithContent(pageNum);
+		  log.info(list);
+	        return  list;
 	    }
 	    
 	    @GetMapping("moment/write")

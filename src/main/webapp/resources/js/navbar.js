@@ -29,58 +29,39 @@ $(() => {
   const loginBtn = $('a#loginBtn');
   const momentBtn = $('a#momentBtn');
   const commuBtn = $('a#commuBtn');
-  const feedContent = $('.main_content');
+  const feedContent = $('.feed_content');
   const logoBtn = $('#logo');
 
   var cnt = 0;
   
-  if (cnt++ == 0) {
-      $.ajax({
-        url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
-        method: 'get', // GET 요청
-        success: (response) => {
-          feedContent.html(response);
-        },
-        error: (jqXhr, status) => {
-          alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
-        },
-      });
-  }
 
   fab.click((e) => {
     fabbox.toggle(400);
   });
 
   commuBtn.click((e) => {
+  e.preventDefault();
   console.log("commuBtn Click");
     $.ajax({
-      url: 'http://localhost:8888/jsp/community/commulist', // 불러올 페이지의 경로
+      url: 'http://localhost:8888/commulist', // 불러올 페이지의 경로
       method: 'get', // GET 요청
-
+		dataType:"html",
       success: (response) => {
+      console.log(response);
+      feedContent.html('');	
         feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
       },
       error: (jqXhr, status) => {
         alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
       },
     });
-    return false;
+
   });
 
   momentBtn.click((e) => {
   console.log("momentBtn Click");
-    $.ajax({
-      url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
-      method: 'get', // GET 요청
-
-      success: (response) => {
-        feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
-      },
-      error: (jqXhr, status) => {
-        alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
-      },
-    });
-    return false;
+        feedContent.html("<jsp:include page="+"../header.jsp"+"/>"); // 페이지 내용을 .feed_content에 삽입
+    
   });
 
   logoBtn.click((e) => {
