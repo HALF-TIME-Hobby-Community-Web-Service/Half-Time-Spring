@@ -3,11 +3,14 @@ package com.hf.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
 
 import com.hf.commu.service.CommuService;
 import com.hf.domain.CommuInfo;
@@ -18,8 +21,8 @@ import com.hf.domain.Post;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
-//@RestController
-@Controller
+@RestController
+//@Controller
 @RequestMapping(value = "/commu/*", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
 @Log4j
 public class CommuController {
@@ -34,15 +37,17 @@ public class CommuController {
 		return cList;
 	}
 
-	@GetMapping("/board")
+	@GetMapping("/getpost")
 	public List<Post> getBoard(@RequestParam("commuID") String commuID) {
 		List<Post> boardList = service.getCommuPost(commuID);
 		return boardList;
 	}
 
-	@GetMapping("/info")
+	@ResponseBody
+	@GetMapping("/getcommuinfo")
 	public CommuInfo getCommuInfo(@RequestParam("commuID") String commuID) {
 		CommuInfo commuInfo = service.getCommuInfo(commuID);
+		log.info("commuInfo: " + commuInfo);
 		return commuInfo;
 	}
 
@@ -72,8 +77,5 @@ public class CommuController {
 		return "1";
 	}
 	
-	@GetMapping("1")
-	public String hello() {
-		return "jsp/community/commulist";
-	}
+
 }

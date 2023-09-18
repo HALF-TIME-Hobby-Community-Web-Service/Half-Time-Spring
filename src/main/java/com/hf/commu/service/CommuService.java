@@ -26,7 +26,7 @@ public class CommuService {
 		log.info("service/getCommuInfo");
 		return mapper.getCommuInfo(commuID);
 	}
-	public List<CommuList> getCommuList(){
+	public List<CommuInfo> getCommuList(){
 		return mapper.getCommuList();
 	}
 	
@@ -41,7 +41,7 @@ public class CommuService {
 //		return sqlSession.selectList("com.hf.commu.mapper.CommuMapper.getCommuList", commuID);
 //	}
 
-	public List<CommuList> getCommuList1(){
+	public List<CommuInfo> getCommuList1(){
 		return mapper.getCommuList();
 	}
 	

@@ -19,7 +19,7 @@ public interface CommuMapper {
 	public void insertGathering(Gathering gObj);
 	public List<Gathering> getGathering();
 	public List<Commumember> getAllCommumember();
-	public List<CommuList> getCommuList();
+	public List<CommuInfo> getCommuList();
 
 	public void insertGathering(@Param("gObj")Gathering gObj, @Param("commuID")String commuID);
 	public List<Gathering> getGathering(String commuID);
