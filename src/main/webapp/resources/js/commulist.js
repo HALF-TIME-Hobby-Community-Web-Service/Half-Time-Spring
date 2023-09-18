@@ -6,7 +6,7 @@ $(() => {
     
     // AJAX로 서버에서 데이터 가져오기
     $.ajax({
-        url: 'list', // API 엔드포인트
+        url: '/commu/commulist', // API 엔드포인트
         method: 'get',
         dataType : 'json',
         success: (response) => {

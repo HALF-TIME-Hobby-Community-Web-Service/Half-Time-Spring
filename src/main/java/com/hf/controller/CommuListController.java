@@ -15,7 +15,7 @@ import lombok.extern.log4j.Log4j;
 
 @AllArgsConstructor
 @Controller
-@RequestMapping(value = "/commu/*", method = RequestMethod.GET)
+@RequestMapping(value = "/jsp/community", method = RequestMethod.GET)
 @Log4j
 public class CommuListController {
 	

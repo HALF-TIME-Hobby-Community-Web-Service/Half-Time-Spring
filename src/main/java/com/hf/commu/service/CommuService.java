@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hf.domain.CommuInfo;
+import com.hf.domain.CommuList;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
 import com.hf.domain.Post;
@@ -32,7 +33,7 @@ public class CommuService {
 	public CommuInfo getCommuInfo(String commuID) {
 		return mapper.getCommuInfo(commuID);
 	}
-	public List<CommuInfo> getCommuList(){
+	public List<CommuList> getCommuList(){
 		return mapper.getCommuList();
 	}
 	
@@ -46,7 +47,7 @@ public class CommuService {
 //		return sqlSession.selectList("com.hf.commu.mapper.CommuMapper.getCommuList", commuID);
 //	}
 
-	public List<CommuInfo> getCommuList1(){
+	public List<CommuList> getCommuList1(){
 		return mapper.getCommuList();
 	}
 	
