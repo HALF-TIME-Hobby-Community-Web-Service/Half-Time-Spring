@@ -49,37 +49,17 @@
       <div class="calendarBox">
         <img src="/resources/items/calendar.png" width="100%" />
       </div>
-      <div class="lightningSummary" style="font-size: larger;">
+<!--       <div class="lightningSummary" style="font-size: larger;">
         <p class="summaryTitle">[보미팬사인회]</p>
         <p class="summaryText">07.27 오후7:48</p>
         <p class="summaryText">강남구 양재천</p>
         <p class="summaryText">준비물: 방망이, 채찍, 츄르</p>
-      </div>
+      </div> -->
       <div class="memberList">
-        <div class="memberTitle">멤버</div>
-        <div class="member">
-          <img src="/resources/items/online.png" />
-          <span>안나</span>
-        </div>
-        <div class="member">
-          <img src="/resources/items/online.png" />
-          <span>크리스틴</span>
-        </div>
-        <div class="member">
-          <img src="/resources/items/online.png" />
-          <span>메리</span>
-        </div>
-        <div class="member">
-          <img src="/resources/items/online.png" />
-          <span>초코</span>
-        </div>
-        <div class="member">
-          <img src="/resources/items/online.png" />
-          <span>예삐</span>
-        </div>
+        <div class="memberTitle" style="font-size: 22px; text-align: center">🤸‍♂️멤버🙋‍♀️</div>
       </div>
     </div>
-    <div class="tabbox">
+ 	<div class="tabbox">
       <div class="tab active" data-tab="intro">커뮤니티 소개</div>
       <div class="tab commu_tab_board" data-tab="board">
         게시판

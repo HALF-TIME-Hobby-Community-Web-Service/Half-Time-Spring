@@ -3,7 +3,9 @@ package com.hf.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,12 +27,21 @@ public class MyPageController {
 		
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
+		log.info(id);
 		
 		/*
-		 * if(id!=null) { return "redirect:/mypage/mypage"; } else { return
-		 * "redirect:/user/login"; }
+		 * JSONObject jsonResponse = new JSONObject(); jsonResponse.put("id", id);
 		 */
-		return "./jsp/mypage/mypage";
+	    
+	    if(id != null) {
+	    	return "./jsp/mypage/realmypage";
+	    }else {
+	    	return "redirect:user/login";
+	    }
+	    
+	    //return ResponseEntity.ok(jsonResponse.toString());
+		
+
 	}
 
 }
