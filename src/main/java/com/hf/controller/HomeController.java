@@ -30,18 +30,23 @@ public class HomeController {
 		return "./jsp/moment/feed";
 	}
 
-<<<<<<< HEAD
+
 	@GetMapping("/2")
 	public String clist() {
 		return "./jsp/community/commulist";
 	}
 	
-=======
+
 	@GetMapping("/commulist")
 	public String commuList() {
 		return "./jsp/community/commulist";
 	}
 	
+	
+	@GetMapping("/commupage")
+	public String commuPage(@RequestParam String commuID) {
+		return "./jsp/community/commupage";
+	}
 
->>>>>>> 6fe0d743ed308403c7a8c502387e8954af0458b6
+
 }

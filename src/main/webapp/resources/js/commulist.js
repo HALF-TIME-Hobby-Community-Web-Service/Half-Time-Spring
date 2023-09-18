@@ -3,7 +3,7 @@ $(() => {
     const closeBtn = document.getElementById('closeBtn');
     const commubox = $('.commuBox');
     const feedContent = $('.commuevery');
-    let commuID;
+    var commuID;
     
 
 
@@ -18,6 +18,7 @@ $(() => {
             response.forEach((community) => {
             
                 commuID = community.commuID;
+                console.log(commuID);
                 const communityBox = $('.commuBox_clone').clone().addClass('commuBox').removeClass('commuBox_clone');
                 
                 communityBox.find('.commuName').html(community.commuName); // 커뮤니티 이름 설정
@@ -51,12 +52,13 @@ $(() => {
     
     $('#commuSignup').click(() => {
         $.ajax({
-            url: './jsp/community/commupage', // 불러올 페이지의 경로
+            url: 'http://localhost:8888/commupage', // 불러올 페이지의 경로
             method: 'get', // GET 요청
             data: { commuID: commuID },
             
             success: (response) => {
-                alert(response);
+            
+                alert(commuID);
                 modal.style.display = 'none';
                 feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
             },

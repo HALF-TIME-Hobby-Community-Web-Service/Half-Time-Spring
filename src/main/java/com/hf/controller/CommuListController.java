@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hf.commu.service.CommuService;
@@ -25,7 +24,7 @@ public class CommuListController {
 	@Setter(onMethod_ =@Autowired)
 	private CommuService commuService;
 	
-<<<<<<< HEAD
+
 	@GetMapping("/getlist")
 	public List<CommuInfo> commulist() {		
 		List<CommuInfo> clist = commuService.getCommuList();
@@ -37,11 +36,10 @@ public class CommuListController {
 	
 	@PostMapping("/commuhome")
 	public void commuHome(Model model, String commuID) {
-=======
+	}
 	@GetMapping("/commulist")
 	public void commulist(Model model) {
 		model.addAttribute("commulist", commuService.getCommuList());
->>>>>>> 6fe0d743ed308403c7a8c502387e8954af0458b6
 		
 	}
 }
