@@ -52,8 +52,9 @@ $(() => {
   });
 
   commuBtn.click((e) => {
+  console.log("commuBtn Click");
     $.ajax({
-      url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
+      url: 'http://localhost:8888/jsp/community/commulist', // 불러올 페이지의 경로
       method: 'get', // GET 요청
 
       success: (response) => {
@@ -67,6 +68,7 @@ $(() => {
   });
 
   momentBtn.click((e) => {
+  console.log("momentBtn Click");
     $.ajax({
       url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
       method: 'get', // GET 요청
@@ -82,6 +84,7 @@ $(() => {
   });
 
   logoBtn.click((e) => {
+  console.log("loginBtn Click");
     $.ajax({
       url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
       method: 'get', // GET 요청

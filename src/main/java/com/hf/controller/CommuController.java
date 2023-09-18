@@ -77,10 +77,7 @@ public class CommuController {
 
 		return "1";
 	}
-	@GetMapping("/commulist")
-	public void commulist(Model model) {
-		model.addAttribute("commulist", service.getCommuList());
-	}
+	
 	
 
 }
