@@ -132,12 +132,8 @@ $(() => {
         clone.find('.boardTitleIntro').text(p.title);
 
         //사진
-        clone
-          .find('.boardimg')
-          .attr(
-            'src',
-            `/resources/items/commu/commu_board/${p.commuid}-${p.commupostid}-1.jpg`
-          );
+        clone.find('.boardimg')
+        .attr('src',`/resources/items/commu/commu_board/${p.commuid}-${p.commupostid}-1.jpg`);
 
         //텍스트
         clone.find('.boardText').html(p.text);
@@ -156,18 +152,15 @@ $(() => {
     while (cnt++ <= 30) {   
       const clone = $('.historyBox:first-child').clone();
       clone.find('.history_box_img').attr('src', `/resources/items/commu/commu_history/${commuID}-${cnt}.jpg`).css('display','none');                   	      
-      $('.history_container').append(clone);
-      
-      $('.historyBox:first-child').css('display', 'none');
+      $('.history_container').append(clone);          
     }
-    
+    $('.historyBox:first-child').css('display', 'none');
   }
           
-    /* */
-	$('.history_box_img').on('load', function(e) {
-    	$(e.target).css('display', 'block');
-	});
-	
+  /* 이미지 로드 된 것만 block 처리*/
+  $('.history_box_img').on('load', function(e) {
+    $(e.target).css('display', 'block');
+  });
 	
     
 });

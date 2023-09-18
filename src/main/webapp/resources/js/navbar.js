@@ -1,7 +1,7 @@
 $(() => {
   //    const loginTag = $('#sidefirst')
   //    $.ajax({
-  //     url: 'http://localhost:8888/hf/login',
+  //     url: 'http://localhost:8888/user/login',
   //         method: 'POST',
   //         data: loginTag.serialize(), //form내에 input태그들의 name과 value를 매핑
 
@@ -29,60 +29,45 @@ $(() => {
   const loginBtn = $('a#loginBtn');
   const momentBtn = $('a#momentBtn');
   const commuBtn = $('a#commuBtn');
-  const feedContent = $('.main_content');
+  const feedContent = $('.feed_content');
   const logoBtn = $('#logo');
 
   var cnt = 0;
-  if (cnt++ == 0) {
-      $.ajax({
-        url: 'http://127.0.0.1:5500/front/html/feed.html', // 불러올 페이지의 경로
-        method: 'get', // GET 요청
-        success: (response) => {
-          feedContent.html(response);
-        },
-        error: (jqXhr, status) => {
-          alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
-        },
-      });
-  }
+  
 
   fab.click((e) => {
     fabbox.toggle(400);
   });
 
   commuBtn.click((e) => {
+  e.preventDefault();
+  console.log("commuBtn Click");
     $.ajax({
-      url: 'src/main/webapp/WEB-INF/views/jsp/community/commulist.jsp', // 불러올 페이지의 경로
+      url: 'http://localhost:8888/commulist', // 불러올 페이지의 경로
       method: 'get', // GET 요청
-
+		dataType:"html",
       success: (response) => {
+      console.log(response);
+      feedContent.html('');	
         feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
       },
       error: (jqXhr, status) => {
         alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
       },
     });
-    return false;
+
   });
 
   momentBtn.click((e) => {
-    $.ajax({
-      url: 'http://127.0.0.1:5500/front/html/feed.html', // 불러올 페이지의 경로
-      method: 'get', // GET 요청
-
-      success: (response) => {
-        feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
-      },
-      error: (jqXhr, status) => {
-        alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
-      },
-    });
-    return false;
+  console.log("momentBtn Click");
+        feedContent.html("<jsp:include page="+"../header.jsp"+"/>"); // 페이지 내용을 .feed_content에 삽입
+    
   });
 
   logoBtn.click((e) => {
+  console.log("loginBtn Click");
     $.ajax({
-      url: 'http://127.0.0.1:5500/front/html/feed.html', // 불러올 페이지의 경로
+      url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
       method: 'get', // GET 요청
 
       success: (response) => {

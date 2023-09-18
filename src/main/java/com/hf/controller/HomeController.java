@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hf.moment.service.MomentService;
 
@@ -29,9 +30,18 @@ public class HomeController {
 		return "./jsp/moment/feed";
 	}
 
+<<<<<<< HEAD
 	@GetMapping("/2")
 	public String clist() {
 		return "./jsp/community/commulist";
 	}
 	
+=======
+	@GetMapping("/commulist")
+	public String commuList() {
+		return "./jsp/community/commulist";
+	}
+	
+
+>>>>>>> 6fe0d743ed308403c7a8c502387e8954af0458b6
 }

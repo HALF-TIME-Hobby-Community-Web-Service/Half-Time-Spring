@@ -3,7 +3,9 @@ package com.hf.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,12 +33,16 @@ public class CommuController {
 	private CommuService service;
 	
 
-	@GetMapping("/member")
+	@ResponseBody
+	@PostMapping("/getmember")
 	public List<Commumember> getCommumemberList(String commuID) {
-		List<Commumember> cList = service.getCommumember(commuID);
+		log.info("commu/getMember");
+		List<Commumember> cList = service.getCommumember(commuID);		
+		log.info(cList);
 		return cList;
 	}
 
+	@ResponseBody
 	@GetMapping("/getpost")
 	public List<Post> getBoard(@RequestParam("commuID") String commuID) {
 		List<Post> boardList = service.getCommuPost(commuID);
@@ -51,12 +57,14 @@ public class CommuController {
 		return commuInfo;
 	}
 
+	@ResponseBody
 	@GetMapping("/lget")
 	public List<Gathering> getGathering(String commuID) {
 		List<Gathering> gatheringList = service.getGathering(commuID);
 		return gatheringList;
 	}
 
+	@ResponseBody
 	@GetMapping("/lmake")
 	public String lmake(@RequestParam("title") String title, @RequestParam("startTime") String startTime,
 			@RequestParam("endTime") String endTime, @RequestParam("check") String check,
@@ -76,6 +84,7 @@ public class CommuController {
 
 		return "1";
 	}
+	
 	
 
 }
