@@ -4,6 +4,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hf.mapper.CommuMapper">
 
+
+
+	<select id="getCommuList" resultType = "com.hf.domain.CommuInfo">
+		<![CDATA[
+		SELECT * FROM commu
+		]]>	
+	</select>
+
 	<select id="getCommuInfo" resultType="com.hf.domain.CommuInfo">
         <![CDATA[
         SELECT * FROM commu WHERE commuid = #{commuID}
@@ -56,6 +64,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	        c.userID = u.ID 
 	    WHERE 
 	        c.commuID = #{commuID}
+        ORDER BY CAUTH desc
 	    ]]>
 	</select>
 	

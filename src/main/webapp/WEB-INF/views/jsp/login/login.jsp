@@ -62,6 +62,7 @@
 	</div>
 
 <script>
+
 	let form = $(".login_form");
 	let login_btn=$(".login_button");
 	
@@ -82,7 +83,7 @@
 					location.href="/user/login";
 				}else{
 					alert("true"+data.result);
-					location.href="/moment/list";			
+					location.href="/user/mypage";			
 				}
 			},
 			error: function(jqXhr,status){

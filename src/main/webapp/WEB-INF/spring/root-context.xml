@@ -12,13 +12,26 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 	<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+<<<<<<< HEAD
 
 	<!-- @192.168.0.26  -->
 	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.26:1521:XE" />
 	<property name="username" value="hf"/>
 	<property name="password" value="hf" />
+=======
+	<!-- @192.168.0.26  -->
+<<<<<<< HEAD
+	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
+	<property name="username" value="hf2"/>
+	<property name="password" value="hf2" />
+=======
+	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.26:1521:XE" />
+	<property name="username" value="hf"/>
+	<property name="password" value="hf" />
+>>>>>>> 375aa194ab8fe1f5c34dabae2c7ba5b3f2a275ee
+>>>>>>> 6fe0d743ed308403c7a8c502387e8954af0458b6
 
 	</bean>
 	

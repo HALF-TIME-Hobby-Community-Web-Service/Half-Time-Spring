@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hf.domain.CommuInfo;
+import com.hf.domain.CommuList;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
 import com.hf.domain.Post;
@@ -25,10 +26,32 @@ public class CommuService {
 		log.info("service/getCommuInfo");
 		return mapper.getCommuInfo(commuID);
 	}
+	public List<CommuInfo> getCommuList(){
+		return mapper.getCommuList();
+	}
+	
 
+
+//	@Override
+//	@Autowired
+//	public List<Post> getCommuPost(String commuID, SqlSessionTemplate sqlSession) {
+//		
+//		this.sqlSession = sqlSession;
+//		
+//		return sqlSession.selectList("com.hf.commu.mapper.CommuMapper.getCommuList", commuID);
+//	}
+
+	public List<CommuInfo> getCommuList1(){
+		return mapper.getCommuList();
+	}
+	
+	public void lmake(Gathering gObj) {
+		mapper.insertGathering(gObj,"1");
+	}
 	public void lmake(Gathering gObj, String commuID) {
 		log.info("service/lmake");
 		mapper.insertGathering(gObj, commuID);
+
 	}
 
 	public List<Gathering> getGathering(String commuID) {
