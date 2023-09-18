@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import com.hf.commu.service.CommuService;
 import com.hf.domain.CommuInfo;
@@ -28,6 +30,7 @@ public class CommuController {
 
 	@Setter(onMethod_ = @Autowired)
 	private CommuService service;
+	
 
 	@PostMapping("/getmember")
 	public List<Commumember> getCommumemberList(String commuID) {

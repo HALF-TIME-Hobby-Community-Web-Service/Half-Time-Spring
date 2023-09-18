@@ -51,13 +51,13 @@
 		<button>구글</button>
 		<br> <br>
 		<button class="login_findIDbtn"
-			onclick="location.href='../jsp/login_findID.html'">아이디 찾기</button>
+			onclick="location.href='http://localhost:8888/user/findid'">아이디 찾기</button>
 		<button class="login_findPWbtn"
 			onclick="location.href='../jsp/login_findPW.html'">비밀번호 찾기</button>
 		<br> <br>
 		<!--가입하기 페이지로 이동시키기-->
 		<!-- <form method="post" action="http://127.0.0.1:5501/front/html/join.html"> -->
-		<button class="join_button" onclick="location.href='../jsp/join.html'">가입하기</button>
+		<button class="join_button" onclick="location.href='http://localhost:8888/user/join1'">가입하기</button>
 		<!-- </form> -->
 	</div>
 
