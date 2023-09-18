@@ -20,18 +20,17 @@ public class MyPageController {
 	@Setter(onMethod_ = @Autowired)
     public UserService service; 
 	
-	@GetMapping("/myPage")
+	@GetMapping("/mypage")
 	public String showMyPage(HttpServletRequest request){
 		
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
 		
-		if(id!=null) {
-		return "redirect:/user/mypage";
-		}
-		else {
-			return "redirect:/user/login";
-		}
+		/*
+		 * if(id!=null) { return "redirect:/mypage/mypage"; } else { return
+		 * "redirect:/user/login"; }
+		 */
+		return "./jsp/mypage/mypage";
 	}
 
 }
