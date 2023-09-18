@@ -8,13 +8,12 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.hf.domain.User;
 import com.hf.user.service.UserService;
@@ -25,6 +24,7 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 @RequestMapping("/user")
+@CrossOrigin
 
 public class UserController {
 	   @Setter(onMethod_ = @Autowired)
@@ -50,10 +50,12 @@ public class UserController {
 	        @RequestParam("join_pnum2") String phonenumb,
 	        @RequestParam("join_pnum3") String phonenumc,
 	        @RequestParam("join_nickname") String nickname
+	    
+	       
 	    ) {
 	        String id = ida + idb;
-	        String phonenum = phonenuma + phonenumb + phonenumc;
-
+	        String phonenum = phonenuma + phonenumb + phonenumc;     
+	        
 	        User user = new User(id, pwd, name, birth, gender, address, phonenum, nickname);
 
 	        System.out.println("회원가입정보" + " ID:" + id + " PWD:" + pwd +
@@ -76,15 +78,16 @@ public class UserController {
 		 @PostMapping("/join2")
 		 @ResponseBody
 		    public int joinUser2(
-		        @RequestParam("userlocation") String location,
-		        @RequestParam("usercategory") String category,
+		        @RequestParam("location") String location,
+		        @RequestParam("category") String category,
 		        @RequestParam("userid") String id
 		    ) {
+			
+			 	System.out.println(id + "회원의 관심지역: " + location + "과 관심사: " + category);
 		        User user = new User(location, category, id);
 
-		        System.out.println(id + "회원의 관심지역: " + location + "과 관심사: " + category);
 
-		        int state = service.joinCheck(user);
+		        int state = service.joinCheck2(user);
 		        System.out.println("가입 " + state + "페이지 작성 완료");
 
 		        return state;
