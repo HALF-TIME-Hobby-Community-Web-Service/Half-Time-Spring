@@ -12,10 +12,10 @@ public interface UserMapper {
     void insertUserCategory(@Param("id") String id, @Param("category") String category);
     int joinIDcheckpage(String id);
 	public User userLogin(@Param("ID") String ID, @Param("PWD")String PWD);
-<<<<<<< HEAD
 	String LoginFindID(@Param("name") String name, @Param("pnum") String pnum);
-=======
+	String LoginFindPW(@Param("id") String id, @Param("name") String name,
+						@Param("gender") int gender, @Param("birth") String birth,
+						@Param("pnum") String pnum);
+	String loginfindPW_IDCheck(String id);
 	
-
->>>>>>> b45b4bfe428e04d38cd4ecb34b0cebdcad85ad5f
 }

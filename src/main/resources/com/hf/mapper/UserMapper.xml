@@ -37,15 +37,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     
     <select id="userLogin" resultType="com.hf.domain.User">
 	<![CDATA[
-	select  * from Users where ID=#{ID} and PWD=#{PWD}
+		select  * from Users where ID=#{ID} and PWD=#{PWD}
 	]]>
 	</select>
 	
 	<select id="LoginFindID" resultType="String">
 	<![CDATA[
-	select * from users where name = #{name} and phonenum = #{pnum}
+		select * from users where name = #{name} and phonenum = #{pnum}
 	]]>
 	</select>
 
+	<select id="LoginFindPW" resultType="String">
+	<![CDATA[
+		SELECT pwd FROM users WHERE id = #{id} AND name =#{name} AND gender = #{gender} AND TO_CHAR(birth, 'YYYY-MM-DD') = #{birth} AND phonenum =#{pnum}
+	]]>
+	</select>
+	
+	<select id="loginfindPW_IDCheck" resultType="String">
+	<![CDATA[
+		select id from users where id = #{id}
+	]]>	
+	</select>
+
+	
 
 </mapper>

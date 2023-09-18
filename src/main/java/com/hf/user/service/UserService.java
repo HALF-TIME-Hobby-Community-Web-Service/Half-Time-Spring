@@ -33,9 +33,21 @@ public class UserService {
 		return mapper.LoginFindID(name, pnum);
 	}
     
+	public String loginFindPWCheck(User user) {
+		return mapper.LoginFindPW(user.getId(), user.getName(), user.getGender(), user.getBirth(), user.getPnum());
+	}
+	
+	public String loginfindPW_IDCheck(String id) {
+		return mapper.loginfindPW_IDCheck(id); 
+	}
+	
     public User login(String ID, String PWD) {
 		User dto = mapper.userLogin(ID,PWD);
 		return dto;
 		
 	};
+	
+	
+	
+
 }

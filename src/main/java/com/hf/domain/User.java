@@ -16,7 +16,7 @@ public class User {
 	private String birth; 
 	private int gender; 
 	private String address; 
-	private String phoneNum;
+	private String pnum;
 	private String location; 
 	private String category; 
 	private String profileImg;
@@ -28,7 +28,7 @@ public class User {
 		this.name=name;
 		this.gender=gender;
 		this.birth=birth;
-		this.phoneNum=pnum;
+		this.pnum=pnum;
 	}
 	public User() {
 	
@@ -47,7 +47,7 @@ public class User {
 		this.birth = birth; 
 		this.gender = gender;
 		this.address = address; 
-		this.phoneNum = pnum; 
+		this.pnum = pnum; 
 		this.nickname = nickname;				
 	}
 
@@ -71,7 +71,7 @@ public class User {
 		this.nickname = nickname;
 		this.gender = gender;
 		this.birth = birth;
-		this.phoneNum = pnum;
+		this.pnum = pnum;
 		this.address = address;
 		this.profileImg = profileImg;
 		
