@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <insert id="insertUserCategory">
     <![CDATA[
         INSERT INTO Usercategory 
-        VALUES (userlocation_seq.nextval,#{id}, #{category})
+        VALUES (userlocation_seq.nextval, #{id}, #{category})
         ]]>
     </insert>
     
