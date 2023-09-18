@@ -22,21 +22,18 @@
   
 </head>
 
-<body>
-  
 
-</head>
 
 <body>
-
+	<div>안녕하세요</div>
   <div id="modalWrap">
     <div id="modalBody">
 
       <h3 class="modaltitle">책과 나는 한몸이다</h3>
-      <div class="modalaround">커뮤니티 둘러보기</div>
+      <div class="modalaround">aaa</div>
       <div class="modalaround2">#독서 | 서울</div>
       <hr class="moondan">
-      <img src="../img/lightning1.jpg" alt="독서모임사진" class="modalimg">
+      <img src=""  class="modalimg">
       <div class="modalintro">
         <p class="modalintro2">독서를 좋아하는 사람들의 모임</p>
         <!-- <p class="commumember">정원 3/40</p> -->
@@ -59,7 +56,7 @@
     <div class="list community" id="community">
       <div class="commuBox_clone">
         <p class="commuName">책과 나는 한몸이다 </p>
-        <img src="../img/lightning1.jpg" alt="독서모임사진" class="img">
+        
         <div class="introduce">
         </div>
       </div>

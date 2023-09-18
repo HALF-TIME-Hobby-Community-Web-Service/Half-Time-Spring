@@ -5,14 +5,18 @@ $(() => {
     const feedContent = $('.commuevery');
     let commuID;
     
-    // AJAX로 서버에서 데이터 가져오기
+
+
+    
+    //AJAX로 서버에서 데이터 가져오기
     $.ajax({
-        url: '/commu/commulist', // API 엔드포인트
-        method: 'get',
+        url: '/community/getlist', // API 엔드포인트
+        method: 'GET',
         dataType: 'json',
         success: (response) => {
             // 서버에서 받은 데이터(response) 활용하여 동적으로 커뮤니티 박스 생성 및 추가
             response.forEach((community) => {
+            
                 commuID = community.commuID;
                 const communityBox = $('.commuBox_clone').clone().addClass('commuBox').removeClass('commuBox_clone');
                 
@@ -40,16 +44,17 @@ $(() => {
                 $('#community').append(communityBox);
             });
         },
-        error: (xhr, status, error) => {
+        error:(xhr, status, error) => {
             console.error('AJAX error:', error);
         }
     });
     
     $('#commuSignup').click(() => {
         $.ajax({
-            url: 'http://127.0.0.1:5500/html/commuPage.html', // 불러올 페이지의 경로
+            url: './jsp/community/commupage', // 불러올 페이지의 경로
             method: 'get', // GET 요청
             data: { commuID: commuID },
+            
             success: (response) => {
                 alert(response);
                 modal.style.display = 'none';

@@ -20,5 +20,7 @@ public class CommuList {
 		this.commuLocation = commuLocation;
 			}
 	
-	
+	public CommuList() {
+		
+	}
 }

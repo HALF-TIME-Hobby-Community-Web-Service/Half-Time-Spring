@@ -29,4 +29,9 @@ public class HomeController {
 		return "./jsp/moment/feed";
 	}
 
+	@GetMapping("/2")
+	public String clist() {
+		return "./jsp/community/commulist";
+	}
+	
 }
