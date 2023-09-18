@@ -31,7 +31,7 @@ public class CommuService {
 	}
 	
 
-<<<<<<< HEAD
+
 //	@Override
 //	@Autowired
 //	public List<Post> getCommuPost(String commuID, SqlSessionTemplate sqlSession) {
@@ -47,11 +47,11 @@ public class CommuService {
 	
 	public void lmake(Gathering gObj) {
 		mapper.insertGathering(gObj,"1");
-=======
+	}
 	public void lmake(Gathering gObj, String commuID) {
 		log.info("service/lmake");
 		mapper.insertGathering(gObj, commuID);
->>>>>>> 3d0313ade25fb0dc1178d41f6c74c605053c4e84
+
 	}
 
 	public List<Gathering> getGathering(String commuID) {

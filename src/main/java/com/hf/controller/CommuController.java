@@ -3,16 +3,11 @@ package com.hf.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
-import org.springframework.ui.Model;
-=======
 import org.springframework.stereotype.Controller;
->>>>>>> 3d0313ade25fb0dc1178d41f6c74c605053c4e84
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.hf.commu.service.CommuService;
 import com.hf.domain.CommuInfo;
@@ -31,12 +26,6 @@ public class CommuController {
 
 	@Setter(onMethod_ = @Autowired)
 	private CommuService service;
-
-
-	
-	
-
-
 	
 
 	@GetMapping("/member")

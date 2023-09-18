@@ -19,7 +19,9 @@ public class CommuList {
 		this.commuCategory = commuCategory;
 		this.commuLocation = commuLocation;
 			}
+	
+	public CommuList() {
+		
+	}
 
-	
-	
 }

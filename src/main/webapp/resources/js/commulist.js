@@ -13,14 +13,14 @@ $(() => {
 
             
             // 서버에서 받은 데이터(response) 활용하여 동적으로 커뮤니티 박스 생성 및 추가
-<<<<<<< HEAD
+
             response.forEach((community) => {
               const communityBox = $('.commuBox_clone').clone().addClass('commuBox').removeClass('commuBox_clone');
-=======
+
             response.forEach((community) => {                
                 commuID = community.commuID;
                 const communityBox = $('.commuBox_clone').clone().addClass('commuBox').removeClass('commuBox_clone');
->>>>>>> 3d0313ade25fb0dc1178d41f6c74c605053c4e84
+
                 communityBox.find('.commuName').html(community.commuName); // 커뮤니티 이름 설정
                 communityBox.find('.img').attr('src', community.imagePath); // 이미지 설정
                 communityBox.find('.commuintro').html(community.commuIntro); // 커뮤니티 소개 설정
@@ -53,11 +53,11 @@ $(() => {
    
 
 
-<<<<<<< HEAD
+
      $('#commuSignup').click(() => {            
-=======
+
     $('#commuSignup').click(() => {            
->>>>>>> 3d0313ade25fb0dc1178d41f6c74c605053c4e84
+
         $.ajax({            
             url: 'http://127.0.0.1:5500/html/commuPage.html', // 불러올 페이지의 경로
             method: 'get', // GET 요청
