@@ -14,7 +14,7 @@ public class TmpController {
 	
 	@GetMapping("1")
 	public String hello(@RequestParam("commuID") String commuID) {
-		log.info("커뮤니티 페이지 드개재");
+		log.info("而ㅻ�ㅻ땲�떚 �럹�씠吏� �뱶媛쒖옱");
 		
 		return "./jsp/community/commupage";
 	}

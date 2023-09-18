@@ -3,12 +3,15 @@ package com.hf.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import com.hf.commu.service.CommuService;
 import com.hf.domain.CommuInfo;
@@ -27,6 +30,7 @@ public class CommuController {
 
 	@Setter(onMethod_ = @Autowired)
 	private CommuService service;
+	
 
 	@GetMapping("/member")
 	public List<Commumember> getCommumemberList(String commuID) {
@@ -72,6 +76,10 @@ public class CommuController {
 		service.lmake(new Gathering(title, startTime, endTime, location, text, price, capacity), "1");
 
 		return "1";
+	}
+	@GetMapping("/commulist")
+	public void commulist(Model model) {
+		model.addAttribute("commulist", service.getCommuList());
 	}
 	
 
