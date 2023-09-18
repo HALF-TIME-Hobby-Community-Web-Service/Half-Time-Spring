@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,9 +29,10 @@ public class CommuController {
 	@Setter(onMethod_ = @Autowired)
 	private CommuService service;
 
-	@GetMapping("/member")
+	@PostMapping("/getmember")
 	public List<Commumember> getCommumemberList(String commuID) {
-		List<Commumember> cList = service.getCommumember(commuID);
+		log.info("commu/getMember");
+		List<Commumember> cList = service.getCommumember(commuID);		
 		return cList;
 	}
 

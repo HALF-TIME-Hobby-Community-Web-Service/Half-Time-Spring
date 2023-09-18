@@ -8,7 +8,7 @@ $(() => {
 
   commumemberList.click(() => {
     $.ajax({
-      url: 'http://localhost:8888/hf/commumemberlist',
+      url: 'http://localhost:8888/commu/getmember',
       method: 'POST',
       //data: commumemberList.serialize(), //form내에 input태그들의 name과 value를 매핑
 

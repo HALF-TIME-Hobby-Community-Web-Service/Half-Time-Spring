@@ -12,28 +12,23 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-	<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
-<<<<<<< HEAD
-	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.44:1521:XE" />
-	<property name="username" value="moon"/>
-	<property name="password" value="bomi" />
-=======
-	<!-- @192.168.0.26  -->
-	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.26:1521:XE" />
-	<property name="username" value="hf"/>
-	<property name="password" value="hf" />
->>>>>>> 3d0313ade25fb0dc1178d41f6c74c605053c4e84
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+	
+		<!-- @192.168.0.26  -->
+		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.26:1521:XE" />
+		<property name="username" value="hf"/>
+		<property name="password" value="hf" />
+	
 	</bean>
 	
-	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
-	destroy-method="close">
-	<constructor-arg ref="hikariConfig"/>	
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+		<constructor-arg ref="hikariConfig"/>	
 	</bean>
 	
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean" primary="false">
-	<property name="dataSource" ref="dataSource"></property>
+		<property name="dataSource" ref="dataSource"/>
 	</bean>
 	
 	<bean id="transactionManager"
