@@ -29,6 +29,10 @@ public class UserService {
         return mapper.joinIDcheckpage(id);
     }
     
+    public String loginFindIDCheck(String name, String pnum) {
+		return mapper.LoginFindID(name, pnum);
+	}
+    
     public User login(String ID, String PWD) {
 		User dto = mapper.userLogin(ID,PWD);
 		return dto;

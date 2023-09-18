@@ -64,6 +64,9 @@
                 <li class="nav_item">
                     <img src="/resources/items/sideItem/geo-alt.svg" alt="Location"><a href="#" class="atag">LOCATION</a>
                 </li>
+                <li class="nav_item">
+                    <img src="/resources/items/sideItem/geo-alt.svg" alt="MyPage"><a href="#" class="atag">MyPage</a>
+                </li>
                 <li class="nav_line">──────</li>
                 <li class="nav_item">
                     <img src="/resources/items/sideItem/chat-left-dots.svg" alt="Chatting"><a href="#" class="atag">CHATTING</a>
