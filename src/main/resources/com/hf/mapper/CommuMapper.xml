@@ -64,6 +64,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	        c.userID = u.ID 
 	    WHERE 
 	        c.commuID = #{commuID}
+        ORDER BY CAUTH desc
 	    ]]>
 	</select>
 	

@@ -32,13 +32,16 @@ public class CommuController {
 	private CommuService service;
 	
 
+	@ResponseBody
 	@PostMapping("/getmember")
 	public List<Commumember> getCommumemberList(String commuID) {
 		log.info("commu/getMember");
 		List<Commumember> cList = service.getCommumember(commuID);		
+		log.info(cList);
 		return cList;
 	}
 
+	@ResponseBody
 	@GetMapping("/getpost")
 	public List<Post> getBoard(@RequestParam("commuID") String commuID) {
 		List<Post> boardList = service.getCommuPost(commuID);
@@ -53,12 +56,14 @@ public class CommuController {
 		return commuInfo;
 	}
 
+	@ResponseBody
 	@GetMapping("/lget")
 	public List<Gathering> getGathering(String commuID) {
 		List<Gathering> gatheringList = service.getGathering(commuID);
 		return gatheringList;
 	}
 
+	@ResponseBody
 	@GetMapping("/lmake")
 	public String lmake(@RequestParam("title") String title, @RequestParam("startTime") String startTime,
 			@RequestParam("endTime") String endTime, @RequestParam("check") String check,
