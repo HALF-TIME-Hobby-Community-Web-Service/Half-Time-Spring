@@ -1,47 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<html lang="en">
+    
+<!DOCTYPE html>
+<html>
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>community</title>
 
-  <!-- 폰트 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet" />
-
-  <!-- 부트스트랩, ajax, jquery-->
+<!-- 부트스트랩, ajax, jquery-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
+    </link>  
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" /> -->
+  
 
   <!-- css -->
-  <link rel="stylesheet" href="../css/commuPage.css" />
-  <link rel="stylesheet" href="../css/floatingBtn.css" />
-  <link rel="stylesheet" href="../css/commuPage.css" />
-  <link rel="stylesheet" href="../css/modalmemberlist.css" />
-  <link rel="stylesheet" href="../css/lmake.css">
-  <link rel="stylesheet" href="../css/ljoin.css">
-  <link rel="stylesheet" href="../css/modalmemberlist.css" />
+  <link rel="stylesheet" href="/resources/css/commuPage.css" />
+  <link rel="stylesheet" href="/resources/css/floatingBtn.css" />
+  <link rel="stylesheet" href="/resources/css/lmake.css">
+  <link rel="stylesheet" href="/resources/css/ljoin.css">
+  <link rel="stylesheet" href="/resources/css/modalmemberlist.css" />
 
   <!-- js-->
-  <script src="../js/modalmemberlist.js"></script>
-  <script src="../js/commuPage.js"></script>
-  <script src="../js/lmake.js"></script>
-  <script src="../js/commumemberlist.js"></script>
-  <script src="../js/ljoin.js"></script>
-
+  <script src="/resources/js/modalmemberlist.js"></script>
+  <script src="/resources/js/commupage.js"></script>
+  <script src="/resources/js/lmake.js"></script>
+  <script src="/resources/js/commumemberlist.js"></script>
+  <script src="/resources/js/ljoin.js"></script>
+  
 </head>
 
 <body>
+  <%-- <jsp:include page="../header.jsp"/> --%>
+  
   <section class="commu_content">
     <div class="right_nav">
       <div class="lightning">
@@ -53,7 +47,7 @@
         </button>
       </div>
       <div class="calendarBox">
-        <img src="../img/calendar.png" width="100%" />
+        <img src="/resources/items/calendar.png" width="100%" />
       </div>
       <div class="lightningSummary" style="font-size: larger;">
         <p class="summaryTitle">[보미팬사인회]</p>
@@ -64,23 +58,23 @@
       <div class="memberList">
         <div class="memberTitle">멤버</div>
         <div class="member">
-          <img src="../img/online.png" />
+          <img src="/resources/items/online.png" />
           <span>안나</span>
         </div>
         <div class="member">
-          <img src="../img/online.png" />
+          <img src="/resources/items/online.png" />
           <span>크리스틴</span>
         </div>
         <div class="member">
-          <img src="../img/online.png" />
+          <img src="/resources/items/online.png" />
           <span>메리</span>
         </div>
         <div class="member">
-          <img src="../img/online.png" />
+          <img src="/resources/items/online.png" />
           <span>초코</span>
         </div>
         <div class="member">
-          <img src="../img/online.png" />
+          <img src="/resources/items/online.png" />
           <span>예삐</span>
         </div>
       </div>
@@ -119,7 +113,7 @@
             <span class="boardTitleIntro">오리역 강도 코스프레 후기~~ </span>
           </p>
           <div class="board_imgbox">
-            <img class="board boardimg" src="../img/commu/commu_board/4-9-1.jpg" alt="이미지1" />
+            <img class="board boardimg" src="/resources/items/commu/commu_board/4-9-1.jpg" alt="이미지1" />
           </div>
           <div class="boardTextBox">
             <p class="board boardText">
@@ -145,27 +139,27 @@
       </div>
       <div class="commu_box history">
         <div class="history_text">
-          HISTORY - [😀친목 커뮤니티 보미좋아~😀]
+          HISTORY
         </div>
         <div class="history_container">
           <div class="historyBox">
-            <img src="../img/moment/1.jpg" class="history_box_img" />
+            <img src="/resources/items/moment/1.jpg" class="history_box_img" />
           </div>
         </div>
       </div>
     </div>
   </section>
-  <div>
+<!--   <div>
     <div class="fab">
-      <img src="../img/floatitem/close.png" alt="">
+      <img src="/resources/items/floatitem/close.png" alt="">
     </div>
     <div class="float-box" style="height: 100;">
-      <a href="" class="float-item float-item1"><img src="../img/floatitem/write.png" alt=""></a>
-      <a href="" class="float-item float-item2"><img src="../img/floatitem/alert.png" alt=""></a>
-      <a href="" class="float-item float-item3"><img src="../img/floatitem/mypage.png" alt=""></a>
-      <a href="" class="float-item float-item4"><img src="../img/floatitem/setting.png" alt=""></a>
+      <a href="" class="float-item float-item1"><img src="/resources/items/floatitem/write.png" alt=""></a>
+      <a href="" class="float-item float-item2"><img src="/resources/items/floatitem/alert.png" alt=""></a>
+      <a href="" class="float-item float-item3"><img src="/resources/items/floatitem/mypage.png" alt=""></a>
+      <a href="" class="float-item float-item4"><img src="/resources/items/floatitem/setting.png" alt=""></a>
     </div>
-  </div>
+  </div> -->
 
   <!-- 모달 창 -->
   <!-- 번개 신청 -->
