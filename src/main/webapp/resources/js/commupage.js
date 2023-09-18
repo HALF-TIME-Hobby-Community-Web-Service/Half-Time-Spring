@@ -1,10 +1,10 @@
 $(() => {
-  const backURL = 'http://localhost:8888/hf';
+  const backURL = 'http://localhost:8888/commu';
 
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const commuID = urlParams.get('commuID');
-
+  const commuID = urlParams.get('commuID');  
+	
   /* 상단 탭 */
   {
     function switchTab(tabName) {
@@ -67,11 +67,11 @@ $(() => {
   $.ajax({
     url: `${backURL}/getcommuinfo`,
     method: 'POST',
-    data: { commuID: 4 },
+    data: { commuID: commuID },
     success: (c) => {
       $('.introTitle').text(c.commuName);
       $('.introText').html(c.commuIntro);
-      $('.mainImage').attr('src', `../img/commu/commu_page/${c.commuID}.jpg`);
+      $('.mainImage').attr('src', `/resources/items/commu/commu_page/${c.commuID}.jpg`);
       $('.introCategory').text('⚡' + c.commuCategory);
       $('.introLocation').text('🌎' + c.commuLocation);
     },
@@ -84,7 +84,7 @@ $(() => {
   $.ajax({
     url: `${backURL}/getpost`,
     method: 'POST',
-    data: { commuID: 4 },
+    data: { commuID: commuID },
     success: (response) => {
       response.forEach((p) => {
         /* 클론 후 append */
@@ -136,7 +136,7 @@ $(() => {
           .find('.boardimg')
           .attr(
             'src',
-            `../img/commu/commu_board/${p.commuid}-${p.commupostid}-1.jpg`
+            `/resources/items/commu/commu_board/${p.commuid}-${p.commupostid}-1.jpg`
           );
 
         //텍스트
@@ -151,12 +151,23 @@ $(() => {
   });
 
   /* 히스토리 로드 */  
-  var cnt = 1;
+  var cnt = 0;
   {    
-    while (cnt++ <= 87) {   
+    while (cnt++ <= 30) {   
       const clone = $('.historyBox:first-child').clone();
-      clone.find('.history_box_img').attr('src', `../img/moment/${cnt}.jpg`);
+      clone.find('.history_box_img').attr('src', `/resources/items/commu/commu_history/${commuID}-${cnt}.jpg`).css('display','none');                   	      
       $('.history_container').append(clone);
+      
+      $('.historyBox:first-child').css('display', 'none');
     }
+    
   }
+          
+    /* */
+	$('.history_box_img').on('load', function(e) {
+    	$(e.target).css('display', 'block');
+	});
+	
+	
+    
 });

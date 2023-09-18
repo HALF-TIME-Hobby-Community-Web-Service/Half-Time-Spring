@@ -40,6 +40,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select  * from Users where ID=#{ID} and PWD=#{PWD}
 	]]>
 	</select>
+	
+	<select id="LoginFindID" resultType="String">
+	<![CDATA[
+	select * from users where name = #{name} and phonenum = #{pnum}
+	]]>
+	</select>
 
 
 </mapper>

@@ -54,7 +54,7 @@
                             name="login_pnum3"
                             oninput="this.value = this.value.replace(/[^0-9]/g, '');"
                             required="required">
-                            <button class="login_findpnum_checkbtn" type="button">인증번호받기</button>
+                            <button class="login_findpnum_checkbtn" type="button">확인</button>
                     </div><br>
                 </form>
             </div>

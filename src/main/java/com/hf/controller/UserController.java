@@ -127,7 +127,38 @@ public class UserController {
 		    return result;			
 	    }
 	
+	    // 아이디 찾기
+	    @GetMapping("/findid")
+	    public String getFindId() {
+	    	return "./jsp/login/login_findID";
+	    }
+	    
+	    @PostMapping("/findid")
+		 @ResponseBody
+		    public String postFindId(
+		        @RequestParam("findIDName") String name,
+		        @RequestParam("findIDPnum1") String pnum1,
+		        @RequestParam("findIDPnum2") String pnum2,
+		        @RequestParam("findIDPnum3") String pnum3
+		    ) {
+			
+	    		String pnum = pnum1+pnum2+pnum3;
+	    		System.out.println("이름: "+name+" 핸드폰 번호: "+pnum+"님의 아이디 찾기를 진행하고 있습니다");
+	    		String findID = service.loginFindIDCheck(name, pnum);
+	    		
+	
+	    		if (findID != null) {
+	    			System.out.println("유저의 아이디는 [" + findID+ "] 입니다");
+	    		}else {
+	    			System.out.println("회원가입 이력이 없습니다");
+	    		}
+	    		
+	    		return findID;
 
+		        
+		    }
+	    
+	    // 비밀번호 찾기
 	    
 	    
 }

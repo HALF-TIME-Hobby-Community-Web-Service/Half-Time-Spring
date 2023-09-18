@@ -24,5 +24,14 @@ public class CommuInfo {
 		this.commuCategory = commuCategory;
 		this.commuLocation = commuLocation;
 	}
+	
+	public CommuInfo(BigDecimal commuID, String commuName, String commuIntro, 
+			String commuCategory) {
+		this.commuID = commuID.toString();
+		this.commuName = commuName;
+		this.commuIntro = commuIntro;
+		this.commuCategory = commuCategory;
+	}
+	
 
 }
