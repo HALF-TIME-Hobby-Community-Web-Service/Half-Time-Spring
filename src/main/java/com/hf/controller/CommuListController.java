@@ -24,6 +24,6 @@ public class CommuListController {
 	
 	@GetMapping("/commulist")
 	public void commulist(Model model) {
-		model.addAttribute("commulist",commuService.getCommuList());
+		model.addAttribute("commulist", service.getCommuList());
 	}
 }
