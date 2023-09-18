@@ -16,13 +16,13 @@ public class UserService {
 
     public int joinCheck(User user) {
         mapper.insertUser(user);
-        mapper.insertUserLocation(user.getId(), user.getLocation());
-        mapper.insertUserCategory(user);
+        //mapper.insertUserLocation(user.getId(), user.getLocation());
+        //mapper.insertUserCategory(user.getId(),user.getCategory());
         
         return 1; 
     }
 
-    public int joinIDcheckpage(String id) {
+    public int joinIDCheck(String id) {
         return mapper.joinIDcheckpage(id);
     }
     
