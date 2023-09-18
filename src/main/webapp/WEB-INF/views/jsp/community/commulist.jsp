@@ -1,7 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 
 <head>
   <meta charset="UTF-8" />
@@ -17,9 +19,16 @@
   <script src="/resources/js/navbar.js"></script>
   <script src="/resources/js/commulist.js"></script>
 
+  
 </head>
 
 <body>
+  
+
+</head>
+
+<body>
+
   <div id="modalWrap">
     <div id="modalBody">
 
@@ -55,6 +64,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </body>
 </html>

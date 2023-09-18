@@ -1,7 +1,7 @@
 $(() => {
   //    const loginTag = $('#sidefirst')
   //    $.ajax({
-  //     url: 'http://localhost:8888/hf/login',
+  //     url: 'http://localhost:8888/user/login',
   //         method: 'POST',
   //         data: loginTag.serialize(), //form내에 input태그들의 name과 value를 매핑
 
@@ -33,9 +33,10 @@ $(() => {
   const logoBtn = $('#logo');
 
   var cnt = 0;
+  
   if (cnt++ == 0) {
       $.ajax({
-        url: 'http://127.0.0.1:5500/front/html/feed.html', // 불러올 페이지의 경로
+        url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
         method: 'get', // GET 요청
         success: (response) => {
           feedContent.html(response);
@@ -51,8 +52,9 @@ $(() => {
   });
 
   commuBtn.click((e) => {
+  console.log("commuBtn Click");
     $.ajax({
-      url: 'src/main/webapp/WEB-INF/views/jsp/community/commulist.jsp', // 불러올 페이지의 경로
+      url: 'http://localhost:8888/jsp/community/commulist', // 불러올 페이지의 경로
       method: 'get', // GET 요청
 
       success: (response) => {
@@ -66,8 +68,9 @@ $(() => {
   });
 
   momentBtn.click((e) => {
+  console.log("momentBtn Click");
     $.ajax({
-      url: 'http://127.0.0.1:5500/front/html/feed.html', // 불러올 페이지의 경로
+      url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
       method: 'get', // GET 요청
 
       success: (response) => {
@@ -81,8 +84,9 @@ $(() => {
   });
 
   logoBtn.click((e) => {
+  console.log("loginBtn Click");
     $.ajax({
-      url: 'http://127.0.0.1:5500/front/html/feed.html', // 불러올 페이지의 경로
+      url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
       method: 'get', // GET 요청
 
       success: (response) => {
