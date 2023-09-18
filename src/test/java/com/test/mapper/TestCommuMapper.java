@@ -36,7 +36,7 @@ public class TestCommuMapper {
 	
 	@Test
 	public void test() {
-		log.info(mapper.getAllCommumember("1"));		
+		log.info(mapper.getCommuPost("1"));		
 	}
 
 }

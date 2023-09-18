@@ -57,19 +57,9 @@
     <span class="float-item float-item3"><img src="/resources/items/floatitem/mypage.png" alt=""></span>
     <span class="float-item float-item4"><img src="/resources/items/floatitem/setting.png" alt=""></span>
 </div>
-</div>
 
 <div class="feed_content">
-
-
     <!--부트스트랩에서 가져왔습니다-->
-
-
-
-
-
-</div>
-</div>
 </div>
 
 <footer>
