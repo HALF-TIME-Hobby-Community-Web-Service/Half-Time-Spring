@@ -1,18 +1,15 @@
 package com.hf.controller;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 
 import com.hf.commu.service.CommuService;
 import com.hf.domain.CommuInfo;
@@ -33,58 +30,56 @@ public class CommuController {
 	private CommuService service;
 	
 
-	@ResponseBody
 	@PostMapping("/getmember")
-	public List<Commumember> getCommumemberList(String commuID) {
-		log.info("commu/getMember");
+	public List<Commumember> getCommumemberList(@RequestParam("commuID")String commuID) {
+		log.info("commu/getMember/commuID: " + commuID);
 		List<Commumember> cList = service.getCommumember(commuID);		
 		log.info(cList);
 		return cList;
 	}
 
-	@ResponseBody
+
 	@GetMapping("/getpost")
 	public List<Post> getBoard(@RequestParam("commuID") String commuID) {
 		List<Post> boardList = service.getCommuPost(commuID);
 		return boardList;
 	}
 
-	@ResponseBody
+
 	@GetMapping("/getcommuinfo")
 	public CommuInfo getCommuInfo(@RequestParam("commuID") String commuID) {
+		log.info("|commuInfo| commuID: " + commuID);
 		CommuInfo commuInfo = service.getCommuInfo(commuID);
 		log.info("commuInfo: " + commuInfo);
 		return commuInfo;
 	}
 
-	@ResponseBody
-	@GetMapping("/lget")
+
+	@PostMapping("/lget")
 	public List<Gathering> getGathering(String commuID) {
+		log.info("lget: " + commuID);
 		List<Gathering> gatheringList = service.getGathering(commuID);
+		log.info(gatheringList);
 		return gatheringList;
 	}
-
-	@ResponseBody
-	@GetMapping("/lmake")
-	public String lmake(@RequestParam("title") String title, @RequestParam("startTime") String startTime,
-			@RequestParam("endTime") String endTime, @RequestParam("check") String check,
-			@RequestParam("location") String location, @RequestParam("text") String text,
-			@RequestParam("capacity") int capacity, @RequestParam("price") int price) {
-
-		log.info("제목: " + title);
-		log.info("시작 시간: " + startTime);
-		log.info("종료 시간: " + endTime);
-		log.info("체크박스: " + check);
-		log.info("지역: " + location);
-		log.info("내용: " + text);
-		log.info("정원: " + capacity);
-		log.info("회비: " + price);
-
-		service.lmake(new Gathering(title, startTime, endTime, location, text, price, capacity), "1");
-
-		return "1";
+	
+	
+	@PostMapping("/lmake")
+	public String lmake(
+			@RequestParam String title,
+			@RequestParam String startTime,
+			@RequestParam String endTime,
+			@RequestParam String location,
+			@RequestParam String text,
+			@RequestParam String capacity,
+			@RequestParam String price,
+			@RequestParam String commuID) {			
+				
+		log.info(commuID);
+	
+		Gathering g = new Gathering(title, text, commuID, "코스타남신김수열", startTime, endTime, new BigDecimal(price.split("원")[0]), location, new BigDecimal(capacity.split("명")[0]));
+		log.info("Gathering: " + g);	        
+		service.lmake(g);
+		return "1";	
 	}
-	
-	
-
 }

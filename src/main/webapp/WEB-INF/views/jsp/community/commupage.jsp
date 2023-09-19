@@ -46,15 +46,6 @@
           모임참가
         </button>
       </div>
-      <div class="calendarBox">
-        <img src="/resources/items/calendar.png" width="100%" />
-      </div>
-<!--       <div class="lightningSummary" style="font-size: larger;">
-        <p class="summaryTitle">[보미팬사인회]</p>
-        <p class="summaryText">07.27 오후7:48</p>
-        <p class="summaryText">강남구 양재천</p>
-        <p class="summaryText">준비물: 방망이, 채찍, 츄르</p>
-      </div> -->
       <div class="memberList">
         <div class="memberTitle" style="font-size: 22px; text-align: center">🤸‍♂️멤버🙋‍♀️</div>
       </div>
@@ -158,11 +149,11 @@
           <span>일정:</span>
           <input name="startTime" class="startTime form-control" type="datetime-local" max="2023-12-240T21:00" min=""
             value="" style="height: 30px;">
-          <input name="finishTime" class="finishTime form-control" type="datetime-local" max="2023-12-24T21:00" min=""
+          <input name="endTime" class="endTime form-control" type="datetime-local" max="2023-12-24T21:00" min=""
             value="">
           <fieldset class="lmake_checkbox">
             <input name="check" id="endTime" type="checkbox" checked>
-            <label for="finishTime">끝나는 시간</label>
+            <label for="endTime">끝나는 시간</label>
           </fieldset>
         </div>
 

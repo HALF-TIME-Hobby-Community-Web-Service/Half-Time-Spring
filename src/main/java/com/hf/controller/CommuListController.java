@@ -31,15 +31,13 @@ public class CommuListController {
 		log.info(clist);
 		return clist;
 	}
-	
-	
-	
+		
 	@PostMapping("/commuhome")
 	public void commuHome(Model model, String commuID) {
 	}
+	
 	@GetMapping("/commulist")
 	public void commulist(Model model) {
-		model.addAttribute("commulist", commuService.getCommuList());
-		
+		model.addAttribute("commulist", commuService.getCommuList());		
 	}
 }

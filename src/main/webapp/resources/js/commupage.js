@@ -1,9 +1,6 @@
 $(() => {
   const backURL = 'http://localhost:8888/commu';
-
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const commuID = urlParams.get('commuID');  
+  const commuID = sessionStorage.getItem('commuID');
 	
   /* 상단 탭 */
   {
@@ -87,17 +84,14 @@ $(() => {
     data: { commuID: commuID },
     success: (response) => {
       response.forEach((p) => {
-        /* 클론 후 append */
-        const clone = $('.boardBox_clone')
-          .clone()
-          .addClass('boardBox')
-          .removeClass('boardBox_clone');
+        const clone = $('.boardBox_clone').clone().addClass('boardBox').removeClass('boardBox_clone');
 
-        //posttype
-        if (p.posttype == '1') clone.find('.board_posttype').text('📖게시글');
+        if (p.posttype == '1') 
+        	clone.find('.board_posttype').text('📖게시글');
         else if (p.posttype == '2')
           clone.find('.board_posttype').text('📖공지사항');
-        else alert('posttype 오류~');
+        else 
+        	alert('posttype 오류~');
 
         //쓰니
         clone.find('.board_writer').text('✍🏻' + p.writer);
@@ -112,11 +106,11 @@ $(() => {
 
           let period = '오전';
           let hours = dateTime.getHours();
+          
           if (hours >= 12) {
             period = '오후';
-            if (hours > 12) {
-              hours -= 12;
-            }
+            if (hours > 12) 
+              hours -= 12;            
           }
           if (hours === 0) {
             hours = 12;

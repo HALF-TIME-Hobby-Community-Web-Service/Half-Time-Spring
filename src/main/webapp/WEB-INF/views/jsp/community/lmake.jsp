@@ -11,8 +11,8 @@
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-  <link rel="stylesheet" href="../css/lmake.css">
-  <script src="../js/lmake.js"></script>
+  <link rel="stylesheet" href="/resources/css/lmake.css">
+  <script src="/resources/js/lmake.js"></script>
 </head>
 
 <body>
@@ -30,10 +30,10 @@
         <span>일정:</span>
         <input type="date" name="date" class="form-control" value="2023-08-02" />
         <input type="time" name="startTime" class="form-control" value="12:30" />
-        <input type="time" name="finishTime" class="form-control" value="14:00" />
+        <input type="time" name="endTime" class="form-control" value="14:00" />
         <fieldset class="lmake_checkbox">
-          <input id="finishTime" type="checkbox" checked>
-          <label for="finishTime">끝나는 시간</label>
+          <input id="endTime" type="checkbox" checked>
+          <label for="endTime">끝나는 시간</label>
         </fieldset>
       </div>
 

@@ -1,49 +1,27 @@
 package com.hf.domain;
 
+import java.math.BigDecimal;
+
 import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Component
+@NoArgsConstructor
 @AllArgsConstructor
 public class Gathering {
-	private String GatheringID;
 	private String title;
+	private String text;
+	private String commuID;
+	private String organizer;
 	private String startTime;
 	private String endTime;
+	private BigDecimal price;
 	private String location;
-	private String text;
-	private String organizer;
-	private int capacity;
-	private int count;
-	private int price;
-
-
-	public Gathering() {}
+	private BigDecimal capacity;
 	
-	public Gathering(String title, String startTime, String endTime, String location, String text, int price,
-			int capacity) {
-		this.title = title;
-		this.startTime = startTime;
-		this.endTime = endTime;
-		this.location = location;
-		this.text = text;
-		this.price = price;
-		this.capacity = capacity;
-	}
 	
-	public Gathering(String GatheringID, String title, String text, String startTime, String endTime, String location,
-			int price, int capacity) {
-		this.GatheringID = GatheringID;
-		this.title = title;
-		this.text = text;
-		this.startTime = startTime;
-		this.endTime = endTime;
-		this.location = location;
-		this.price = price;
-		this.capacity = capacity;
-	}
-
 }

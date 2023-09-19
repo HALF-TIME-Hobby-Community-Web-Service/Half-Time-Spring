@@ -1,12 +1,13 @@
 $(() => {
-  const url = 'http://localhost:8888/hf';
-  /* */
+  const url = 'http://localhost:8888/commu';
+
+  const commuID = sessionStorage.getItem('commuID');   
 
   $('.ljoinbtn').click(() => {
     $.ajax({
       url: `${url}/lget`,
       method: 'POST',
-      //data:
+      data: {commuID : commuID},
       success: (data) => {
         data.forEach((element) => {
           appendGathering(element);

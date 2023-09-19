@@ -64,8 +64,7 @@ $(function () {
       },
 
       //여기부터 다시하기
-      success: function (response) {
-      
+      success: function (response) {      
         alert('회원가입 완료');
         alert(response);
         if (response == 2) {

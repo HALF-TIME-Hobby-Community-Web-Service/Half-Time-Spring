@@ -28,15 +28,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <![CDATA[
 		INSERT INTO gathering 
 		VALUES ( 
-			gathering_seq.nextval, #{gObj.title}, #{gObj.text}, #{commuID}, #{gObj.organizer}, 
- 			TO_DATE(#{gObj.startTime}, 'YYYY/MM/DD HH24:MI'), TO_DATE(#{gObj.endTime}, 'YYYY/MM/DD HH24:MI'), 
+			gathering_seq.nextval, #{gObj.title}, #{gObj.text}, #{gObj.commuID}, #{gObj.organizer}, 
+ 			TO_DATE(#{gObj.startTime}, 'YYYY/MM/DD"T"HH24:MI'), TO_DATE(#{gObj.endTime}, 'YYYY/MM/DD"T"HH24:MI'), 
  			#{gObj.price}, #{gObj.location}, #{gObj.capacity})
         ]]>
 	</insert>
 
 	<select id="getGathering" resultType="com.hf.domain.Gathering">
         <![CDATA[
-		SELECT GatheringID, title, Text, CommuID, Organizer, 
+		SELECT title, Text, CommuID, Organizer, 
 		       TO_CHAR(startTime, 'YYYY-MM-DD HH24:MI') AS startTime, TO_CHAR(endTime, 'YYYY-MM-DD HH24:MI') AS endTime, 
 		       price, Location, CAPACITY
 		FROM gathering

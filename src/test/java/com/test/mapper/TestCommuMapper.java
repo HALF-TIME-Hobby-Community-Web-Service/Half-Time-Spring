@@ -20,20 +20,6 @@ public class TestCommuMapper {
 	@Setter(onMethod_ = @Autowired)
 	private CommuMapper mapper;
 	
-	//@Test
-	public void testGathering() {
-		Gathering gObj= new Gathering();
-		gObj.setTitle("야호");
-		gObj.setText("야야호");
-		gObj.setStartTime("2023/09/14");
-		gObj.setEndTime("2023/09/14");
-		gObj.setCapacity(8);
-		gObj.setLocation("우리집");
-		gObj.setPrice(10000);
-		gObj.setOrganizer("코스타남신김수열");
-		mapper.insertGathering(gObj, "1");
-	}
-	
 	@Test
 	public void test() {
 		log.info(mapper.getAllCommumember("1"));
