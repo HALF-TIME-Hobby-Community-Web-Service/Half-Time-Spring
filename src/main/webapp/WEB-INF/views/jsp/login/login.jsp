@@ -68,8 +68,6 @@
 	
 	login_btn.on("click",function(e) {
 		e.preventDefault();
-		alert("로그인 버튼 클릭");
-		console.log("에러1");
 		 $.ajax({
 			url:"/user/login",
 			type:"post",
@@ -78,12 +76,11 @@
 			success: function(data){
 				
 				if(!data.result){
-					alert("false"+ data.result);
-					
+					alert("아이디 혹은 비밀번호가 잘못되었습니다.");
 					location.href="/user/login";
 				}else{
-					alert("true"+data.result);
-					location.href="/user/mypage";			
+					alert("환영합니다");
+					location.href="/moment/list";			
 				}
 			},
 			error: function(jqXhr,status){

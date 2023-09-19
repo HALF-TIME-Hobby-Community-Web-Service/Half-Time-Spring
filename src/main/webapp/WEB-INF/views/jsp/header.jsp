@@ -23,6 +23,7 @@
     <script src="/resources/js/floatingbtn.js"></script>
     <script src="/resources/js/write.js"></script>
     <script src="/resources/js/moment_post.js"></script>
+    <script src="/resources/js/mypage.js"></script>
 
 </head>
  <header>
@@ -60,17 +61,17 @@
                 </li>
                 <li class="nav_line">──────</li>
                 <li class="nav_item">
-                    <img src="/resources/items/sideItem/hand-index.svg" alt="Interest"><a href="#" class="atag">INTEREST</a>
+                    <img src="/resources/items/sideItem/hand-index.svg" alt="Interest"><a id="insertBtn" href="#" class="atag">INTEREST</a>
                 </li>
                 <li class="nav_item">
-                    <img src="/resources/items/sideItem/geo-alt.svg" alt="Location"><a href="#" class="atag">LOCATION</a>
+                    <img src="/resources/items/sideItem/geo-alt.svg" alt="Location"><a id="locationBtn" href="#" class="atag">LOCATION</a>
                 </li>
                 <li class="nav_item">
-                    <img src="/resources/items/sideItem/geo-alt.svg" alt="MyPage"><a href="#" class="atag">MyPage</a>
+                    <img src="/resources/items/sideItem/geo-alt.svg" alt="MyPage"><a id="mypageBtn" class="atag">MyPage</a>
                 </li>
                 <li class="nav_line">──────</li>
                 <li class="nav_item">
-                    <img src="/resources/items/sideItem/chat-left-dots.svg" alt="Chatting"><a href="#" class="atag">CHATTING</a>
+                    <img src="/resources/items/sideItem/chat-left-dots.svg" alt="Chatting"><a id="chattingBtn" href="#" class="atag">CHATTING</a>
                 </li>
             </ul>
         </div>

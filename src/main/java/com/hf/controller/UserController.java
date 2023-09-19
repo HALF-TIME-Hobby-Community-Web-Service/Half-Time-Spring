@@ -1,5 +1,6 @@
 package com.hf.controller;
 
+import java.io.Console;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -221,6 +222,29 @@ public class UserController {
 	        
 			System.out.println("보내지는 것: "+idCheck);
 	        return idCheck;
+	    }
+	    
+	    @RequestMapping("/logout")
+	    public String logout(HttpServletRequest request) throws Exception{
+	        
+	        
+	        HttpSession session = request.getSession();
+	        session.invalidate();
+	        
+	        return "redirect:/moment/list";        
+	        
+	    }
+	    @GetMapping("/getSession")
+	    @ResponseBody
+	    public String getSession(HttpServletRequest request) throws Exception{
+	    	
+	    	
+	    	
+	    	HttpSession session = request.getSession();
+	    	String sessionValue = (String)session.getAttribute("id");
+	    	
+	    	return sessionValue;        
+	    	
 	    }
 	    
 }

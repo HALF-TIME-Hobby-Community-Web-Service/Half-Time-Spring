@@ -1,4 +1,7 @@
 $(() => {
+
+
+
   //    const loginTag = $('#sidefirst')
   //    $.ajax({
   //     url: 'http://localhost:8888/user/login',
@@ -33,11 +36,24 @@ $(() => {
   const logoBtn = $('#logo');
 
   var cnt = 0;
+
+  $.ajax({
+    url:"/user/getSession",
+    method:"get",
+    dataType:"text",
+    success: function(data){
+      loginBtn.html("Logout");
+    },
+    error(jqXhr,status){
+    alert("실패 ㅠㅠ")
+    }
+  });
   
 
   fab.click((e) => {
     fabbox.toggle(400);
   });
+
 
   commuBtn.click((e) => {
   e.preventDefault();

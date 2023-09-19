@@ -29,12 +29,9 @@ public class MyPageController {
 		String id = (String)session.getAttribute("id");
 		log.info(id);
 		
-		/*
-		 * JSONObject jsonResponse = new JSONObject(); jsonResponse.put("id", id);
-		 */
-	    
+			    
 	    if(id != null) {
-	    	return "./jsp/mypage/realmypage";
+	    	return "./jsp/mypage/mypage";//세션값이 존재하면 마이페이지로 추후 sql문 삽입버전으로 수정필요
 	    }else {
 	    	return "redirect:user/login";
 	    }
