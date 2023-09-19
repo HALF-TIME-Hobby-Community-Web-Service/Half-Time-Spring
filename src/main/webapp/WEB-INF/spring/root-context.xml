@@ -16,15 +16,10 @@
 	<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
 
 	<!-- @192.168.0.26  -->
-<<<<<<< HEAD
 	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
 	<property name="username" value="hf"/>
 	<property name="password" value="hf" />
-=======
-	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.44:1521:XE" />
-	<property name="username" value="moon"/>
-	<property name="password" value="bomi" />
->>>>>>> 4e250c7a65fcd92788cda2a12a9a69d39710d9fd
+
 
 	</bean>
 	
