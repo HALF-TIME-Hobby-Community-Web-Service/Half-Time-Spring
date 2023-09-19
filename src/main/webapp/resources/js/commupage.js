@@ -67,10 +67,23 @@ $(() => {
     data: { commuID: commuID },
     success: (c) => {
       $('.introTitle').text(c.commuName);
-      $('.introText').html(c.commuIntro);
+      $('.introText').html('커뮤니티 소개: ' + c.commuIntro);
       $('.mainImage').attr('src', `/resources/items/commu/commu_page/${c.commuID}.jpg`);
       $('.introCategory').text('⚡' + c.commuCategory);
-      $('.introLocation').text('🌎' + c.commuLocation);
+      $('.introLocation').text('🌎' + c.commuLocation);           
+    },
+    error: (jqXhr, status) => {
+      alert(`실패: ${status}\n오류명:${jqXhr.status}`);
+    },
+  });
+  
+   /* 커뮤 제약조건 로드*/
+  $.ajax({
+    url: `${backURL}/const`,
+    method: 'POST',
+    data: { commuID: commuID },
+    success: (c) => {
+ 	  $('.commu_const').append(`<p>커뮤니티 정원: ${c.memberCnt}/${c.capacity}`);
     },
     error: (jqXhr, status) => {
       alert(`실패: ${status}\n오류명:${jqXhr.status}`);

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hf.commu.service.CommuService;
+import com.hf.domain.CommuConst;
 import com.hf.domain.CommuInfo;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
@@ -82,4 +83,16 @@ public class CommuController {
 		service.lmake(g);
 		return "1";	
 	}
+	
+	
+	@PostMapping("/const")
+	public CommuConst getcommuConst(@RequestParam String commuID) {						
+		log.info("commu/const/commuID: " + commuID);
+	        
+		CommuConst cc = service.getConst(commuID);
+		log.info("cc: " + cc);
+		return cc;	
+	}
+	
+	
 }

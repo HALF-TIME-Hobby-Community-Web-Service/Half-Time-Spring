@@ -70,8 +70,8 @@
           <span class="introLocation"></span>
         </div>
         <img src="" alt="커뮤 메인 사진" class="mainImage" />
-        <p class="introText">
-        </p>
+        <p class="introText"></p>
+        <p class="commu_const"></p>
       </div>
       <div class="commu_box board board_container">
         <div class="boardBox_clone">

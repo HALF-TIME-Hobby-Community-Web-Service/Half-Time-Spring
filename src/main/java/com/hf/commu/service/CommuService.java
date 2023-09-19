@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hf.domain.CommuConst;
 import com.hf.domain.CommuInfo;
-import com.hf.domain.CommuList;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
 import com.hf.domain.Post;
@@ -66,6 +66,11 @@ public class CommuService {
 	public List<Post> getCommuPost(String commuID) {
 		log.info("service/getCommuPost");
 		return mapper.getCommuPost(commuID);
+	}
+	
+	public CommuConst getConst(String commuID) {
+		log.info("service/getCommuConst");
+		return mapper.getCommuConst(commuID);
 	}
 
 }
