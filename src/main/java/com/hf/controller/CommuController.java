@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hf.commu.service.CommuService;
+import com.hf.domain.CommuConst;
 import com.hf.domain.CommuInfo;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
@@ -31,8 +32,8 @@ public class CommuController {
 	
 
 	@PostMapping("/getmember")
-	public List<Commumember> getCommumemberList(String commuID) {
-		log.info("commu/getMember");
+	public List<Commumember> getCommumemberList(@RequestParam("commuID")String commuID) {
+		log.info("commu/getMember/commuID: " + commuID);
 		List<Commumember> cList = service.getCommumember(commuID);		
 		log.info(cList);
 		return cList;
@@ -48,6 +49,7 @@ public class CommuController {
 
 	@GetMapping("/getcommuinfo")
 	public CommuInfo getCommuInfo(@RequestParam("commuID") String commuID) {
+		log.info("|commuInfo| commuID: " + commuID);
 		CommuInfo commuInfo = service.getCommuInfo(commuID);
 		log.info("commuInfo: " + commuInfo);
 		return commuInfo;
@@ -81,4 +83,16 @@ public class CommuController {
 		service.lmake(g);
 		return "1";	
 	}
+	
+	
+	@PostMapping("/const")
+	public CommuConst getcommuConst(@RequestParam String commuID) {						
+		log.info("commu/const/commuID: " + commuID);
+	        
+		CommuConst cc = service.getConst(commuID);
+		log.info("cc: " + cc);
+		return cc;	
+	}
+	
+	
 }

@@ -1,8 +1,7 @@
 $(() => {
   const url = 'http://localhost:8888/commu';
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const commuID = urlParams.get('commuID');    
+
+  const commuID = sessionStorage.getItem('commuID');   
 
   $('.ljoinbtn').click(() => {
     $.ajax({

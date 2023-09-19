@@ -94,7 +94,7 @@
 
 <footer>
 아이디가 기억나지 않는다면? 
-<button class="login_findPW_findIDbtn" onclick="location.href='../html/login_findID.html'">아이디 찾기</button>
+<button class="login_findPW_findIDbtn" onclick="location.href='http://localhost:8888/user/findid'">아이디 찾기</button>
 </footer>
 
 

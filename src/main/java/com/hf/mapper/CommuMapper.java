@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.hf.domain.CommuConst;
 import com.hf.domain.CommuInfo;
 import com.hf.domain.CommuList;
 import com.hf.domain.Commumember;
@@ -24,4 +25,5 @@ public interface CommuMapper {
 	public void insertGathering(@Param("gObj")Gathering gObj, @Param("commuID")String commuID);
 	public List<Gathering> getGathering(String commuID);
 	public List<Commumember> getAllCommumember(String commuID);
+	public CommuConst getCommuConst(String commuID);
 }

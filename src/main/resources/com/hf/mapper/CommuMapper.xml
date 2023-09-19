@@ -76,6 +76,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    <result property="memberState" column="memberState" />
 	    <result property="gender" column="Gender" />
 	    <result property="birth" column="birth" />
-</resultMap>
+	</resultMap>
+	
+	<select id="getCommuConst" resultType="com.hf.domain.CommuConst">
+        <![CDATA[		
+		SELECT capacity, accepttype, agelimitmin, agelimitmax, gender, (select count(*) from commumember WHERE commuID = #{commuID})as memberCnt FROM commuconst WHERE commuid = #{commuID}
+        ]]>
+	</select>
 
 </mapper>

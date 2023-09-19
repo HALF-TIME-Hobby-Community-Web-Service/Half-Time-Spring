@@ -13,9 +13,9 @@ local.properties
 .settings/
 .loadpath
 .recommenders
-target
-.target
-target*
+target/
+.target/
+target*/
 .git
 
 # External tool builders

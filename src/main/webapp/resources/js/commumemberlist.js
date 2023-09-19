@@ -7,13 +7,10 @@ $(() => {
   const memberCS = $('td.cs');
   
   const backURL = 'http://localhost:8888/commu';
-
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const commuID = urlParams.get('commuID');  
-
-  commumemberList.click(() => {
   
+  const commuID = sessionStorage.getItem('commuID');
+  
+  commumemberList.click(() => {  
   	$(memberCA).html('');
     $(memberCN).html('');
     $(memberCI).html('');
@@ -23,7 +20,7 @@ $(() => {
     $(memberCN).append('<span class="font30px">닉네임</span><hr>');
     $(memberCI).append('<span class="font30px">성별</span><hr>');
     $(memberCS).append('<span class="font30px">나이</span><hr>');
-  
+    
     $.ajax({
       url: 'http://localhost:8888/commu/getmember',
       method: 'POST',
@@ -66,6 +63,8 @@ $(() => {
         alert(`실패: ${status}\n오류명:${jqXhr.statusCode}`);
       },
     });
+     
     return false;
   });
+  
 });
