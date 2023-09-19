@@ -102,7 +102,8 @@ public class UserController {
 	    
 	    @ResponseBody
 	    @PostMapping("/login")
-		public Map<String,Object> postLogin(@RequestParam("id") String id,@RequestParam("pwd") String pwd, HttpServletRequest request) {
+		public Map<String,Object> postLogin(@RequestParam("id") String id,@RequestParam("pwd") String pwd,
+				HttpServletRequest request) {
 
 			//HttpSession session = request.getSession();
 	    	Map<String,Object> result = new HashMap<String, Object>();
