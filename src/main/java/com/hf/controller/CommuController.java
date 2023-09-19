@@ -31,8 +31,8 @@ public class CommuController {
 	
 
 	@PostMapping("/getmember")
-	public List<Commumember> getCommumemberList(String commuID) {
-		log.info("commu/getMember");
+	public List<Commumember> getCommumemberList(@RequestParam("commuID")String commuID) {
+		log.info("commu/getMember/commuID: " + commuID);
 		List<Commumember> cList = service.getCommumember(commuID);		
 		log.info(cList);
 		return cList;
@@ -48,6 +48,7 @@ public class CommuController {
 
 	@GetMapping("/getcommuinfo")
 	public CommuInfo getCommuInfo(@RequestParam("commuID") String commuID) {
+		log.info("|commuInfo| commuID: " + commuID);
 		CommuInfo commuInfo = service.getCommuInfo(commuID);
 		log.info("commuInfo: " + commuInfo);
 		return commuInfo;

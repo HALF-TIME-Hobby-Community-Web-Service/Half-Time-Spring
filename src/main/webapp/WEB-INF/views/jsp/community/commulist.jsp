@@ -4,34 +4,26 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-
 <head>
   <meta charset="UTF-8" />
   <jsp:include page="../header.jsp"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- css -->
-  <link rel="stylesheet" href="/resources/css/navbar.css" />
   <link rel="stylesheet" href="/resources/css/commulist.css" />
 
   <!-- js-->
-  <script src="/resources/js/navbar.js"></script>
-  <script src="/resources/js/commulist.js"></script>
-
-  
+  <script src="/resources/js/commulist.js"></script>  
 </head>
-
-
 
 <body>
   <div id="modalWrap">
     <div id="modalBody">
-
-      <h3 class="modaltitle">책과 나는 한몸이다</h3>
-      <div class="modalaround">aaa</div>
-      <div class="modalaround2">#독서 | 서울</div>
+      <h3 class="modaltitle"></h3>
+      <div class="modalaround"></div>
+      <div class="modalaround2"></div>
       <hr class="moondan">
-      <img src=""  class="modalimg">
+	  <img src="/resources/items/commu/commu_page/1.jpg"  class="modalimg">
       <div class="modalintro">
         <p class="modalintro2">독서를 좋아하는 사람들의 모임</p>
         <!-- <p class="commumember">정원 3/40</p> -->
@@ -48,18 +40,19 @@
     <div class="filteringBox">
       <span class="filtering">최신순</span>
       <span class="filtering">인기순</span>
-      <span class="filtering">추천순</span>
+	  <span class="filtering">추천순</span>
+      <span class="filtering">지역별</span>
       <span class="filtering">내 커뮤니티</span>
     </div>
     <div class="list community" id="community">
       <div class="commuBox_clone">
         <p class="commuName">책과 나는 한몸이다 </p>
-        
-        <div class="introduce">
-        </div>
+        <hr style="width: 90%; margin-left: 5%;" >
+        <img src="/resources/items/commu/commu_page/1.jpg"  class="img">
+        <!-- <div class="introduce">
+        </div> -->
       </div>
     </div>
-
   </div>
 </body>
 </html>

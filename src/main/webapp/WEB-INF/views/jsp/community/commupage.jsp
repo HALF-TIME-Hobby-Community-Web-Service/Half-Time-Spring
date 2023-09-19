@@ -46,15 +46,6 @@
           모임참가
         </button>
       </div>
-      <div class="calendarBox">
-        <img src="/resources/items/calendar.png" width="100%" />
-      </div>
-<!--       <div class="lightningSummary" style="font-size: larger;">
-        <p class="summaryTitle">[보미팬사인회]</p>
-        <p class="summaryText">07.27 오후7:48</p>
-        <p class="summaryText">강남구 양재천</p>
-        <p class="summaryText">준비물: 방망이, 채찍, 츄르</p>
-      </div> -->
       <div class="memberList">
         <div class="memberTitle" style="font-size: 22px; text-align: center">🤸‍♂️멤버🙋‍♀️</div>
       </div>

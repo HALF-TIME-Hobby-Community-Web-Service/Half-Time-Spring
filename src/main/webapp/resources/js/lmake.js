@@ -1,8 +1,6 @@
 $(() => {
 
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const commuID = urlParams.get('commuID');    
+  const commuID = sessionStorage.getItem('commuID');
 
   /* 일정 */
   var currentDate = new Date();
@@ -61,7 +59,8 @@ $(() => {
       currentValue++;
     } else if ($(this).hasClass('lmake_cap_minus')) {
       currentValue--;
-      if (currentValue < 0) currentValue = 0;
+      if (currentValue < 0) 
+      currentValue = 0;
     }
 
     inputField.val(currentValue.toString().padStart(2, '0') + '명');
