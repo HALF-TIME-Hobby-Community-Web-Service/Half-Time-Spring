@@ -1,12 +1,14 @@
 $(() => {
-  const url = 'http://localhost:8888/hf';
-  /* */
+  const url = 'http://localhost:8888/commu';
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const commuID = urlParams.get('commuID');    
 
   $('.ljoinbtn').click(() => {
     $.ajax({
       url: `${url}/lget`,
       method: 'POST',
-      //data:
+      data: {commuID : commuID},
       success: (data) => {
         data.forEach((element) => {
           appendGathering(element);

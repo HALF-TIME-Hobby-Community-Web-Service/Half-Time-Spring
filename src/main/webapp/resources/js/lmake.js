@@ -1,4 +1,9 @@
 $(() => {
+
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const commuID = urlParams.get('commuID');    
+
   /* 일정 */
   var currentDate = new Date();
   var year = currentDate.getFullYear();
@@ -12,25 +17,27 @@ $(() => {
 
   $('.startTime').attr('min', formattedDate);
   $('.startTime').val(formattedDate);
-  $('.finishTime').attr('min', formattedDate);
-  $('.finishTime').val(formattedDate);  
+  $('.endTime').attr('min', formattedDate);
+  $('.endTime').val(formattedDate);  
 
-  $('#finishTime').change(function () {
+  $('#endTime').change(function () {
     if ($(this).prop('checked')) {
-      $('.finishTime').css('visibility', 'visible');
+      $('.endTime').css('visibility', 'visible');
     } else {
-      $('.finishTime').css('visibility', 'hidden');
+      $('.endTime').css('visibility', 'hidden');
     }
   });
 
   /* 폼 전송 */
   $('.lmake_container form').submit(() => {
-    const formData = $('.lmake_container form').serialize();    
-    if ($('.startTime').val() > $('.finishTime').val()) {
+    var formData = $('.lmake_container form').serialize();    
+    formData += `&commuID=${commuID}`;
+    
+    if ($('.startTime').val() > $('.endTime').val()) {
       alert('끝나는 시간이 시작시간보다 빠릅니다~~@!@@#@# ^^');
     } else {
       $.ajax({
-        url: 'http://localhost:8888/hf/lmake',
+        url: 'http://localhost:8888/commu/lmake',
         method: 'POST',
         data: formData,
         success: () => {

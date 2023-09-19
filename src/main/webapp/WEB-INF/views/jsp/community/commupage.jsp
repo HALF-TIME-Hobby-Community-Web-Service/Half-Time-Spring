@@ -158,11 +158,11 @@
           <span>일정:</span>
           <input name="startTime" class="startTime form-control" type="datetime-local" max="2023-12-240T21:00" min=""
             value="" style="height: 30px;">
-          <input name="finishTime" class="finishTime form-control" type="datetime-local" max="2023-12-24T21:00" min=""
+          <input name="endTime" class="endTime form-control" type="datetime-local" max="2023-12-24T21:00" min=""
             value="">
           <fieldset class="lmake_checkbox">
             <input name="check" id="endTime" type="checkbox" checked>
-            <label for="finishTime">끝나는 시간</label>
+            <label for="endTime">끝나는 시간</label>
           </fieldset>
         </div>
 

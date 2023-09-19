@@ -31,7 +31,6 @@ public class CommuService {
 	}
 	
 
-
 //	@Override
 //	@Autowired
 //	public List<Post> getCommuPost(String commuID, SqlSessionTemplate sqlSession) {
