@@ -22,6 +22,7 @@
   <link rel="stylesheet" href="/resources/css/floatingBtn.css" />
   <link rel="stylesheet" href="/resources/css/lmake.css">
   <link rel="stylesheet" href="/resources/css/ljoin.css">
+  <link rel="stylesheet" href="/resources/css/modal.css">
   <link rel="stylesheet" href="/resources/css/modalmemberlist.css" />
 
   <!-- js-->
@@ -30,6 +31,7 @@
   <script src="/resources/js/lmake.js"></script>
   <script src="/resources/js/commumemberlist.js"></script>
   <script src="/resources/js/ljoin.js"></script>
+  <script src="/resources/js/commu_board_make.js"></script>
   
 </head>
 
@@ -45,6 +47,9 @@
         <button class="btn btn-danger lightningBtn ljoinbtn">
           모임참가
         </button>
+        <button class="btn btn-danger lightningBtn boardBtn">
+          게시물작성(임시)
+        </button>
       </div>
       <div class="memberList">
         <div class="memberTitle" style="font-size: 22px; text-align: center">🤸‍♂️멤버🙋‍♀️</div>
@@ -52,26 +57,23 @@
     </div>
  	<div class="tabbox">
       <div class="tab active" data-tab="intro">커뮤니티 소개</div>
-      <div class="tab commu_tab_board" data-tab="board">
-        게시판
-        <!-- <ul class="commu_list_group">
-          <li class="commu_list-item">모두 보기</li>
-          <li class="commu_list-item">공지사항</li>
-          <li class="commu_list-item">커뮤니티 게시글</li>
-        </ul> -->
-      </div>
+      <div class="tab commu_tab_board" data-tab="board">게시판</div>
+      <div class="tab" data-tab="schedule">모임 일정</div>
       <div class="tab" data-tab="history">히스토리</div>
     </div>
     <div class="commu_container">
       <div class="commu_box intro active">
         <div class="introTitleBox">
-          <span class="introTitle"></span> |&nbsp;
-          <span class="introCategory"></span> |&nbsp;
+          <span class="introTitle"></span> &nbsp;|&nbsp;
+          <span class="introCategory"></span> &nbsp;|&nbsp;
           <span class="introLocation"></span>
         </div>
         <img src="" alt="커뮤 메인 사진" class="mainImage" />
-        <p class="introText"></p>
-        <p class="commu_const"></p>
+        <p class="introBox introText"></p>
+        <p class="introBox commu_const"></p>
+        <p class="introBox commu_member">
+        	멤버: 
+        </p>
       </div>
       <div class="commu_box board board_container">
         <div class="boardBox_clone">
@@ -108,6 +110,9 @@
           </div>
         </div>
       </div>
+	  <div class="commu_box schedule">
+	  	<p>안뇽 </p>
+	  </div>
       <div class="commu_box history">
         <div class="history_text">
           HISTORY
@@ -118,19 +123,9 @@
           </div>
         </div>
       </div>
+
     </div>
   </section>
-<!--   <div>
-    <div class="fab">
-      <img src="/resources/items/floatitem/close.png" alt="">
-    </div>
-    <div class="float-box" style="height: 100;">
-      <a href="" class="float-item float-item1"><img src="/resources/items/floatitem/write.png" alt=""></a>
-      <a href="" class="float-item float-item2"><img src="/resources/items/floatitem/alert.png" alt=""></a>
-      <a href="" class="float-item float-item3"><img src="/resources/items/floatitem/mypage.png" alt=""></a>
-      <a href="" class="float-item float-item4"><img src="/resources/items/floatitem/setting.png" alt=""></a>
-    </div>
-  </div> -->
 
   <!-- 모달 창 -->
   <!-- 번개 신청 -->
@@ -192,6 +187,7 @@
       </form>
     </div>
   </div>
+  
   <!-- 번개 참가 -->
   <div class="ljoin_content">
     <div class="ljoin_title"> ⚡모임 참가 <span class="ljoin_closebtn">&times;</span></div>
@@ -214,45 +210,9 @@
           </div>
         </div>
       </div>
-      <!-- <div class="ljoin_box">
-        <div class="ljoin_box_title">
-          <span class="ljoin_box_date">08/01 (화)</span>
-          <span class="ljoin_box_dday">D-32</span>
-        </div>
-        <div class="ljoin_box_container">
-          <p>⚡ 어깨박살 동호회 번개⚡</p>
-          <div>일시: 08/01(화) 오전 9:00</div>
-          <div>위치: 서울시 송파구 문정동</div>
-          <div>내용: 어깨 재활하실 분들 구해요~~~ 탈골환자도 환영 *^^*</div>
-          <div>금액: 300만원</div>
-          <div>
-            정원:
-            <span style="color:red">4</span>/5
-            <button class="btn btn-primary ljoin_joinbtn">참가하기</button>
-          </div>
-        </div>
-      </div>
-      <div class="ljoin_box">
-        <div class="ljoin_box_title">
-          <span class="ljoin_box_date">08/03 (목)</span>
-          <span class="ljoin_box_dday">D-34</span>
-        </div>
-        <div class="ljoin_box_container">
-          <p>도태 오메가메일 메이플 정모 😜</p>
-          <div>일시: 08/03(목) 오후 10:00</div>
-          <div>위치: 커닝시티 20세 채널</div>
-          <div>내용: 인기도 테러 하고 다니실 메푸리 유저 구해요 @@@@@@@@@@@@@</div>
-
-          <div>금액: 10억메소</div>
-          <div>
-            정원:
-            <span style="color:red">2</span>/n
-            <button class="btn btn-primary ljoin_joinbtn">참가하기</button>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
+  
   <!-- 멤버 목록-->
   <div class="member_modalWrap">
     <div class="member_modalBody">
@@ -272,6 +232,49 @@
       </div>
     </div>
   </div>
+  
+  <!-- 게시물 추가 -->
+  <div class="modal_content bmake_content">
+    <div class="modal_title bmake_title"> 게시글 작성<span class="modal_closebtn bmake_closebtn">&times;</span></div>
+    
+    <div class="modal_container b_container">
+      <form method="post" action="">      
+              
+        <div class="form-floating mb-3">
+	        <span>게시글 카테고리: </span>
+	        <select name="languages" id="lang">
+			    <option value="i">공지사항</option>
+			    <option value="b">자유 글</option>
+			    <option value="h">히스토리 미스테리</option>
+			</select>
+		</div>
+      
+        <div class="form-floating mb-3">
+          <fieldset>
+            <input name="title" class="form-control bmake_name"  placeholder="제목(40자)"/>
+          </fieldset>
+        </div>
+
+        <div class="form-floating mb-3">
+          <textarea name="text" class="form-control modal_textarea bmake_text" placeholder="게시글 내용" style="width: 100%; height: 200px"></textarea>
+        </div>
+
+        <div class="modal_button_container bmake_button_container" style="border-top: 1px solid;">
+          <button class="btn btn-primary">완료</button>
+        </div>
+        
+        
+        
+      </form>
+    </div>
+  </div>
+  
+    <script>
+    $('.bmake_closebtn').click(()=> {    	
+        $('.bmake_content').css('display', 'none');
+    })
+    </script>	
+  
 </body>
 
 </html>

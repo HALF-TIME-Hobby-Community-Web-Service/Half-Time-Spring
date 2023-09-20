@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 모달 전체*/
+.modal_content {
+  display: none;
+  position: fixed;
+
+  overflow-y: auto;
+  width: 850px;
+
+  top: 5%;
+  left: 27.5%;
+
+  margin-top: 10px;
+  margin-left: 10px;
+
+  background: white;
+  border: 5px solid;
+}
+
+.modal_title {
+  display: block;
+
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  border-bottom: 0.5px solid rgb(0, 0, 0, 0.3);
+
+  font-size: 40px;
+}
+
+/* 닫기 버튼 */
+.modal_closebtn {
+  float: right;
+  font-size: 30px;
+}
+
+/* 번개신청 입력 창*/
+.modal_container {
+  height: 80%;
+
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 20px;
+
+  background: #fffae5;
+
+  margin: 30px;
+
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+/* 제목: 이름, 일정, 위치, 내용 ... */
+.modal_container span {
+  font-size: 20px;
+  text-align: center;
+}
+
+/* 전체 input 태그 */
+.modal_container input {
+  display: inline-block;
+}
+
+.modal_textarea{
+  height: 200px;	
+}
+
+/* 모달 버튼*/
+.modal_button_container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal_button_container > button {
+  margin: 30px;
+}
+
