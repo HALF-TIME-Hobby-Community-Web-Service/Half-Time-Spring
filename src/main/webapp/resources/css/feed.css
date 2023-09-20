@@ -15,7 +15,7 @@ body {
 
 div#side_nav {
     float: left;
-    margin-right: 20px;
+    
     /* 네비게이션과 박스 사이의 간격을 추가합니다 */
 }
 
@@ -32,9 +32,13 @@ div#side_nav {
 
 .feed_content {
     float: left;
-    width: 80%;
+    width: 88%;
     overflow-y: scroll;
     height: 915px;
+}
+
+.feed_container_append:first-child {
+	margin-top: 10px;
 }
 
 /* 스타일링을 위한 CSS 코드 */
