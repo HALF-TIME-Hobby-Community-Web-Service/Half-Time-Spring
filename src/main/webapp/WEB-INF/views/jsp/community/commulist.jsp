@@ -1,12 +1,8 @@
-<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <head>
   <meta charset="UTF-8" />
-  <jsp:include page="../header.jsp"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- css -->
@@ -16,7 +12,6 @@
   <script src="/resources/js/commulist.js"></script>  
 </head>
 
-<body>
   <div id="modalWrap">
     <div id="modalBody">
       <h3 class="modaltitle"></h3>
@@ -54,5 +49,3 @@
       </div>
     </div>
   </div>
-</body>
-</html>

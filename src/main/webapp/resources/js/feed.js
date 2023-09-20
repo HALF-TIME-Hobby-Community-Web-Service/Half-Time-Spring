@@ -1,6 +1,7 @@
 $(document).ready(() => {
 var pageNum = 1;
 var isLoading = false;
+
     const options = {
         root: null,
         rootMargin: '0px',
@@ -111,11 +112,9 @@ var isLoading = false;
     });
     }
 
-    
-
-   $('.feed_content').scroll(() => {
-    const lastFeedContent = $('.feed_content').last()[0]; // jQuery 객체를 DOM 요소로 변환
-    const observer = new IntersectionObserver(loadMoreContent, options);
-    observer.observe(lastFeedContent);
-});
+    $('.feed_content').scroll(() => {
+      const lastFeedContent = $('.feed_content').last()[0]; // jQuery 객체를 DOM 요소로 변환
+      const observer = new IntersectionObserver(loadMoreContent, options);
+      observer.observe(lastFeedContent);
+	});
 });
