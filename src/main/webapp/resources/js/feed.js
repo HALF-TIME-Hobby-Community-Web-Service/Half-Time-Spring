@@ -117,8 +117,6 @@ var isLoading = false;
     });
     }
 
-<<<<<<< HEAD
-    
  $('.feed_content').scroll(() => {
         const lastFeedContainer = $('.feed_container_append').last()[0];
         const observer = new IntersectionObserver((entries) => {
@@ -137,11 +135,4 @@ var isLoading = false;
     }, options);
     initialObserver.observe($('.feed_content').last()[0]);
 });
-=======
-    $('.feed_content').scroll(() => {
-      const lastFeedContent = $('.feed_content').last()[0]; // jQuery 객체를 DOM 요소로 변환
-      const observer = new IntersectionObserver(loadMoreContent, options);
-      observer.observe(lastFeedContent);
-	});
-});
->>>>>>> ab633956fe5de2cd09fb991f3d5f1d7a174c05e4
+
