@@ -1,5 +1,6 @@
 package com.hf.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -38,7 +39,8 @@ public class MomentController {
 	  @ResponseBody
 	  @PostMapping("/feed")
 	    public List<MomentWithContent> feed(Model model,@RequestParam("pageNum") int pageNum) {
-		  List<MomentWithContent> list = momentService.getMomentsWithContent(pageNum);
+		  List<MomentWithContent> list = new ArrayList<MomentWithContent>();
+		  list = momentService.getMomentsWithContent(pageNum);
 		  log.info(list);
 	        return  list;
 	    }
@@ -46,6 +48,13 @@ public class MomentController {
 	    @GetMapping("moment/write")
 	    public MomentWithContent writeMoment() {
 	    	return new MomentWithContent();
+	    }
+	    
+	    @PostMapping("/modal")
+	    public List<MomentWithContent> modal(Model model, @RequestParam("momentid") int momentId){
+	    	List<MomentWithContent> list = new ArrayList<MomentWithContent>();
+	    	list = momentService.getModalWithContent(momentId);
+	    	return list;
 	    }
 	
 }

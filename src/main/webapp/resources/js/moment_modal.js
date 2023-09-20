@@ -20,31 +20,32 @@ $(() => {
 
     })
     
-    
-
     $('.feed_container_append').click((e) => {
         $.ajax({
-        	
-        })
+        	url: 'http://localhost:8888/moment/feed',
+        	method: 'POST',
+       	 	data: {pageNum : pageNum},
+        	dataType: "json",
+        	success: function (data) {
+			console.log("pagNum : "+pageNum);
+			console.log(data);
+            const container = $('.feed_content');
+ 					if (data.length === 0) {
+                    	console.log("No more data to load.");
+                    	pageNum=0;
+                	}
+        	})
+
+    $('.feed_container_append').click((e) => {
         $(e.target).append(
             +'<head>'
-            + '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>'
-            + '<link rel="preconnect" href="https://fonts.googleapis.com">'
-            + '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-            + '<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">'
-            + '<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"'
-            + 'integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">'
-            + '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"'
-            + 'integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"'
-            + 'crossorigin="anonymous"></script>'
             + '<link rel="stylesheet" href="../CSS/feed_modal.css">'
             + '<link rel="stylesheet" href="../CSS/feed.css">'
-            + '</head>'
             + '<div class="feed_modal_content">'
             + '<div class="feed_modal_container">'
             + '<div class="feed_modal_box">'
             + '<div class="feed_modal_title">'
-            + '<div class="feed_modal_title_name">✍🏻 정겨운</div>'
+            + '<div class="feed_modal_title_name">✍'+  + '</div>'
             + '<div class="feed_modal_title_date">23.08.02</div>'
             + '<div class="feed_modal_title_time">14:26 </div>'
             + '<div class="feed_modal_title_category">⚽️풋살</div>'

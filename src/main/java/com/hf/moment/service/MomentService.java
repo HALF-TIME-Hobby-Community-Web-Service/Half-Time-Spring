@@ -22,12 +22,17 @@ public class MomentService {
 	private MomentMapper momentMapper;
 
     public List<MomentWithContent> getMomentsWithContent(int pageNum) {
-    	List<MomentWithContent> maplist = new ArrayList();
-        maplist = momentMapper.selectMomentsWithContent(pageNum);
-        return maplist;
+    	List<MomentWithContent> list = new ArrayList();
+        list = momentMapper.selectMomentsWithContent(pageNum);
+        return list;
     }
     public int countMomentsWithContent() {
         return momentMapper.countMomentsWithContent();
+    }
+    public List<MomentWithContent> getModalWithContent(int momentid){
+    	List<MomentWithContent> list = new ArrayList();
+    	list = momentMapper.selectModalWithContent(momentid);
+    	return list;
     }
 }
 

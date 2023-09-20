@@ -5,7 +5,7 @@ var isLoading = false;
     const options = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5
+        threshold: 0.1
     };
     
     
@@ -37,7 +37,7 @@ var isLoading = false;
 
                 const newItem = $('<div class="feed_container_append">');
                 newItem.append('<div class="feedbox">'
-                    + '<div class="feed_title">'
+                    + '<div class="feed_title" id="'+ item.momentid +'">'
                     + '<div class="feed_title_name">' + item.writer + '</div>'
                     + '<div class="feed_title_date">' + "" + '</div>'
                     + '<div class="feed_title_time">' + " "
