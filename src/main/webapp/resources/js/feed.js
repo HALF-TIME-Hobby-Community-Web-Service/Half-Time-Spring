@@ -6,7 +6,7 @@ var isLoading = false;
         rootMargin: '0px',
         threshold: 0.5
     };
-    loadMoreContent();
+    
     
     const observer = new IntersectionObserver((entries) => {
         loadMoreContent();
@@ -25,9 +25,13 @@ var isLoading = false;
         data: {pageNum : pageNum},
         dataType: "json",
         success: function (data) {
+		console.log("pagNum : "+pageNum);
 		console.log(data);
             const container = $('.feed_content');
-
+ 				if (data.length === 0) {
+                    console.log("No more data to load.");
+                    pageNum=0;
+                }
             $.each(data, function (data, item) {
 
                 const newItem = $('<div class="feed_container_append">');
@@ -99,8 +103,9 @@ var isLoading = false;
                     + '</div>'
                 );
                 container.append(newItem);
-				pageNum++;
+				
             });
+            pageNum++;
             isLoading = false;
         },
         error: function (jqXhr, status) {
@@ -112,10 +117,21 @@ var isLoading = false;
     }
 
     
+ $('.feed_content').scroll(() => {
+        const lastFeedContainer = $('.feed_container_append').last()[0];
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                loadMoreContent();
+            }
+        }, options);
+        observer.observe(lastFeedContainer);
+    });
 
-   $('.feed_content').scroll(() => {
-    const lastFeedContent = $('.feed_content').last()[0]; // jQuery 객체를 DOM 요소로 변환
-    const observer = new IntersectionObserver(loadMoreContent, options);
-    observer.observe(lastFeedContent);
-});
+    // 초기 페이지 로드 시 IntersectionObserver를 활성화하기 위한 코드
+    const initialObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            loadMoreContent();
+        }
+    }, options);
+    initialObserver.observe($('.feed_content').last()[0]);
 });
