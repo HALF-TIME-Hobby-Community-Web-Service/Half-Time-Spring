@@ -61,7 +61,7 @@
 </div>
 
 
-<div class="feed_content">
+<div class="feed_content" id="content">
 
 </div>
 

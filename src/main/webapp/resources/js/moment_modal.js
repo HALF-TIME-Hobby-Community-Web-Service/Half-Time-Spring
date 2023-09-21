@@ -5,28 +5,28 @@ $(() => {
     const memberListClick = $('.memberList');
     const momentmodal = $('');
     const container = $('.feed_container_append');
-
+	var state = true;
     $(document).on("click", ".feed_container_append", function (e) { // 여기서 변경되었습니다.
 
         console.log("feed_container_append Clicked");
         var momentid = parseInt(e.target.id);
-        alert(typeof momentid);
+        
         $.ajax({
             url: 'http://localhost:8888/moment/modal',
             method: 'POST',
             data: { momentID: momentid }, // 여기서도 수정되었습니다.
             dataType: "json",
             success: function (data) {
-                console.log(data);
-                var newItem = $('<div class="feed_container_append" id=' + data.momentID + '>');
-                newItem.append('<head>' +
-                    '<link rel="stylesheet" href="/resources/css/feed_modal.css">' +
-                    '<link rel="stylesheet" href="/resources/CSS/feed.css">' +
+                if(!state){
+                	return;
+                }
+                var newItem = $('body');
+                newItem.append(
                     '<div class="feed_modal_content">' +
                     '<div class="feed_modal_container">' +
                     '<div class="feed_modal_box">' +
                     '<div class="feed_modal_title">' +
-                    '<div class="feed_modal_title_name">✍' + data.writer + '</div>' +
+                    `<div class="feed_modal_title_name">✍${data.writer}</div>` +
                     '<div class="feed_modal_title_date">' + data.date + '</div>' +
                     '<div class="feed_modal_title_time">' + data.time + '</div>' +
                     '<div class="feed_modal_title_category">' + data.category + '</div>' +
@@ -101,6 +101,8 @@ $(() => {
                     '</div>' +
                     '</div>' +
                     '</div>')
+                    console.log(newItem);
+                    state = false;
             }
         });
     });
