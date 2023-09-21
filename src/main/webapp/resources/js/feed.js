@@ -1,4 +1,5 @@
 $(document).ready(() => {
+$('.feed_content').html('');
 var pageNum = 1;
 var isLoading = false;
 

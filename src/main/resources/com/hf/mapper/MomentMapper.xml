@@ -61,7 +61,7 @@ JOIN
     CONTENTSRC C ON M.MOMENTID = C.REFERENCEID
 WHERE
     C.CONTENTTYPE = 1
-    AND M.MOMENTID = #{momentid};
+    AND M.MOMENTID = #{momentid}
 
     ]]>
 </select>

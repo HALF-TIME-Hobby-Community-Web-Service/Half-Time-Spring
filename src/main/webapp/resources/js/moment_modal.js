@@ -7,18 +7,19 @@ $(() => {
     const container = $('.feed_container_append');
 
     $(document).on("click", ".feed_container_append", function (e) { // 여기서 변경되었습니다.
-        alert("dawdioh");
+
         console.log("feed_container_append Clicked");
-        var momentid = $(e.target.id);
+        var momentid = parseInt(e.target.id);
+        alert(typeof momentid);
         $.ajax({
             url: 'http://localhost:8888/moment/modal',
             method: 'POST',
-            data: { momentid: momentid }, // 여기서도 수정되었습니다.
+            data: { momentID: momentid }, // 여기서도 수정되었습니다.
             dataType: "json",
             success: function (data) {
                 console.log(data);
-                var newItem = $('<div class="feed_container_append" id='+ data.momentID+'>');
-				newItem.append('<head>' +
+                var newItem = $('<div class="feed_container_append" id=' + data.momentID + '>');
+                newItem.append('<head>' +
                     '<link rel="stylesheet" href="/resources/css/feed_modal.css">' +
                     '<link rel="stylesheet" href="/resources/CSS/feed.css">' +
                     '<div class="feed_modal_content">' +

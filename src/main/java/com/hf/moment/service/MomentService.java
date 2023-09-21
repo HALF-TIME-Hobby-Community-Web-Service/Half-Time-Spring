@@ -30,9 +30,9 @@ public class MomentService {
     public int countMomentsWithContent() {
         return momentMapper.countMomentsWithContent();
     }
-    public List<MomentWithContent> getModalWithContent(int momentid){
+    public List<MomentWithContent> getModalWithContent(int momentID){
     	List<MomentWithContent> list = new ArrayList();
-    	list = momentMapper.selectModalWithContent(momentid);
+    	list = momentMapper.selectModalWithContent(momentID);
     	return list;
     }
 }

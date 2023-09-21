@@ -23,11 +23,9 @@ public class HomeController {
 	@Setter(onMethod_ = @Autowired)
 	private MomentService momentService;
 
-	@GetMapping("/list")
-	public String list(Model model) {
-		model.addAttribute("list", momentService.getMomentsWithContent(pageNum));
-		pageNum++;
-		return "./jsp/moment/feed";
+	@GetMapping("/hf")
+	public String home() {
+		return "./jsp/home";
 	}
 
 

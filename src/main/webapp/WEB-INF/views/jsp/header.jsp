@@ -24,7 +24,6 @@
     <script src="/resources/js/write.js"></script>
     <script src="/resources/js/moment_post.js"></script>
     <script src="/resources/js/mypage.js"></script>
-    <script src="/resources/js/moment_modal.js"></script>
     
 
 </head>
