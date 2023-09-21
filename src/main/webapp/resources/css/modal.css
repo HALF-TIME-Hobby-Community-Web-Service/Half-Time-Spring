@@ -19,7 +19,7 @@
   margin-left: 10px;
 
   background: white;
-  border: 5px solid;
+  border: 2px solid;
 }
 
 .modal_title {
@@ -41,7 +41,7 @@
   font-size: 30px;
 }
 
-/* 번개신청 입력 창*/
+/* 입력 창*/
 .modal_container {
   height: 80%;
 

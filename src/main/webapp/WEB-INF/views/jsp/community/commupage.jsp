@@ -136,7 +136,7 @@
         <div class="form-floating mb-3">
           <fieldset>
             <span>이름:</span>
-            <input name="title" class="form-control lmake_name" placeholder="2030 롯데리아좋아하는사람들 정기모임~~!~!!@@" />
+            <input name="title" wrap="hard" cols="40" class="form-control lmake_name" />
           </fieldset>
         </div>
 
@@ -154,13 +154,13 @@
 
         <div class="form-floating mb-3">
           <span>위치:</span>
-          <input class="form-control location" name="location" value="맥도날드 뱅뱅사거리점" />
+          <input class="form-control location" name="location" />
           <!-- <input class="form-control location" name="location_map" value="서울시-강남구-도곡동" /> -->
         </div>
 
         <div class="form-floating mb-3">
           <span>내용:</span>
-          <textarea name="text" class="lmake_text" placeholder="롯데리아 종이배 모자쓰고 맥도날드앞에서 시위해요~~~ ^>^"></textarea>
+          <textarea name="text" class="lmake_text"></textarea>
         </div>
 
         <div class="form-floating mb-3 lmake_detailbox">
@@ -241,11 +241,11 @@
       <form method="post" action="">      
               
         <div class="form-floating mb-3">
-	        <span>게시글 카테고리: </span>
-	        <select name="languages" id="lang">
-			    <option value="i">공지사항</option>
-			    <option value="b">자유 글</option>
-			    <option value="h">히스토리 미스테리</option>
+	        <select name="" class="form-select">
+		        <option value="category">카테고리</option>
+			    <option value="info">공지사항</option>
+			    <option value="board">자유 글</option>
+			    <option value="history">히스토리 미스테리</option>
 			</select>
 		</div>
       
@@ -256,15 +256,17 @@
         </div>
 
         <div class="form-floating mb-3">
-          <textarea name="text" class="form-control modal_textarea bmake_text" placeholder="게시글 내용" style="width: 100%; height: 200px"></textarea>
+          <textarea name="text" class="form-control modal_textarea bmake_text" placeholder="게시글 내용" style="width: 100%; height: 200px" cols="40" wrap="hard"></textarea>
         </div>
+        
+		<div class="form-floating " style="border-top: 1px solid;">
+          
+        </div>        
 
         <div class="modal_button_container bmake_button_container" style="border-top: 1px solid;">
           <button class="btn btn-primary">완료</button>
         </div>
-        
-        
-        
+                
       </form>
     </div>
   </div>

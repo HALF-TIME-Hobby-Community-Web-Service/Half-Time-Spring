@@ -1,0 +1,14 @@
+
+.mmake_img_box {
+	display: flex;
+	justify-content: center; 
+}
+
+.bmake_title{
+	text-align: center;
+}
+
+.m_img {
+	width: 100px;
+	height: 100px;
+}

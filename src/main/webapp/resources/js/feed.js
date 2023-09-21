@@ -7,16 +7,15 @@ var isLoading = false;
         rootMargin: '0px',
         threshold: 0.5
     };
-    
-    
+        
     const observer = new IntersectionObserver((entries) => {
         loadMoreContent();
     }, options);
 	
     
     function loadMoreContent() {
-    if(isLoading){
-    	return;
+	    if(isLoading){
+	    	return;
     }
     
     isLoading = true;

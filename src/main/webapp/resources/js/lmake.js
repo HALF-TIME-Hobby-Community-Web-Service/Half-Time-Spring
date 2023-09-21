@@ -26,11 +26,19 @@ $(() => {
     }
   });
 
+
+
   /* 폼 전송 */
   $('.lmake_container form').submit(() => {
+    $('.lmake_text').html(function(index, oldHtml) {
+    	return oldHtml.replace(/(?:\r\n|\r|\n)/g, '<br/>');
+    });
+    
+    alert($('.lmake_text').html());    
+    
     var formData = $('.lmake_container form').serialize();    
     formData += `&commuID=${commuID}`;
-    
+        
     if ($('.startTime').val() > $('.endTime').val()) {
       alert('끝나는 시간이 시작시간보다 빠릅니다~~@!@@#@# ^^');
     } else {
