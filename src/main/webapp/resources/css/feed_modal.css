@@ -17,7 +17,9 @@ div.feed_modalWrap {
     /* Black w/ opacity */
     display: block;
 }
-
+.feed_modal_content{
+	right:80%
+}
 .feed_modalBody {
     width: 700px;
     height: 1000px;
@@ -90,14 +92,14 @@ div.feed_modalWrap {
     font-size: medium
 }
 
-/*좋아요, 댓글 아이콘*/
+/*醫뗭븘�슂, �뙎湲� �븘�씠肄�*/
 .feed_comment_top {
     border-top: 2px solid;
     border-color: #b8b59b;
     margin-bottom: 10px;
 }
 
-/*더보기 아이콘*/
+/*�뜑蹂닿린 �븘�씠肄�*/
 .feed_comment_top_add {
     float: right;
 }

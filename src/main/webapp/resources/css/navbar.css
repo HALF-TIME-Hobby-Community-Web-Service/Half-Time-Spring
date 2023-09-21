@@ -41,6 +41,9 @@
   width: 100%;
   margin-left: 20%;
 }
+body {
+  -ms-overflow-style: none;
+}
 
 body {
   -ms-overflow-style: none;
@@ -50,9 +53,15 @@ body {
   display: none;
 }
 
+.feed_content {
+    float: left;
+    width: 88%;
+    overflow-y: scroll;
+    height: 88.25vh;
+}
 #side_nav {
   width: 12%;
-  height: 91vh;
+  height: 88.25vh;
   background-color: #f6f4eb;
   display: inline-block;
   float: left;
@@ -63,7 +72,7 @@ body {
 }
 
 header {
-  height: 25%;
+  height: 9vh;
 }
 
 #side_nav ul {

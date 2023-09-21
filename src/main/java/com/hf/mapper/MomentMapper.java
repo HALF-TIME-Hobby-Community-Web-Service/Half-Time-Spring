@@ -14,6 +14,8 @@ public interface MomentMapper {
 	
 	List<MomentWithContent> selectMomentsWithContent(int pageNum);
     int countMomentsWithContent();
+    
+    List<MomentWithContent> selectModalWithContent(int momentid);
 }
 
  

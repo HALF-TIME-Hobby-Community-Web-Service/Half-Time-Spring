@@ -34,5 +34,36 @@ WHERE RN >= ((#{pageNum} - 1) * 10 + 1) AND RN <= (#{pageNum} * 10)
     WHERE C.CONTENTTYPE = 1
 </select>
 
+<select id="selectModalWithContent" resultType="com.hf.domain.MomentWithContent">
+    <![CDATA[
+  SELECT
+    M.MOMENTID,
+    M.WRITER,
+    M.CATEGORY,
+    M.LOCATION,
+    M.TEXT,
+    M.POSTTIME,
+    C.CONTENTID,
+    C.REFERENCEID,
+    C.CONTENTPATH1,
+    C.CONTENTPATH2,
+    C.CONTENTPATH3,
+    C.CONTENTPATH4,
+    C.CONTENTPATH5,
+    C.CONTENTPATH6,
+    C.CONTENTPATH7,
+    C.CONTENTPATH8,
+    C.CONTENTPATH9,
+    C.CONTENTPATH10
+FROM
+    MOMENT M
+JOIN
+    CONTENTSRC C ON M.MOMENTID = C.REFERENCEID
+WHERE
+    C.CONTENTTYPE = 1
+    AND M.MOMENTID = #{momentid}
+
+    ]]>
+</select>
 
 </mapper>

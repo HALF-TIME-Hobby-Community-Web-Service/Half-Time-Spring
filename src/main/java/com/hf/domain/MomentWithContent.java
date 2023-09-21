@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class MomentWithContent {
-	  private int momentID;
+	    private int momentID;
 	    private String writer;
 	    private String category;
 	    private String text;
