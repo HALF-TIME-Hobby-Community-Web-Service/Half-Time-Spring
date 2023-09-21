@@ -41,8 +41,9 @@ public class MomentController {
 	    public List<MomentWithContent> feed(Model model,@RequestParam("pageNum") int pageNum) {
 		  List<MomentWithContent> list = new ArrayList<MomentWithContent>();
 		  list = momentService.getMomentsWithContent(pageNum);
-		  log.info(list);
-	        return  list;
+		  for(int i = 0;i<list.size();i++) {
+		  log.info("ID : "+list.get(i).getMomentID()+" writer : "+ list.get(i).getWriter()+" contentpath1 : "+ list.get(i).getContentPath1());
+	  }return  list;
 	    }
 	    
 	    @GetMapping("moment/write")
@@ -54,6 +55,7 @@ public class MomentController {
 	    public List<MomentWithContent> modal(Model model, @RequestParam("momentid") int momentId){
 	    	List<MomentWithContent> list = new ArrayList<MomentWithContent>();
 	    	list = momentService.getModalWithContent(momentId);
+	    	log.info(list);
 	    	return list;
 	    }
 	

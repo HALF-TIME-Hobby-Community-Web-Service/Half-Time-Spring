@@ -24,6 +24,7 @@ public class MomentService {
     public List<MomentWithContent> getMomentsWithContent(int pageNum) {
     	List<MomentWithContent> list = new ArrayList();
         list = momentMapper.selectMomentsWithContent(pageNum);
+        log.info(momentMapper.selectMomentsWithContent(pageNum));
         return list;
     }
     public int countMomentsWithContent() {

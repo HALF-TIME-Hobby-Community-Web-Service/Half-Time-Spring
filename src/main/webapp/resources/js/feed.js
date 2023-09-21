@@ -27,15 +27,15 @@ var isLoading = false;
         dataType: "json",
         success: function (data) {
 		console.log("pagNum : "+pageNum);
-		console.log(data);
+		console.log(data.momentid);
             const container = $('.feed_content');
  				if (data.length === 0) {
                     console.log("No more data to load.");
                     pageNum=0;
                 }
             $.each(data, function (data, item) {
-
-                const newItem = $('<div class="feed_container_append">');
+				
+                const newItem = $('<div class="feed_container_append" id='+ item.momentID +'>');
                 newItem.append('<div class="feedbox">'
                     + '<div class="feed_title" id="'+ item.momentid +'">'
                     + '<div class="feed_title_name">' + item.writer + '</div>'
@@ -50,7 +50,7 @@ var isLoading = false;
                     + '<div id="carouselExample" class="carousel slide">'
                     + '<div class="carousel-inner">'
                     + '<div class="carousel-item active">'
-                    + '<img src="' + item.contentpath1 + '" class="d-block w-100 feed_thumb" alt="...">'
+                    + '<img src="' + item.contentPath1 + '" class="d-block w-100 feed_thumb" alt="...">'
                     + '</div>'
                     + '<div class="carousel-item">'
                     + '<img src="' + item.contentpath2 + '" class="d-block w-100 feed_thumb" alt="...">'
