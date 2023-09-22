@@ -40,9 +40,9 @@ div.feed_container {
     display: hidden;
 
 }
-
 .feed_container_append {
     display: flex;
+    justify-content: center;
 }
 
 

@@ -53,10 +53,10 @@ public class MomentController {
 	    
 	    @ResponseBody
 	    @PostMapping("/modal")
-	    public List<MomentWithContent> modal( @RequestParam("momentID") int momentID,Model model){
-	    	List<MomentWithContent> list = new ArrayList<MomentWithContent>();
+	    public MomentWithContent modal( @RequestParam("momentID") int momentID,Model model){
+	    	MomentWithContent list = new MomentWithContent();
 	    	list = momentService.getModalWithContent(momentID);
-	    	log.info(list.get(0).getMomentID());
+	    	log.info("momentid : "+list.getMomentID()+" writer : "+list.getWriter());
 	    	return list;
 	    }
 	
