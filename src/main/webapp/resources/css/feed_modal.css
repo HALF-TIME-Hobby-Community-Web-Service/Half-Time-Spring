@@ -1,12 +1,13 @@
-div.feed_modalWrap {
+
+.feed_modal_content{
     position: fixed;
     /* Stay in place */
-    z-index: 0;
+    z-index: 3;
     /* Sit on top */
     padding-top: 100px;
     /* Location of the box */
-    left: 0;
-    top: 0;
+    left: 7.5%;
+    top: 5%;
     width: 100%;
     /* Full width */
     height: 100%;
@@ -16,9 +17,6 @@ div.feed_modalWrap {
     background-color: rgba(0, 0, 0, 0.0);
     /* Black w/ opacity */
     display: block;
-}
-.feed_modal_content{
-	right:80%
 }
 .feed_modalBody {
     width: 700px;
@@ -31,6 +29,7 @@ div.feed_modalWrap {
 
 .feed_modal_container {
     display: flex;
+    
     justify-content: center;
 }
 
