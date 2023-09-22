@@ -25,15 +25,27 @@
         	<textarea name="text" class="form-control modal_textarea mmake_text" 
           		placeholder="게시글 내용" style="width: 100%; height: 200px" cols="40" wrap="hard"></textarea>
         </div>
-        
+        <div class="category">
         <!-- 카테고리 -->
-        <div class="form-floating mb-3">
+        <div class="form-floating mb-3 largecategory">
 	        <select name="" class="form-select">
-		        <option value="category">카테고리</option>
+		        <option value="category">대분류</option>
 			    <option value="info">스포츠</option>
 			</select>
 		</div>
-		
+		<div class="form-floating mb-3 middlecategory">
+	        <select name="" class="form-select">
+		        <option value="category">중분류</option>
+			    <option value="info">스포츠</option>
+			</select>
+		</div>
+		<div class="form-floating mb-3 smallcategory">
+	        <select name="" class="form-select">
+		        <option value="category">소분류</option>
+			    <option value="info">스포츠</option>
+			</select>
+		</div>
+		</div>
 		<!-- 지역 -->
 		<div class="form-floating mb-3">
 	        <select name="" class="form-select">
