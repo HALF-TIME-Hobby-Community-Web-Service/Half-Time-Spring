@@ -1,60 +1,9 @@
-/* �꽕鍮꾧쾶�씠�뀡怨� 諛뺤뒪�쓽 �쐞移� 議곗젙�쓣 �쐞�빐 �븘�옒 �뒪���씪�쓣 異붽��빀�땲�떎 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    -ms-overflow-style: none;
-}
-
-::-webkit-scrollbar {
-    display: none;
-}
-
 div#side_nav {
     float: left;
-    
-    /* �꽕鍮꾧쾶�씠�뀡怨� 諛뺤뒪 �궗�씠�쓽 媛꾧꺽�쓣 異붽��빀�땲�떎 */
-}
-
-.feedbox {
-    float: left;
-    /* align-items: center; */
-    width: 545px;
-    height: 450px;
-    border: 5px solid #c9c5a6;
-    border-radius: 10px;
-    margin: 10px;
-    z-index: -9999;
-}
-
-
-.feed_container_append:first-child {
-	margin-top: 10px;
-}
-
-/* �뒪���씪留곸쓣 �쐞�븳 CSS 肄붾뱶 */
-div.feed_container {
-    display: hidden;
-
-}
-.feed_container_append {
-    display: flex;
-    justify-content: center;
-}
-
-
-
-.feed_box img {
-    max-width: 100%;
-    /* �씠誘몄��쓽 �꼫鍮꾨�� �긽�옄�뿉 留욌룄濡� �젣�븳�빀�땲�떎 */
-    max-height: 50%;
-    /* �씠誘몄��쓽 �넂�씠瑜� �긽�옄�뿉 留욌룄濡� �젣�븳�빀�땲�떎 */
-    border-radius: 10px;
-    /* �꽑�깮 �궗�빆: �씠誘몄��뿉 �뫁洹� 紐⑥꽌由щ�� 異붽��빀�땲�떎 */
-    margin-top: 5%;
-    /* �꽑�깮 �궗�빆: �뀓�뒪�듃�� �씠誘몄� �궗�씠�뿉 �뿬諛깆쓣 異붽��빀�땲�떎 */
-    z-index: 0;
 }

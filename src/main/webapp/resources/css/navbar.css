@@ -41,9 +41,6 @@
   width: 100%;
   margin-left: 20%;
 }
-body {
-  -ms-overflow-style: none;
-}
 
 body {
   -ms-overflow-style: none;
@@ -59,6 +56,7 @@ body {
     overflow-y: scroll;
     height: 88.25vh;
 }
+
 #side_nav {
   width: 12%;
   height: 88.25vh;

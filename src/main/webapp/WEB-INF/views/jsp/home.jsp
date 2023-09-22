@@ -20,15 +20,15 @@
     <span class="float-item float-item4"><img src="/resources/items/floatitem/setting.png" alt=""></span>
 </div>
 
-<div class="feed_content">
+<div class="feed_content">	
 </div>
 
+<jsp:include page="./moment/feed_modal2.jsp"/>
 <jsp:include page="./moment/moment_write_modal.jsp"/>	
 <script>
 	$('.float-item1').click(()=> {
 		$('.mmake_content').css('display','block');
-	});
-	
+	});	
 	
 </script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
