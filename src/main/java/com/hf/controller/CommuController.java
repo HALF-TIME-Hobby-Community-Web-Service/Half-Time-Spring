@@ -32,7 +32,7 @@ public class CommuController {
 	
 
 	@PostMapping("/getmember")
-	public List<Commumember> getCommumemberList(@RequestParam("commuID")String commuID) {
+	public List<Commumember> getCommumemberList(@RequestParam("commuID") String commuID) {
 		log.info("commu/getMember/commuID: " + commuID);
 		List<Commumember> cList = service.getCommumember(commuID);		
 		log.info(cList);

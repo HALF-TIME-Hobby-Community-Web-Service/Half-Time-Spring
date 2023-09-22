@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="../css/commumodal.css">
 </head>
 <body>
-    <div class="modal-content">
+    <div class="modal-content ">
         <span id="closeBtn">&times;</span>
         <h1 class="title">책과 나는 한몸이다</h1>
         <span class="commuaround">커뮤니티 둘러보기</span>
         <!-- 원하는 commumodal.html 내용 작성 -->
-      </div>
+     </div>
 </body>
 </html>

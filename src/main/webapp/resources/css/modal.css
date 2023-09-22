@@ -5,14 +5,12 @@
 }
 
 /* 모달 전체*/
-.lmake_content {
+.modal_content {
   display: none;
-
   position: fixed;
 
   overflow-y: auto;
   width: 850px;
-  height: 800px;
 
   top: 5%;
   left: 27.5%;
@@ -24,8 +22,7 @@
   border: 2px solid;
 }
 
-/* ⚡번개 신청 */
-.lmake_title {
+.modal_title {
   display: block;
 
   margin-left: 30px;
@@ -39,13 +36,13 @@
 }
 
 /* 닫기 버튼 */
-.lmake_closebtn {
+.modal_closebtn {
   float: right;
   font-size: 30px;
 }
 
-/* 번개신청 입력 창*/
-.lmake_container {
+/* 입력 창*/
+.modal_container {
   height: 80%;
 
   padding-left: 5%;
@@ -61,75 +58,28 @@
 }
 
 /* 제목: 이름, 일정, 위치, 내용 ... */
-.lmake_container span {
+.modal_container span {
   font-size: 20px;
   text-align: center;
 }
 
 /* 전체 input 태그 */
-.lmake_container input {
+.modal_container input {
   display: inline-block;
-  margin-left: 20px;
 }
 
-/* 이름 */
-.lmake_name {
-  width: 85%;
+.modal_textarea{
+  height: 200px;	
 }
 
-/* 일정 */
-.lmake_schedule > input {
-  width: 33%;
-}
-
-.lmake_checkbox {
-  display: inline;
-}
-
-input.location {
-  width: 40%;
-}
-
-textarea.lmake_text {
-  resize: none;
-  margin-left: 20px;
-  width: 80%;
-  height: 150px;
-}
-
-.startTime  {
-  font-size: 14px;
-}
-
-/* 정원, 금액*/
-.lmake_detailbox > div > span {
-}
-
-.lmake_calcbox {
-  margin-left: 20%;
-}
-
-.lmake_calcbox > input {
-  margin-right: 20px;
-}
-
-.lmake_detailbox input {
-  width: 30%;
-}
-
-.lmake_btn {
-  width: 30px;
-  height: 30px;
-}
-
-/* 개설, 개설 요청 버튼*/
-.lmake_button_container {
+/* 모달 버튼*/
+.modal_button_container {
   margin-top: 50px;
   display: flex;
   justify-content: center;
 }
 
-.lmake_button_container > button {
+.modal_button_container > button {
   margin: 30px;
 }
 

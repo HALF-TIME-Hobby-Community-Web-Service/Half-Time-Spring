@@ -4,9 +4,7 @@ $(() => {
 	
   /* 상단 탭 */
   {
-    function switchTab(tabName) {
-      // 모든 탭 컨텐츠를 숨깁니다.
-
+    function switchTab(tabName) {  
       const tabContents = document.querySelectorAll('.commu_box');
       tabContents.forEach((content) => {
         content.style.display = 'none';
@@ -19,11 +17,12 @@ $(() => {
       });
 
       // 선택한 탭 컨텐츠를 보이도록 설정합니다.
-      const selectedTabContent = document.querySelector(`.${tabName}`);
+      var selectedTabContent = document.querySelector(`.${tabName}`);
       selectedTabContent.style.display = 'block';
-
+      
       // 선택한 탭에 활성화 클래스를 추가합니다.
-      const selectedTab = document.querySelector(`[data-tab=${tabName}]`);
+      const selectedTab = document.querySelector(`[data-tab=${tabName}]`);      
+
       selectedTab.classList.add('active');
     }
 
@@ -83,7 +82,17 @@ $(() => {
     method: 'POST',
     data: { commuID: commuID },
     success: (c) => {
- 	  $('.commu_const').append(`<p>커뮤니티 정원: ${c.memberCnt}/${c.capacity}`);
+ 	  $('.commu_const').append(`<p>커뮤니티 안내사항: </p>`);
+ 	  $('.commu_const').append(`<p>😀 ${c.memberCnt}/${c.capacity}</p>`);
+ 	  
+ 	  let gender; 
+ 	  if (c.gender == 1) gender = '모두';
+ 	  else if (c.gender == 2) gender = '남자만';
+ 	  else if (c.gender == 3) gender = '여자만';  	  
+ 	  $('.commu_const').append(`<p>👧🧑 ${gender}</p>`);
+ 	  
+ 	  if(c.ageLimitMin > 0);
+ 	  	
     },
     error: (jqXhr, status) => {
       alert(`실패: ${status}\n오류명:${jqXhr.status}`);
