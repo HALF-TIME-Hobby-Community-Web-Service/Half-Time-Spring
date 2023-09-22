@@ -14,12 +14,11 @@ $(() => {
     	input.click(); 	
     })
 
-	//TODO
  	input.change(function (e) {   	
  	
  		const file = input.files[0];
- 		
- 		alert(file);
+ 	 	
+ 		$(`.m_img:eq(${img_cnt})`).attr('src', `/resources/img/moment/61.jpg`);
  	
  		if (file && file.type.startsWith('image/')) {
  		
@@ -28,16 +27,13 @@ $(() => {
 		    alert('123');
 		     reader.onload = function(e) {
 		    	//$(`.m_img:eq(${img_cnt})`).attr('src', `/resources/img/moment/61.jpg`);
-			}
-	 	       
+			}	 	       
     		reader.readAsDataURL(file); 		             
         }
              	          
     	img_cnt++;
     });
     
-    /*
-    
-    */
+
 	
 })
