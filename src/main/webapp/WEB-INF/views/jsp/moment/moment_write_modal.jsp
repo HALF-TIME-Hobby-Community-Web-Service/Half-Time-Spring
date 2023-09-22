@@ -16,15 +16,17 @@
 	   	⏰모먼트 작성 
        	<span class="modal_closebtn mmake_closebtn">&times;</span>
 	</div>
-
     
     <div class="modal_container b_container">
       <form method="post" action="">   
+      
+      	<!-- 모먼트 내용 -->
         <div class="form-floating mb-3">
         	<textarea name="text" class="form-control modal_textarea mmake_text" 
           		placeholder="게시글 내용" style="width: 100%; height: 200px" cols="40" wrap="hard"></textarea>
         </div>
         
+        <!-- 카테고리 -->
         <div class="form-floating mb-3">
 	        <select name="" class="form-select">
 		        <option value="category">카테고리</option>
@@ -32,6 +34,7 @@
 			</select>
 		</div>
 		
+		<!-- 지역 -->
 		<div class="form-floating mb-3">
 	        <select name="" class="form-select">
 		        <option value="category">지역</option>
@@ -40,6 +43,7 @@
 			</select>
 		</div>
 		
+		<!-- 이미지토글 -->
 		<div class="mmake_img_container">
 			<div class="mmake_img_box">			
 				<img class="m_img" src="/resources/items/moment/moment_default.png"/>
@@ -48,7 +52,7 @@
 				<img class="m_img" src="/resources/items/moment/moment_default.png"/>
 				<img class="m_img" src="/resources/items/moment/moment_default.png"/>
 			</div>			
-			<input type="file" class="input_file" style="display: none" multiple /> 
+			<input type="file" class="input_file" style="display: none" multiple accept="image/*" /> 
 		</div>
 
         <div class="modal_button_container mmake_button_container" style="border-top: 1px solid;">
@@ -59,7 +63,14 @@
     </div>
   </div>
   
-    <script>
-
-    </script>	
+  <script>
+	  //닫기 버튼
+	  $('.mmake_closebtn').click(()=> {    	
+	    $('.mmake_content').css('display', 'none');
+	  })
+  
+  	  $(function(){
+	  	$('.modal_content').draggable({'cancel':'.modal_container', containment:'parent', scroll:false});
+	  });
+  </script>
 </body>
