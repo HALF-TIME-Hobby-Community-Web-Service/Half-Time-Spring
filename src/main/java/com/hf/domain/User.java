@@ -15,6 +15,7 @@ public class User {
 	private String name; 
 	private String birth; 
 	private int gender; 
+
 	private String address; 
 	private String pnum;
 	private String location; 
@@ -62,6 +63,7 @@ public class User {
 	public User(String id) {
 		this.id = id;
 	}
+	
 	public User(String id, String pwd, String nickname, String name, String birth, int gender, String address,
 			String pnum, String profileImg) {
 		super();
@@ -76,8 +78,28 @@ public class User {
 		this.profileImg = profileImg;
 		
 	}
-	
-	
-	
+	public User(String id, String pwd, String nickname, String name, String birth, int gender, String address,
+			String pnum) {
+		super();
+		this.id = id;
+		this.pwd = pwd;
+		this.nickname = nickname;
+		this.name = name;
+		this.birth = birth;
+		this.gender = gender;
+		this.address = address;
+		this.pnum = pnum;
+	}
+	public User(String id, String nickname, String name, String birth, int gender, String address, String pnum) {
+		super();
+		this.id = id;
+		this.nickname = nickname;
+		this.name = name;
+		this.birth = birth;
+		this.gender = gender;
+		this.address = address;
+		this.pnum = pnum;
+	}
+
 
 }

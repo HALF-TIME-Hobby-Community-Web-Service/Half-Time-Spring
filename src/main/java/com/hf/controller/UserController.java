@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -59,13 +60,13 @@ public class UserController {
 	        
 	        User user = new User(id, pwd, name, birth, gender, address, phonenum, nickname);
 
-	        System.out.println("회원가입정보" + " ID:" + id + " PWD:" + pwd +
+	        log.info("회원가입정보" + " ID:" + id + " PWD:" + pwd +
 	                " NAME:" + name + " BIRTH:" + birth +
 	                " GENDER:" + gender + " ADDRESS:" + address +
 	                " PHONENUM:" + phonenum + " NICKNAME" + nickname);
 
 	        int state = service.joinCheck(user);
-	        System.out.println("가입 : " + state + "페이지작성완료");
+	        log.info("가입 : " + state + "페이지작성완료");
 	        
 	        return state;
 	    }
@@ -84,12 +85,12 @@ public class UserController {
 		        @RequestParam("userid") String id
 		    ) {
 			
-			 	System.out.println(id + "회원의 관심지역: " + location + "과 관심사: " + category);
+			 	log.info(id + "회원의 관심지역: " + location + "과 관심사: " + category);
 		        User user = new User(location, category, id);
 
 
 		        int state = service.joinCheck2(user);
-		        System.out.println("가입 " + state + "페이지 작성 완료");
+		        log.info("가입 " + state + "페이지 작성 완료");
 
 		        return state;
 		    }
@@ -128,6 +129,30 @@ public class UserController {
 
 		    return result;			
 	    }
+	    
+	    //로그아웃
+	    @RequestMapping("/logout")
+	    public String logout(HttpServletRequest request) throws Exception{
+	        
+	        
+	        HttpSession session = request.getSession();
+	        session.invalidate();
+	        
+	        return "redirect:/moment/list";        
+	        
+	    }
+	    @GetMapping("/getSession")
+	    @ResponseBody
+	    public String getSession(HttpServletRequest request) throws Exception{
+	    	
+	    	
+	    	
+	    	HttpSession session = request.getSession();
+	    	String sessionValue = (String)session.getAttribute("id");
+	    	
+	    	return sessionValue;        
+	    	
+	    }
 	
 	    // 아이디 찾기
 	    @GetMapping("/findid")
@@ -150,9 +175,9 @@ public class UserController {
 	    		
 	
 	    		if (findID != null) {
-	    			System.out.println("유저의 아이디는 [" + findID+ "] 입니다");
+	    			log.info("유저의 아이디는 [" + findID+ "] 입니다");
 	    		}else {
-	    			System.out.println("회원가입 이력이 없습니다");
+	    			log.info("회원가입 이력이 없습니다");
 	    		}
 	    		
 	    		return findID;
@@ -180,9 +205,9 @@ public class UserController {
 			
 		    
 	    		String pnum = pnum1+pnum2+pnum3;
-	    		System.out.println("비밀번호 찾기 진행중입니다");
-	    		System.out.println(id+"회원님의 정보는 아래와 같습니다");
-	    		System.out.println("이름: "+name+" / "+"성별: "+gender+" / "+"생년월일: "+birth+" / "+"핸드폰번호: "+pnum);
+	    		log.info("비밀번호 찾기 진행중입니다");
+	    		log.info(id+"회원님의 정보는 아래와 같습니다");
+	    		log.info("이름: "+name+" / "+"성별: "+gender+" / "+"생년월일: "+birth+" / "+"핸드폰번호: "+pnum);
 	    		
 	    	
 	    		
@@ -194,9 +219,9 @@ public class UserController {
 	    		
 	
 	    		if (findPW!= null) {
-	    			System.out.println("회원님의 비밀번호는 [" + findPW+ "] 입니다");
+	    			log.info("회원님의 비밀번호는 [" + findPW+ "] 입니다");
 	    		}else {
-	    			System.out.println("회원가입 이력이 없습니다");
+	    			log.info("회원가입 이력이 없습니다");
 	    		}
 	    		
 	    		return findPW;
@@ -209,43 +234,120 @@ public class UserController {
 	    @ResponseBody
 	    public String loginfindPW_IDCheck(
 	    		@RequestParam("findPWID") String id) {
-	        System.out.println("회원아이디: " + id + "가 유효한지 확인하고 있습니다");
+	    	log.info("회원아이디: " + id + "가 유효한지 확인하고 있습니다");
 
 	        String idCheck = service.loginfindPW_IDCheck(id);
 	     
 			if(idCheck!=null) {
-				System.out.println("존재하는 아이디입니다");
+				log.info("존재하는 아이디입니다");
 				
 			}else {
-				System.out.println("존재하는 아이디가아닙니다.");
+				log.info("존재하는 아이디가아닙니다.");
 				
 			}
 	        
-			System.out.println("보내지는 것: "+idCheck);
+			log.info("보내지는 것: "+idCheck);
 	        return idCheck;
 	    }
 	    
-	    @RequestMapping("/logout")
-	    public String logout(HttpServletRequest request) throws Exception{
-	        
-	        
-	        HttpSession session = request.getSession();
-	        session.invalidate();
-	        
-	        return "redirect:/moment/list";        
-	        
-	    }
-	    @GetMapping("/getSession")
+	   // 카카오 로그인  (카카오 로그인하면, ID, 성별, 닉네임이 가입페이지로 넘어가게 만들기) 
+	    @GetMapping("/kakao")
+	     public String getKakaoUser(String kakaoID, String kakaoGender, String kakaoNickname, String kakaoPWD, HttpServletRequest request) {
+	 	  	log.info("Get|kakao  kakaoID : " +kakaoID);
+	 	  	log.info("Get|kakao  kakaoGender : " +kakaoGender);
+	 	  	log.info("Get|kakao  kakaoNickname : " +kakaoNickname);
+	 	  	log.info("Get|kakao  kakaoPWD : " +kakaoPWD);
+	 	  
+	 	  	//1. session에 kakaoID 설정
+	 	  	HttpSession session = request.getSession();
+	 	  	session.setAttribute("kakaoID", kakaoID);	 	  	
+	 	  	session.setAttribute("kakaoGender", kakaoGender);
+	 	  	session.setAttribute("kakaoNickname", kakaoNickname);
+	 	  	session.setAttribute("kakaoPWD", kakaoPWD);
+	 	  	
+	 	  	
+	 	  	//if > 서비스 > 매퍼 (아이디조회)(id):kakao > 없으면  > return원래대로 있으면 return "./jsp/home"
+	 	  	
+	 	  	/*
+	 	  	 String findPW = service.loginFindPWCheck(user);		
+	    		//String findPW = service.loginFindPWCheck(id, name, gender, birth, pnum);
+	    	
+	    		
+	
+	    		if (findPW!= null) {
+	    			log.info("회원님의 비밀번호는 [" + findPW+ "] 입니다");
+	    		}else {
+	    			log.info("회원가입 이력이 없습니다");
+	    		}
+	    		
+	    		return findPW;
+	 	  	 * */
+	 	  	//String kakaoCheck = service.kakaoCheck(kakaoID);
+	 	  	
+	 	  	
+	 	  	//2. jsp이동
+	     	return "/jsp/user/kakao_join"; 	
+	     }
+	
+	    // 카카오 회원가입 페이지 1 
+	    @PostMapping("/kakao")
 	    @ResponseBody
-	    public String getSession(HttpServletRequest request) throws Exception{
-	    	
-	    	
-	    	
-	    	HttpSession session = request.getSession();
-	    	String sessionValue = (String)session.getAttribute("id");
-	    	
-	    	return sessionValue;        
-	    	
+	    public int postKakaoUser(
+	    	//카카오 id 전달
+	        @RequestParam("join_ID") String id,
+	        @RequestParam("join_name") String name,
+	        @RequestParam("join_birth") String birth,
+	        //카카오 성별 전달 (String female male) 
+	        @RequestParam("join_gender") String kakaogender,
+	        @RequestParam("join_address") String address,
+	        @RequestParam("join_pnum1") String phonenuma,
+	        @RequestParam("join_pnum2") String phonenumb,
+	        @RequestParam("join_pnum3") String phonenumc,
+	        //카카오 닉네임 전달 
+	        @RequestParam("join_nickname") String nickname
+	    
+	       
+	    ) {
+	        String pnum = phonenuma + phonenumb + phonenumc;     
+	        int gender = 0;
+	        String pwd = id+"123";
+	        User user = new User(id, pwd, name, birth, gender, address, pnum, nickname);
+
+	        log.info("회원가입정보" + " ID:" + id + " PWD:" + pwd +
+	                " NAME:" + name + " BIRTH:" + birth +
+	                " GENDER:" + kakaogender + " ADDRESS:" + address +
+	                " PHONENUM:" + pnum + " NICKNAME" + nickname);
+
+	        int state = service.kakaojoinCheck(user,kakaogender);
+	        log.info("가입 : " + state + "페이지 작성 완료");
+	        
+	        //가입페이지1 작성 완료 시, 숫자 1 반환
+	        return state;
 	    }
 	    
+	    //회원가입 페이지2
+		  @GetMapping("/kakao2")
+		  public String getKakaoUser2() {
+			  return "/jsp/user/kakao_join2";
+		    }
+		  
+		 @PostMapping("/kakao2")
+		 @ResponseBody
+		    public int postKakaoUser2(
+		        @RequestParam("location") String location,
+		        @RequestParam("category") String category,
+		        @RequestParam("userid") String id
+		    ) {
+			
+			 	log.info(id + "회원의 관심지역: " + location + " & 관심사: " + category);
+		        User user = new User(location, category, id);
+
+
+		        int state = service.kakaojoinCheck2(user);
+		        log.info("가입 : " + state + "페이지 작성 완료");
+
+		        return state;
+		    }
+	    
+
 }

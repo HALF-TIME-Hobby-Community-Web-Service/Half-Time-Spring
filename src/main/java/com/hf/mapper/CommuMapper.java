@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Param;
 
 import com.hf.domain.CommuConst;
 import com.hf.domain.CommuInfo;
-import com.hf.domain.CommuList;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
 import com.hf.domain.Post;

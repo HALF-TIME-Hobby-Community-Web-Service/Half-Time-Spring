@@ -12,6 +12,8 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap"
 	rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="/resources/css/join.css">
 <link rel="stylesheet" href="/resources/css/login.css">
 
 
@@ -46,9 +48,89 @@
 			<div class="login_or">또는</div>
 			<br> <br>
 		</div>
-		<button>카카오</button>
+		
+		<!-- 카카오로그인 -->
+		 <a href="javascript:kakaoLogin();">
+    <img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="height: 60px;width:auto;">
+    </a>
+    <div style="display: none">
+    	<form class='kakaoform' action="localhost:8888/user/kakao">
+    		<input type="hidden" name="kakaoID" class="hidden"/> 
+    	</form>
+    </div>
+    
+    
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        //9cde8b36ed8b7ae0a58142aed15d3972
+        //1. 카카오 로그인 성공 및 아이디 반환
+        window.Kakao.init("9cde8b36ed8b7ae0a58142aed15d3972");
+        function kakaoLogin(){
+            window.Kakao.Auth.login({
+                scope:'profile_nickname, account_email, gender',
+                success: function(authObj){
+                    console.log(authObj);
+                    console.log("access_token: "+authObj.access_token);
+                    window.Kakao.API.request({
+                        url:'/v2/user/me',
+                        success: res => {
+                            const kakao_account = res.kakao_account;
+                            console.log(kakao_account);
+                            const kakaoID = kakao_account.email +":kakao";
+                            const kakaoGender = kakao_account.gender;
+                          	const kakaoNickname = kakao_account.profile.nickname;
+                          	const kakaoPWD = kakaoID+"123";
+                            console.log("kakaoID : "+kakaoID);
+                            console.log("kakaoGender : "+kakaoGender);
+                            console.log("kakaoNickname: "+kakaoNickname);
+                           
+                          	//2. 카카오 로그인 성공 및 아이디 반환
+                          	sessionStorage.setItem('kakaoID', kakaoID, 'kakaoGender', kakaoGender, 'kakaoNickname', kakaoNickname);
+                            
+                          	//3. kakao_join으로 페이지 이동 (controller 호출)
+                              $.ajax({ 
+	                           	 data:{"kakaoID":kakaoID,
+	                           		   "kakaoGender":kakaoGender, 
+	                           		   "kakaoNickname":kakaoNickname,
+	                           		   "kakaoPWD":kakaoPWD},
+	                           	 url: '/user/kakao',
+	                           	 method: 'get',
+	                           	 success:(data)=>{
+	                        //4. kakaoID, kakaoGender, null 확인  
+	                           		
+	                           		 $('body').html(data);
+	                           	 }
+	                           	 
+	                        //4. 
+                             });  
+                            
+                   /*          const loginpage = $('.login_class');
+                            sessionStorage.setItem('kakaoID',kakaoID);
+                            $.ajax({
+                                url: '/user/kakao', // 보낼곳
+                                method: 'get', //method type
+                                dataType: "html",
+                                success: function(data) {
+                                	login_class.html()
+                                            
+                                },
+                                error: function(jqXhr, status) {
+                                    console.log("서버 오류: " + status);
+                                }
+                            });
+                            
+ */
+                           
+                        }//success
+                    });//window.api
+                }
+            });
+        }
+    </script>
+    
+    	<!-- <button>카카오</button>  
 		<button>페이스북</button>
-		<button>구글</button>
+		<button>구글</button>-->
 		<br> <br>
 		<button class="login_findIDbtn"
 			onclick="location.href='http://localhost:8888/user/findid'">아이디 찾기</button>
@@ -68,6 +150,8 @@
 	
 	login_btn.on("click",function(e) {
 		e.preventDefault();
+		alert("로그인 버튼 클릭");
+		console.log("에러1");
 		 $.ajax({
 			url:"/user/login",
 			type:"post",
@@ -76,11 +160,12 @@
 			success: function(data){
 				
 				if(!data.result){
-					alert("아이디 혹은 비밀번호가 잘못되었습니다.");
+					alert("false"+ data.result);
+					
 					location.href="/user/login";
 				}else{
-					alert("환영합니다");
-					location.href="/moment/list";			
+					alert("true"+data.result);
+					location.href="/user/mypage";			
 				}
 			},
 			error: function(jqXhr,status){

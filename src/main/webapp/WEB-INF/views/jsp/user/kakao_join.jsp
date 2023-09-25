@@ -5,10 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">  
     <link rel="stylesheet" href="/resources/css/join.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/resources/js/join.js"></script>
+    <script src="/resources/js/join_kakao.js"></script>
     <title>join page</title>
 </head>
 
@@ -21,40 +21,21 @@
             <div class="join_container_border">
                 <div class="join_ID_box">
                     아이디
-
-                            <input class="join_
-_input" 
+                            <input class="join_ID_input" 
                                 type="text"
                                 name="join_ID"
                                 maxlength="10"
-                                placeholder="아이디를 입력하세요"
                                 style="width: 150px;"
-                                required="required">
-                            <select class="join_ID_select" name="join_ID2">
-                                <option value="@naver.com" selected>@naver.com</option>
-                                <option value="@hanmail.net">@hanmail.net</option>
-                                <option value="@kakao.com">@icloud.com</option>
-                                <option value="@gmail.com">@gmail.com</option>
-                                <option value="@nate.com">@nate.com</option>
-                            </select>                 
-                            <button class="join_id_checkbtn" type="button">중복확인</button>
-
+                                required="required"
+                                value="${kakaoID}"
+                                readonly>
                 </div><br>
-                <div class="join_PW_box">
-                    비밀번호
-                    <input class="join_PW_input"
-                        type="password"
-                        name="join_PW"
-                        required="required"><br>
-                </div><br>
-                <div class="jpin_PW_box1">
-                    비밀번호확인
-                    <input class="join_PW2_input"
-                        type="password"
-                        name="join_pwcheck"
-                        required="required">
-                    <button class="join_PW_checkbtn">확인</button>
-                </div><br>
+                
+                <!-- 비밀번호 css display:none 적용 안됨 -->
+                <!-- 비밀번호 임시 : kakaoID + 123 -->
+      
+                             
+                
                 <div class="join_name_box">
                     이름
                     <input class="join_name_input"
@@ -71,10 +52,20 @@ _input"
                 </div><br>
                 <div class="join_gender_box">
                     성별
-                    <select class="join_gender_select" name="join_gender">
+                   <!--  <select class="join_gender_select" name="join_gender">
                         <option value="0" selected>남</option>
                         <option value="1">여</option>
-                    </select>
+                    </select> -->
+                    	
+                    	 <input class="join_gender_input" 
+                                type="text"
+                                id= "join_gender"
+                                name="join_gender"
+                                style="width: 150px;"
+                                required="required"
+                                value="${kakaoGender}"
+                                readonly>
+                    	
                 </div><br>
 
                 <div class="join_address_box">
@@ -112,11 +103,20 @@ _input"
                     name="join_nickname"
                     maxlength="8"
                     placeholder="최대8자리"
-                    required="required">
+                    required="required"
+                    value="${kakaoNickname}"
+                    >
                 </div><br>
             </div>
             <button class="join_nextpagebtn1">다음</button>
         </form>
     </div>
 </body>
+<script type="text/javascript">
+
+	const kakaoID = sessionStorage.getItem('kakaoID');
+		
+	const id = $('join_ID_input');		
+		
+</script>
 </html>
