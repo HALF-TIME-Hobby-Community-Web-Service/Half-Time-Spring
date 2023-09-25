@@ -1,16 +1,16 @@
 let map, infoWindow;
-
+let pos;
 function initMap() {
-
   map = new google.maps.Map($("#map")[0], {
-     center: { lat: -34.397, lng: 150.644 },
+    center: { lat: -34.397, lng: 150.644 },
     zoom: 10,
+    
   });
   infoWindow = new google.maps.InfoWindow();
 
   const locationButton = document.createElement("button");
 
-  locationButton.textContent = "현재 위치";
+  locationButton.textContent = "Pan to Current Location";
   locationButton.classList.add("custom-map-control-button");
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
   locationButton.addEventListener("click", () => {
@@ -18,13 +18,13 @@ function initMap() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          const pos = {
+            pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
 
           infoWindow.setPosition(pos);
-          infoWindow.setContent("현재위치");
+          infoWindow.setContent("Location found.");
           infoWindow.open(map);
           map.setCenter(pos);
         },
@@ -50,4 +50,3 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 window.initMap = initMap;
-alert(pos);
