@@ -18,6 +18,7 @@ public interface UserMapper {
 						@Param("gender") int gender, @Param("birth") String birth,
 						@Param("pnum") String pnum);
 		public String loginfindPW_IDCheck(String id);
+		public void insertKakaoUser(User user);
 
 
 }

@@ -20,9 +20,10 @@
         <form class="join_container">
             <div class="join_container_border">
                 <div class="join_ID_box">
-                    아아디
+                    아이디
 
-                            <input class="join_ID_input" 
+                            <input class="join_
+_input" 
                                 type="text"
                                 name="join_ID"
                                 maxlength="10"
@@ -32,7 +33,7 @@
                             <select class="join_ID_select" name="join_ID2">
                                 <option value="@naver.com" selected>@naver.com</option>
                                 <option value="@hanmail.net">@hanmail.net</option>
-                                <option value="@kakao.com">@kakao.com</option>
+                                <option value="@kakao.com">@icloud.com</option>
                                 <option value="@gmail.com">@gmail.com</option>
                                 <option value="@nate.com">@nate.com</option>
                             </select>                 

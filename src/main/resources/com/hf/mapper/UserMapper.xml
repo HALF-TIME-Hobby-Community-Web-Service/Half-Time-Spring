@@ -63,6 +63,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	]]>	
 	</select>
 
+	<!-- 카카오 회원가입 1 -->
+    <insert id="insertKakaoUser">
+    <![CDATA[
+        INSERT INTO Users (id, pwd, name, nickname, gender, birth, phoneNum, address)
+        VALUES (#{id}, #{pwd}, #{name}, #{nickname}, #{gender}, #{birth}, #{pnum}, #{address})
+        ]]>
+    </insert>
 	
 
 </mapper>
