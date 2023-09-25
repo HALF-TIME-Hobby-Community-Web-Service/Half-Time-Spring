@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<div class="feed_modal_content">
+<div class="feed_modal_content" style='display:none'>
   <div class="feed_modal_img_box">  	
   	<img src="/resources/items/moment/4.jpg">
   </div>
