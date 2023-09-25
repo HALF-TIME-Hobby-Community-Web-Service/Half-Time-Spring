@@ -5,8 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="/resources/css/join.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/resources/js/join_kakao.js"></script>
     <title>join page</title>
@@ -20,9 +20,7 @@
         <form class="join_container">
             <div class="join_container_border">
                 <div class="join_ID_box">
-                    아아디
-
-                            
+                    아이디
                             <input class="join_ID_input" 
                                 type="text"
                                 name="join_ID"
@@ -31,26 +29,12 @@
                                 required="required"
                                 value="${kakaoID}"
                                 readonly>
-                             
-<!--                             <button class="join_id_checkbtn" type="button">중복확인</button> -->
-
                 </div><br>
                 
-<!--                 <div class="join_PW_box">
-                    비밀번호
-                    <input class="join_PW_input"
-                        type="password"
-                        name="join_PW"
-                        required="required"><br>
-                </div><br>
-                <div class="jpin_PW_box1">
-                    비밀번호확인
-                    <input class="join_PW2_input"
-                        type="password"
-                        name="join_pwcheck"
-                        required="required">
-                    <button class="join_PW_checkbtn">확인</button>
-                </div><br> -->
+                <!-- 비밀번호 css display:none 적용 안됨 -->
+                <!-- 비밀번호 임시 : kakaoID + 123 -->
+      
+                             
                 
                 <div class="join_name_box">
                     이름
@@ -75,6 +59,7 @@
                     	
                     	 <input class="join_gender_input" 
                                 type="text"
+                                id= "join_gender"
                                 name="join_gender"
                                 style="width: 150px;"
                                 required="required"

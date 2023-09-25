@@ -21,9 +21,8 @@
 </div>
 
 <div class="feed_content">	
-</div>
 
-<jsp:include page="./moment/feed_modal2.jsp"/>
+</div>
 <jsp:include page="./moment/moment_write_modal.jsp"/>	
 <script>
 	$('.float-item1').click(()=> {

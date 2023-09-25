@@ -54,6 +54,28 @@ public class UserService {
 		
 	};
 	
+	// 카카오 가입페이지 1
+	public int kakaojoinCheck(User user, String kakaogender) {
+		 mapper.insertKakaoUser(user); 
+		 if(kakaogender.equals("female")) {
+			 user.setGender(1);
+			 user.setPwd(user.getId()+"123");
+			 return 1;
+		 }else if(kakaogender.equals("male")){
+			 user.setGender(0);
+			 user.setPwd(user.getId()+"123");
+			 return 1;
+		 }else {
+			 return 0;
+		 }
+	 }
+	
+	   //카카오 가입페이지 2
+    public int kakaojoinCheck2 (User user) { 	
+    	mapper.insertkakaoUserLocation(user.getId(), user.getLocation());
+    	mapper.insertkakaoUserCategory(user.getId(),user.getCategory());
+    	return 2;
+    }
 	
 	
 

@@ -76,9 +76,10 @@
                         success: res => {
                             const kakao_account = res.kakao_account;
                             console.log(kakao_account);
-                            const kakaoID = kakao_account.email;
+                            const kakaoID = kakao_account.email +":kakao";
                             const kakaoGender = kakao_account.gender;
                           	const kakaoNickname = kakao_account.profile.nickname;
+                          	const kakaoPWD = kakaoID+"123";
                             console.log("kakaoID : "+kakaoID);
                             console.log("kakaoGender : "+kakaoGender);
                             console.log("kakaoNickname: "+kakaoNickname);
@@ -90,7 +91,8 @@
                               $.ajax({ 
 	                           	 data:{"kakaoID":kakaoID,
 	                           		   "kakaoGender":kakaoGender, 
-	                           		   "kakaoNickname":kakaoNickname},
+	                           		   "kakaoNickname":kakaoNickname,
+	                           		   "kakaoPWD":kakaoPWD},
 	                           	 url: '/user/kakao',
 	                           	 method: 'get',
 	                           	 success:(data)=>{

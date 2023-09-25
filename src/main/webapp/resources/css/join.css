@@ -44,4 +44,8 @@ body{
     margin-top: 30px;
 }
 
-
+//이게 안됨 수열한테 물어보기 ( )
+//카카오 로그인 시, 비밀번호 창 안보이게 설정하기 
+.kakaojoin_PW_box{
+    display: none;
+}

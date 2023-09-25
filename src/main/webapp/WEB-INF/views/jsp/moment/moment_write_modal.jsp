@@ -28,21 +28,18 @@
         <div class="category">
         <!-- 카테고리 -->
         <div class="form-floating mb-3 largecategory">
-	        <select name="" class="form-select">
+	        <select name="" class="form-select selectLargeCategory">
 		        <option value="category">대분류</option>
-			    <option value="info">스포츠</option>
 			</select>
 		</div>
 		<div class="form-floating mb-3 middlecategory">
-	        <select name="" class="form-select">
+	        <select name="" class="form-select selectMiddleCategory">
 		        <option value="category">중분류</option>
-			    <option value="info">스포츠</option>
 			</select>
 		</div>
 		<div class="form-floating mb-3 smallcategory">
-	        <select name="" class="form-select">
+	        <select name="" class="form-select selectSmallCategory">
 		        <option value="category">소분류</option>
-			    <option value="info">스포츠</option>
 			</select>
 		</div>
 		</div>

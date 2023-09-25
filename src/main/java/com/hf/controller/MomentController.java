@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hf.domain.Category;
 import com.hf.domain.MomentWithContent;
 import com.hf.moment.service.MomentService;
 
@@ -27,7 +28,7 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @RequestMapping(value="/moment", method=RequestMethod.GET)
 public class MomentController {
-	 @Setter(onMethod_ =@Autowired)
+	@Setter(onMethod_ =@Autowired)
 	    private MomentService momentService;
 
 	  
@@ -59,5 +60,31 @@ public class MomentController {
 	    	log.info("momentid : "+list.getMomentID()+" writer : "+list.getWriter());
 	    	return list;
 	    }
-	
+	    @ResponseBody
+	    @PostMapping("/modal_LargeCategory")
+		public List<String> large(){
+	    	List<String> list = new ArrayList<String>();
+	    	list = momentService.modalLargeCategory();
+	    	log.info(list);
+	    	
+			return list;
+		}
+	    @ResponseBody
+	    @PostMapping("/modal_MiddleCategory")
+		public List<String> miidle(@RequestParam("largecate") String largecate){
+	    	List<String> list = new ArrayList<String>();
+	    	list = momentService.modal_MiddleCategory(largecate);
+	    	log.info(list);
+	    	
+			return list;
+		}
+	    @ResponseBody
+	    @PostMapping("/modal_SmallCategory")
+		public List<String> small(@RequestParam("middlecate") String middlecate){
+	    	List<String> list = new ArrayList<String>();
+	    	list = momentService.modal_SmallCategory(middlecate);
+	    	log.info(list);
+	    	
+			return list;
+		}
 }

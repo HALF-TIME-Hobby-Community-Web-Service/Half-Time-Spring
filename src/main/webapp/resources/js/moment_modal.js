@@ -5,7 +5,10 @@ $(() => {
     const memberListClick = $('.memberList');
     const momentmodal = $('');
     const container = $('.feed_container_append');
+    
     var state = true;
+    
+    
     $(document).on("click", ".feed_container_append", function (e) { // 여기서 변경되었습니다.
 		return;
         console.log("feed_container_append Clicked");
