@@ -29,6 +29,9 @@ public class CommuService {
 	public List<CommuInfo> getCommuList(){
 		return mapper.getCommuList();
 	}
+	public List<CommuInfo> getCommuListByLocation(String location){
+		return mapper.getCommuListByLocation(location);
+	}
 	
 
 //	@Override

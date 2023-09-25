@@ -33,5 +33,9 @@ public class CommuInfo {
 		this.commuCategory = commuCategory;
 	}
 	
+	public CommuInfo(String location) {
+		this.commuLocation=location;
+	}
+	
 
 }

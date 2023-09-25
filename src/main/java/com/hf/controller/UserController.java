@@ -149,7 +149,6 @@ public class UserController {
 	    	
 	    	HttpSession session = request.getSession();
 	    	String sessionValue = (String)session.getAttribute("id");
-	    	
 	    	return sessionValue;        
 	    	
 	    }

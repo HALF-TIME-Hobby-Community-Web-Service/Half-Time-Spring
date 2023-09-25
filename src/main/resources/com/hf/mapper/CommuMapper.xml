@@ -17,6 +17,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         SELECT * FROM commu WHERE commuid = #{commuID}
         ]]>
 	</select>
+	
+	<select id="getCommuListByLocation" resultType="com.hf.domain.CommuInfo">
+        <![CDATA[
+  		SELECT * FROM commu WHERE commulocation LIKE '%' || #{commuLocation} || '%'
+        ]]>
+	</select>
 
 	<select id="getCommuPost" resultType="com.hf.domain.Post">
         <![CDATA[

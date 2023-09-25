@@ -25,4 +25,5 @@ public interface CommuMapper {
 	public List<Gathering> getGathering(String commuID);
 	public List<Commumember> getAllCommumember(String commuID);
 	public CommuConst getCommuConst(String commuID);
+	public List<CommuInfo> getCommuListByLocation(@Param("commuLocation") String commuLocation);
 }

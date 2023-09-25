@@ -94,5 +94,14 @@ public class CommuController {
 		return cc;	
 	}
 	
+	@PostMapping("/location")
+	public List<CommuInfo> getCommuLocation(@RequestParam("search_loation") String location) {
+		log.info("커뮤니티 위치는?"+location);
+		List<CommuInfo> ci = service.getCommuListByLocation(location);
+		log.info(ci);
+		return ci;
+		
+	}
+	
 	
 }

@@ -16,7 +16,7 @@ public class LocationController {
 	@GetMapping("/map")
 	public String showMap() {
 		
-		return "./jsp/location/googlemap";
+		return "./jsp/location/commulocation";
 		
 	}
 
