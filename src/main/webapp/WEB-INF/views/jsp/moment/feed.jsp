@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 
 <html>
+<head>
+</head>
 <body>
 	<div class="feedbox">
 	    <div class="feed_title" id="{{item.momentid}}">

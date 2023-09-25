@@ -66,4 +66,20 @@ WHERE
     ]]>
 </select>
 
+<select id="modal_LargeCategory" resultType="String">
+    <![CDATA[
+SELECT DISTINCT LARGECATE FROM CATEGORY
+    ]]>
+</select>
+
+<select id="modal_MiddleCategory" resultType="String">
+    <![CDATA[
+SELECT DISTINCT MIDDLECATE FROM CATEGORY WHERE LARGECATE=#{largeCate}
+    ]]>
+</select>
+<select id="modal_SmallCategory" resultType="String">
+    <![CDATA[
+SELECT SMALLCATE FROM CATEGORY WHERE MIDDLECATE=#{MiddleCate}
+    ]]>
+</select>
 </mapper>

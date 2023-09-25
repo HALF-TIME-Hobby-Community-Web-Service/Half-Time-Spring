@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
+import com.hf.domain.Category;
 import com.hf.domain.Criteria;
 import com.hf.domain.MomentWithContent;
 
@@ -16,6 +17,9 @@ public interface MomentMapper {
     int countMomentsWithContent();
     
     MomentWithContent selectModalWithContent(int momentid);
+    List<String> modal_LargeCategory(); 
+    List<String> modal_MiddleCategory(String largecate); 
+    List<String> modal_SmallCategory(String middlecate); 
 }
 
  

@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hf.domain.Category;
 import com.hf.domain.MomentWithContent;
 import com.hf.mapper.MomentMapper;
 
@@ -35,5 +36,17 @@ public class MomentService {
     	list = momentMapper.selectModalWithContent(momentID);
     	return list;
     }
+    
+    public List<String> modalLargeCategory() {
+    	return momentMapper.modal_LargeCategory();
+    			
+    }
+    
+    public List<String> modal_MiddleCategory(String largecate){
+    	return momentMapper.modal_MiddleCategory(largecate);
+    } 
+    public List<String> modal_SmallCategory(String middlecate){
+    	return momentMapper.modal_SmallCategory(middlecate);
+    } 
 }
 
