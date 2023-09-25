@@ -1,0 +1,32 @@
+
+.mmake_img_box {
+	display: flex;
+	justify-content: center; 
+}
+
+.bmake_title{
+	text-align: center;
+}
+
+.m_img {
+	width: 100px;
+	height: 100px;
+}
+
+.category{
+	display:flex;
+}
+
+.largecategory{
+	width : 30%;
+}
+
+.smallcategory{
+	width : 30%;
+	margin-left:34px;
+}
+
+.middlecategory{
+	width : 30%;
+	margin-left:34px;
+}

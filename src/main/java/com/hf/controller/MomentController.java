@@ -51,11 +51,12 @@ public class MomentController {
 	    	return new MomentWithContent();
 	    }
 	    
+	    @ResponseBody
 	    @PostMapping("/modal")
-	    public List<MomentWithContent> modal(Model model, @RequestParam("momentid") int momentId){
-	    	List<MomentWithContent> list = new ArrayList<MomentWithContent>();
-	    	list = momentService.getModalWithContent(momentId);
-	    	log.info(list);
+	    public MomentWithContent modal( @RequestParam("momentID") int momentID,Model model){
+	    	MomentWithContent list = new MomentWithContent();
+	    	list = momentService.getModalWithContent(momentID);
+	    	log.info("momentid : "+list.getMomentID()+" writer : "+list.getWriter());
 	    	return list;
 	    }
 	

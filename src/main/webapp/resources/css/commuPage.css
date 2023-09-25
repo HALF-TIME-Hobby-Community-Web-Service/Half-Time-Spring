@@ -13,8 +13,6 @@ section.commu_content {
   float: left;
   width: 100%;
   /* height: 1600px; */
-
-  border: 1px solid #000;
 }
 
 /* 상단 탭박스*/
@@ -105,6 +103,7 @@ div.intro {
 
 .introTitle{
   font-size: 40px;
+  font-weight: bold;
 }
 
 div.intro > img.mainImage {
@@ -112,7 +111,9 @@ div.intro > img.mainImage {
   height: 300px;
 }
 
-.introText {
+
+
+.introBox {
   width: 90%;
 
   margin-top: 2%;

@@ -18,8 +18,7 @@ $(() => {
     memberListClick.click((e) => {
         momentWrite.css('display', 'block')
 
-    })
-    
+    })    
     
 
     $('.feed_container_append').click((e) => {

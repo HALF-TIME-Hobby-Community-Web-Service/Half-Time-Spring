@@ -1,27 +1,96 @@
-div.feed_modalWrap {
+.feed_modal_content{
     position: fixed;
-    /* Stay in place */
-    z-index: 0;
-    /* Sit on top */
-    padding-top: 100px;
-    /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.0);
-    /* Black w/ opacity */
+    z-index: 1;
+    left: 27.5%;
+    top: 5%;
+    
+    height: 800px;   
+    
+    background-color: white;
     display: block;
+    
+    border: 2px solid;
 }
 
-.feed_modalBody {
-    width: 700px;
+.feed_modal_img_box {
+	width: 70%;
+	height: 100%;
+	float:left;
+}
+
+.feed_modal_img_box > img {
+	display: flex;
+	vertical-align: middle;
+	height: 100%;
+	max-width: 100%;
+}
+
+.feed_modal_container {	
+	float: right;
+	width: 30%;
+	height: 100%;
+	
+	border-left: 2px solid;
+}
+
+.feed_modal_title {
+	font-size: 20px;
+	padding: 5px;
+	padding-top: 15px;
+}
+
+.feed_modal_a_name {
+	text-decoration: none;
+	color: black;
+}
+
+.feed_modal_etc {
+	width: 30px;
+	float: right;
+}
+
+.feed_modal_feedtext {
+	margin-top: 8px;	
+}
+
+.feed_modal_comment_container {
+    overflow-y: scroll;
+}
+
+.feed_modal_comment_box {
+	padding-left: 10px;
+	padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+.comment_time {
+	margin-left: 10px;
+	color: rgb(115, 115, 115);
+}
+
+.comment_text {
+	padding-left: 10px;
+}
+
+.feed_modal_items {
+	bottom: 0%;
+		
+    width: 50px;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+/* .feed_modalBody {
+    width: 500px;
     height: 1000px;
-    padding: 30px 30px;
     margin: 0 auto;
     border: 1px solid #777;
     background-color: beige;
@@ -29,6 +98,7 @@ div.feed_modalWrap {
 
 .feed_modal_container {
     display: flex;
+    
     justify-content: center;
 }
 
@@ -39,7 +109,7 @@ div.feed_modalWrap {
 
 .feed_modal_box {
     float: left;
-    /* align-items: center; */
+    align-items: center;
     width: 550px;
     height: 650px;
     border: 5px solid #c9c5a6;
@@ -90,18 +160,6 @@ div.feed_modalWrap {
     font-size: medium
 }
 
-/*좋아요, 댓글 아이콘*/
-.feed_comment_top {
-    border-top: 2px solid;
-    border-color: #b8b59b;
-    margin-bottom: 10px;
-}
-
-/*더보기 아이콘*/
-.feed_comment_top_add {
-    float: right;
-}
-
 .feed_comment_top img {
     width: 50px;
     height: 100%;
@@ -126,4 +184,4 @@ div.feed_modalWrap {
 
 .feed_comment_user {
     font-weight: bold;
-}
+} */

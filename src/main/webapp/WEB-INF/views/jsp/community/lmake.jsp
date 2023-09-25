@@ -45,7 +45,7 @@
 
       <div class="form-floating mb-3">
         <span>내용:</span>
-        <textarea class="lmake_text" placeholder="롯데리아 종이배 모자쓰고 맥도날드앞에서 시위해요~~~ ^>^"></textarea>
+        <textarea class="lmake_text" wrap="hard" placeholder="롯데리아 종이배 모자쓰고 맥도날드앞에서 시위해요~~~ ^>^"></textarea>
       </div>
 
       <div class="form-floating mb-3 lmake_detailbox">
