@@ -252,16 +252,38 @@ public class UserController {
 	    
 	   // 카카오 로그인  (카카오 로그인하면, ID, 성별, 닉네임이 가입페이지로 넘어가게 만들기) 
 	    @GetMapping("/kakao")
-	     public String getKakaoUser(String kakaoID, String kakaoGender, String kakaoNickname, HttpServletRequest request) {
+	     public String getKakaoUser(String kakaoID, String kakaoGender, String kakaoNickname, String kakaoPWD, HttpServletRequest request) {
 	 	  	log.info("Get|kakao  kakaoID : " +kakaoID);
 	 	  	log.info("Get|kakao  kakaoGender : " +kakaoGender);
 	 	  	log.info("Get|kakao  kakaoNickname : " +kakaoNickname);
-	 	  	
+	 	  	log.info("Get|kakao  kakaoPWD : " +kakaoPWD);
+	 	  
 	 	  	//1. session에 kakaoID 설정
 	 	  	HttpSession session = request.getSession();
 	 	  	session.setAttribute("kakaoID", kakaoID);	 	  	
 	 	  	session.setAttribute("kakaoGender", kakaoGender);
 	 	  	session.setAttribute("kakaoNickname", kakaoNickname);
+	 	  	session.setAttribute("kakaoPWD", kakaoPWD);
+	 	  	
+	 	  	
+	 	  	//if > 서비스 > 매퍼 (아이디조회)(id):kakao > 없으면  > return원래대로 있으면 return "./jsp/home"
+	 	  	
+	 	  	/*
+	 	  	 String findPW = service.loginFindPWCheck(user);		
+	    		//String findPW = service.loginFindPWCheck(id, name, gender, birth, pnum);
+	    	
+	    		
+	
+	    		if (findPW!= null) {
+	    			log.info("회원님의 비밀번호는 [" + findPW+ "] 입니다");
+	    		}else {
+	    			log.info("회원가입 이력이 없습니다");
+	    		}
+	    		
+	    		return findPW;
+	 	  	 * */
+	 	  	//String kakaoCheck = service.kakaoCheck(kakaoID);
+	 	  	
 	 	  	
 	 	  	//2. jsp이동
 	     	return "/jsp/user/kakao_join"; 	
@@ -273,7 +295,6 @@ public class UserController {
 	    public int postKakaoUser(
 	    	//카카오 id 전달
 	        @RequestParam("join_ID") String id,
-	        @RequestParam("join_PW") String pwd,
 	        @RequestParam("join_name") String name,
 	        @RequestParam("join_birth") String birth,
 	        //카카오 성별 전달 (String female male) 
@@ -289,6 +310,7 @@ public class UserController {
 	    ) {
 	        String pnum = phonenuma + phonenumb + phonenumc;     
 	        int gender = 0;
+	        String pwd = id+"123";
 	        User user = new User(id, pwd, name, birth, gender, address, pnum, nickname);
 
 	        log.info("회원가입정보" + " ID:" + id + " PWD:" + pwd +
@@ -297,7 +319,7 @@ public class UserController {
 	                " PHONENUM:" + pnum + " NICKNAME" + nickname);
 
 	        int state = service.kakaojoinCheck(user,kakaogender);
-	        log.info("가입 : " + state + "페이지작성완료");
+	        log.info("가입 : " + state + "페이지 작성 완료");
 	        
 	        //가입페이지1 작성 완료 시, 숫자 1 반환
 	        return state;
@@ -321,8 +343,8 @@ public class UserController {
 		        User user = new User(location, category, id);
 
 
-		        int state = service.joinCheck2(user);
-		        log.info("가입 " + state + "페이지 작성 완료");
+		        int state = service.kakaojoinCheck2(user);
+		        log.info("가입 : " + state + "페이지 작성 완료");
 
 		        return state;
 		    }

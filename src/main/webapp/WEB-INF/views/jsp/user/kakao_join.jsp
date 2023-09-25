@@ -21,8 +21,6 @@
             <div class="join_container_border">
                 <div class="join_ID_box">
                     아이디
-
-                            
                             <input class="join_ID_input" 
                                 type="text"
                                 name="join_ID"
@@ -35,19 +33,7 @@
                 
                 <!-- 비밀번호 css display:none 적용 안됨 -->
                 <!-- 비밀번호 임시 : kakaoID + 123 -->
-               <div class="kakaojoin_PW_box">
-                    비밀번호
-                    <input class="join_PW_input"
-                        type="password"
-                        name="join_PW"
-                        id="join_PW"
-                        required="required"
-                        value="${kakaoID}+123"
-                        readonly
-                        >
-                        
-                        <br>
-                </div><br>
+      
                              
                 
                 <div class="join_name_box">

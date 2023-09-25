@@ -19,6 +19,7 @@ public interface UserMapper {
 						@Param("pnum") String pnum);
 		public String loginfindPW_IDCheck(String id);
 		public void insertKakaoUser(User user);
-
+		public void insertkakaoUserLocation(@Param("id") String id , @Param("location") String location);
+		public void insertkakaoUserCategory(@Param("id") String id, @Param("category") String category);
 
 }

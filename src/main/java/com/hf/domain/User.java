@@ -90,6 +90,16 @@ public class User {
 		this.address = address;
 		this.pnum = pnum;
 	}
+	public User(String id, String nickname, String name, String birth, int gender, String address, String pnum) {
+		super();
+		this.id = id;
+		this.nickname = nickname;
+		this.name = name;
+		this.birth = birth;
+		this.gender = gender;
+		this.address = address;
+		this.pnum = pnum;
+	}
 
 
 }

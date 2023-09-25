@@ -70,6 +70,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         VALUES (#{id}, #{pwd}, #{name}, #{nickname}, #{gender}, #{birth}, #{pnum}, #{address})
         ]]>
     </insert>
+    
+        <!-- 카카오 회원가입 2 관심지역 입력 -->
+    <insert id="insertkakaoUserLocation" >
+        <![CDATA[
+        INSERT INTO Userlocation 
+        VALUES (userlocation_seq.nextval, #{id}, '집', #{location})
+         ]]>
+    </insert>
+    
+    <!-- 카카오 회원가입 2 관심사 입력 -->
+    <insert id="insertkakaoUserCategory">
+    <![CDATA[
+        INSERT INTO Usercategory 
+        VALUES (userlocation_seq.nextval, #{id}, #{category})
+        ]]>
+    </insert>
 	
 
 </mapper>
