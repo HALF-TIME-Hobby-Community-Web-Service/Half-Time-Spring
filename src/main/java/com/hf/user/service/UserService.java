@@ -17,7 +17,7 @@ public class UserService {
 	//가입페이지 1
     public int joinCheck(User user) {
         mapper.insertUser(user);      
-        return 1; 
+        return 1;
     }
     
     //가입페이지 2
