@@ -8,15 +8,15 @@ body{
 
 .login_container_logo{
     display: flex;
-    justify-content: center; /* 수평 가운데 정렬 */
-    align-items: center; /* 수직 가운데 정렬 */
-    height: 30%; /* 컨테이너의 높이를 뷰포트 높이의 10%로 설정합니다 */
+    justify-content: center; 
+    align-items: center; 
+    height: 30%; 
     text-align: center;
     margin-top: 50px;
 }
 
 #logo {
-    text-decoration: none;/* a태그에 스타일을 없앤다*/
+    text-decoration: none;
     color: black;
     font-size: 70px;    
     margin-bottom: 10px;
@@ -27,12 +27,9 @@ body{
     font-weight: normal;
 }
 
-
-
 .join_container{
     padding: 15px;
     padding-left: 34%;
-    /* text-align: center; */
 }
 
 .join_container_border{
@@ -47,17 +44,4 @@ body{
     margin-top: 30px;
 }
 
-/*
-.join_ID_box {
-    display: inline-block;
-    width: auto;
-    font-size: 30px; 
-}
-
-
-.join_ID_input {
-    width: 300px; 
-    height: 30px; 
-}
-*/
 
