@@ -265,7 +265,7 @@ public class UserController {
 	 	  	session.setAttribute("kakaoPWD", kakaoPWD);
 	 	  	
 	 	  	//2. 카카오 로그인 (가입이력 있는 회원 > feed로 들어가기)
-	 	  	if(true) {
+	 	  	if(service.kakaoIDCheck(kakaoID)) {
 	 	  		return "./jsp/home";
 	 	  	}else 
 	 	  		return "/jsp/user/kakao_join";
