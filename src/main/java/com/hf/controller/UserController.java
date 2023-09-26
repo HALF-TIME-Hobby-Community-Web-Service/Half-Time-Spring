@@ -264,30 +264,14 @@ public class UserController {
 	 	  	session.setAttribute("kakaoNickname", kakaoNickname);
 	 	  	session.setAttribute("kakaoPWD", kakaoPWD);
 	 	  	
-	 	  	
-	 	  	//if > 서비스 > 매퍼 (아이디조회)(id):kakao > 없으면  > return원래대로 있으면 return "./jsp/home"
-	 	  	
-	 	  	/*
-	 	  	 String findPW = service.loginFindPWCheck(user);		
-	    		//String findPW = service.loginFindPWCheck(id, name, gender, birth, pnum);
-	    	
-	    		
-	
-	    		if (findPW!= null) {
-	    			log.info("회원님의 비밀번호는 [" + findPW+ "] 입니다");
-	    		}else {
-	    			log.info("회원가입 이력이 없습니다");
-	    		}
-	    		
-	    		return findPW;
-	 	  	 * */
-	 	  	//String kakaoCheck = service.kakaoCheck(kakaoID);
-	 	  	
-	 	  	
-	 	  	//2. jsp이동
-	     	return "/jsp/user/kakao_join"; 	
-	     }
-	
+	 	  	//2. 카카오 로그인 (가입이력 있는 회원 > feed로 들어가기)
+	 	  	if(true) {
+	 	  		return "./jsp/home";
+	 	  	}else 
+	 	  		return "/jsp/user/kakao_join";
+	    
+	    }
+
 	    // 카카오 회원가입 페이지 1 
 	    @PostMapping("/kakao")
 	    @ResponseBody

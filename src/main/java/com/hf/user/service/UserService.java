@@ -70,11 +70,18 @@ public class UserService {
 		 }
 	 }
 	
-	   //카카오 가입페이지 2
+	// 카카오 가입페이지 2
     public int kakaojoinCheck2 (User user) { 	
     	mapper.insertkakaoUserLocation(user.getId(), user.getLocation());
     	mapper.insertkakaoUserCategory(user.getId(),user.getCategory());
     	return 2;
+    }
+    
+    // 카카오 아이디 체크 (아이디 가입여부 확인) 
+    public boolean kakaoIDCheck(String kakaoID) {
+    	String kakaoIDCheck = mapper.kakaoIDCheck(kakaoID);	
+    		return kakaoIDCheck!=null;
+ 	
     }
 	
 	
