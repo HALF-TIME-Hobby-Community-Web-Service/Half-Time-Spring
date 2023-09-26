@@ -250,13 +250,16 @@ public class UserController {
 	 	  
 	 	  	//1. session에 kakaoID 설정
 	 	  	HttpSession session = request.getSession();
-	 	  	session.setAttribute("kakaoID", kakaoID);	 	  	
+	 	  	session.setAttribute("id", kakaoID);	 	  	
 	 	  	session.setAttribute("kakaoGender", kakaoGender);
 	 	  	session.setAttribute("kakaoNickname", kakaoNickname);
 	 	  	session.setAttribute("kakaoPWD", kakaoPWD);
 	 	  	
 	 	  	//2. 카카오 로그인 (가입이력 있는 회원 > feed로 들어가기)
 	 	  	if(service.kakaoIDCheck(kakaoID)) {
+	 	  		session.setAttribute("id", kakaoID);
+	 	  		session.setMaxInactiveInterval(1800);
+	 	  		log.info("세---------------------------션:"+session.getAttribute("id"));
 	 	  		return "./jsp/home";
 	 	  	}else 
 	 	  		return "/jsp/user/kakao_join";
