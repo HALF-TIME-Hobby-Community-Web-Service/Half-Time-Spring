@@ -109,9 +109,8 @@ div.intro {
 div.intro > img.mainImage {
   margin-top: 30px;
   height: 300px;
+  border: 3px solid white;
 }
-
-
 
 .introBox {
   width: 90%;

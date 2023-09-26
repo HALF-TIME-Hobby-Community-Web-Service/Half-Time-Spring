@@ -11,27 +11,11 @@
   <!-- js-->
   <script src="/resources/js/commulist.js"></script>  
 </head>
-
-  <div id="modalWrap">
-    <div id="modalBody">
-      <h3 class="modaltitle"></h3>
-      <div class="modalaround"></div>
-      <div class="modalaround2"></div>
-      <hr class="moondan">
-	  <img src="/resources/items/commu/commu_page/1.jpg"  class="modalimg">
-      <div class="modalintro">
-        <p class="modalintro2">독서를 좋아하는 사람들의 모임</p>
-        <!-- <p class="commumember">정원 3/40</p> -->
-      </div>
-      <section class="btns">
-        <button class="modalbtn" id="commuSignup">가입신청</button>
-        <button class="modalclose">닫기</button>
-      </section>
-    </div>
-  </div>
+	
+  <jsp:include page="./clist_modal.jsp"/>
+	  
   <div class="commuevery">
-    <div class="tabBox">
-    </div>
+
     <div class="filteringBox">
       <span class="filtering">최신순</span>
       <span class="filtering">인기순</span>
@@ -39,13 +23,13 @@
       <span class="filtering">지역별</span>
       <span class="filtering">내 커뮤니티</span>
     </div>
+    
     <div class="list community" id="community">
       <div class="commuBox_clone">
-        <p class="commuName">책과 나는 한몸이다 </p>
+        <p class="commuName"></p>
         <hr style="width: 90%; margin-left: 5%;" >
-        <img src="/resources/items/commu/commu_page/1.jpg"  class="img">
-        <!-- <div class="introduce">
-        </div> -->
+        <img src="" class="img">
       </div>
     </div>
+    
   </div>

@@ -29,11 +29,10 @@ $(() => {
                     modal.style.display = 'block';
                     // 모달 내용 채우기
                     $('.modaltitle').html(community.commuName);
-                    $('.modalaround').html('커뮤니티 둘러보기');
                     if (community.commuLocation === null) {
-                        $('.modalaround2').html(`#${community.commuCategory}`);
+                        $('.modalaround').html(`#${community.commuCategory}`);
                     } else {
-                        $('.modalaround2').html(`#${community.commuCategory} | ${community.commuLocation}`);
+                        $('.modalaround').html(`#${community.commuCategory} | ${community.commuLocation}`);
                     }
                     $('.modalimg').attr('src', `/resources/items/commu/commu_page/${commuID}.jpg`);
                     $('.modalintro2').html(community.commuIntro);
