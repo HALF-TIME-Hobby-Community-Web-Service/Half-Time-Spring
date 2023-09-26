@@ -67,7 +67,7 @@ public class UserController {
 	                " PHONENUM:" + phonenum + " NICKNAME" + nickname);
 
 	        int state = service.joinCheck(user);
-	        log.info("가입 : " + state + "페이지작성완료");
+	        log.info("가입 " + state + "페이지 작성 완료");
 	        
 	        return state;
 	    }
@@ -196,7 +196,7 @@ public class UserController {
 		    
 	    		String pnum = pnum1+pnum2+pnum3;
 	    		log.info("비밀번호 찾기 진행중입니다");
-	    		log.info(id+"회원님의 정보는 아래와 같습니다");
+	    		log.info(id + "회원님의 정보는 아래와 같습니다");
 	    		log.info("이름: "+name+" / "+"성별: "+gender+" / "+"생년월일: "+birth+" / "+"핸드폰번호: "+pnum);
 	    		
 	    	
