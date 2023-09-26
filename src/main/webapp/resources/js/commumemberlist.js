@@ -1,4 +1,7 @@
 $(() => {
+
+
+
   const commumemberList = $('div.memberList');
   const memberList = $('table');
   const memberCA = $('td.ca');
