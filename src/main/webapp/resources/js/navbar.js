@@ -46,7 +46,7 @@ $(() => {
       }else {
       loginBtn.html("Login");
       }
-      alert(data);
+      
     },
     error(jqXhr,status){
     alert("세션 실패")
