@@ -27,16 +27,16 @@ $(() => {
   const bactive = $('.box-active');
   const factive = $('.fab-active');
 
-  const loginBtn = $('a#loginBtn');
+  const loginBtn = $('#loginBtn');
   const momentBtn = $('a#momentBtn');
   const commuBtn = $('a#commuBtn');
   const feedContent = $('.feed_content');
   const logoBtn = $('#logo');
   const locationBtn =$('#locationBtn');
 
-  var cnt = 0;
-
-  $.ajax({
+    var cnt = 0;
+	  
+	$.ajax({
     url:"/getSession",
     method:"get",
     dataType:"text",
@@ -57,8 +57,7 @@ $(() => {
     fabbox.toggle(400);
   });
    
-  locationBtn.click((e) => {
-  
+  locationBtn.click((e) => {  
     e.preventDefault();
     console.log("locationBtn Click");
     feedContent.html('');
@@ -102,10 +101,9 @@ $(() => {
   });
   
   
-   loginBtn.on("click", (e) => {
+   loginBtn.click(() => {
      if (loginBtn.html() == "Login") {
-     alert(loginBtn.html());
-      window.location.assign("www.naver.com");
+      	location.href = '/user/login';
     }
     else if(loginBtn.html()=="Logout"){
       location.href="/user/logout";
@@ -113,9 +111,9 @@ $(() => {
   });
 
   momentBtn.click((e) => {
-  console.log("momentBtn Click");
-  feedContent.html('');   
-   e.preventDefault();
+    console.log("momentBtn Click");
+    feedContent.html('');   
+    e.preventDefault();
    
     $.ajax({
       url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
