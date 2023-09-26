@@ -78,20 +78,7 @@ $(() => {
     });
 
   });
-  
-  
-<<<<<<< HEAD
-   loginBtn.click(() => {
-     if (loginBtn.html() == "Login") {
-      	location.href = '/user/login';
-    }
-    else if(loginBtn.html()=="Logout"){
-      location.href="/user/logout";
-    }
-  });
-=======
 
->>>>>>> 7ae00a1e03af00ceff06f6fa96203ac6ecc30937
 
   momentBtn.click((e) => {
     console.log("momentBtn Click");
