@@ -11,8 +11,6 @@
 <script defer
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5o_ctjVFbtm8kt-EfRg7KNU4_hL4JFaw&callback=initMap"></script>
 
-
-
 </head>
 <body>
 	<div>
@@ -47,6 +45,8 @@
 
 
 		<div id="map" style="height: 600px;"></div>
+		
+		
 </body>
 </body>
 </html>

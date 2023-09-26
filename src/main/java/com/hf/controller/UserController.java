@@ -139,20 +139,9 @@ public class UserController {
 	        HttpSession session = request.getSession();
 	        session.invalidate();
 	        
-	        return "redirect:/moment/list";        
-	        
+	        return "redirect:/hf";          
 	    }
-	    @GetMapping("/getSession")
-	    @ResponseBody
-	    public String getSession(HttpServletRequest request) throws Exception{
-	    	
-	    	
-	    	
-	    	HttpSession session = request.getSession();
-	    	String sessionValue = (String)session.getAttribute("id");
-	    	return sessionValue;        
-	    	
-	    }
+
 	
 	    // 아이디 찾기
 	    @GetMapping("/findid")

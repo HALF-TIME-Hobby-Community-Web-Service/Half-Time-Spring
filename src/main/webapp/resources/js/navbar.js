@@ -37,14 +37,19 @@ $(() => {
   var cnt = 0;
 
   $.ajax({
-    url:"/user/getSession",
+    url:"/getSession",
     method:"get",
     dataType:"text",
     success: function(data){
+    if(data != ""){
       loginBtn.html("Logout");
+      }else {
+      loginBtn.html("Login");
+      }
+      
     },
     error(jqXhr,status){
-    alert("실패 ㅠㅠ")
+    alert("세션 실패")
     }
   });
   
