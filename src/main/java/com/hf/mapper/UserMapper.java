@@ -21,5 +21,5 @@ public interface UserMapper {
 		public void insertKakaoUser(User user);
 		public void insertkakaoUserLocation(@Param("id") String id , @Param("location") String location);
 		public void insertkakaoUserCategory(@Param("id") String id, @Param("category") String category);
-
+		public String kakaoIDCheck(String kakaoID);
 }

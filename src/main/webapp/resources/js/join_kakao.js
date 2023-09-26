@@ -5,7 +5,6 @@ $(() => {
   const id = $('input.join_ID_input');
   
   //const kakaoID = sessionStorage.getItem('kakaoID');
-	alert(id);
 	
   $(formObj).submit(() => {
   sessionStorage.setItem('userid', id.val());
