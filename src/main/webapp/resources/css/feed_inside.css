@@ -55,6 +55,7 @@ div.feed_container {
 
 .feed_text_box {
     margin-top: 10px;
+    padding: 5px;
     text-align: left;
 }
 
@@ -70,10 +71,6 @@ div.feed_container {
     height: 20px;
 }
 
-feed_comment_top > button {
-	width: 25%;	
-}
-
 .feed_comment_bottom_box {
     display: flex;
     text-align: left;
@@ -86,3 +83,12 @@ feed_comment_top > button {
 .feed_comment_user {
     font-weight: bold;
 }
+
+.feed_additional_box {
+	margin-bottom: 15px;
+}
+
+.feed_additional_box > button {
+	width: 25%;
+}
+

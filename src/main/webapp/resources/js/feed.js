@@ -95,8 +95,7 @@ $(() => {
                         + '<div class="feed_text">' + item.text + '</div>'
                         + '</div>'
                         + '<hr>'
-						+ '<div class="feed_comment_box">'
-                        + '<div class="feed_comment_top">'
+						+ '<div class="feed_additional_box">'
                         + '<button class="btn">'
                         	+ '<img class="feed_comment_top_heart" src="/resources/items/feed/comment/heart.svg" alt="좋아요버튼">'
                         + '</button>'
@@ -109,7 +108,6 @@ $(() => {
                         + '<button class="btn">'
                         	+ '<img class="feed_comment_top_add" src="/resources/items/feed/comment/three-dots.svg" alt="더보기버튼">'
                     	+ '</button>'
-                        + '</div>'
                         + '</div>'
                         + '</div>'
                     );
