@@ -87,5 +87,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         ]]>
     </insert>
 	
-
+	<!-- 카카오 아이디 가입여부 확인 -->
+	<select id="kakaoIDCheck" resultType="String">
+	<![CDATA[
+		select id from users where id = #{id}
+	]]>
+	</select>
+	
 </mapper>

@@ -2,12 +2,16 @@ package com.hf.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hf.moment.service.MomentService;
 
@@ -52,5 +56,19 @@ public class HomeController {
 		
 		return "./jsp/community/commupage";
 	}
+	
+	
+    @GetMapping("/getSession")
+    @ResponseBody
+    public String getSession(HttpServletRequest request) throws Exception{
+    	
+    	
+    	
+    	HttpSession session = request.getSession();
+    	String sessionValue = (String)session.getAttribute("id");
+    	log.info(sessionValue);
+    	return sessionValue;        
+    	
+    }
 	
 }

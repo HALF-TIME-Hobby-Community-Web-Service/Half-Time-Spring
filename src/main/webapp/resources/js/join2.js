@@ -66,7 +66,6 @@ $(function () {
       //여기부터 다시하기
       success: function (response) {      
         alert('회원가입 완료');
-        alert(response);
         if (response == 2) {
           window.location.href = 'http://localhost:8888/user/login'; //임시로해놓음 (회원가입 완료 후 피드페이지 이동)
         } else {

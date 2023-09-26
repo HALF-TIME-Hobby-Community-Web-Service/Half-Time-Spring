@@ -148,10 +148,9 @@
 	let form = $(".login_form");
 	let login_btn=$(".login_button");
 	
+	
 	login_btn.on("click",function(e) {
 		e.preventDefault();
-		alert("로그인 버튼 클릭");
-		console.log("에러1");
 		 $.ajax({
 			url:"/user/login",
 			type:"post",
@@ -165,7 +164,7 @@
 					location.href="/user/login";
 				}else{
 					alert("true"+data.result);
-					location.href="/user/mypage";			
+					location.href="/hf";			
 				}
 			},
 			error: function(jqXhr,status){

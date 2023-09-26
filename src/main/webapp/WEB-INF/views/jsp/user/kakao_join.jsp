@@ -32,9 +32,7 @@
                 </div><br>
                 
                 <!-- 비밀번호 css display:none 적용 안됨 -->
-                <!-- 비밀번호 임시 : kakaoID + 123 -->
-      
-                             
+                <!-- 비밀번호 임시 : kakaoID + 123 -->         
                 
                 <div class="join_name_box">
                     이름
@@ -52,10 +50,6 @@
                 </div><br>
                 <div class="join_gender_box">
                     성별
-                   <!--  <select class="join_gender_select" name="join_gender">
-                        <option value="0" selected>남</option>
-                        <option value="1">여</option>
-                    </select> -->
                     	
                     	 <input class="join_gender_input" 
                                 type="text"
@@ -114,8 +108,7 @@
 </body>
 <script type="text/javascript">
 
-	const kakaoID = sessionStorage.getItem('kakaoID');
-		
+	const kakaoID = sessionStorage.getItem('kakaoID');	
 	const id = $('join_ID_input');		
 		
 </script>
