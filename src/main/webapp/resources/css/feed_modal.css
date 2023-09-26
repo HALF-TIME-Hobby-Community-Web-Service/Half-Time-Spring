@@ -14,6 +14,7 @@
 
 .feed_modal_img_box {
 	width: 70%;
+	min-width: 50%;
 	height: 100%;
 	float:left;
 }
@@ -35,18 +36,19 @@
 
 .feed_modal_title {
 	font-size: 20px;
-	padding: 5px;
-	padding-top: 15px;
+	padding-left: 5px;
+	padding-top: 10px;
+	height: 25%;
 }
 
-.feed_modal_a_name {
+.feed_modal_a_name {	
 	text-decoration: none;
 	color: black;
 }
 
-.feed_modal_etc {
-	width: 30px;
+.feed_modal_closebtn{
 	float: right;
+	padding-right: 10px;
 }
 
 .feed_modal_feedtext {
@@ -55,6 +57,7 @@
 
 .feed_modal_comment_container {
     overflow-y: scroll;
+    height: 60%
 }
 
 .feed_modal_comment_box {
@@ -72,116 +75,15 @@
 	padding-left: 10px;
 }
 
-.feed_modal_items {
-	bottom: 0%;
-		
-    width: 50px;
-    height: 100%;
+.feed_modal_comment_write {
+	margin-bottom: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-/* .feed_modalBody {
-    width: 500px;
-    height: 1000px;
-    margin: 0 auto;
-    border: 1px solid #777;
-    background-color: beige;
+.feed_modal_items {	
+    height: 15%;
 }
 
-.feed_modal_container {
-    display: flex;
-    
-    justify-content: center;
+.feed_modal_items > button {
+	width: 24%;
+	display: inline;
 }
-
-.feed_container_append {
-    display: flex;
-    justify-content: center;
-}
-
-.feed_modal_box {
-    float: left;
-    align-items: center;
-    width: 550px;
-    height: 650px;
-    border: 5px solid #c9c5a6;
-    border-radius: 10px;
-    display: block;
-}
-
-.feed_closeBtn {
-    float: right
-}
-
-.feed_thumb {
-    width: 505px;
-    height: 300px;
-    z-index: -1111111;
-}
-
-.feed_modal_title {
-    display: flex;
-    border-bottom: 2px solid;
-    border-color: #c9c5a6;
-    justify-content: space-between;
-}
-
-.feed_modal_title_name,
-.feed_modal_title_date,
-.feed_modal_title_time,
-.feed_modal_title_category,
-.feed_modal_title_location {
-    width: 20%;
-}
-
-.feed_modal_text_box {
-    margin-top: 10px;
-    border-top: 2px solid;
-    border-color: #b8b59b;
-    text-align: left;
-}
-
-.feed_modal_text {
-    height: 80px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.feed_modal_text,
-.feed_modal_title {
-    font-size: medium
-}
-
-.feed_comment_top img {
-    width: 50px;
-    height: 100%;
-    height: 20px;
-}
-
-.feed_comment_bottom {
-    border-top: 2px solid;
-    border-color: #c9c5a6;
-    overflow-y: scroll;
-    height: 175px;
-
-}
-
-.feed_comment_bottom_box {
-    display: flex;
-    text-align: left;
-    font-size: small;
-    margin-left: 10%;
-    padding: 2px;
-}
-
-.feed_comment_user {
-    font-weight: bold;
-} */
