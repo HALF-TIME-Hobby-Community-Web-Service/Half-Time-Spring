@@ -161,8 +161,8 @@
 				
 				if(!data.result){
 					alert("false"+ data.result);
-					
 					location.href="/user/login";
+					
 				}else{
 					alert("환영합니다");
 					location.href="/hf";			
