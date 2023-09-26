@@ -80,9 +80,11 @@
                             const kakaoGender = kakao_account.gender;
                           	const kakaoNickname = kakao_account.profile.nickname;
                           	const kakaoPWD = kakaoID+"123";
+                          	
                             console.log("kakaoID : "+kakaoID);
                             console.log("kakaoGender : "+kakaoGender);
                             console.log("kakaoNickname: "+kakaoNickname);
+                            
                            
                           	//2. 카카오 로그인 성공 및 아이디 반환
                           	sessionStorage.setItem('kakaoID', kakaoID, 'kakaoGender', kakaoGender, 'kakaoNickname', kakaoNickname);
@@ -96,55 +98,27 @@
 	                           	 url: '/user/kakao',
 	                           	 method: 'get',
 	                           	 success:(data)=>{
-	                        //4. kakaoID, kakaoGender, null 확인  
 	                           		
 	                           		 $('body').html(data);
 	                           	 }
-	                           	 
-	                        //4. 
-                             });  
-                            
-                   /*          const loginpage = $('.login_class');
-                            sessionStorage.setItem('kakaoID',kakaoID);
-                            $.ajax({
-                                url: '/user/kakao', // 보낼곳
-                                method: 'get', //method type
-                                dataType: "html",
-                                success: function(data) {
-                                	login_class.html()
-                                            
-                                },
-                                error: function(jqXhr, status) {
-                                    console.log("서버 오류: " + status);
-                                }
-                            });
-                            
- */
-                           
-                        }//success
-                    });//window.api
+                             });   
+                        }
+                    });
                 }
             });
         }
     </script>
     
-    	<!-- <button>카카오</button>  
-		<button>페이스북</button>
-		<button>구글</button>-->
 		<br> <br>
 		<button class="login_findIDbtn"
 			onclick="location.href='http://localhost:8888/user/findid'">아이디 찾기</button>
 		<button class="login_findPWbtn"
 			onclick="location.href='http://localhost:8888/user/findpw'">비밀번호 찾기</button>
 		<br> <br>
-		<!--가입하기 페이지로 이동시키기-->
-		<!-- <form method="post" action="http://127.0.0.1:5501/front/html/join.html"> -->
 		<button class="join_button" onclick="location.href='http://localhost:8888/user/join1'">가입하기</button>
-		<!-- </form> -->
 	</div>
 
 <script>
-
 	let form = $(".login_form");
 	let login_btn=$(".login_button");
 	
@@ -161,8 +135,8 @@
 				
 				if(!data.result){
 					alert("false"+ data.result);
-					
 					location.href="/user/login";
+					
 				}else{
 					alert("환영합니다");
 					location.href="/hf";			

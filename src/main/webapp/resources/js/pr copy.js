@@ -1,66 +1,153 @@
-$(()=>{
+$(() => {
 
-  const locationButton = $("#location_search");
-  const searchObj = $("input[name='search_loation']");
-  
-  const communityList = $('div.community_List');
-  const memberList = $('table');
-  const memberCI = $('td.ci');
-  const memberCN = $('td.cn');
-  const memberCC = $('td.cc');
-  const memberCL = $('td.cl');
+  //    const loginTag = $('#sidefirst')
+  //    $.ajax({
+  //     url: 'http://localhost:8888/user/login',
+  //         method: 'POST',
+  //         data: loginTag.serialize(), //form내에 input태그들의 name과 value를 매핑
 
-  window.initMap = function () {
-    const map = new google.maps.Map(document.getElementById("map"), {
-      center: { lat: 37.5400456, lng: 126.9921017 },
-      zoom: 10,
-    });
-  };
+  //          //response: back -> front로 넘겨준 데이터(작명을 임의로 response라고 함)
+  //          //맵으로 넘겨줬을시 response.id, response.state등으로 key값으로 value를 찾으면 됨.
+  //         success: (response) => {
 
+  //           if (response == null ) {
+  //             loginTag.text('Login');
+  //           }
+  //            else{
+  //            loginTag.text('Logout');
+  //           }
+  //         },
+  //         error: (jqXhr, status) => {
+  //           alert(`실패: ${status}\n오류명:${jqXhr.statusCode}`);
+  //         },
+  //    })이는 로그인 됐을 시 session 으로 logout으로 바꿔주는 작업 추후 진행
 
+  const fab = $('.fab');
+  const fabbox = $('.box');
+  const bactive = $('.box-active');
+  const factive = $('.fab-active');
 
+  const loginBtn = $('a#loginBtn');
+  const momentBtn = $('a#momentBtn');
+  const commuBtn = $('a#commuBtn');
+  const feedContent = $('.feed_content');
+  const logoBtn = $('#logo');
+  const locationBtn = $('#locationBtn');
 
-  
-  locationButton.on("click", (e) => {
-  	$(memberCN).html('');
-    $(memberCI).html('');
-    $(memberCC).html('');
-    $(memberCL).html('');
-    
-    $(memberCN).append('<span class="font30px">커뮤니티 이름</span><hr>');
-    $(memberCI).append('<span class="font30px">커뮤니티 소개</span><hr>');
-    $(memberCC).append('<span class="font30px">카테고리</span><hr>');
-    $(memberCL).append('<span class="font30px">지역</span><hr>');
-    
-   e.preventDefault();
-    $.ajax({
-      url:"/commu/location",
-      method: "post",
-      dataType:"json",
-      data:{ search_loation: searchObj.val()},
-      success:(response)=>{
-        alert("성공이요~"+response);
-         response.forEach((data) => {        
-          const div = $('<div>').text('\t' + data.commuName + '\t' + data.commuIntro + '\t' + data.commuLocation + '\t' + data.commuCategory)
-          
-          const cn  = $('<div>').text("커뮤니티 이름:"+data.commuName);
-          const ci  = $('<div>').text("커뮤니티 소개:"+"[" + data.commuIntro + "]");
-          const cc  = $('<div>').text("카테고리:"+data.commuCategory);
-          const cl  = $('<div>').text("지역:"+data.commuLocation);
-          
-          
-          $(memberCN).append(cn);
-          $(memberCI).append(ci);
-          $(memberCC).append(cc);
-          $(memberCL).append(cl);
-          })
-          
-      },
-      error:()=>{
-        alert("실패!");
+  var cnt = 0;
+
+  $.ajax({
+    url: "/getSession",
+    method: "get",
+    dataType: "text",
+    success: function (data) {
+      if (data != "") {
+        loginBtn.html("Logout");
+      } else {
+        loginBtn.html("Login");
       }
 
-    })
-  
+    },
+    error(jqXhr, status) {
+      alert("세션 실패")
+    }
   });
-})
+
+  loginBtn.on("click", (e) => {
+    
+    if (loginBtn.html() == "Login") {
+      location.href="/user/login";
+    }
+    else if(loginBtn.html()=="Logout"){
+      location.href="/user/logout";
+    }
+  });
+
+
+  fab.click((e) => {
+    fabbox.toggle(400);
+  });
+
+  locationBtn.click((e) => {
+
+    e.preventDefault();
+    console.log("locationBtn Click");
+    feedContent.html('');
+
+    $.ajax({
+      url: 'http://localhost:8888/location/map', // 불러올 페이지의 경로
+      method: 'get', // GET 요청
+      dataType: "html",
+      success: (response) => {
+        console.log(response);
+
+        feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
+      },
+      error: (jqXhr, status) => {
+        alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+      },
+    });
+
+  });
+
+  commuBtn.click((e) => {
+    e.preventDefault();
+    console.log("commuBtn Click");
+
+    feedContent.html('');
+
+    $.ajax({
+      url: 'http://localhost:8888/commulist', // 불러올 페이지의 경로
+      method: 'get', // GET 요청
+      dataType: "html",
+      success: (response) => {
+        console.log(response);
+
+        feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
+      },
+      error: (jqXhr, status) => {
+        alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+      },
+    });
+
+  });
+
+  momentBtn.click((e) => {
+    console.log("momentBtn Click");
+    feedContent.html('');
+    e.preventDefault();
+
+    $.ajax({
+      url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
+      method: 'get', // GET 요청
+      dataType: "html",
+      success: (response) => {
+        console.log(response);
+        feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
+      },
+      error: (jqXhr, status) => {
+        alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+      },
+    });
+
+  });
+
+  logoBtn.click((e) => {
+    console.log("loginBtn Click");
+    $.ajax({
+      url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
+      method: 'get', // GET 요청
+
+      success: (response) => {
+
+        feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
+        $()
+      },
+      error: (jqXhr, status) => {
+        alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+      },
+    });
+    return false;
+  });
+});
+
