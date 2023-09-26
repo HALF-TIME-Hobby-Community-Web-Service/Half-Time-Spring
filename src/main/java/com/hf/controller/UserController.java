@@ -138,7 +138,7 @@ public class UserController {
 	        HttpSession session = request.getSession();
 	        session.invalidate();
 	        
-	        return "redirect:/moment/list";          
+	        return "redirect:/hf";          
 	    }
 
 	

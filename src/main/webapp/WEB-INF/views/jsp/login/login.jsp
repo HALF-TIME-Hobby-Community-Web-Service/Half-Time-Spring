@@ -150,6 +150,7 @@
 	
 	
 	login_btn.on("click",function(e) {
+
 		e.preventDefault();
 		 $.ajax({
 			url:"/user/login",
@@ -163,7 +164,7 @@
 					
 					location.href="/user/login";
 				}else{
-					alert("true"+data.result);
+					alert("환영합니다");
 					location.href="/hf";			
 				}
 			},
