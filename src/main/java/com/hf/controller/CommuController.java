@@ -30,7 +30,6 @@ public class CommuController {
 	@Setter(onMethod_ = @Autowired)
 	private CommuService service;
 	
-
 	@PostMapping("/getmember")
 	public List<Commumember> getCommumemberList(@RequestParam("commuID") String commuID) {
 		log.info("commu/getMember/commuID: " + commuID);
