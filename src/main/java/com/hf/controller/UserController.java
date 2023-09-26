@@ -23,6 +23,7 @@ import com.hf.user.service.UserService;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
+
 @Controller
 @Log4j
 @RequestMapping("/user")
@@ -283,9 +284,11 @@ public class UserController {
 	        String pnum = phonenuma + phonenumb + phonenumc;     
 	        int gender = 0;
 	        String pwd = id+"123";
+
+
 	        User user = new User(id, pwd, name, birth, gender, address, pnum, nickname);
 
-	        log.info("회원가입정보" + " ID:" + id + " PWD:" + pwd +
+	        log.info("회원가입정보" + " ID:" + id + " PWD:랜덤숫자"+
 	                " NAME:" + name + " BIRTH:" + birth +
 	                " GENDER:" + kakaogender + " ADDRESS:" + address +
 	                " PHONENUM:" + pnum + " NICKNAME" + nickname);

@@ -7,6 +7,7 @@ import com.hf.domain.User;
 import com.hf.mapper.UserMapper;
 
 import lombok.Setter;
+import java.util.Random;
 
 @Service 
 public class UserService {
@@ -58,14 +59,27 @@ public class UserService {
 	public int kakaojoinCheck(User user, String kakaogender) {
 		 if(kakaogender.equals("female")) {
 			 user.setGender(1);
-			 user.setPwd(user.getId()+"123");
+			 user.setPwd(generateRandomNumber(10));
 		 }else if(kakaogender.equals("male")){
 			 user.setGender(0);
-			 user.setPwd(user.getId()+"123");
+			 user.setPwd(generateRandomNumber(10));
 		 }
 		 mapper.insertKakaoUser(user); 
 		 return 1;
 	 }
+	
+    // 10자리 랜덤 숫자 생성 함수
+    private String generateRandomNumber(int length) {
+        StringBuilder randomNumber = new StringBuilder();
+        Random random = new Random();
+
+        for (int i = 0; i < length; i++) {
+            int digit = random.nextInt(10);
+            randomNumber.append(digit);
+        }
+
+        return randomNumber.toString();
+    }
 	
 	// 카카오 가입페이지 2
     public int kakaojoinCheck2 (User user) { 	
