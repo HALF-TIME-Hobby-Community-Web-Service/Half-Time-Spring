@@ -91,17 +91,24 @@ $(() => {
                         + '</button>'
                         + '</div>'
                         + '<hr>'
-                        + '<div class="feed_comment_box">'
-                        + '<div class="feed_comment_top">'
-                        + '<img class="feed_comment_top_heart" src="/resources/items/feed/comment/heart.svg" alt="좋아요버튼">'
-                        + '<img class="feed_comment_top_comment" src="/resources/items/feed/comment/chat.svg" alt="댓글버튼">'
-                        + '<img class="feed_comment_top_send" src="/resources/items/feed/comment/send.svg">'
-                        + '<img class="feed_comment_top_add" src="/resources/items/feed/comment/three-dots.svg" alt="더보기버튼">'
-                        + '</div>'
+                        + '<div class="feed_text_box">'
+                        + '<div class="feed_text">' + item.text + '</div>'
                         + '</div>'
                         + '<hr>'
-                        + '<div class="feed_text_box">'
-                        + '<div class="feed_text">' + item.text
+						+ '<div class="feed_comment_box">'
+                        + '<div class="feed_comment_top">'
+                        + '<button class="btn" style="width:24.5%;">'
+                        	+ '<img class="feed_comment_top_heart" src="/resources/items/feed/comment/heart.svg" alt="좋아요버튼">'
+                        + '</button>'
+                        + '<button class="btn" style="width:24.5%;">'
+                        	+ '<img class="feed_comment_top_comment" src="/resources/items/feed/comment/chat.svg" alt="댓글버튼">'
+                        + '</button>'
+                        + '<button class="btn" style="width:24.5%;">'
+                        	+ '<img class="feed_comment_top_send" src="/resources/items/feed/comment/send.svg">'
+                    	+ '</button>'
+                        + '<button class="btn" style="width:24.5%;">'
+                        	+ '<img class="feed_comment_top_add" src="/resources/items/feed/comment/three-dots.svg" alt="더보기버튼">'
+                    	+ '</button>'
                         + '</div>'
                         + '</div>'
                         + '</div>'
@@ -145,5 +152,10 @@ $(() => {
 	// 게시물 클릭시 피드 모달 두둥등장 -> 안먹어
     $('.feedbox').click(() => {    	
 		$('.feed_modal_content').css('display','block');
-    });	
+    });
+
+	//임시    
+    $('.float-item2').click(()=> {
+		$('.feed_modal_content').css('display','block');
+	});	
 });
