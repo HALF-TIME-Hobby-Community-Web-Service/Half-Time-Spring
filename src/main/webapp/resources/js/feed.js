@@ -140,8 +140,10 @@ $(() => {
     }, options);
     initialObserver.observe($('.feed_content').last()[0]);
 
-    // 댓글 버튼 클릭시 모달 두둥등장
-    $('.feed_comment_top_comment').click(() => {
 
-    });
+	//$('.feed_modal_content').css('display','block');
+	// 게시물 클릭시 피드 모달 두둥등장 -> 안먹어
+    $('.feedbox').click(() => {    	
+		$('.feed_modal_content').css('display','block');
+    });	
 });
