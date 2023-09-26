@@ -46,14 +46,11 @@ $(() => {
       }else {
       loginBtn.html("Login");
       }
-      
     },
     error(jqXhr,status){
     alert("세션 실패")
     }
   });
-  
-  loginBtn.on("click",(e)=>{
   
 
   fab.click((e) => {
@@ -71,10 +68,10 @@ $(() => {
       method: 'get', // GET 요청
       dataType:"html",
       success: (response) => {
-	    console.log(response);
+       console.log(response);
 
-	    feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
-	  },
+       feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
+     },
       error: (jqXhr, status) => {
         alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
       },
@@ -91,10 +88,10 @@ $(() => {
     $.ajax({
       url: 'http://localhost:8888/commulist', // 불러올 페이지의 경로
       method: 'get', // GET 요청
-	  dataType:"html",
+     dataType:"html",
       success: (response) => {
-	    console.log(response);
-	
+       console.log(response);
+   
         feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
       },
       error: (jqXhr, status) => {
@@ -103,16 +100,27 @@ $(() => {
     });
 
   });
+  
+  
+   loginBtn.on("click", (e) => {
+     if (loginBtn.html() == "Login") {
+     alert(loginBtn.html());
+      window.location.assign("www.naver.com");
+    }
+    else if(loginBtn.html()=="Logout"){
+      location.href="/user/logout";
+    }
+  });
 
   momentBtn.click((e) => {
   console.log("momentBtn Click");
-  feedContent.html('');	
+  feedContent.html('');   
    e.preventDefault();
    
     $.ajax({
       url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
       method: 'get', // GET 요청
-		dataType:"html",
+      dataType:"html",
       success: (response) => {
       console.log(response);
         feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
@@ -131,9 +139,9 @@ $(() => {
       method: 'get', // GET 요청
 
       success: (response) => {
-      	
+         
         feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
-		$()
+      $()
       },
       error: (jqXhr, status) => {
         alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
@@ -141,5 +149,4 @@ $(() => {
     });
     return false;
   });
-})
-})
+});
