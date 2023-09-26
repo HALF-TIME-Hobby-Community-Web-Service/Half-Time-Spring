@@ -27,7 +27,7 @@
                                 maxlength="10"
                                 style="width: 150px;"
                                 required="required"
-                                value="${kakaoID}"
+                                value="${id}"
                                 readonly>
                 </div><br>
                 

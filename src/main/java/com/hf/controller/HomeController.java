@@ -66,6 +66,7 @@ public class HomeController {
     	
     	HttpSession session = request.getSession();
     	String sessionValue = (String)session.getAttribute("id");
+    	
     	log.info(sessionValue);
     	return sessionValue;        
     	

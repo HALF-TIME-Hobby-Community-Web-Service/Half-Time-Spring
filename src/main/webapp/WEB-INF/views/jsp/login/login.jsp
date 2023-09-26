@@ -50,7 +50,7 @@
 		</div>
 		
 		<!-- 카카오로그인 -->
-		 <a href="javascript:kakaoLogin();">
+		<a href="javascript:kakaoLogin();">
     <img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="height: 60px;width:auto;">
     </a>
     <div style="display: none">

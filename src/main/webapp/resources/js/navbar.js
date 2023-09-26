@@ -128,6 +128,7 @@ $(() => {
        method: 'get', // GET 요청
       dataType:"html",
        success: (response) => {
+       
          location.href="/user/login"; // 페이지 내용을 .feed_content에 삽입
        },
        error: (jqXhr, status) => {
@@ -137,7 +138,17 @@ $(() => {
      return false;
    }
    else if(loginBtn.html()=="Logout"){
-     location.href="/user/logout";
+    $.ajax({
+       url: 'http://localhost:8888/user/logout', // 불러올 페이지의 경로
+       method: 'get', // GET 요청
+       success: (response) => {
+         location.href="/user/logout"; // 페이지 내용을 .feed_content에 삽입
+       },
+       error: (jqXhr, status) => {
+         alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+       },
+     });
+     return false;
    }else{
    alert("1");
    }
