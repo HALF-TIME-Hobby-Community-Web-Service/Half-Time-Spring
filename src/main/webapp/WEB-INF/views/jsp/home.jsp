@@ -23,7 +23,7 @@
 
 </div>
 <jsp:include page="./moment/moment_write_modal.jsp"/>
-<jsp:include page="./moment/feed_modal2.jsp"/>	
+<jsp:include page="./moment/feed_modal.jsp"/>	
 <script>
 	$('.float-item1').click(()=> {
 		$('.mmake_content').css('display','block');

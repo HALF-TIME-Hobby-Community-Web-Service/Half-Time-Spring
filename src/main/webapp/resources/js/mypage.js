@@ -1,10 +1,6 @@
 $(() => {
-    let mypagebtn = $("#mypageBtn");
-    let logoutbtn = $("#logoutBtn");
-
+   
     mypagebtn.on("click", function() {
-
-
         $.ajax({
             url: "/user/mypage",
             type: "get",
@@ -29,4 +25,5 @@ $(() => {
             }            
        });
     })
-    })
+  })
+

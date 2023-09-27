@@ -260,7 +260,9 @@ public class UserController {
 	 	  		session.setAttribute("id", kakaoID);
 	 	  		session.setMaxInactiveInterval(1800);
 	 	  		log.info("세---------------------------션:"+session.getAttribute("id"));
-	 	  		return "./jsp/home";
+	 	  		// return "./jsp/home"; 
+	 	  		// return "redirect:/hf";
+	 	  		return "redirect:/hf";
 	 	  	}else 
 	 	  		return "/jsp/user/kakao_join";
 	    

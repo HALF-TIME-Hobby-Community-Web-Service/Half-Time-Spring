@@ -77,14 +77,16 @@
                             maxlength="4"
                             name="login_findPW_pnum1"
                             oninput="this.value = this.value.replace(/[^0-9]/g, '');"
-                            required="required">
+                            required="required"
+                            style="width: 70px;">
                         <input class="login_findPW_pnum2_input"
                         type="tel"
                         maxlength="4"
                         name="login_findPW_pnum2"
                         oninput="this.value = this.value.replace(/[^0-9]/g, '');"
-                        required="required">
-                        <button class="login_findPW_pnum_checkbtn" type="button">인증번호받기</button>
+                        required="required"
+                        style="width: 70px;">
+                        <button class="login_findPW_pnum_checkbtn" type="button">확인</button>
                 </div><br>
             </form>
         </div>
