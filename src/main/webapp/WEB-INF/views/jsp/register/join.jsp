@@ -14,7 +14,7 @@
 
 <body>
     <div class="login_container_logo">
-        <a class="navbar-brand" href="#" id="logo">HALF-TIME</a>
+        <a class="navbar-brand" href="./login" id="logo">HALF-TIME</a>
     </div>
     <div class="join_content">
         <form class="join_container">
@@ -22,8 +22,7 @@
                 <div class="join_ID_box">
                     아이디
 
-                            <input class="join_
-_input" 
+                            <input class="join_ID_input" 
                                 type="text"
                                 name="join_ID"
                                 maxlength="10"
@@ -33,7 +32,7 @@ _input"
                             <select class="join_ID_select" name="join_ID2">
                                 <option value="@naver.com" selected>@naver.com</option>
                                 <option value="@hanmail.net">@hanmail.net</option>
-                                <option value="@kakao.com">@icloud.com</option>
+                                <option value="@icloud.com">@icloud.com</option>
                                 <option value="@gmail.com">@gmail.com</option>
                                 <option value="@nate.com">@nate.com</option>
                             </select>                 

@@ -67,7 +67,7 @@ public class UserController {
 	                " PHONENUM:" + phonenum + " NICKNAME" + nickname);
 
 	        int state = service.joinCheck(user);
-	        log.info("가입 : " + state + "페이지작성완료");
+	        log.info("가입 " + state + "페이지 작성 완료");
 	        
 	        return state;
 	    }
@@ -100,6 +100,7 @@ public class UserController {
 	    //로그인 페이지
 	    @GetMapping("/login")
 	    public String getLogin() {
+	    	log.info("user/login 접속");
 	    	return "./jsp/login/login";
 	    }
 	    
@@ -195,7 +196,7 @@ public class UserController {
 		    
 	    		String pnum = pnum1+pnum2+pnum3;
 	    		log.info("비밀번호 찾기 진행중입니다");
-	    		log.info(id+"회원님의 정보는 아래와 같습니다");
+	    		log.info(id + "회원님의 정보는 아래와 같습니다");
 	    		log.info("이름: "+name+" / "+"성별: "+gender+" / "+"생년월일: "+birth+" / "+"핸드폰번호: "+pnum);
 	    		
 	    	
@@ -249,13 +250,16 @@ public class UserController {
 	 	  
 	 	  	//1. session에 kakaoID 설정
 	 	  	HttpSession session = request.getSession();
-	 	  	session.setAttribute("kakaoID", kakaoID);	 	  	
+	 	  	session.setAttribute("id", kakaoID);	 	  	
 	 	  	session.setAttribute("kakaoGender", kakaoGender);
 	 	  	session.setAttribute("kakaoNickname", kakaoNickname);
 	 	  	session.setAttribute("kakaoPWD", kakaoPWD);
 	 	  	
 	 	  	//2. 카카오 로그인 (가입이력 있는 회원 > feed로 들어가기)
 	 	  	if(service.kakaoIDCheck(kakaoID)) {
+	 	  		session.setAttribute("id", kakaoID);
+	 	  		session.setMaxInactiveInterval(1800);
+	 	  		log.info("세---------------------------션:"+session.getAttribute("id"));
 	 	  		return "./jsp/home";
 	 	  	}else 
 	 	  		return "/jsp/user/kakao_join";

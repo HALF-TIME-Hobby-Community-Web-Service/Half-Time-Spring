@@ -55,29 +55,14 @@ div.feed_container {
 
 .feed_text_box {
     margin-top: 10px;
+    padding: 5px;
     text-align: left;
 }
 
 .feed_text {
+	margin-left: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.feed_text,
-.feed_title {
-    font-size: medium
-}
-
-/*좋아요, 댓글 아이콘*/
-.feed_comment_top {
-        
-}
-
-/*더보기 아이콘*/
-.feed_comment_top_add {
-    float: right;
 }
 
 .feed_comment_top img {
@@ -92,8 +77,18 @@ div.feed_container {
     font-size: small;
     margin-left: 10%;
     padding: 2px;
+    vertical-align: middle;
 }
 
 .feed_comment_user {
     font-weight: bold;
 }
+
+.feed_additional_box {
+	margin-bottom: 15px;
+}
+
+.feed_additional_box > button {
+	width: 25%;
+}
+

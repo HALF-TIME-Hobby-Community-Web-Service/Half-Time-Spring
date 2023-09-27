@@ -16,7 +16,6 @@
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   
-
   <!-- css -->
   <link rel="stylesheet" href="/resources/css/commuPage.css" />
   <link rel="stylesheet" href="/resources/css/floatingBtn.css" />
@@ -25,19 +24,16 @@
   <link rel="stylesheet" href="/resources/css/modal.css">
   <link rel="stylesheet" href="/resources/css/modalmemberlist.css" />
 
-  <!-- js-->
-  <script src="/resources/js/modalmemberlist.js"></script>
+  <!-- js-->  
   <script src="/resources/js/commupage.js"></script>
-  <script src="/resources/js/lmake.js"></script>
   <script src="/resources/js/commumemberlist.js"></script>
+  <script src="/resources/js/lmake.js"></script>
   <script src="/resources/js/ljoin.js"></script>
   <script src="/resources/js/commu_board_make.js"></script>
   
 </head>
 
-<body>
-  <%-- <jsp:include page="../header.jsp"/> --%>
-  
+<body>  
   <section class="commu_content">
     <div class="right_nav">
       <div class="lightning">
@@ -50,9 +46,6 @@
         <button class="btn btn-danger lightningBtn boardBtn">
           게시물작성(임시)
         </button>
-      </div>
-      <div class="memberList">
-        <div class="memberTitle" style="font-size: 22px; text-align: center">🤸‍♂️멤버🙋‍♀️</div>
       </div>
     </div>
  	<div class="tabbox">
@@ -69,11 +62,26 @@
           <span class="introLocation"></span>
         </div>
         <img src="" alt="커뮤 메인 사진" class="mainImage" />
+        <!-- 커뮤니티 소개 -->
         <p class="introBox introText"></p>
+        <!-- 커뮤니티 안내사항(const) -->
         <p class="introBox commu_const"></p>
-        <p class="introBox commu_member">
-        	멤버: 
-        </p>
+        <!-- 커뮤니티 멤버 -->
+		<div class="member_modalBody">
+	      <div class="member_content">	        
+	       <div class="member_info">
+	        <div class="member_head">🙏멤버목록</div>
+	        <table class="member_table">            
+	          <tr class="member_tr">
+	            <td class="ca"><span class="font30px">권한</span><hr></td>
+	            <td class="cn"><span class="font30px">닉네임</span><hr></td>
+	            <td class="ci"><span class="font30px">성별</span><hr></td>
+	            <td class="cs"><span class="font30px">나이</span><hr></td>
+	         </tr>
+	        </table>
+	        </div>
+	      </div>
+	    </div>
       </div>
       <div class="commu_box board board_container">
         <div class="boardBox_clone">
@@ -99,14 +107,6 @@
               <span class="board_comment_writer">👼닉네임</span>:&nbsp;
               <span class="board_comment_text">댓글내용</span>
             </div>
-            <!-- <div class="board_comment">
-              <span class="board_comment_writer">👼이규철</span>:&nbsp;
-              <span class="board_comment_text">저는 걸려서 몽둥이 찜질당하다 어깨 박살났어요!!! 공감좀요ㅠㅠ</span>
-            </div>
-            <div class="board_comment">
-              <span class="board_comment_writer">👦조성민</span>:&nbsp;
-              <span class="board_comment_text">저는 저를 쫒아다니는 여경들에게 싸인뿌리고 왔습니다 캬</span>
-            </div> -->
           </div>
         </div>
       </div>
@@ -213,26 +213,6 @@
     </div>
   </div>
   
-  <!-- 멤버 목록-->
-  <div class="member_modalWrap">
-    <div class="member_modalBody">
-      <span class="member_closeBtn">&times;</span>
-      <div class="member_content">
-        <div class="member_head">🙏멤버목록</div>
-        <div class="member_info">
-          <table class="member_table">            
-            <tr class="member_tr">
-              <td class="ca"><span class="font30px">권한</span><hr></td>
-              <td class="cn"><span class="font30px">닉네임</span><hr></td>
-              <td class="ci"><span class="font30px">성별</span><hr></td>
-              <td class="cs"><span class="font30px">나이</span><hr></td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  
   <!-- 게시물 추가 -->
   <div class="modal_content bmake_content">
     <div class="modal_title bmake_title"> 게시글 작성<span class="modal_closebtn bmake_closebtn">&times;</span></div>
@@ -271,12 +251,11 @@
     </div>
   </div>
   
-    <script>
-    $('.bmake_closebtn').click(()=> {    	
-        $('.bmake_content').css('display', 'none');
-    })
-    </script>	
-  
+  <script>
+  $('.bmake_closebtn').click(()=> {    	
+      $('.bmake_content').css('display', 'none');
+  })
+  </script>
 </body>
 
 </html>

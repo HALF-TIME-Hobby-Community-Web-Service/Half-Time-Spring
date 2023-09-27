@@ -55,13 +55,11 @@
 	            <span class="visually-hidden">Next</span>
 	        </button>
 	    </div>
-	    <div class="feed_comment_box">
-	        <div class="feed_comment_top">
-	            <img class="feed_comment_top_heart" src="/resources/items/feed/comment/heart.svg" alt="좋아요버튼">
-	            <img class="feed_comment_top_comment" src="/resources/items/feed/comment/chat.svg" alt="댓글버튼">
-	            <img class="feed_comment_top_send" src="/resources/items/feed/comment/send.svg">
-	            <img class="feed_comment_top_add" src="/resources/items/feed/comment/three-dots.svg" alt="더보기버튼">
-	        </div>
+	    <div class="feed_additional_box">
+           	<img class="feed_comment_top_heart" src="/resources/items/feed/comment/heart.svg" alt="좋아요버튼">
+            <img class="feed_comment_top_comment" src="/resources/items/feed/comment/chat.svg" alt="댓글버튼">
+            <img class="feed_comment_top_send" src="/resources/items/feed/comment/send.svg">
+            <img class="feed_comment_top_add" src="/resources/items/feed/comment/three-dots.svg" alt="더보기버튼">
 	    </div>
 	    <div class="feed_text_box">
 	        <div class="feed_text">{{item.text}}</div>
