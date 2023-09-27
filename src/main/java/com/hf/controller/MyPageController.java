@@ -39,12 +39,11 @@ public class MyPageController {
 	}
 	
 	@GetMapping("/updateInfo")
-	public String updateInfo(HttpServletRequest request,
-	        @RequestParam("pwd_change") String pwd)
+	public String updateInfo(HttpServletRequest request)
 	{
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
-		service.updatePassword(pwd, id);
+		log.info("¿©±â¿È~");
 		
 		
 
