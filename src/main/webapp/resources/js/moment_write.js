@@ -48,6 +48,7 @@ $(() => {
    					 LargeCate.append('<option value="'+ item +'">'+ item +'</option>');
 				});
             },error: function(error) {
+                        console.log("largeCategory error");
             console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
         }
         });
@@ -64,6 +65,7 @@ $(() => {
    					 MiddleCate.append('<option value="'+ item +'">'+ item +'</option>');
 				});
             },error: function(error) {
+                        console.log("middleCategory error");
             console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
         }
         });
@@ -80,8 +82,36 @@ $(() => {
    					 SmallCate.append('<option value="'+ item +'">'+ item +'</option>');
 				});
             },error: function(error) {
+            console.log("smallCategory error");
             console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
         }
         });
     });
+    
+    const upload = $('.moment_write_btn');
+    const modal_form = $('.modal_moment_upload')
+    const text = $('.mmake_text')
+    
+    upload.click((e)=>{
+    
+    e.preventDefault();
+    $('.mmake_content').css('display', 'none');
+    	$.ajax({
+    		url: 'http://localhost:8888/moment/momentUpload',
+    		method : 'POST',
+    		data: { text : text.val(),
+    				category : $('.smallcategory').val(),
+    				
+    				
+    		}, 
+    		success: function(data){
+    			alert("업로드가 완료되었습니다.");
+    			
+    			
+    		},error:function(error){
+            console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);    		
+    		}
+    	})
+    
+    })
 });

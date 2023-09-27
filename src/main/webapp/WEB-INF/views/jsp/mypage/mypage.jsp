@@ -30,7 +30,7 @@
         <div class="mypageContainer_resign" style="border: 1px solid; height: 5%;">
 
             <div>
-                <button>탈퇴하기</button>
+                <button type="button" onclick="removeMember();">탈퇴하기</button>
             </div>
 
 
@@ -45,6 +45,5 @@
     </div>
 
 </body>
-
 
 </html>

@@ -14,6 +14,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 	<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+<<<<<<< HEAD
 
 
 	<!-- @192.168.0.26  -->
@@ -22,10 +23,14 @@
 	<property name="username" value="hf2" />
 	<property name="password" value="hf2" />
 
+=======
+	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.44:1521:XE" />
+	<property name="username" value="moon" />
+	<property name="password" value="bomi" />
+>>>>>>> 500b2f8c9d755b5aa32f293265f799e9f4fb53d8
 	</bean>
 	
-	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
-	destroy-method="close">
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
 	<constructor-arg ref="hikariConfig"/>	
 	</bean>
 	

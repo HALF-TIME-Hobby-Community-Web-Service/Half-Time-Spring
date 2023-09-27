@@ -100,6 +100,7 @@ public class UserController {
 	    //로그인 페이지
 	    @GetMapping("/login")
 	    public String getLogin() {
+	    	log.info("user/login 접속");
 	    	return "./jsp/login/login";
 	    }
 	    
@@ -259,7 +260,9 @@ public class UserController {
 	 	  		session.setAttribute("id", kakaoID);
 	 	  		session.setMaxInactiveInterval(1800);
 	 	  		log.info("세---------------------------션:"+session.getAttribute("id"));
-	 	  		return "./jsp/home";
+	 	  		// return "./jsp/home"; 
+	 	  		// return "redirect:/hf";
+	 	  		return "redirect:/hf";
 	 	  	}else 
 	 	  		return "/jsp/user/kakao_join";
 	    

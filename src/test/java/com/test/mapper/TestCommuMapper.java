@@ -22,7 +22,7 @@ public class TestCommuMapper {
 	
 	@Test
 	public void test() {
-		log.info(mapper.getCommuConst("1"));
+		log.info(mapper.getAllCommumember("1"));
 	}
 
 }

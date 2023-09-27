@@ -14,7 +14,7 @@
 
 <body>
     <div class="login_container_logo">
-        <a class="navbar-brand" href="#" id="logo">HALF-TIME</a>
+        <a class="navbar-brand" href="./login" id="logo">HALF-TIME</a>
     </div>
     <div class="join_content">
         <form class="join_container" action="../html/navbar.html">

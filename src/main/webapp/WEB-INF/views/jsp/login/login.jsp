@@ -1,34 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
 <head>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link
-	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap"
-	rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<title>Login page</title>
+
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <link rel="stylesheet" href="/resources/css/join.css">
 <link rel="stylesheet" href="/resources/css/login.css">
-
-
-
-<title>Login page</title>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-
-
 </head>
 
 <body>
 	<div class="login_class">
 		<div class="login_container_logo">
-			<a class="navbar-brand" href="./feed.html" id="logo">HALF-TIME</a>
+			<a class="navbar-brand" href="../hf" id="logo">HALF-TIME</a>
 		</div>
 		<div class="login_container_login">
 			<div class="login_container_login_inside">
@@ -107,8 +100,7 @@
                 }
             });
         }
-    </script>
-    
+    </script>    
 		<br> <br>
 		<button class="login_findIDbtn"
 			onclick="location.href='http://localhost:8888/user/findid'">아이디 찾기</button>
