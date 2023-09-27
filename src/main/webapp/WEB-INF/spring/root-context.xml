@@ -39,7 +39,13 @@
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
     <constructor-arg ref="sqlSessionFactory" />
 	</bean>
-
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	    <property name="maxUploadSize" value="26214400 " /> <!-- 25MB -->
+		<property name="maxUploadSizePerFile" value="5242880 " /> <!-- 5MB -->
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="uploadTempDir" value="/resources/img/moment/" />
+		<property name="maxInMemorySize" value="4096" /> <!-- 4KB -->
+</bean>
 	<bean id="momentService"
 		class="com.hf.moment.service.MomentService">
 	</bean>
