@@ -94,7 +94,5 @@ public class UserService {
     		return kakaoIDCheck!=null;
  	
     }
-	
-	
 
 }
