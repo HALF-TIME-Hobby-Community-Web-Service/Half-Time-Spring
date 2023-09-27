@@ -104,10 +104,6 @@ $(() => {
   });
 
   logoBtn.click((e) => {
-<<<<<<< HEAD
-
-=======
->>>>>>> 498dfc50b8a71e07a3aad0a9876138013e94a89c
     location.href = "/hf";
   });
 
