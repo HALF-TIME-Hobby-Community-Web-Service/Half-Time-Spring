@@ -1,52 +1,43 @@
 $(() => {
+  const fab = $('.fab');
+  const fabbox = $('.box');
+  const bactive = $('.box-active');
+  const factive = $('.fab-active');
 
+  const loginBtn = $('a#loginBtn');
+  const momentBtn = $('a#momentBtn');
+  const commuBtn = $('a#commuBtn');
+  const feedContent = $('.feed_content');
+  const logoBtn = $('#logo');
+  const locationBtn = $('#locationBtn');
+  const mypagebtn = $("#mypageBtn");
 
-    const fab = $('.fab');
-    const fabbox = $('.box');
-    const bactive = $('.box-active');
-    const factive = $('.fab-active');
-  
-    const loginBtn = $('a#loginBtn');
-    const momentBtn = $('a#momentBtn');
-    const commuBtn = $('a#commuBtn');
-    const feedContent = $('.feed_content');
-    const logoBtn = $('#logo');
-    const locationBtn = $('#locationBtn');
-    const mypagebtn = $("#mypageBtn");
-  
-    var cnt = 0;
-  
-    $.ajax({
-      url: "/getSession",
-      method: "get",
-      dataType: "text",
-      success: function (data) {
-        if (data != "") {
-          loginBtn.html("Logout");
-        } else {
-          loginBtn.html("Login");
-        }
-      },
-      error(jqXhr, status) {
-        alert("세션 실패")
+  var cnt = 0;
+
+  $.ajax({
+    url: "/getSession",
+    method: "get",
+    dataType: "text",
+    success: function (data) {
+      if (data != "") {
+        loginBtn.html("Logout");
+      } else {
+        loginBtn.html("Login");
       }
-    });
-  
-  
-    fab.click((e) => {
-      fabbox.toggle(400);
-    });
-  
-    locationBtn.click((e) => {
-  
-      e.preventDefault();
-      console.log("locationBtn Click");
-      feedContent.html('');
-  
-<<<<<<< HEAD
-=======
-=======
+    },
+    error(jqXhr, status) {
+      alert("세션 실패")
+    }
+  });
 
+  fab.click((e) => {
+    fabbox.toggle(400);
+  });
+
+  locationBtn.click((e) => {
+    e.preventDefault();
+    console.log("locationBtn Click");
+    feedContent.html('');
   });
 
   momentBtn.click((e) => {
@@ -55,12 +46,12 @@ $(() => {
     e.preventDefault();
 
     $.ajax({
-      url: 'http://localhost:8888/hf', // 불러올 페이지의 경로
-      method: 'get', // GET 요청
+      url: 'http://localhost:8888/hf',
+      method: 'get',
       dataType: "html",
       success: (response) => {
         console.log(response);
-        feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
+        feedContent.html(response);
       },
       error: (jqXhr, status) => {
         alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
@@ -75,115 +66,82 @@ $(() => {
 
   loginBtn.on("click", (e) => {
     if (loginBtn.html() == "Login") {
->>>>>>> 500b2f8c9d755b5aa32f293265f799e9f4fb53d8
->>>>>>> de949c3a89edfd4e35704a6c1db0c22fcf92fff1
       $.ajax({
-        url: 'http://localhost:8888/location/map', // 불러올 페이지의 경로
-        method: 'get', // GET 요청
+        url: 'http://localhost:8888/location/map',
+        method: 'get',
         dataType: "html",
         success: (response) => {
           console.log(response);
-  
-          feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
+          feedContent.html(response);
         },
         error: (jqXhr, status) => {
           alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
         },
       });
-  
-    });
-  
-    commuBtn.click((e) => {
-      e.preventDefault();
-      console.log("commuBtn Click");
-  
-      feedContent.html('');
-  
+    } else if (loginBtn.html() == "Logout") {
       $.ajax({
-        url: 'http://localhost:8888/commulist', // 불러올 페이지의 경로
-        method: 'get', // GET 요청
-        dataType: "html",
+        url: 'http://localhost:8888/user/logout',
+        method: 'get',
         success: (response) => {
-          console.log(response);
-  
-          feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
+          location.href = "/user/logout";
         },
         error: (jqXhr, status) => {
           alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
         },
       });
-  
+    } else {
+      alert("1");
+    }
+  });
+
+  commuBtn.click((e) => {
+    e.preventDefault();
+    console.log("commuBtn Click");
+    feedContent.html('');
+
+    $.ajax({
+      url: 'http://localhost:8888/commulist',
+      method: 'get',
+      dataType: "html",
+      success: (response) => {
+        console.log(response);
+        feedContent.html(response);
+      },
+      error: (jqXhr, status) => {
+        alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+      },
     });
-  
-   mypagebtn.on("click", function() {
-  
-          $.ajax({
-              url: "/user/mypage",
-              type: "get",
-              success: function(response) {
-              feedContent.html(response);
-              },
-              error: function(jqXhr, status) { 
-               location.href="/user/login"
-              }            
-          }); 
-        });
-  
-  
-    momentBtn.click((e) => {
-      console.log("momentBtn Click");
-      feedContent.html('');
-      e.preventDefault();
-  
-      $.ajax({
-        url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
-        method: 'get', // GET 요청
-        dataType: "html",
-        success: (response) => {
-          console.log(response);
-          feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
-        },
-        error: (jqXhr, status) => {
-          alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
-        },
-      });
-  
-    });
-  
-    logoBtn.click((e) => {
-      location.href = "/hf";
-    });
-  
-    loginBtn.on("click", (e) => {
-      if (loginBtn.html() == "Login") {
-        $.ajax({
-          url: 'http://localhost:8888/user/login', // 불러올 페이지의 경로
-          method: 'get', // GET 요청
-          dataType: "html",
-          success: (response) => {
-  
-            location.href = "/user/login"; // 페이지 내용을 .feed_content에 삽입
-          },
-          error: (jqXhr, status) => {
-            alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
-          },
-        });
-        return false;
-      }
-      else if (loginBtn.html() == "Logout") {
-        $.ajax({
-          url: 'http://localhost:8888/user/logout', // 불러올 페이지의 경로
-          method: 'get', // GET 요청
-          success: (response) => {
-            location.href = "/user/logout"; // 페이지 내용을 .feed_content에 삽입
-          },
-          error: (jqXhr, status) => {
-            alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
-          },
-        });
-        return false;
-      } else {
-        alert("1");
+  });
+
+  mypagebtn.on("click", function () {
+    $.ajax({
+      url: "/user/mypage",
+      type: "get",
+      success: function (response) {
+        feedContent.html(response);
+      },
+      error: function (jqXhr, status) {
+        location.href = "/user/login";
       }
     });
   });
+
+  momentBtn.click((e) => {
+    console.log("momentBtn Click");
+    feedContent.html('');
+    e.preventDefault();
+
+    $.ajax({
+      url: 'http://localhost:8888/moment/list',
+      method: 'get',
+      dataType: "html",
+      success: (response) => {
+        console.log(response);
+        feedContent.html(response);
+      },
+      error: (jqXhr, status) => {
+        alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+      },
+    });
+  });
+});
