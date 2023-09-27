@@ -18,6 +18,7 @@ $(() => {
   
     $.ajax({
 <<<<<<< HEAD
+<<<<<<< HEAD
       url: "/getSession",
       method: "get",
       dataType: "text",
@@ -32,9 +33,10 @@ $(() => {
       url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
       method: 'get', // GET 요청
 =======
+=======
+>>>>>>> 076492b2d891a73ece3ae1e68988a705f452389e
       url: 'http://localhost:8888/hf',
       method: 'get',
->>>>>>> 1d8595138f46a33d45d9aa622cb4b33c9c1cf2db
       dataType: "html",
       success: (response) => {
         console.log(response);
