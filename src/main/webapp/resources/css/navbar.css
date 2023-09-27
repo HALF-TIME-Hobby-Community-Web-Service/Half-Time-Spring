@@ -69,8 +69,8 @@ body {
   margin-top: 20%;
 }
 
-header {
-  height: 9vh;
+#navtop {
+  height: 11.75vh;
 }
 
 #side_nav ul {
