@@ -24,6 +24,21 @@ $(() => {
       } else {
         loginBtn.html("Login");
       }
+<<<<<<< HEAD
+    });
+  
+  
+    fab.click((e) => {
+      fabbox.toggle(400);
+    });
+  
+    locationBtn.click((e) => {
+  
+      e.preventDefault();
+      console.log("locationBtn Click");
+      feedContent.html('');
+  
+=======
     },
     error(jqXhr, status) {
       alert("세션 실패")
@@ -66,6 +81,7 @@ $(() => {
 
   loginBtn.on("click", (e) => {
     if (loginBtn.html() == "Login") {
+>>>>>>> 076492b2d891a73ece3ae1e68988a705f452389e
       $.ajax({
         url: 'http://localhost:8888/location/map',
         method: 'get',

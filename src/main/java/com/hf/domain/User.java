@@ -23,7 +23,7 @@ public class User {
 	private String profileImg;
 	
 
-	//비밀번호 찾기 생성자
+	//鍮꾨�踰덊샇 李얘린 �깮�꽦�옄
 	public User(String id, String name, int gender, String birth, String pnum) {
 		this.id=id;
 		this.name=name;
@@ -34,13 +34,13 @@ public class User {
 	public User() {
 	
 	}
-	//로그인 생성자
+	//濡쒓렇�씤 �깮�꽦�옄
 	public User(String id, String pwd){
 		this.id=id;
 		this.pwd=pwd;		
 	}
 	
-	//회원가입 페이지1 생성자
+	//�쉶�썝媛��엯 �럹�씠吏�1 �깮�꽦�옄
 	public User(String id, String pwd, String name, String birth, int gender, String address, String pnum, String nickname){
 		this.id = id;
 		this.pwd = pwd;
@@ -52,14 +52,14 @@ public class User {
 		this.nickname = nickname;				
 	}
 
-	//회원가입 페이지2 생성자
+	//�쉶�썝媛��엯 �럹�씠吏�2 �깮�꽦�옄
 	public User(String location, String category, String id) {
 		this.location = location;
 		this.category = category;
 		this.id=id;
 	}
 	
-	//아이디 중복체크
+	//�븘�씠�뵒 以묐났泥댄겕
 	public User(String id) {
 		this.id = id;
 	}
@@ -101,5 +101,6 @@ public class User {
 		this.pnum = pnum;
 	}
 
+	
 
 }
