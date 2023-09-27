@@ -19,8 +19,8 @@
 	<!-- @192.168.0.26  -->
 
 	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.44:1521:XE" />
-	<property name="username" value="hf" />
-	<property name="password" value="hf" />
+	<property name="username" value="moon" />
+	<property name="password" value="bomi" />
 
 	</bean>
 	
