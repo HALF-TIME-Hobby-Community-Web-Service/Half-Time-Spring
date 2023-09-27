@@ -18,11 +18,7 @@
 
 	<!-- @192.168.0.26  -->
 
-<<<<<<< HEAD
 	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
-=======
-	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.44:1521:XE" />
->>>>>>> 7c03a2b777044389e8d29b0744f9b1d0438a4a6d
 	<property name="username" value="hf" />
 	<property name="password" value="hf" />
 
