@@ -6,13 +6,26 @@ $(() => {
   const bactive = $('.box-active');
   const factive = $('.fab-active');
 
-  const loginBtn = $('a#loginBtn');
+  const loginBtn = $('#loginBtn');
   const momentBtn = $('a#momentBtn');
   const commuBtn = $('a#commuBtn');
   const feedContent = $('.feed_content');
   const logoBtn = $('#logo');
   const locationBtn = $('#locationBtn');
 
+<<<<<<< HEAD
+    var cnt = 0;
+	  
+	$.ajax({
+    url:"/getSession",
+    method:"get",
+    dataType:"text",
+    success: function(data){
+    if(data != ""){
+      loginBtn.html("Logout");
+      }else {
+      loginBtn.html("Login");
+=======
   var cnt = 0;
 
   $.ajax({
@@ -24,6 +37,7 @@ $(() => {
         loginBtn.html("Logout");
       } else {
         loginBtn.html("Login");
+>>>>>>> 483badd2ab694fb463a162c1a8ed16211034c36f
       }
     },
     error(jqXhr, status) {
@@ -35,9 +49,14 @@ $(() => {
   fab.click((e) => {
     fabbox.toggle(400);
   });
+<<<<<<< HEAD
+   
+  locationBtn.click((e) => {  
+=======
 
   locationBtn.click((e) => {
 
+>>>>>>> 483badd2ab694fb463a162c1a8ed16211034c36f
     e.preventDefault();
     console.log("locationBtn Click");
     feedContent.html('');
@@ -57,6 +76,8 @@ $(() => {
     });
 
   });
+<<<<<<< HEAD
+=======
 
   commuBtn.click((e) => {
     e.preventDefault();
@@ -81,13 +102,20 @@ $(() => {
   });
 
 
+>>>>>>> 483badd2ab694fb463a162c1a8ed16211034c36f
 
 
   momentBtn.click((e) => {
     console.log("momentBtn Click");
+<<<<<<< HEAD
+    feedContent.html('');   
+    e.preventDefault();
+   
+=======
     feedContent.html('');
     e.preventDefault();
 
+>>>>>>> 483badd2ab694fb463a162c1a8ed16211034c36f
     $.ajax({
       url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
       method: 'get', // GET 요청

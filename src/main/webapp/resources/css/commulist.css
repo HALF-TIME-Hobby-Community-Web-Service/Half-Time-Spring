@@ -54,7 +54,6 @@
 
 .commuBox {
     float: left;
-    /* flex-wrap: wrap; */
     background-color: #fffae5;
     width: 400px;
     height: 350px;
@@ -85,16 +84,19 @@
     
     border: 3px solid;
     
-    align-items: center; /* 세로 가운데 정렬 */
     justify-content: center; /* 가로 가운데 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
 }
 
-.line {
-    
-}
 .introduce{
     display: none;
 }
+
+
+
+
+
+
 
 
 #modalWrap {
@@ -129,17 +131,22 @@
 .modaltitle{
   text-align: center;
 }
+
 .modalaround{
   display: flex;
   justify-content: center;
   margin-left:30px
   
 }
-.modalaround2{
-  display: flex;
-  float: left;
-  margin-left:180px
+
+.cmodal_title_box {
+	height: 15%;
 }
+
+.cmodal_container {
+	height: 70%;
+}
+
 
 .moondan{
   width: 100%;
@@ -149,13 +156,17 @@
 .modalimg{
   width: 50%;
   float: left;
-
+  height: 100%;  
 }
 
 .modalintro{
   background-color: #fffae5;
-  height: 48%;
-  align-items: center;
+  height: 100%;
+  
+  font-size: 20px;
+}
+
+.modalintro2 {
 }
 
 .commumember{
@@ -163,19 +174,22 @@
 }
 
 .btns{
-  display: flex;
-  margin-top: 50px;
-  justify-content: center;
+  padding-top: 15px; 
 }
+
 .modalbtn{
   width: 100px;
-  margin-right: 100px;
-  background-color: #fffae5;
+  margin-left: 200px;
   
+  border: 1px solid;  
 }
+
 .modalclose{
-  background-color: #fffae5;
   width: 100px;
+  margin-right: 200px;
+  float: right;
+  
+  border: 1px solid;
 }
 
 .commuBox_clone {

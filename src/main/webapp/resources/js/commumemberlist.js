@@ -1,35 +1,28 @@
 $(() => {
-
-
-
-  const commumemberList = $('div.memberList');
   const memberList = $('table');
   const memberCA = $('td.ca');
   const memberCN = $('td.cn');
   const memberCI = $('td.ci');
   const memberCS = $('td.cs');
-  
-  const backURL = 'http://localhost:8888/commu';
-  
+     
   const commuID = sessionStorage.getItem('commuID');
   
-  commumemberList.click(() => {  
-  	$(memberCA).html('');
-    $(memberCN).html('');
-    $(memberCI).html('');
-    $(memberCS).html('');
+  	memberCA.html('');
+    memberCN.html('');
+    memberCI.html('');
+    memberCS.html('');
     
-    $(memberCA).append('<span class="font30px">권한</span><hr>');
-    $(memberCN).append('<span class="font30px">닉네임</span><hr>');
-    $(memberCI).append('<span class="font30px">성별</span><hr>');
-    $(memberCS).append('<span class="font30px">나이</span><hr>');
+    memberCA.append('<span class="font30px">권한</span><hr>');
+    memberCN.append('<span class="font30px">닉네임</span><hr>');
+    memberCI.append('<span class="font30px">성별</span><hr>');
+    memberCS.append('<span class="font30px">나이</span><hr>');
     
     $.ajax({
       url: 'http://localhost:8888/commu/getmember',
       method: 'POST',
       data: {commuID: commuID},
       dataType: 'JSON',
-      success: (response) => {
+      success: (response) => {           
         //memberList.html(JSON.stringify(response));
         response.forEach((data) => {        
           const div = $('<div>').text('\t' + data.cauth + '\t' + data.gender + '\t' + data.birth); 
@@ -66,8 +59,5 @@ $(() => {
         alert(`실패: ${status}\n오류명:${jqXhr.statusCode}`);
       },
     });
-     
-    return false;
-  });
-  
+    
 });
