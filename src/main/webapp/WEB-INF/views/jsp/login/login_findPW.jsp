@@ -16,7 +16,7 @@
 <body>
     <div class="login_findPW_class">
         <div class="login_container_logo">
-            <a class="navbar-brand" href="./feed.html" id="logo">HALF-TIME</a>
+            <a class="navbar-brand" href="./login" id="logo">HALF-TIME</a>
         </div>
    
         <div class="login_container_findPW">
