@@ -4,7 +4,8 @@
 <html>
 
 <head>
-
+<script src="/resources/js/mypage.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <body>
     <div class="mypageContent" style="border: 1px solid; height: 700px; background-color: rgb(247, 237, 224);">
@@ -19,22 +20,15 @@
             <div>
                 <button type="button" onclick="removeMember();">탈퇴하기</button>
             </div>
-        </div>
-<<<<<<< HEAD
-        <div class="mypageContainer_logout" style="border: 1px solid; height: 5%;" >
-        	<button id=logoutBtn>Logout</button>            
-=======
+        </div>         
 
         <div class="mypageContainer_1" style="border: 1px solid; height: 5%;" >
 
            
->>>>>>> 20c09eb1ea7619df66302ae95cfbd541c4ecbc9e
+
         </div>
     </div>
 
 </body>
-<<<<<<< HEAD
-=======
 
->>>>>>> 20c09eb1ea7619df66302ae95cfbd541c4ecbc9e
 </html>

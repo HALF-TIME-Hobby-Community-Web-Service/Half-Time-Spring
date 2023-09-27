@@ -52,5 +52,8 @@
 	<bean id="userService"
 		class="com.hf.user.service.UserService">
 	</bean>
+	<bean id="mypageService"
+		class="com.hf.user.service.MyPageService">
+	</bean>
 	<mybatis-spring:scan base-package="com.hf.mapper"/>	
 </beans>
