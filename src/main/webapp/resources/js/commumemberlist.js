@@ -13,7 +13,7 @@ $(() => {
     memberCS.html('');
     
     memberCA.append('<span class="font30px">권한</span><hr>');
-    memberCN.append('<span class="font30px">닉네임</span><hr>');
+    memberCN.append('<span class="font30px">&nbsp;닉네임</span><hr>');
     memberCI.append('<span class="font30px">성별</span><hr>');
     memberCS.append('<span class="font30px">나이</span><hr>');
     
@@ -43,9 +43,9 @@ $(() => {
           	(today.getMonth() < birthDate.getMonth() || 
             (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate()) ? 1 : 0);
          
-          const cca = $('<div>').text(age + 1 + '살'); // 나이로 변환하여 출력
+          const cca = $('<div>').text(age + 1 + '세'); // 나이로 변환하여 출력
           const ca  = $('<div>').text(autho);
-          const cn  = $('<div>').text("'" + data.cnickName + "'");
+          const cn  = $('<div>').text(data.cnickName);
           const ci  = $('<div>').text(gender);
           const cs  = $('<div>').text(data.birth);
 
