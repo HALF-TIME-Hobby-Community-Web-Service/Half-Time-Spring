@@ -26,8 +26,8 @@
                                 type="text"
                                 name="join_ID"
                                 maxlength="10"
-                                placeholder="아이디를 입력하세요"
-                                style="width: 150px;"
+                                placeholder="아이디(최대10자)"
+                                style="width: 110px;"
                                 required="required">
                             <select class="join_ID_select" name="join_ID2">
                                 <option value="@naver.com" selected>@naver.com</option>
@@ -44,14 +44,19 @@
                     <input class="join_PW_input"
                         type="password"
                         name="join_PW"
-                        required="required"><br>
+                        required="required"
+                        maxlength="14"
+                        placeholder="비밀번호(최대14자)">           
+                        <br>
                 </div><br>
                 <div class="jpin_PW_box1">
                     비밀번호확인
                     <input class="join_PW2_input"
                         type="password"
                         name="join_pwcheck"
-                        required="required">
+                        required="required"
+                        maxlength="14"
+                        placeholder="비밀번호확인">
                     <button class="join_PW_checkbtn">확인</button>
                 </div><br>
                 <div class="join_name_box">
@@ -95,13 +100,15 @@
                             maxlength="4"
                             name="join_pnum2"
                             oninput="this.value = this.value.replace(/[^0-9]/g, '');"
-                            required="required">
+                            required="required"
+                            style="width: 70px;">
                         <input class="join_pnum2_input"
                         type="tel"
                         maxlength="4"
                         name="join_pnum3"
                         oninput="this.value = this.value.replace(/[^0-9]/g, '');"
-                        required="required">
+                        required="required"
+                        style="width: 70px;">
                         <button class="join_pnum_checkbtn" type="button">인증</button>
                 </div><br>
                 <div class="join_nickname_box">

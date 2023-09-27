@@ -15,6 +15,7 @@ $(() => {
 		dataType: "JSON" , 
 		 
         success: (response) => {  
+        
          alert('다음페이지로 이동합니다');
           if (response == 1) {
             location.href = 'http://localhost:8888/user/join2';
