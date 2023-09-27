@@ -36,7 +36,6 @@ $(() => {
     fab.click((e) => {
       fabbox.toggle(400);
     });
-<<<<<<< HEAD
   
     locationBtn.click((e) => {
   
@@ -44,6 +43,8 @@ $(() => {
       console.log("locationBtn Click");
       feedContent.html('');
   
+<<<<<<< HEAD
+=======
 =======
 
   });
@@ -75,6 +76,7 @@ $(() => {
   loginBtn.on("click", (e) => {
     if (loginBtn.html() == "Login") {
 >>>>>>> 500b2f8c9d755b5aa32f293265f799e9f4fb53d8
+>>>>>>> de949c3a89edfd4e35704a6c1db0c22fcf92fff1
       $.ajax({
         url: 'http://localhost:8888/location/map', // 불러올 페이지의 경로
         method: 'get', // GET 요청
@@ -110,13 +112,11 @@ $(() => {
           alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
         },
       });
-<<<<<<< HEAD
   
     });
   
    mypagebtn.on("click", function() {
   
- 		alert("마페");
           $.ajax({
               url: "/user/mypage",
               type: "get",
@@ -187,12 +187,3 @@ $(() => {
       }
     });
   });
-=======
-      return false;
-    } else {
-      alert("1");
-    }
-
-  });
-});
->>>>>>> 500b2f8c9d755b5aa32f293265f799e9f4fb53d8
