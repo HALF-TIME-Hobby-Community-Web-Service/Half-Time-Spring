@@ -80,9 +80,6 @@ $(() => {
 
   });
 
-
-
-
   momentBtn.click((e) => {
     console.log("momentBtn Click");
     feedContent.html('');
