@@ -5,12 +5,6 @@
 
 <head>
 
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-	integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-	crossorigin="anonymous"></script>
-
-<jsp:include page="../header.jsp" />
 </head>
 <body>
     <div class="mypageContent" style="border: 1px solid; height: 700px; background-color: rgb(247, 237, 224);">
@@ -42,10 +36,9 @@
 
         </div>
 
-        <div class="mypageContainer_logout" style="border: 1px solid; height: 5%;" >
+        <div class="mypageContainer_1" style="border: 1px solid; height: 5%;" >
 
-            <button id=logoutBtn>Logout</button>
-            
+           
         </div>
 
 
