@@ -18,11 +18,11 @@
 	</div>
     
     <div class="modal_container b_container">
-      <form method="post" action="">   
+      <form class="modal_moment_upload" method="post" action="">   
       
       	<!-- 모먼트 내용 -->
         <div class="form-floating mb-3">
-        	<textarea name="text" class="form-control modal_textarea mmake_text" 
+        	<textarea name="text" class="form-control modal_textarea mmake_text" name="momentText",
           		placeholder="게시글 내용" style="width: 100%; height: 200px" cols="40" wrap="hard"></textarea>
         </div>
         <div class="category">
@@ -65,7 +65,7 @@
 		</div>
 
         <div class="modal_button_container mmake_button_container" style="border-top: 1px solid;">
-          <button class="btn btn-primary">완료</button>
+          <button class="btn btn-primary moment_write_btn">완료</button>
         </div>
                 
       </form>

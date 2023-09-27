@@ -89,7 +89,7 @@ $(() => {
     e.preventDefault();
 
     $.ajax({
-      url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
+      url: 'http://localhost:8888/hf', // 불러올 페이지의 경로
       method: 'get', // GET 요청
       dataType: "html",
       success: (response) => {
@@ -104,6 +104,22 @@ $(() => {
   });
 
   logoBtn.click((e) => {
+<<<<<<< HEAD
+  console.log("loginBtn Click");
+    $.ajax({
+      url: 'http://localhost:8888/hf', // 불러올 페이지의 경로
+      method: 'get', // GET 요청
+
+      success: (response) => {
+         
+        feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
+      },
+      error: (jqXhr, status) => {
+        alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+      },
+    });
+    return false;
+=======
     location.href = "/hf";
   });
 
@@ -138,5 +154,6 @@ $(() => {
     } else {
       alert("1");
     }
+>>>>>>> 37b4f3f11d601044f6017cd168e658f22632f621
   });
 });
