@@ -1,4 +1,17 @@
 $(() => {
+	let writer;
+        $.ajax({
+            url: 'http://localhost:8888/getSession',
+            method: 'GET',
+            dataType: "text",
+            success: function (data) {
+           		writer=data;    
+            },error: function(error) {
+            console.log("get Session error");
+            console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
+        }
+        });
+    
     // input file
     const input = $('.input_file');
     let img_cnt = 0;
@@ -53,14 +66,15 @@ $(() => {
         }
         });
     });
-    $('.middlecategory').click(() => {
+    $('.largecategory').change(() => {
+    MiddleCate.html('');
         $.ajax({
             url: 'http://localhost:8888/moment/modal_MiddleCategory',
             method: 'POST',
             data:{largecate:LargeCate.val()},
             dataType: "json",
             success: function (data) {
-           	 	MiddleCate.html('');
+           	 	MiddleCate.append('<option value="중분류">중분류</option>');
             	$.each(data, function (index, item) {	 
    					 MiddleCate.append('<option value="'+ item +'">'+ item +'</option>');
 				});
@@ -70,14 +84,15 @@ $(() => {
         }
         });
     });
-     $('.smallcategory').click(() => {
+     $('.middlecategory').change(() => {
+     SmallCate.html('');
         $.ajax({
             url: 'http://localhost:8888/moment/modal_SmallCategory',
             method: 'POST',
             data:{middlecate:MiddleCate.val()},
             dataType: "json",
             success: function (data) {
-           	 	SmallCate.html('');
+           	 	
             	$.each(data, function (index, item) {	 
    					 SmallCate.append('<option value="'+ item +'">'+ item +'</option>');
 				});
@@ -89,26 +104,33 @@ $(() => {
     });
     
     const upload = $('.moment_write_btn');
-    const modal_form = $('.modal_moment_upload')
-    const text = $('.mmake_text')
+    const modal_form = $('.modal_moment_upload');
     
-    upload.click((e)=>{
+   
     
+    upload.on("click",function(e){
+    
+    const category = $('.selectSmallCategory').val();
+    const text = $('#uploadText').val();
+    alert(typeof writer);
     e.preventDefault();
-    $('.mmake_content').css('display', 'none');
+    
     	$.ajax({
     		url: 'http://localhost:8888/moment/momentUpload',
     		method : 'POST',
-    		data: { text : text.val(),
-    				category : $('.smallcategory').val(),
-    				
-    				
+    		data: { text : text,
+    				category : category,
+    				writer: writer,
     		}, 
     		success: function(data){
+    		if(data!=null){
     			alert("업로드가 완료되었습니다.");
-    			
-    			
+    			$('.mmake_content').css('display', 'none');
+    			}else{
+    				alert("실패");
+    			}
     		},error:function(error){
+    		
             console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);    		
     		}
     	})
