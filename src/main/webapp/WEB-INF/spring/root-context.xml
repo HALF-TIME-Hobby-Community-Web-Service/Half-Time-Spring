@@ -18,7 +18,6 @@
 
 	<!-- @192.168.0.26  -->
 	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.26:1521:XE" />
-
 	<property name="username" value="hf" />
 	<property name="password" value="hf" />
 
@@ -53,13 +52,13 @@
 	<bean id="userService"
 		class="com.hf.user.service.UserService">
 	</bean>
-<<<<<<< HEAD
+
 	<bean id="fileService"
 		class="com.hf.file.service.FileService">
-=======
+	</bean>
+	
 	<bean id="mypageService"
 		class="com.hf.user.service.MyPageService">
->>>>>>> 465eca076fc0160127f892725ab3eec1eef3c5fb
 	</bean>
 	<mybatis-spring:scan base-package="com.hf.mapper"/>	
 </beans>
