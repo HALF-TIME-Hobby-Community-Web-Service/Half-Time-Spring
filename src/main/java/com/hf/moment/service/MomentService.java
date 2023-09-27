@@ -47,5 +47,11 @@ public class MomentService {
     public List<String> modal_SmallCategory(String middlecate){
     	return momentMapper.modal_SmallCategory(middlecate);
     } 
+    public void upload(String text, String writer,String category){
+    	log.warn(writer);
+    	log.warn(category);
+    	log.warn(text);
+    	momentMapper.modalUpload(text,writer,category);
+    } 
 }
 

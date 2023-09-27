@@ -25,7 +25,7 @@
                                 type="text"
                                 name="join_ID"
                                 maxlength="10"
-                                style="width: 150px;"
+                                style="width: 180px; background-color: #bbb9b9;"
                                 required="required"
                                 value="${id}"
                                 readonly>
@@ -55,7 +55,7 @@
                                 type="text"
                                 id= "join_gender"
                                 name="join_gender"
-                                style="width: 150px;"
+                                style="width: 150px; background-color: #bbb9b9;"
                                 required="required"
                                 value="${kakaoGender}"
                                 readonly>
@@ -81,13 +81,15 @@
                             maxlength="4"
                             name="join_pnum2"
                             oninput="this.value = this.value.replace(/[^0-9]/g, '');"
-                            required="required">
+                            required="required"
+                            style="width: 70px;">
                         <input class="join_pnum2_input"
                         type="tel"
                         maxlength="4"
                         name="join_pnum3"
                         oninput="this.value = this.value.replace(/[^0-9]/g, '');"
-                        required="required">
+                        required="required"
+                        style="width: 70px;">
                         <button class="join_pnum_checkbtn" type="button">인증</button>
                 </div><br>
                 <div class="join_nickname_box">
@@ -111,5 +113,17 @@
 	const kakaoID = sessionStorage.getItem('kakaoID');	
 	const id = $('join_ID_input');		
 		
+	// 아이디 입력란의 값을 가져옵니다.
+	const idInput = document.querySelector('.join_ID_input');
+	const idValue = idInput.value;
+
+	// 뒤의 6글자를 *로 숨깁니다.
+	const hiddenPart = ''.repeat(6);
+	const visiblePart = idValue.slice(0, -6);
+
+	// 숨긴 부분과 보이는 부분을 합쳐서 다시 아이디 입력란에 설정합니다.
+	idInput.value = visiblePart + hiddenPart;
+	
+	
 </script>
 </html>
