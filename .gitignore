@@ -18,6 +18,8 @@ target/
 target*/
 .git
 
+.vscode
+
 # External tool builders
 .externalToolBuilders/
 
@@ -93,6 +95,7 @@ target*/
 *.tar.gz
 *.rar
 
+root-context*
 root-context.xml
 *root-context.xml
 
