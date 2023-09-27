@@ -14,37 +14,12 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 	<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
-
-
-	<!-- @192.168.0.26  -->
-<<<<<<< HEAD
 	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.44:1521:XE" />
 	<property name="username" value="moon" />
 	<property name="password" value="bomi" />
-
-=======
-
-<<<<<<< HEAD
-	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
-	<property name="username" value="koko" />
-	<property name="password" value="koko" />
-=======
-<<<<<<< HEAD
-	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.44:1521:XE" />
-	<property name="username" value="moon" />
-	<property name="password" value="bomi" />
-=======
-	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
-	<property name="username" value="hf" />
-	<property name="password" value="hf" />
->>>>>>> fbefed879d1f361ac81b9e860385b8914baeceb1
->>>>>>> 37b4f3f11d601044f6017cd168e658f22632f621
->>>>>>> 1357550bf765b10f4b80c5286e4ae8650daad6b7
-
 	</bean>
 	
-	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource"
-	destroy-method="close">
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
 	<constructor-arg ref="hikariConfig"/>	
 	</bean>
 	
