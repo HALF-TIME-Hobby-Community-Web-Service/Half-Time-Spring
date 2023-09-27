@@ -57,7 +57,6 @@ $(() => {
         alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
       },
     });
-
   });
 
   logoBtn.click((e) => {
@@ -65,14 +64,16 @@ $(() => {
   });
 
   loginBtn.on("click", (e) => {
+  e.preventDefault();
+
     if (loginBtn.html() == "Login") {
       $.ajax({
-        url: 'http://localhost:8888/location/map',
+        url: 'http://localhost:8888/user/login',
         method: 'get',
         dataType: "html",
         success: (response) => {
           console.log(response);
-          feedContent.html(response);
+          location.href = "/user/login";
         },
         error: (jqXhr, status) => {
           alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);

@@ -14,9 +14,19 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 	<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+<<<<<<< HEAD
 	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.44:1521:XE" />
 	<property name="username" value="moon" />
 	<property name="password" value="bomi" />
+=======
+
+
+	<!-- @192.168.0.26  -->
+	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.26:1521:XE" />
+	<property name="username" value="hf" />
+	<property name="password" value="hf" />
+
+>>>>>>> f9358ad9d0db57a99b8f27ef4d5cbc11a47bb8c2
 	</bean>
 	
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
@@ -47,6 +57,14 @@
 	</bean>
 	<bean id="userService"
 		class="com.hf.user.service.UserService">
+	</bean>
+
+	<bean id="fileService"
+		class="com.hf.file.service.FileService">
+	</bean>
+	
+	<bean id="mypageService"
+		class="com.hf.user.service.MyPageService">
 	</bean>
 	<mybatis-spring:scan base-package="com.hf.mapper"/>	
 </beans>
