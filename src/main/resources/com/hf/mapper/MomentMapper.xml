@@ -18,10 +18,10 @@ FROM (
            C.CONTENTPATH1, C.CONTENTPATH2, C.CONTENTPATH3, C.CONTENTPATH4, C.CONTENTPATH5,
            C.CONTENTPATH6, C.CONTENTPATH7, C.CONTENTPATH8, C.CONTENTPATH9, C.CONTENTPATH10
     FROM MOMENT M
-    JOIN CONTENTSRC C ON M.MOMENTID = C.REFERENCEID
-    WHERE C.CONTENTTYPE = 1
+    LEFT JOIN CONTENTSRC C ON M.MOMENTID = C.REFERENCEID AND C.CONTENTTYPE = 1
     ORDER BY M.MOMENTID ASC)
 WHERE RN >= ((#{pageNum} - 1) * 10 + 1) AND RN <= (#{pageNum} * 10)
+
 
 
 
@@ -57,14 +57,13 @@ WHERE RN >= ((#{pageNum} - 1) * 10 + 1) AND RN <= (#{pageNum} * 10)
     C.CONTENTPATH10
 FROM
     MOMENT M
-JOIN
-    CONTENTSRC C ON M.MOMENTID = C.REFERENCEID
+LEFT JOIN
+    CONTENTSRC C ON M.MOMENTID = C.REFERENCEID AND C.CONTENTTYPE = 1
 WHERE
-    C.CONTENTTYPE = 1
-    AND M.MOMENTID = #{momentid}
-
+    M.MOMENTID = #{momentid}
     ]]>
 </select>
+
 
 <select id="modal_LargeCategory" resultType="String">
     <![CDATA[
@@ -82,4 +81,20 @@ SELECT DISTINCT MIDDLECATE FROM CATEGORY WHERE LARGECATE=#{largeCate}
 SELECT SMALLCATE FROM CATEGORY WHERE MIDDLECATE=#{MiddleCate}
     ]]>
 </select>
+
+   <insert id="modalUpload">
+    <![CDATA[
+         INSERT INTO MOMENT (MOMENTID, WRITER, CATEGORY, LOCATION, TEXT, POSTTIME)
+        VALUES (
+            momentid_seq.nextval,
+            #{writer},
+            #{category},
+            '부산',
+            #{text},
+            SYSDATE
+        )
+        ]]>
+    </insert>
+    
+
 </mapper>

@@ -87,6 +87,17 @@ public class MomentController {
 	    	
 			return list;
 		}
+	    @ResponseBody
+	    @PostMapping("/momentUpload")
+	    public String upload(@RequestParam("text") String text, @RequestParam("category") String category, @RequestParam("writer") String writer) {
+	    	log.info(writer);
+	    	log.info(category);
+	    	log.info(text);
+	    	
+	    	momentService.upload(text, writer, category);
+	    	
+	    	return "flase";
+	    }
 	    
 	    
 }
