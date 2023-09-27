@@ -106,6 +106,7 @@
             <div class="board_comment">
               <span class="board_comment_writer">👼닉네임</span>:&nbsp;
               <span class="board_comment_text">댓글내용</span>
+              <input class="board_comment_write form-control">
             </div>
           </div>
         </div>
