@@ -46,13 +46,8 @@ $(() => {
     e.preventDefault();
 
     $.ajax({
-<<<<<<< HEAD
-      url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
-      method: 'get', // GET 요청
-=======
       url: 'http://localhost:8888/hf',
       method: 'get',
->>>>>>> 1d8595138f46a33d45d9aa622cb4b33c9c1cf2db
       dataType: "html",
       success: (response) => {
         console.log(response);
