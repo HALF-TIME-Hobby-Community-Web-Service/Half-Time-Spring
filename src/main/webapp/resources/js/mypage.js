@@ -1,4 +1,7 @@
 $(() => {
+<<<<<<< HEAD
+});
+=======
 
 const updateinfoBtn = $(".update_info");
 const mypageContent = $(".mypageContent");
@@ -22,3 +25,4 @@ alert("@");
  
 })
 
+>>>>>>> f9358ad9d0db57a99b8f27ef4d5cbc11a47bb8c2
