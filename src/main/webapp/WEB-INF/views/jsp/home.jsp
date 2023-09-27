@@ -1,5 +1,4 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+ <%@ page language="java" contentType="text/html; charset=UTF-8"    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -7,7 +6,6 @@
 	<jsp:include page="header.jsp"/>
 	<script src="/resources/js/feed.js"></script>
 	<script src="/resources/js/moment_modal.js"></script>
-	<script src="/resources/js/navbar.js"></script>
 </head>
 
 <div class="fab">
