@@ -25,7 +25,7 @@
 <script src="/resources/js/modalfeed_inside.js"></script>
 <script src="/resources/js/floatingbtn.js"></script>
 <script src="/resources/js/moment_post.js"></script>
-<script src="/resources/js/mypage.js"></script>
+
 
 </head>
 

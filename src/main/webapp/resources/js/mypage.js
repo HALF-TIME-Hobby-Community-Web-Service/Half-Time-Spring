@@ -1,10 +1,8 @@
 $(() => {
-    let mypagebtn = $("#mypageBtn");
-    let logoutbtn = $("#logoutBtn");
+   
 
+<<<<<<< HEAD
     mypagebtn.on("click", function() {
-
-
         $.ajax({
             url: "/user/mypage",
             type: "get",
@@ -29,4 +27,7 @@ $(() => {
             }            
        });
     })
+})
+=======
     })
+>>>>>>> 20c09eb1ea7619df66302ae95cfbd541c4ecbc9e
