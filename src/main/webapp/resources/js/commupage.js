@@ -178,5 +178,4 @@ $(() => {
     $(e.target).css('display', 'block');
   });
 	
-    
 });

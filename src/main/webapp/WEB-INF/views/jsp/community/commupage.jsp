@@ -48,12 +48,12 @@
         </button>
       </div>
     </div>
- 	<div class="tabbox">
-      <div class="tab active" data-tab="intro">커뮤니티 소개</div>
-      <div class="tab commu_tab_board" data-tab="board">게시판</div>
-      <div class="tab" data-tab="schedule">모임 일정</div>
-      <div class="tab" data-tab="history">히스토리</div>
-    </div>
+	<div class="tabbox">
+	  <div class="tab active" data-tab="intro">커뮤니티 소개</div>
+	  <div class="tab commu_tab_board" data-tab="board">게시판</div>
+	  <div class="tab" data-tab="schedule">모임 일정</div>
+	  <div class="tab" data-tab="history">히스토리</div>
+	</div>
     <div class="commu_container">
       <div class="commu_box intro active">
         <div class="introTitleBox">
