@@ -89,7 +89,7 @@ $(() => {
     e.preventDefault();
 
     $.ajax({
-      url: 'http://localhost:8888/moment/list', // 불러올 페이지의 경로
+      url: 'http://localhost:8888/hf', // 불러올 페이지의 경로
       method: 'get', // GET 요청
       dataType: "html",
       success: (response) => {
@@ -138,5 +138,6 @@ $(() => {
     } else {
       alert("1");
     }
+
   });
 });
