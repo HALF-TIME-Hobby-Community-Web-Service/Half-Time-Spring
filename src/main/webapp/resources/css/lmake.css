@@ -42,6 +42,7 @@
 .lmake_closebtn {
   float: right;
   font-size: 30px;
+  cursor: pointer;
 }
 
 /* 번개신청 입력 창*/

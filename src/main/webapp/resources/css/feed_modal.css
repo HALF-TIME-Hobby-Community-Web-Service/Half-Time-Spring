@@ -49,6 +49,7 @@
 .feed_modal_closebtn{
 	float: right;
 	padding-right: 10px;
+	cursor: pointer;
 }
 
 .feed_modal_feedtext {
