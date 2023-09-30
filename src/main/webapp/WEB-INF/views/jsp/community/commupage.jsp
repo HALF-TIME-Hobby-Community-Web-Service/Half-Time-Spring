@@ -17,20 +17,19 @@
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   
   <!-- css -->
-  <link rel="stylesheet" href="/resources/css/commuPage.css" />
-  <link rel="stylesheet" href="/resources/css/floatingBtn.css" />
-
-  <link rel="stylesheet" href="/resources/css/ljoin.css">
+  <link rel="stylesheet" href="/resources/css/commupage.css" />
   <link rel="stylesheet" href="/resources/css/modal.css">
   <link rel="stylesheet" href="/resources/css/modalmemberlist.css" />
-
+  <link rel="stylesheet" href="/resources/css/commu_gathering_join.css">
+  <link rel="stylesheet" href="/resources/css/commu_gathering_make.css">
+  
   <!-- js-->  
   <script src="/resources/js/commupage.js"></script>
-  <script src="/resources/js/commumemberlist.js"></script>
-
-  <script src="/resources/js/ljoin.js"></script>
+  <script src="/resources/js/commumemberlist.js"></script>  
   <script src="/resources/js/commu_board_make.js"></script>
-  
+  <script src="/resources/js/commu_gathering_join.js"></script>
+  <script src="/resources/js/commu_gathering_make.js"></script>
+
 </head>
 
 <body>  
@@ -119,23 +118,29 @@
           HISTORY
         </div>
         <div class="history_container">
-          <div class="historyBox">
+          <div class="historyBox" onclick="history_modal_open()">
             <img src="/resources/items/moment/1.jpg" class="history_box_img" />
           </div>
         </div>
       </div>
-
     </div>
   </section>
-
+	
+  <!-- 모달 페이지 -->
   <jsp:include page="./commu_board_write_modal.jsp"/>
-  <jsp:include page="./lightning_make_modal.jsp"/>
-  <jsp:include page="./lightning_join_modal.jsp"/>
+  <jsp:include page="./gathering_make_modal.jsp"/>
+  <jsp:include page="./gathering_join_modal.jsp"/>
+  <jsp:include page="./commu_history_modal.jsp"/>
   
   <script>
-  $('.bmake_closebtn').click(()=> {    	
-      $('.bmake_content').css('display', 'none');
+  $('.history_modal_closebtn').click(()=>{
+	  $('.history_modal_content').css('display','none');
   })
+  
+  /* 히스토리 모달 클릭 동작 */
+  function history_modal_open() {
+  	$('.history_modal_content').css('display','block');
+  }
   </script>
 </body>
 

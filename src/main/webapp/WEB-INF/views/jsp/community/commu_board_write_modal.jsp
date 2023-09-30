@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
 </head>
 <body>
 <!-- 게시물 추가 -->
   <div class="modal_content bmake_content">
-    <div class="modal_title bmake_title"> 게시글 작성<span class="modal_closebtn bmake_closebtn">&times;</span></div>
+    <div class="modal_title bmake_title"> 🎴게시글 작성<span class="modal_closebtn bmake_closebtn">&times;</span></div>
     
     <div class="modal_container b_container">
       <form method="post" action="">      
@@ -15,8 +14,8 @@
 	        <select name="" class="form-select">
 		        <option value="category">카테고리</option>
 			    <option value="info">공지사항</option>
-			    <option value="board">자유 글</option>
-			    <option value="history">히스토리 미스테리</option>
+			    <option value="board">게시글</option>
+			    <option value="history">히스토리</option>
 			</select>
 		</div>
       
@@ -36,8 +35,8 @@
         
      	<!-- 이미지토글 -->
 		<div class="bmake_img_container">
-			<div class="bmake_img_box">			
-				<img class="b_img" src="/resources/items/moment/moment_default.png"/>
+			<div class="bmake_img_box" >			
+				<img class="b_img" src="/resources/items/moment/moment_default.png" style="width: 200px; margin-left:35%;"/>
 			</div>			
 			<input type="file" class="input_file" style="display: none" multiple accept="image/*" /> 
 		</div>
@@ -51,7 +50,18 @@
     </div>
   </div>
   
+  <script>
+  $(function(){
+  	$('.bmake_content').draggable({'cancel':'.b_container', containment:'parent', scroll:false});
+  });
   
-
+  $('.b_img').click(()=>{
+	  $('.input_file').click();
+  })
+  
+  $('.bmake_closebtn').click(()=>{
+	  $('.bmake_content').css('display','none');
+  })			
+  </script>
 </body>
 </html>
