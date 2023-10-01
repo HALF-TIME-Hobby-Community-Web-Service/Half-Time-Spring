@@ -15,10 +15,16 @@
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 	<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
 
+<<<<<<< HEAD
 	<!-- @192.168.0.26  -->
 	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
 	<property name="username" value="hf2" />
 	<property name="password" value="hf2" />
+=======
+	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
+	<property name="username" value="moon" />
+	<property name="password" value="bomi" />
+>>>>>>> 25a38e9fe57f3b4300b480f0aa659d9e1051aeac
 
 	</bean>
 	
@@ -38,7 +44,13 @@
 	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
     <constructor-arg ref="sqlSessionFactory" />
 	</bean>
-
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	    <property name="maxUploadSize" value="26214400 " /> <!-- 25MB -->
+		<property name="maxUploadSizePerFile" value="5242880 " /> <!-- 5MB -->
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="uploadTempDir" value="/resources/img/moment/" />
+		<property name="maxInMemorySize" value="4096" /> <!-- 4KB -->
+</bean>
 	<bean id="momentService"
 		class="com.hf.moment.service.MomentService">
 	</bean>

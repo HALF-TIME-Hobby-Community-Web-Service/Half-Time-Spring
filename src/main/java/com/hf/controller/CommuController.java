@@ -22,7 +22,6 @@ import lombok.Setter;
 import lombok.extern.log4j.Log4j;
 
 @RestController
-//@Controller
 @RequestMapping(value = "/commu/*", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
 @Log4j
 public class CommuController {
