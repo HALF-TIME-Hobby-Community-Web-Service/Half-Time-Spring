@@ -7,7 +7,7 @@ $(() => {
 		alert("@");
 	    $.ajax({
 	        url: 'http://localhost:8888/user/updateInfo', // 불러올 페이지의 경로
-	        method: 'get', // GET 요청
+	        method: 'post', // GET 요청
 	        dataType: "html",
 	        success: (response) => {
 	          console.log(response);

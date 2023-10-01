@@ -15,16 +15,11 @@
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 	<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
 
-<<<<<<< HEAD
+
 	<!-- @192.168.0.26  -->
 	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
 	<property name="username" value="hf2" />
 	<property name="password" value="hf2" />
-=======
-	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
-	<property name="username" value="moon" />
-	<property name="password" value="bomi" />
->>>>>>> 25a38e9fe57f3b4300b480f0aa659d9e1051aeac
 
 	</bean>
 	
