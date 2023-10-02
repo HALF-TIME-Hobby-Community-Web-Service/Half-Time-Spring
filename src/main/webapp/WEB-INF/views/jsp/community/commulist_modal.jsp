@@ -20,7 +20,7 @@
 	      </div>
       </div>
 	  <div class="btns">
-	      <button class="modalbtn btn btn-primary " id="commuSignup">가입신청</button>
+	      <button class="modalbtn btn btn-primary" id="commuSignup">가입신청</button>
 	      <button class="modalclose btn btn-danger ">닫기</button>
 	  </div>
     </div>

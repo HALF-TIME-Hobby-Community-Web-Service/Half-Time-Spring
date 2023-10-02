@@ -42,6 +42,7 @@
 .ljoin_closebtn {
   font-size: 30px;
   float: right;
+  cursor: pointer;
 }
 
 /* 번개신청 입력 창*/

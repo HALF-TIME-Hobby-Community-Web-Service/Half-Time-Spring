@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.hf.domain.User;
 import com.hf.user.service.MyPageService;
 
 import lombok.Setter;
@@ -38,11 +39,20 @@ public class MyPageController {
 
 	}
 	
-	@GetMapping("/updateInfo")
-	public String updateInfo(HttpServletRequest request)
+	@PostMapping("/updateInfo")
+	public String updateInfo(HttpServletRequest request, Model model)
 	{
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
+		User user = service.getUserInfo(id);
+		model.addAttribute("id",id);
+		model.addAttribute("nickname",user.getNickname());
+		model.addAttribute("pwd",user.getPwd());
+		model.addAttribute("name",user.getName());
+		model.addAttribute("birth",user.getBirth());
+		model.addAttribute("pnum",user.getPnum());
+		
+		log.info("전화번호 시발 왜안떠"+user.getPnum());
 		log.info("여기옴~");
 		
 		

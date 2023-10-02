@@ -1,5 +1,4 @@
 $(() => {
-
   const commuID = sessionStorage.getItem('commuID');
 
   /* 일정 */
