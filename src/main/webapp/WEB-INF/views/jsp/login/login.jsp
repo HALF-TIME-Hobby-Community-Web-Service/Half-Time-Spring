@@ -1,10 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<% response.setHeader("Access-Control-Allow-Origin", "*"); %>
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-signin-scope" content="profile email">
+<meta name="google-signin-client_id" content="153411467894-hb0a8uu4blq7dpkuhhi83apucdgd1s1s.apps.googleusercontent.com">
+
 <title>Login page</title>
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
@@ -13,6 +17,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 
 <link rel="stylesheet" href="/resources/css/join.css">
 <link rel="stylesheet" href="/resources/css/login.css">
@@ -51,7 +56,6 @@
     		<input type="hidden" name="kakaoID" class="hidden"/> 
     	</form>
     </div>
-    
     
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>
@@ -101,7 +105,45 @@
             });
         }
     </script>    
-		<br> <br>
+  <br>
+
+
+    <!--구글 로그인 -->
+
+    <div style="display: flex; justify-content: center;">
+       <div class="g-signin2" data-onsuccess="onSignIn" data-width="275" data-height="55" data-clientid="153411467894-hb0a8uu4blq7dpkuhhi83apucdgd1s1s.apps.googleusercontent.com" data-scope="profile email"></div>
+	</div>
+     <script>
+     
+        function onSignIn(googleUser) {
+          console.log('구글 하이');
+		  const profile = googleUser.getBasicProfile();
+		  console.log('구글 하이');
+		  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		  console.log('Name: ' + profile.getName());
+		  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		  
+		  const googleId = profile.getId();
+		  const googleName = profile.getName(); 
+		  
+		  const id_token = googleUser.getAuthResponse().id_token;
+		  console.log("ID Token: " + id_token);
+		  
+		  $.ajax({ 
+            	 data:{"googleId":googleId,
+            		   "googleName":googleName },
+            	 url: '/user/google',
+            	 method: 'get',
+            	 success:(data)=>{
+            		 location.href="/hf";//임시로 해놓음 
+            	 }
+          });  
+}
+    </script>
+
+
+
+    <br> <br>
 		<button class="login_findIDbtn"
 			onclick="location.href='http://localhost:8888/user/findid'">아이디 찾기</button>
 		<button class="login_findPWbtn"
