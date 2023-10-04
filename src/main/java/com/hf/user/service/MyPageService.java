@@ -7,7 +7,8 @@ import com.hf.domain.User;
 import com.hf.mapper.MyPageMapper;
 
 import lombok.Setter;
-
+import lombok.extern.log4j.Log4j;
+@Log4j
 @Service 
 public class MyPageService {
 
@@ -20,14 +21,17 @@ public class MyPageService {
 
    }
 
-    public int updatePassword(String pwd,  String id) {
-    	  mapper.updatePassword(pwd, id);
-    	  return 1;
+    public int updatePassword(String id,  String pwd) {
 
+	    int i = mapper.updatePassword(id,pwd);
+
+	    return i;
     }
-    public int updatePhoneNumber(String pNum, String id) {
-    	mapper.updatePhoneNumber(pNum, id);
-    	return 1;
+    
+    public int updatePhoneNumber(String id, String pNum) {
+    	int i = mapper.updatePhoneNumber(id,pNum);
+    	return i;
+    	
     	
     }
 

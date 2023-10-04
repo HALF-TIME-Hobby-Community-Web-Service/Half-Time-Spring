@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script src="/resources/js/update_info.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 <body>
 
@@ -15,13 +17,17 @@
     생년월일: <input id="user_birth" value='${birth}' readonly><br>
     <hr>
     내 정보 수정하기
-    <form>
+    <form  id="pw_update">
         비밀번호:
-        <input id="pw_change" type="password">
-        <button id="pw_changeBtn">변경하기</button><br>
+        <input  type="password" name ="pw_update">
+        <button id="pw_updateBtn">변경하기</button><br>
+    </form>
+    
+    
+    <form id="pnum_update">
         핸드폰 번호:
-        <input id="pn_change" >
-        <button id="pn_changeBtn">변경하기</button>
+        <input name="pnum_update">
+        <button id="pnum_updateBtn">변경하기</button>
     </form>
 
 
