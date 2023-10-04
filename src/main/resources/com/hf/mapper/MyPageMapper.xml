@@ -4,16 +4,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hf.mapper.MyPageMapper">
 
+	<select id="getUserInfo" resultType="com.hf.domain.User">
+		select id,pwd,name,nickname,birth,phonenum from users
+		WHERE id = #{id}
+	</select>
+
 	<update id="updatePhoneNumber">
 		UPDATE users
 		SET phonenum = #{pnum}
 		WHERE id = #{id}
 	</update>
-	
+
 	<update id="updatePassword">
 		UPDATE users
 		SET pwd = #{pwd}
-		
+
 		WHERE id = #{id}
 	</update>
 

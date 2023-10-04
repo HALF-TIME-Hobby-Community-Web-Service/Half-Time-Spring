@@ -178,4 +178,9 @@ $(() => {
     $(e.target).css('display', 'block');
   });
 	
+  /* 커뮤니티 글쓰기 모달 버튼 동작 */
+  $('.bmake_closebtn').click(()=> {    	
+      $('.bmake_content').css('display', 'none');
+  })
+
 });

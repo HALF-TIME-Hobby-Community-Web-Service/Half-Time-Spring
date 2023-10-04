@@ -4,17 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- css -->
   <link rel="stylesheet" href="/resources/css/commulist.css" />
-
-  <!-- js-->
   <script src="/resources/js/commulist.js"></script>  
 </head>
 	
-  <jsp:include page="./clist_modal.jsp"/>
+  <jsp:include page="./commulist_modal.jsp"/>
 	  
   <div class="commuevery">
-
     <div class="filteringBox">
       <span class="filtering">최신순</span>
       <span class="filtering">인기순</span>

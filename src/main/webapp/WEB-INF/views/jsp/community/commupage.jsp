@@ -17,20 +17,19 @@
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
   
   <!-- css -->
-  <link rel="stylesheet" href="/resources/css/commuPage.css" />
-  <link rel="stylesheet" href="/resources/css/floatingBtn.css" />
-  <link rel="stylesheet" href="/resources/css/lmake.css">
-  <link rel="stylesheet" href="/resources/css/ljoin.css">
+  <link rel="stylesheet" href="/resources/css/commupage.css" />
   <link rel="stylesheet" href="/resources/css/modal.css">
   <link rel="stylesheet" href="/resources/css/modalmemberlist.css" />
-
+  <link rel="stylesheet" href="/resources/css/commu_gathering_join.css">
+  <link rel="stylesheet" href="/resources/css/commu_gathering_make.css">
+  
   <!-- js-->  
   <script src="/resources/js/commupage.js"></script>
-  <script src="/resources/js/commumemberlist.js"></script>
-  <script src="/resources/js/lmake.js"></script>
-  <script src="/resources/js/ljoin.js"></script>
+  <script src="/resources/js/commumemberlist.js"></script>  
   <script src="/resources/js/commu_board_make.js"></script>
-  
+  <script src="/resources/js/commu_gathering_join.js"></script>
+  <script src="/resources/js/commu_gathering_make.js"></script>
+
 </head>
 
 <body>  
@@ -119,143 +118,29 @@
           HISTORY
         </div>
         <div class="history_container">
-          <div class="historyBox">
+          <div class="historyBox" onclick="history_modal_open()">
             <img src="/resources/items/moment/1.jpg" class="history_box_img" />
           </div>
         </div>
       </div>
-
     </div>
   </section>
-
-  <!-- 모달 창 -->
-  <!-- 번개 신청 -->
-  <div class="lmake_content">
-    <div class="lmake_title"> ⚡모임생성 <span class="lmake_closebtn">&times;</span></div>
-    <div class="lmake_container">
-      <form method="post" action="">
-        <div class="form-floating mb-3">
-          <fieldset>
-            <span>이름:</span>
-            <input name="title" wrap="hard" cols="40" class="form-control lmake_name" />
-          </fieldset>
-        </div>
-
-        <div class="form-floating mb-3 lmake_schedule">
-          <span>일정:</span>
-          <input name="startTime" class="startTime form-control" type="datetime-local" max="2023-12-240T21:00" min=""
-            value="" style="height: 30px;">
-          <input name="endTime" class="endTime form-control" type="datetime-local" max="2023-12-24T21:00" min=""
-            value="">
-          <fieldset class="lmake_checkbox">
-            <input name="check" id="endTime" type="checkbox" checked>
-            <label for="endTime">끝나는 시간</label>
-          </fieldset>
-        </div>
-
-        <div class="form-floating mb-3">
-          <span>위치:</span>
-          <input class="form-control location" name="location" />
-          <!-- <input class="form-control location" name="location_map" value="서울시-강남구-도곡동" /> -->
-        </div>
-
-        <div class="form-floating mb-3">
-          <span>내용:</span>
-          <textarea name="text" class="lmake_text"></textarea>
-        </div>
-
-        <div class="form-floating mb-3 lmake_detailbox">
-          <div>
-            <span>정원:</span>
-            <span class="lmake_calcbox">
-              <button type="button" class="lmake_btn lmake_cap_minus">-</button>
-              <input name="capacity" class="form-control" value="00명" />
-              <button type="button" class="lmake_btn lmake_cap_plus">+</button>
-            </span>
-          </div>
-          <div>
-            <span>금액:</span>
-            <span class="lmake_calcbox">
-              <button type="button" class="lmake_btn lmake_price_minus">-</button>
-              <input name="price" class="form-control" value="10000원" />
-              <button type="button" class="lmake_btn lmake_price_plus">+</button>
-            </span>
-          </div>
-        </div>
-        <div class="lmake_button_container" style="border-top: 1px solid;">
-          <button class="btn btn-primary">모임 생성</button>
-        </div>
-      </form>
-    </div>
-  </div>
-  
-  <!-- 번개 참가 -->
-  <div class="ljoin_content">
-    <div class="ljoin_title"> ⚡모임 참가 <span class="ljoin_closebtn">&times;</span></div>
-    <div class="ljoin_container">
-      <div class="ljoin_box_clone">
-        <div class="ljoin_box_title">
-          <span class="ljoin_box_date1">07/29 (일)</span>
-          <span class="ljoin_box_dday">D-30</span>
-        </div>
-        <div class="ljoin_box_container">
-          <p>강릉 알파메일 정기모임</p>
-          <div>일시: <span class="ljoin_box_date2">07/29(화) 오후 12:00</span></div>
-          <div>위치: <span class="ljoin_box_location">강원도 강릉</span></div>
-          <div>내용: <span class="ljoin_box_text">02년생 헌팅하고 다니실 185cm이상 알파메일 분들 찾아요</span></div>
-          <div>금액: <span class="ljoin_box_price">29만원</span></div>
-          <div>
-            정원:
-            <span class="ljoin_box_count" style="color:red">4</span> / <span class="ljoin_box_capacity">5</span>
-            <button class="btn btn-primary ljoin_joinbtn">참가하기</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- 게시물 추가 -->
-  <div class="modal_content bmake_content">
-    <div class="modal_title bmake_title"> 게시글 작성<span class="modal_closebtn bmake_closebtn">&times;</span></div>
-    
-    <div class="modal_container b_container">
-      <form method="post" action="">      
-              
-        <div class="form-floating mb-3">
-	        <select name="" class="form-select">
-		        <option value="category">카테고리</option>
-			    <option value="info">공지사항</option>
-			    <option value="board">자유 글</option>
-			    <option value="history">히스토리 미스테리</option>
-			</select>
-		</div>
-      
-        <div class="form-floating mb-3">
-          <fieldset>
-            <input name="title" class="form-control bmake_name"  placeholder="제목(40자)"/>
-          </fieldset>
-        </div>
-
-        <div class="form-floating mb-3">
-          <textarea name="text" class="form-control modal_textarea bmake_text" placeholder="게시글 내용" style="width: 100%; height: 200px" cols="40" wrap="hard"></textarea>
-        </div>
-        
-		<div class="form-floating " style="border-top: 1px solid;">
-          
-        </div>        
-
-        <div class="modal_button_container bmake_button_container" style="border-top: 1px solid;">
-          <button class="btn btn-primary">완료</button>
-        </div>
-                
-      </form>
-    </div>
-  </div>
+	
+  <!-- 모달 페이지 -->
+  <jsp:include page="./commu_board_write_modal.jsp"/>
+  <jsp:include page="./gathering_make_modal.jsp"/>
+  <jsp:include page="./gathering_join_modal.jsp"/>
+  <jsp:include page="./commu_history_modal.jsp"/>
   
   <script>
-  $('.bmake_closebtn').click(()=> {    	
-      $('.bmake_content').css('display', 'none');
+  $('.history_modal_closebtn').click(()=>{
+	  $('.history_modal_content').css('display','none');
   })
+  
+  /* 히스토리 모달 클릭 동작 */
+  function history_modal_open() {
+  	$('.history_modal_content').css('display','block');
+  }
   </script>
 </body>
 
