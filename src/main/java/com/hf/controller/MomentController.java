@@ -69,24 +69,17 @@ public class MomentController {
 	    	
 			return list;
 		}
-	    @ResponseBody
-	    @PostMapping("/modal_MiddleCategory")
-		public List<String> miidle(@RequestParam("largecate") String largecate){
-	    	List<String> list = new ArrayList<String>();
-	    	list = momentService.modal_MiddleCategory(largecate);
-	    	log.info(list);
-	    	
-			return list;
-		}
+
 	    @ResponseBody
 	    @PostMapping("/modal_SmallCategory")
-		public List<String> small(@RequestParam("middlecate") String middlecate){
+		public List<String> small(@RequestParam("largecate") String largecate){
 	    	List<String> list = new ArrayList<String>();
-	    	list = momentService.modal_SmallCategory(middlecate);
+	    	list = momentService.modal_SmallCategory(largecate);
 	    	log.info(list);
 	    	
 			return list;
 		}
+	    
 	    @ResponseBody
 	    @PostMapping("/momentUpload")
 	    public String upload(@RequestParam("text") String text, @RequestParam("category") String category, @RequestParam("writer") String writer) {
