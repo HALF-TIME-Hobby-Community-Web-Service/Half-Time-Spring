@@ -9,6 +9,7 @@
 </head>
 	
   <jsp:include page="./commulist_modal.jsp"/>
+  <jsp:include page="./commu_make.jsp"/>
 	  
   <div class="commuevery">
     <div class="filteringBox">
