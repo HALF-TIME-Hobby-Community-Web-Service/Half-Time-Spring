@@ -1,8 +1,4 @@
 $(() => {
-<<<<<<< HEAD
-})
-=======
-
 	const updateinfoBtn = $(".update_info");
 	const mypageContent = $(".mypageContent");
 	
@@ -23,5 +19,3 @@ $(() => {
       });
   });
 })
- 
->>>>>>> 22eafc83d3890cd9c75491d074ec75668a0613a9

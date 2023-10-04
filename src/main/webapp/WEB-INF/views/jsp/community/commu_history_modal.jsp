@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<body>
 <div class="modal_content history_modal_content" style='display:none'>
   <div class="history_modal_img_box">  	
   	<img src="/resources/items/moment/6.jpg">
@@ -63,3 +62,4 @@
 	  $('.history_modal_content').css('display','none');
   })
 </script>
+</body>

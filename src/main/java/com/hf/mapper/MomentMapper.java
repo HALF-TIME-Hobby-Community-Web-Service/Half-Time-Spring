@@ -17,8 +17,7 @@ public interface MomentMapper {
     
     MomentWithContent selectModalWithContent(int momentid);
     List<String> modal_LargeCategory(); 
-    List<String> modal_MiddleCategory(String largecate); 
-    List<String> modal_SmallCategory(String middlecate); 
+    List<String> modal_SmallCategory(String largecate); 
     void modalUpload(@Param("text") String text, @Param("writer") String writer, @Param("category") String catgory);
 }
 

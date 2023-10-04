@@ -32,11 +32,6 @@
 		        <option value="category">대분류</option>
 			</select>
 		</div>
-		<div class="form-floating mb-3 middlecategory">
-	        <select name="" class="form-select selectMiddleCategory">
-		        <option value="category">중분류</option>
-			</select>
-		</div>
 		<div class="form-floating mb-3 smallcategory">
 	        <select name="" class="form-select selectSmallCategory">
 		        <option value="category">소분류</option>
