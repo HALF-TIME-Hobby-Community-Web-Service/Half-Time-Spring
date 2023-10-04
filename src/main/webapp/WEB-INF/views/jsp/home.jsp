@@ -16,8 +16,8 @@
 	<div class="float-box" style="height: 100;">
 	    <span class="float-item float-item1"><img src="/resources/items/floatitem/write.png" alt=""></span>
 	    <span class="float-item float-item2"><img src="/resources/items/floatitem/alert.png" alt=""></span>
-	    <span class="float-item float-item3"><img src="/resources/items/floatitem/mypage.png" alt=""></span>
-	    <span class="float-item float-item4"><img src="/resources/items/floatitem/setting.png" alt=""></span>
+<!-- 	    <span class="float-item float-item3"><img src="/resources/items/floatitem/mypage.png" alt=""></span>
+	    <span class="float-item float-item4"><img src="/resources/items/floatitem/setting.png" alt=""></span> -->
 	</div>
 </div>
 

@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-/* 紐⑤떖 �쟾泥�*/
 .modal_content {
   display: none;
   position: fixed;
@@ -34,14 +33,14 @@
   font-size: 40px;
 }
 
-/* �떕湲� 踰꾪듉 */
+
 .modal_closebtn {
   float: right;
   font-size: 30px;
   cursor: pointer;
 }
 
-/* �엯�젰 李�*/
+
 .modal_container {
   height: 80%;
 
@@ -57,13 +56,13 @@
   border-radius: 5px;
 }
 
-/* �젣紐�: �씠由�, �씪�젙, �쐞移�, �궡�슜 ... */
+
 .modal_container span {
   font-size: 20px;
   text-align: center;
 }
 
-/* �쟾泥� input �깭洹� */
+
 .modal_container input {
   display: inline-block;
 }
@@ -72,7 +71,7 @@
   height: 200px;	
 }
 
-/* 紐⑤떖 踰꾪듉*/
+
 .modal_button_container {
   margin-top: 50px;
   display: flex;

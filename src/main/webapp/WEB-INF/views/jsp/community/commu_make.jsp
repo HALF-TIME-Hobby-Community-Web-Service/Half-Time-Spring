@@ -211,6 +211,8 @@
 	$('.cmake_closebtn').click(()=> {    	
 	  $('.cmake_content').css('display', 'none');
 	  $('.cmake_form')[0].reset();
+	  $('.commu_img').attr('src', '/resources/items/moment/moment_default.png');
+	  x = 0;
 	  $('.cmake_form').css('transform', 'translateX(0%)');
 	})
 	 

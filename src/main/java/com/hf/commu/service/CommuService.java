@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hf.domain.CommuConst;
 import com.hf.domain.CommuInfo;
@@ -33,15 +34,21 @@ public class CommuService {
 		return mapper.getCommuListByLocation(location);
 	}
 	
-
-//	@Override
-//	@Autowired
-//	public List<Post> getCommuPost(String commuID, SqlSessionTemplate sqlSession) {
-//		
-//		this.sqlSession = sqlSession;
-//		
-//		return sqlSession.selectList("com.hf.commu.mapper.CommuMapper.getCommuList", commuID);
-//	}
+	public String join(String commuID, String userID, String nickname) {
+		
+		log.info("service/join/commuID: " + commuID);
+		
+		String returnMSG = "fail";
+		try {
+			if (mapper.join(commuID, userID, nickname) >= 1)
+				returnMSG = "success";
+			log.info("service/join: " + returnMSG);
+		}
+		catch (Exception e) {
+			log.info("service/join에러" + returnMSG);
+		} 
+		return returnMSG;		
+	}
 
 	public List<CommuInfo> getCommuList1(){
 		return mapper.getCommuList();

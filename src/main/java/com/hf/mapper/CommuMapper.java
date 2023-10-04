@@ -13,8 +13,8 @@ import com.hf.domain.Post;
 public interface CommuMapper {
 	public CommuInfo getCommuInfo(String commuID);
 	public List<Post> getCommuPost(String commuID);
-
 	
+	public int join(@Param("commuID")String commuID, @Param("userID")String userID, @Param("nickname")String nickname);
 	
 	public void insertGathering(Gathering gObj);
 	public List<Gathering> getGathering();

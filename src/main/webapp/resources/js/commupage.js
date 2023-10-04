@@ -83,16 +83,28 @@ $(() => {
     data: { commuID: commuID },
     success: (c) => {
  	  $('.commu_const').append(`<p>커뮤니티 안내사항: </p>`);
- 	  $('.commu_const').append(`<p>😀 ${c.memberCnt}/${c.capacity}</p>`);
+ 	  $('.commu_const').append(`<p>😀커뮤니티 정원 ${c.memberCnt}/${c.capacity}</p>`);
  	  
  	  let gender; 
- 	  if (c.gender == 1) gender = '모두';
- 	  else if (c.gender == 2) gender = '남자만';
- 	  else if (c.gender == 3) gender = '여자만';  	  
- 	  $('.commu_const').append(`<p>👧🧑 ${gender}</p>`);
+ 	  if (c.gender == 1) gender = '👧남녀모두🧑';
+ 	  	else if (c.gender == 2) gender = '🧑남자만';
+ 	  	else if (c.gender == 3) gender = '👧여자만';  	  
+ 	  $('.commu_const').append(`<p>${gender}</p>`);
  	  
- 	  if(c.ageLimitMin > 0);
- 	  	
+	  let min;
+	  let max;
+	  let age_val;
+	  min = (c.ageLimitMin <= 0) ? '' : c.ageLimitMin;
+	  max = (0 == c.ageLimitMax) ? '' : c.ageLimitMax;
+ 	  if (min == '' && max == '')
+		age_val = '나이제한없음';
+	  else if (min == '' && max != '')
+	  	age_val = `${min}세부터`;
+  	  else if (min != '' && max == '')
+	  	age_val = `${max}세까지`;
+	  else
+	  	age_val = `${min}세부터 ${max}세까지`;
+ 	  $('.commu_const').append(`<p>${age_val}</p>`);
     },
     error: (jqXhr, status) => {
       alert(`실패: ${status}\n오류명:${jqXhr.status}`);
@@ -183,4 +195,11 @@ $(() => {
       $('.bmake_content').css('display', 'none');
   })
 
+
+  /* 플러팅 버튼 */
+  {
+  	$('.float-box').html('');
+	$('.float-box').append('<span class="float-item float-item1"><img src="/resources/items/floatitem/write.png" alt=""></span>');
+	$('.float-box').append('<span class="float-item float-item1"><img src="/resources/items/floatitem/write.png" alt=""></span>');  
+  }
 });

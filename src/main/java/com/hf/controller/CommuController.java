@@ -25,9 +25,15 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping(value = "/commu/*", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
 @Log4j
 public class CommuController {
-
 	@Setter(onMethod_ = @Autowired)
 	private CommuService service;
+	
+	@PostMapping("/join")
+	public String join(@RequestParam("commuID") String commuID, @RequestParam("userID") String userID,
+				    @RequestParam("nickname") String nickname)	{		
+		log.info("join컨트롤러 "  + commuID + userID + nickname);
+		return service.join(commuID, userID, nickname);
+	}
 	
 	@PostMapping("/getmember")
 	public List<Commumember> getCommumemberList(@RequestParam("commuID") String commuID) {
@@ -37,13 +43,11 @@ public class CommuController {
 		return cList;
 	}
 
-
 	@GetMapping("/getpost")
 	public List<Post> getBoard(@RequestParam("commuID") String commuID) {
 		List<Post> boardList = service.getCommuPost(commuID);
 		return boardList;
 	}
-
 
 	@GetMapping("/getcommuinfo")
 	public CommuInfo getCommuInfo(@RequestParam("commuID") String commuID) {
@@ -53,7 +57,6 @@ public class CommuController {
 		return commuInfo;
 	}
 
-
 	@PostMapping("/lget")
 	public List<Gathering> getGathering(String commuID) {
 		log.info("lget: " + commuID);
@@ -61,8 +64,7 @@ public class CommuController {
 		log.info(gatheringList);
 		return gatheringList;
 	}
-	
-	
+		
 	@PostMapping("/lmake")
 	public String lmake(
 			@RequestParam String title,
@@ -81,8 +83,7 @@ public class CommuController {
 		service.lmake(g);
 		return "1";	
 	}
-	
-	
+		
 	@PostMapping("/const")
 	public CommuConst getcommuConst(@RequestParam String commuID) {						
 		log.info("commu/const/commuID: " + commuID);
