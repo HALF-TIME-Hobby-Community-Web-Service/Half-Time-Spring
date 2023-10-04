@@ -19,7 +19,10 @@ public interface MomentMapper {
     List<String> modal_LargeCategory(); 
     List<String> modal_MiddleCategory(String largecate); 
     List<String> modal_SmallCategory(String middlecate); 
-    void modalUpload(@Param("text") String text, @Param("writer") String writer, @Param("category") String catgory);
+    void modalUpload(MomentWithContent mwc);
+    public Integer getMaxNumFile();
+	public void fileUpload(MomentWithContent mwc);
+	public int getMaxMomentID();
 }
 
  

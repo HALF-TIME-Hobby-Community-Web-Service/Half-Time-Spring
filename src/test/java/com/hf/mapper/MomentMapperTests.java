@@ -19,7 +19,7 @@ public class MomentMapperTests {
 	
 	@Test
 	public void test() {
-		mapper.modalUpload("text", "sungmin12", "category");
+		
 	}
 
 }

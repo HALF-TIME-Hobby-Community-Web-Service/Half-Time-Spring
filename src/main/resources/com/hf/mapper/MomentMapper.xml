@@ -82,7 +82,7 @@ SELECT SMALLCATE FROM CATEGORY WHERE MIDDLECATE=#{MiddleCate}
     ]]>
 </select>
 
-   <insert id="modalUpload">
+   <insert id="modalUpload" parameterType="com.hf.domain.MomentWithContent">
     <![CDATA[
          INSERT INTO MOMENT (MOMENTID, WRITER, CATEGORY, LOCATION, TEXT, POSTTIME)
         VALUES (
@@ -96,5 +96,38 @@ SELECT SMALLCATE FROM CATEGORY WHERE MIDDLECATE=#{MiddleCate}
         ]]>
     </insert>
     
+    <insert id="fileUpload" parameterType="com.hf.domain.MomentWithContent">
+    <![CDATA[
+    INSERT INTO CONTENTSRC (
+        CONTENTID, REFERENCEID, CONTENTTYPE, CONTENTPATH1, CONTENTPATH2, CONTENTPATH3,
+        CONTENTPATH4, CONTENTPATH5,CONTENTPATH6,CONTENTPATH7,CONTENTPATH8,CONTENTPATH9,CONTENTPATH10
+    ) VALUES (
+        CONTENTSRC_SEQ.nextval,
+        #{referenceID},
+        1,
+        #{contentPath1, jdbcType=VARCHAR},
+        #{contentPath2, jdbcType=VARCHAR},
+        #{contentPath3, jdbcType=VARCHAR},
+        #{contentPath4, jdbcType=VARCHAR},
+        #{contentPath5, jdbcType=VARCHAR},
+        #{contentPath6, jdbcType=VARCHAR},
+        #{contentPath7, jdbcType=VARCHAR},
+        #{contentPath8, jdbcType=VARCHAR},
+        #{contentPath9, jdbcType=VARCHAR},
+        #{contentPath10, jdbcType=VARCHAR}
+    )
+    ]]>
+</insert>
+    <select id="getMaxNumFile"  resultType="Integer">
+    SELECT MAX(rownum) FROM (
+    SELECT ROWNUM
+    FROM CONTENTSRC)
+
+</select>
+
+<select id="getMaxMomentID" resultType="int" >
+    SELECT MAX(MOMENTID) FROM MOMENT
+
+</select>
 
 </mapper>

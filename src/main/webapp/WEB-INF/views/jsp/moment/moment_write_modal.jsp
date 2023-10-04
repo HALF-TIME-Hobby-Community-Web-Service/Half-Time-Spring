@@ -5,7 +5,7 @@
 
 <link rel="stylesheet" href="/resources/css/moment_write.css">
 <link rel="stylesheet" href="/resources/css/modal.css">
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <script src="/resources/js/moment_write.js"></script>
 
 </head>
@@ -56,11 +56,25 @@
 		<div class="mmake_img_container">
 			<div class="mmake_img_box">			
 				<img class="m_img" src="/resources/items/moment/moment_default.png"/>
-				<img class="m_img" src="/resources/items/moment/moment_default.png"/>
-				<img class="m_img" src="/resources/items/moment/moment_default.png"/>
-				<img class="m_img" src="/resources/items/moment/moment_default.png"/>
-				<img class="m_img" src="/resources/items/moment/moment_default.png"/>
+				
 			</div>			
+			<script>
+      function setThumbnail(event) {
+        for (var image of event.target.files) {
+          var reader = new FileReader();
+
+          reader.onload = function(event) {
+            var img = document.createElement("img");
+            img.setAttribute("src", event.target.result);
+            img.setAttribute("class","m_img")
+            document.querySelector("div#mmake_img_box").appendChild(img);
+          };
+
+          console.log(image);
+          reader.readAsDataURL(image);
+        }
+      }
+    </script>
 			<input type="file" class="input_file" style="display: none" multiple accept="image/*" /> 
 		</div>
 

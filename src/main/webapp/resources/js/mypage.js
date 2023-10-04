@@ -1,9 +1,4 @@
 $(() => {
-<<<<<<< HEAD
-
-=======
->>>>>>> 25610baa3262821d1ee2a10044b2f36d2954cd2a
-
 	const updateinfoBtn = $(".update_info");
 	const mypageContent = $(".mypageContent");
 	
@@ -24,11 +19,4 @@ $(() => {
       });
   });
 })
-<<<<<<< HEAD
- 
-})
 
-
-=======
- 
->>>>>>> 25610baa3262821d1ee2a10044b2f36d2954cd2a
