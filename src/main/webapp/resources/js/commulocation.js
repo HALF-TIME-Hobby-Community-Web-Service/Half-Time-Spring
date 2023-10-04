@@ -11,7 +11,7 @@ $(() => {
   const memberCC = $('td.cc');
   const memberCL = $('td.cl');
 
-  searchForm.submit(() => {
+  searchForm.submit((e) => {
 
     e.preventDefault();
     $(memberCN).html('');
