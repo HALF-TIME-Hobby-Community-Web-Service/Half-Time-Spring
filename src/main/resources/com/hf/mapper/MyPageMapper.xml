@@ -5,20 +5,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.hf.mapper.MyPageMapper">
 
 	<select id="getUserInfo" resultType="com.hf.domain.User">
-		select id,pwd,name,nickname,birth,phonenum from users
+		select id,pwd,name,nickname,birth,pnum from users
 		WHERE id = #{id}
 	</select>
 
 	<update id="updatePhoneNumber">
 		UPDATE users
-		SET phonenum = #{pnum}
+		SET pnum = #{pnum}
 		WHERE id = #{id}
 	</update>
-
-	<update id="updatePassword">
+	
+	<update id="updatePassword" >
 		UPDATE users
 		SET pwd = #{pwd}
-
 		WHERE id = #{id}
 	</update>
 
