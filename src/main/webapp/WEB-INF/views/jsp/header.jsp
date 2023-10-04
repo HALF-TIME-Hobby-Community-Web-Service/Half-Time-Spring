@@ -33,7 +33,7 @@
 	<nav class="navbar navbar-expand-lg" style="background-color: #f6f4eb;"
 		id="navtop">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#" id="logo">HALF-TIME</a>
+			<a class="navbar-brand" href="" id="logo">HALF-TIME</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -68,17 +68,17 @@
 				<li class="nav_line">──────</li>
 				<li class="nav_item"><img
 					src="/resources/items/sideItem/hand-index.svg" alt="Interest"><a
-					id="insertBtn" href="#" class="atag">INTEREST</a></li>
+					id="insertBtn" href="" class="atag">INTEREST</a></li>
 				<li class="nav_item"><img
 					src="/resources/items/sideItem/geo-alt.svg" alt="Location"><a
-					id="locationBtn" href="#" class="atag">LOCATION</a></li>
+					id="locationBtn" href="" class="atag">LOCATION</a></li>
 				<li class="nav_item"><img
 					src="/resources/items/sideItem/geo-alt.svg" alt="MyPage"><a
 					id="mypageBtn" class="atag">MyPage</a></li>
 				<li class="nav_line">──────</li>
 				<li class="nav_item"><img
 					src="/resources/items/sideItem/chat-left-dots.svg" alt="Chatting"><a
-					id="chattingBtn" href="#" class="atag">CHATTING</a></li>
+					id="chattingBtn" href="" class="atag">CHATTING</a></li>
 			</ul>
 		</div>
 	</div>

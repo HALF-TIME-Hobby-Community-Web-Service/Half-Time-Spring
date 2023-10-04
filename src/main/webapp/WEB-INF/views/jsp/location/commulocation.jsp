@@ -8,17 +8,15 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="/resources/js/commulocation.js"></script>
-<script defer
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5o_ctjVFbtm8kt-EfRg7KNU4_hL4JFaw&callback=initMap"></script>
 
 </head>
 <body>
 	<div>
-		<form class="d-flex" role="search">
+		<form class="d-flex" role="search" id="search_location">
 			<input class="form-control me-2" type="search" placeholder="Search"
 				aria-label="Search" id="feed_searchinput" name="search_loation">
 			<button class="btn btn-outline-dark btn-outline-success"
-				id="location_search" type="button">Search</button>
+				id="location_search">Search</button>
 		</form>
 		
 	</div>
@@ -42,9 +40,6 @@
 				</div>
 			</div>	
 		</div>
-
-
-		<div id="map" style="height: 600px;"></div>
 		
 		
 </body>

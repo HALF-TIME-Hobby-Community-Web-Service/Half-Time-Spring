@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,10 +20,9 @@
 	      </div>
       </div>
 	  <div class="btns">
-	      <button class="modalbtn btn btn-primary" id="commuSignup">가입신청</button>
+	      <button class="modalbtn btn btn-primary" id="commuSignup">가입하기</button>
 	      <button class="modalclose btn btn-danger ">닫기</button>
 	  </div>
     </div>
   </div>
 </body>
-</html>

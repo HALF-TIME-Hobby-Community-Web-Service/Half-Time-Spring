@@ -43,9 +43,14 @@ $(() => {
     });
 
     const LargeCate = $('.selectLargeCategory');
+<<<<<<< HEAD
     const MiddleCate = $('.selectMiddleCategory');
     const SmallCate = $('.selectSmallCategory');
 
+=======
+   	const SmallCate = $('.selectSmallCategory'); 
+      
+>>>>>>> 1be168d2ec6ecdc8ef2024cba49f7adb76a54b7e
     $('.float-item1').click(() => {
         $.ajax({
             url: 'http://localhost:8888/moment/modal_LargeCategory',
@@ -62,6 +67,7 @@ $(() => {
             }
         });
     });
+<<<<<<< HEAD
 
     $('.largecategory').change(() => {
         MiddleCate.html('');
@@ -152,4 +158,58 @@ $(() => {
 
     });
 
+=======
+    
+    $('.largecategory').change(() => {
+		SmallCate.html('');
+        $.ajax({
+            url: 'http://localhost:8888/moment/modal_SmallCategory',
+            method: 'POST',
+            data:{largecate:LargeCate.val()},
+            dataType: "json",
+            success: function (data) {           	 	
+            	$.each(data, function (index, item) {	 
+   					 SmallCate.append('<option value="'+ item +'">'+ item +'</option>');
+				});
+            },error: function(error) {
+            console.log("smallCategory error");
+            console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
+        }
+        });
+    });
+    
+    
+    /* 파일 업로드 */
+    const upload = $('.moment_write_btn');
+    const modal_form = $('.modal_moment_upload');
+    
+    upload.on("click",function(e){
+    
+    const category = $('.selectSmallCategory').val();
+    const text = $('#uploadText').val();
+    alert(typeof writer);
+    e.preventDefault();
+    
+    	$.ajax({
+    		url: 'http://localhost:8888/moment/momentUpload',
+    		method : 'POST',
+    		data: { text : text,
+    				category : category,
+    				writer: writer,
+    		}, 
+    		success: function(data){
+    		if(data!=null){
+    			alert("업로드가 완료되었습니다.");
+    			$('.mmake_content').css('display', 'none');
+    			}else{
+    				alert("실패");
+    			}
+    		},error:function(error){
+    		
+            console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);    		
+    		}
+    	})
+    
+    })
+>>>>>>> 1be168d2ec6ecdc8ef2024cba49f7adb76a54b7e
 });

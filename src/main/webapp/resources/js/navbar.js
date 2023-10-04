@@ -134,7 +134,7 @@ $(() => {
   mypagebtn.on("click", function () {
     $.ajax({
       url: "/user/mypage",
-      type: "get",
+      type: "post",
       success: function (response) {
         feedContent.html(response);
       },

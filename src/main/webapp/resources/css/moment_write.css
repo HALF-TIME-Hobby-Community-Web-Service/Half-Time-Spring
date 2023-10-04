@@ -7,7 +7,7 @@
 .bmake_title{
 	text-align: center;
 }
- 5
+ 
 .m_img {
 	width: 100px;
 	height: 100px;
@@ -17,16 +17,11 @@
 	display:flex;
 }
 
-.largecategory{
-	width : 30%;
+.largecategory, .smallcategory{
+	width : 100%;
 }
 
 .smallcategory{
-	width : 30%;
 	margin-left:34px;
 }
 
-.middlecategory{
-	width : 30%;
-	margin-left:34px;
-}

@@ -126,6 +126,7 @@ public class MomentController {
 		if(mwc.getWriter()==null) {
 			return "nologin";
 		}
+<<<<<<< HEAD
 		momentService.uploadMoment(mwc);
 		mwc.setReferenceID(momentService.getMaxMomentID());
 		int i =1;
@@ -176,6 +177,29 @@ public class MomentController {
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	        // 오류 처리
+=======
+
+	    @ResponseBody
+	    @PostMapping("/modal_SmallCategory")
+		public List<String> small(@RequestParam("largecate") String largecate){
+	    	List<String> list = new ArrayList<String>();
+	    	list = momentService.modal_SmallCategory(largecate);
+	    	log.info(list);
+	    	
+			return list;
+		}
+	    
+	    @ResponseBody
+	    @PostMapping("/momentUpload")
+	    public String upload(@RequestParam("text") String text, @RequestParam("category") String category, @RequestParam("writer") String writer) {
+	    	log.info(writer);
+	    	log.info(category);
+	    	log.info(text);
+	    	
+	    	momentService.upload(text, writer, category);
+	    	
+	    	return "flase";
+>>>>>>> 1be168d2ec6ecdc8ef2024cba49f7adb76a54b7e
 	    }
 
 	    // 업로드 실패 시 false 반환
