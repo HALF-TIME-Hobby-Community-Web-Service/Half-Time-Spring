@@ -18,8 +18,8 @@
 
 	<!-- @192.168.0.26  -->
 	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
-	<property name="username" value="hf2" />
-	<property name="password" value="hf2" />
+	<property name="username" value="hf" />
+	<property name="password" value="hf" />
 
 	</bean>
 	

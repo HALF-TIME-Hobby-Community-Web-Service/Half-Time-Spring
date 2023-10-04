@@ -290,8 +290,8 @@ public class UserController {
 	        String pnum = phonenuma + phonenumb + phonenumc;     
 	        int gender = 0;
 	        String pwd = id+"123";
-
-
+	        id= id+":kakao";
+	        
 	        User user = new User(id, pwd, name, birth, gender, address, pnum, nickname);
 
 	        log.info("회원가입정보" + " ID:" + id + " PWD:랜덤숫자"+
@@ -319,7 +319,6 @@ public class UserController {
 		        @RequestParam("category") String category,
 		        @RequestParam("userid") String id
 		    ) {
-			
 			 	log.info(id + "회원의 관심지역: " + location + " & 관심사: " + category);
 		        User user = new User(location, category, id);
 
