@@ -94,5 +94,30 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	]]>
 	</select>
 	
+	<!-- 네이버 회원가입 1 -->
+    <insert id="insertNaverUser">
+    <![CDATA[
+        INSERT INTO Users (id, pwd, name, nickname, gender, birth, phoneNum, address)
+        VALUES (#{id}, #{pwd}, #{name}, #{nickname}, #{gender}, #{birth}, #{pnum}, #{address})
+        ]]>
+    </insert>
+    
+
+    <!-- 네이버 회원가입 2 관심지역 입력 -->
+     <insert id="insertnaverUserLocation" >
+        <![CDATA[
+        INSERT INTO Userlocation 
+        VALUES (userlocation_seq.nextval, #{id}, '집', #{location})
+         ]]>
+    </insert>
+    
+    <!-- 네이버 회원가입 2 관심사 입력 -->
+    <insert id="insertnaverUserCategory">
+    <![CDATA[
+        INSERT INTO Usercategory 
+         VALUES (userlocation_seq.nextval, #{id}, #{category})
+        ]]>
+    </insert>
+	
 
 </mapper>
