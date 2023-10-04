@@ -22,8 +22,8 @@
       
       	<!-- 모먼트 내용 -->
         <div class="form-floating mb-3">
-        	<textarea id="uploadText" class="form-control modal_textarea mmake_text" name="momentText",
-          		placeholder="게시글 내용" style="width: 100%; height: 200px" cols="40" wrap="hard"></textarea>
+        	<textarea id="uploadText" class="form-control modal_textarea mmake_text" name="momentText"
+          		placeholder="게시글 내용" style="width: 100%; height: 200px"></textarea>
         </div>
         <div class="category">
         <!-- 카테고리 -->
