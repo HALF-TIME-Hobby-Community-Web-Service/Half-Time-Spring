@@ -20,7 +20,6 @@
   <link rel="stylesheet" href="/resources/css/commupage.css" />
   <link rel="stylesheet" href="/resources/css/modal.css">
   <link rel="stylesheet" href="/resources/css/modalmemberlist.css" />
-  <link rel="stylesheet" href="/resources/css/commu_gathering_join.css">
   <link rel="stylesheet" href="/resources/css/commu_gathering_make.css">
   
   <!-- js-->  

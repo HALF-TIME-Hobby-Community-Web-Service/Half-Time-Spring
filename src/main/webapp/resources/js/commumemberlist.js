@@ -23,18 +23,20 @@ $(() => {
       data: {commuID: commuID},
       dataType: 'JSON',
       success: (response) => {           
-        //memberList.html(JSON.stringify(response));
         response.forEach((data) => {        
           const div = $('<div>').text('\t' + data.cauth + '\t' + data.gender + '\t' + data.birth); 
                     
           if (data.gender == 1) 
             var gender = '남';
           else if (data.gender == 2) 
-            var gender = '여';          
-          if (data.cauth == 0) 
-            var autho = '회원';
+            var gender = '여';                     
+
+          if (data.cauth == 2)           	
+          	var autho = '👑매니저';                   
           else if (data.cauth == 1) 
-            var autho = '👑관리자';          
+            var autho = '📢부매니저';
+          else  
+            var autho = '회원';
 
           const birthDate = new Date(data.birth);
           const today = new Date();

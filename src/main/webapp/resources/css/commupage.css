@@ -142,6 +142,7 @@ div.intro > img.mainImage {
 }
 
 .board_container {
+  min-height: 700px;
   background: #f6f4eb;
 }
 
