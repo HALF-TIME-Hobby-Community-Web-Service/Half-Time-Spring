@@ -25,7 +25,6 @@
   <!-- js-->  
   <script src="/resources/js/commupage.js"></script>
   <script src="/resources/js/commumemberlist.js"></script>  
-  <script src="/resources/js/commu_board_make.js"></script>
   <script src="/resources/js/commu_gathering_join.js"></script>
   <script src="/resources/js/commu_gathering_make.js"></script>
 

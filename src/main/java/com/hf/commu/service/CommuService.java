@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hf.domain.CommuConst;
 import com.hf.domain.CommuInfo;
@@ -81,6 +80,16 @@ public class CommuService {
 	public CommuConst getConst(String commuID) {
 		log.info("service/getCommuConst");
 		return mapper.getCommuConst(commuID);
+	}
+	
+	public String checkCommuName(String commuName) {		
+		try {
+			if (mapper.selectCommuName(commuName) >= 1)
+			    return "fail";
+			return "success";
+		} catch(Exception e) {
+			return "error";
+		}
 	}
 
 }

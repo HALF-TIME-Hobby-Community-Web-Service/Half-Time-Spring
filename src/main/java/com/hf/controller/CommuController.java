@@ -102,5 +102,13 @@ public class CommuController {
 		
 	}
 	
+	@PostMapping("/checkcommuname")
+	public String checkCommuName(@RequestParam("commuName")String commuName) {
+		log.info("checkCommuName/controller: " +  commuName);
+		String result = service.checkCommuName(commuName);
+		log.info("result:" + result);
+		return result;
+	}
+	
 	
 }
