@@ -116,12 +116,12 @@
 	<script type="text/javascript">
   	var naver_id_login = new naver_id_login("ti9znvrk0HWNWiRlqWm8", "http://localhost:8888/user/naver");
   	var state = naver_id_login.getUniqState();
-  	naver_id_login.setButton("white", 2,40);
+  	//naver_id_login.setButton("white", 2,40);
+  	naver_id_login.setButton("white", 25,60);
   	naver_id_login.setDomain("http://localhost:8888/user/login");
   	naver_id_login.setState(state);
   	naver_id_login.setPopup();
   	naver_id_login.init_naver_id_login();	
-
   </script>
   
 
