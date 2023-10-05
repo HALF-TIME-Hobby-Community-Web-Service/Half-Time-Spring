@@ -48,7 +48,7 @@ $(() => {
         }
     });
     
-    $('#commuSignup').click(function(e) {
+    $('#commuSignup').click(function(e) {	  
     	sessionStorage.setItem('commuID', commuID);
     
         $.ajax({

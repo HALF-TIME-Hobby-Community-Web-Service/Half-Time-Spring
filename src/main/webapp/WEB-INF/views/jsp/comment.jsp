@@ -69,6 +69,7 @@ $(()=>{
 				
                 if(response == 0){
                     alert('댓글 작성이 완료됐습니다');
+                    
                 }else if(response ==1){
                     alert('댓글 작성이 실패됐습니다');
                 }

@@ -1,0 +1,120 @@
+
+/* 모달 전체 적용 */
+.cmake_content {
+  z-index: 1;
+  width: 600px;
+}
+
+
+.cmake_container{
+  overflow-x: hidden;
+
+  height: 80%;
+  padding-top: 20px;
+  margin: 20px;
+
+  background: #fffae5;     
+  
+
+  border: 1px solid;
+  border-radius: 5px;
+}    
+
+.cmake_form {  
+  width: 400%;
+  height: 500px;
+  transition: all 0.3s;   
+  margin-left: 5%;   
+}
+
+.cmake_left, .cmake_center, .cmake_right, .cmake_rightright {
+  width: 23%;
+  margin-left: 1%;
+  margin-right: 1%;
+  float: left;    
+}
+
+.cmake_form  input, textarea{
+  width: 90%;
+  margin-bottom: 3px;
+}
+
+.modal_subtitle {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid lightgray;
+  width: 90%;      
+  text-align: center;
+}
+
+hr {
+  width: 90%;
+}
+
+.mtop30px {
+  margin-top: 30px;
+}
+
+/* 버튼 */
+.buttonBox {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  margin-left: -10%;
+}    
+
+.buttonBox button {
+  margin: 5px;
+  width: 25%;
+}
+
+/* 커뮤니티 기본 정보 */
+.selectbox {
+  display:flex;
+  width: 100%;
+}
+
+.selectBox select{
+  display: flex;      
+  width: 45%;
+  float:left;
+  margin-bottom: 3px;
+}
+
+/* 커뮤니티 대표 이미지 */
+.commu_img {
+  height: 40%;
+  width: 40%;
+
+  margin-left: 25%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  border: 0.5px solid lightgray;
+  background: #fff;
+}
+
+.commu_file {
+  display: none;
+}
+
+/* 커뮤니티 설정 */
+.genderbox select{
+  display: flex;      
+  width: 90%;
+  margin-bottom: 3px;
+}
+
+.age_box{
+  display: none;
+  width: 50%;
+  margin-top: 10px;
+}
+
+.genderbox {      
+  display: none;
+  margin-top: 10px;
+}

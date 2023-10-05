@@ -3,20 +3,19 @@ $(() => {
 
   const commuID = sessionStorage.getItem('commuID');   
 
-  $('.ljoinbtn').click(() => {
-    $.ajax({
-      url: `${url}/lget`,
-      method: 'POST',
-      data: {commuID : commuID},
-      success: (data) => {
-        data.forEach((element) => {
-          appendGathering(element);
-        });
-      },
-      error: (jqXhr, status) => {
-        alert(`실패: ${status}\n오류명:${jqXhr.status}`);
-      },
-    });
+  
+  $.ajax({
+    url: `${url}/lget`,
+    method: 'POST',
+    data: {commuID : commuID},
+    success: (data) => {
+      data.forEach((element) => {
+        appendGathering(element);
+      });
+    },
+    error: (jqXhr, status) => {
+      alert(`실패: ${status}\n오류명:${jqXhr.status}`);
+    },
   });
 });
 
@@ -83,7 +82,6 @@ function appendGathering(data) {
   //모임 기본정보들
   {
     newItem.find('.ljoin_box_container > p').text(data.title);
-    //newItem.find('.ljoin_box_date2').text(data.startTime);
     newItem.find('.ljoin_box_location').text(data.location);
     newItem.find('.ljoin_box_text').text(data.text);
     newItem.find('.ljoin_box_price').text(data.price + '원');

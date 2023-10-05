@@ -20,13 +20,11 @@
   <link rel="stylesheet" href="/resources/css/commupage.css" />
   <link rel="stylesheet" href="/resources/css/modal.css">
   <link rel="stylesheet" href="/resources/css/modalmemberlist.css" />
-  <link rel="stylesheet" href="/resources/css/commu_gathering_join.css">
   <link rel="stylesheet" href="/resources/css/commu_gathering_make.css">
   
   <!-- js-->  
   <script src="/resources/js/commupage.js"></script>
   <script src="/resources/js/commumemberlist.js"></script>  
-  <script src="/resources/js/commu_board_make.js"></script>
   <script src="/resources/js/commu_gathering_join.js"></script>
   <script src="/resources/js/commu_gathering_make.js"></script>
 
@@ -34,19 +32,6 @@
 
 <body>  
   <section class="commu_content">
-    <div class="right_nav">
-      <div class="lightning">
-        <button class="btn btn-primary lightningBtn lmakebtn">
-          모임생성
-        </button>
-        <button class="btn btn-danger lightningBtn ljoinbtn">
-          모임참가
-        </button>
-        <button class="btn btn-danger lightningBtn boardBtn">
-          게시물작성(임시)
-        </button>
-      </div>
-    </div>
 	<div class="tabbox">
 	  <div class="tab active" data-tab="intro">커뮤니티 소개</div>
 	  <div class="tab commu_tab_board" data-tab="board">게시판</div>
