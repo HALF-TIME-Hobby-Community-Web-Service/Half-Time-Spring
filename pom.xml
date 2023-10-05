@@ -214,6 +214,18 @@
 			<artifactId>json</artifactId>
 			<version>20210307</version> <!-- 라이브러리 버전은 업데이트 될 수 있으니 확인하세요. -->
 		</dependency>
+		
+		<dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-aws</artifactId>
+        <version>2.2.6.RELEASE</version> <!-- 원하는 버전으로 변경 -->
+    </dependency>
+    
+    <dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-java-sdk-s3</artifactId>
+    <version>1.12.176</version> <!-- 최신 버전을 확인하고 업데이트하세요. -->
+</dependency>
 		<dependency>
 <groupId>commons-fileupload</groupId>
   <artifactId>commons-fileupload</artifactId>
