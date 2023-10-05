@@ -116,6 +116,12 @@ public class UserService {
     	return 2;
     }
    
-
-
+    // 네이버 아이디 체크 (아이디 가입여부 확인) 
+    public boolean naverIDCheck(String naverID) {
+    	String naverIDCheck = mapper.naverIDCheck(naverID);	
+    		return naverIDCheck!=null;
+ 	
+    }
+    
+  
 }

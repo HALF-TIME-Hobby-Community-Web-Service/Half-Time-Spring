@@ -118,6 +118,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
          VALUES (userlocation_seq.nextval, #{id}, #{category})
         ]]>
     </insert>
+    
+    <!-- 네이버 아이디 가입여부 확인 -->
+	<select id="naverIDCheck" resultType="String">
+	<![CDATA[
+		select id from users where id = #{id}
+	]]>
+	</select>
 	
 
 </mapper>

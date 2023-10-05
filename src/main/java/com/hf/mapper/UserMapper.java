@@ -24,10 +24,13 @@ public interface UserMapper {
 		public void insertkakaoUserLocation(@Param("id") String id , @Param("location") String location);
 		public void insertkakaoUserCategory(@Param("id") String id, @Param("category") String category);
 		public String kakaoIDCheck(String kakaoID);
+		
 		//네이버
 		public void insertNaverUser(User user);
 		public void insertnaverUserLocation(@Param("id") String id , @Param("location") String location);
 		public void insertnaverUserCategory(@Param("id") String id, @Param("category") String category);
-	
+		public String naverIDCheck(String naverID);
+		
+		
 
 }

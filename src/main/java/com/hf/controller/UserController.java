@@ -306,7 +306,7 @@ public class UserController {
 	        return state;
 	    }
 	    
-	    //회원가입 페이지2
+	    //카카오 회원가입 페이지2
 		  @GetMapping("/kakao2")
 		  public String getKakaoUser2() {
 			  return "/jsp/user/kakao_join2";
@@ -341,13 +341,20 @@ public class UserController {
 		 	  	session.setAttribute("gender", gender);
 		 	  	session.setAttribute("name", name);
 		 	  	
-		 	  	String naverID = nickname + gender + name;
+		 	  	String naverID = nickname + gender + name + ":naver";
 		 	  	log.info(naverID);
 		 	  	
 		 	  	session.setAttribute("naverID", naverID);
 		 	  	
-		 	  	// if 문 사용해서 아이디가 db에 있으면 세션유지한다음에 로그인하고, 없으면 회원가입페이지로 넘어가기
-			 return "/jsp/user/naver_join";
+		 	  	if(service.naverIDCheck(naverID)) {
+		 	  		session.setAttribute("id", naverID);
+		 	  		session.setMaxInactiveInterval(1800);
+		 	  		log.info("세---------------------------션:"+session.getAttribute("id"));
+		 	  		// return "./jsp/home"; 
+		 	  		// return "redirect:/hf";
+		 	  		return "redirect:/hf";
+		 	  	}else 
+		 	  		return "/jsp/user/naver_join";
 		 }
 		 
 		// 네이버 회원가입 페이지 1 
