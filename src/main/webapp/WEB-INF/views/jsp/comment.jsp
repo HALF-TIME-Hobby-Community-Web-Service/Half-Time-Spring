@@ -9,46 +9,62 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-댓글 작성 
-<form class="comment1">
+<h2>댓글 작성</h2>
+<form class="comment" id="comment" >
 	<div>
 	<!-- rno: -->
-	<input name="number" readonly type="hidden">
+	<input class="number_input" name="number" readonly type="hidden">
+	<!--type="hidden"-->
 	
-	userid:
+	유저아이디:
 	<input class="userid_input" name="userid" >
 	
 	<!-- bno: -->
 	<input name="referenceid" readonly type="hidden">
-	
-	comment:
+	<br>
+	댓글:
 	<input class="comment_input" name="comment">
 	
 	<!-- like: -->
 	<input name="like" readonly type="hidden">
-	
-	type: 
+	<br>
+	페이지: 
 	<select class="type_select" name="type">
 	 <option value="0" selected>commu</option>
 	 <option value="1" >moment</option>
 	</select>
 	
 	<!-- date:  -->
-	<input name="time" readonly type="hidden"> 
+	<input class="time_input" name="time" readonly> 
+	<br>
 	<button class="insertComment_btn" type="button"> 댓글입력 </button>
 	</div>
 </form>
+
+<!-- 보일것 userid : 댓글내용 [작성날짜:  ] -->
+<!-- 안보이지만 구성할 것  -->
+<h2>커뮤페이지 댓글목록</h2>
+
+<div class="commupage">
+<ul id="commucomments"></ul>
+</div>
+
+<h2>모먼트페이지 댓글목록</h2>
+<div class="momentpage">
+<ul id="momentcomments"></ul>
+</div>
+
 </body>
 </html>
 
 <script>
 $(()=>{
-    // $(document).ready() 함수 내부
+    // 실제로 써서 보내는 것들 
     const commentBtn = $('button.insertComment_btn');
     const userid = $('input.userid_input');
     const comment = $('input.comment_input');
     const type =$('select.type_select');
-
+    
     //alert('댓글 보내지는 중');
 
     $(commentBtn).click(()=> {
@@ -66,18 +82,28 @@ $(()=>{
             dataType: 'json',
             success:(response) => {
                 alert(userid.val()+' 님이 '+type.val()+'에 댓글 ['+comment.val()+'] 입력 중');
-				
                 if(response == 0){
                     alert('댓글 작성이 완료됐습니다');
+                    const newComment = $('<li></li>');
                     
+          			if(type.val()==0){
+                         newComment.text(userid.val() + '님의 댓글: ' + comment.val());
+                         $('#commucomments').append(newComment);
+          			}else if(type.val()==1){
+                        newComment.text(userid.val() + '님의 댓글: ' + comment.val());
+                        $('#momentcomments').append(newComment);
+          			}
+                   
                 }else if(response ==1){
                     alert('댓글 작성이 실패됐습니다');
+                  
                 }
             },
             error: (jqXhr, status) => {
                 alert(`실패: ${status}\n오류명:${jqXhr.statusCode}`);
             },
         });
+       
     });
 });
 </script>
