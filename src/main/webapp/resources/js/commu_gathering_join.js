@@ -2,7 +2,6 @@ $(() => {
   const url = 'http://localhost:8888/commu';
 
   const commuID = sessionStorage.getItem('commuID');   
-
   
   $.ajax({
     url: `${url}/lget`,

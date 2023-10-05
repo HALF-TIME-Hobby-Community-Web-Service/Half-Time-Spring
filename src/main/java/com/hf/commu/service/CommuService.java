@@ -97,7 +97,9 @@ public class CommuService {
 	public String cmake(commuSerise c) {
 		try {				
 			/* 정원 */
-			if(c.getCapacity()==null || c.getCapacity().compareTo(BigDecimal.valueOf(-0.01)) > 0)
+			if (c.getCapacity() == null)
+				c.setCapacity(BigDecimal.valueOf(50));
+			else if (c.getCapacity().compareTo(BigDecimal.valueOf(0)) <= 0)					
 				c.setCapacity(BigDecimal.valueOf(50));
 				
 			/* 나이제한 */
@@ -105,6 +107,7 @@ public class CommuService {
 				c.setAgelimitmin(BigDecimal.valueOf(0));
 			if(c.getAgelimitmax()==null)
 				c.setAgelimitmax(BigDecimal.valueOf(0));
+			
 			/* 성별제한 */
 			BigDecimal gender;
 			if (c.getGender().equals("all")) 

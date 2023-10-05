@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+
 <body>
 <div class="modal_content history_modal_content" style='display:none'>
   <div class="history_modal_img_box">  	

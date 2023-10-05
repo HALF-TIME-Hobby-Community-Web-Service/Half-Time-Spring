@@ -1,27 +1,17 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /* 모달 전체*/
 .lmake_content {
-  display: none;
-
-  position: fixed;
-
+  float : right;
   overflow-y: auto;
-  width: 850px;
+  width: 49%;
   height: 800px;
 
-  top: 5%;
-  left: 27.5%;
-
   margin-top: 10px;
-  margin-left: 10px;
+  margin-right: 10px;
 
   background: white;
   border: 2px solid;
+  
+  text-align: left;
 }
 
 /* ⚡번개 신청 */
@@ -100,6 +90,11 @@ textarea.lmake_text {
 
 .startTime  {
   font-size: 14px;
+  width: 40%;
+}
+
+.endTime {
+  width: 40%;
 }
 
 /* 정원, 금액*/

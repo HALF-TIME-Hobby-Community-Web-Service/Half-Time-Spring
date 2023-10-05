@@ -39,25 +39,6 @@ $(() => {
     switchTab('intro');
   }
 
-  /* 모임 생성 모달 */
-  {
-    $('.lmakebtn').on('click', () => {
-      $('.lmake_content').css('display', 'block');
-    });
-    $('.lmake_closebtn').on('click', () => {
-      $('.lmake_content').css('display', 'none');
-    });
-  }
-
-  /* 모임 참가 모달 */
-  {
-    $('.ljoinbtn').on('click', () => {
-      $('.ljoin_content').css('display', 'block');
-    });
-    $('.ljoin_closebtn').on('click', () => {
-      $('.ljoin_content').css('display', 'none');
-    });
-  }
 
   /* 커뮤 소개 로드*/
   $.ajax({
@@ -66,10 +47,19 @@ $(() => {
     data: { commuID: commuID },
     success: (c) => {
       $('.introTitle').text(c.commuName);
-      $('.introText').html('커뮤니티 소개: ' + c.commuIntro);
       $('.mainImage').attr('src', `/resources/items/commu/commu_page/${c.commuID}.jpg`);
+      
+      if (c.commuCategory=='카테고리 소분류') 
+      	c.commuCategory = '뭐든지';
       $('.introCategory').text('⚡' + c.commuCategory);
-      $('.introLocation').text('🌎' + c.commuLocation);           
+            
+      if (c.commuLocation == null)
+      	c.commuLocation = '지구';
+      $('.introLocation').text('🌎' + c.commuLocation);  
+      
+      if(c.commuIntro == null)
+        c.commuIntro = '';
+      $('.introText').html('커뮤니티 소개: ' + c.commuIntro);         
     },
     error: (jqXhr, status) => {
       alert(`실패: ${status}\n오류명:${jqXhr.status}`);
@@ -86,10 +76,14 @@ $(() => {
  	  $('.commu_const').append(`<p>😀커뮤니티 정원 ${c.memberCnt}/${c.capacity}</p>`);
  	  
  	  let gender; 
- 	  if (c.gender == 1) gender = '👧남녀모두🧑';
- 	  	else if (c.gender == 2) gender = '🧑남자만';
- 	  	else if (c.gender == 3) gender = '👧여자만';  	  
- 	  $('.commu_const').append(`<p>${gender}</p>`);
+	    if (c.gender == 0 || c.gender == '') 
+	    	gender = '👧남녀모두🧑';
+		else if (c.gender == '1') 
+			gender = '🧑남자만';
+	  	else if (c.gender == '2') 
+	  		gender = '👧여자만';
+	  		  	  
+	  $('.commu_const').append(`<p>${gender}</p>`);
  	  
 	  let min;
 	  let max;
@@ -121,11 +115,11 @@ $(() => {
         const clone = $('.boardBox_clone').clone().addClass('boardBox').removeClass('boardBox_clone');
 
         if (p.posttype == '1') 
-        	clone.find('.board_posttype').text('📖게시글');
+    	  clone.find('.board_posttype').text('📖게시글');
         else if (p.posttype == '2')
           clone.find('.board_posttype').text('📖공지사항');
         else 
-        	alert('posttype 오류~');
+          alert('posttype 오류~');
 
         //쓰니
         clone.find('.board_writer').text('✍🏻' + p.writer);

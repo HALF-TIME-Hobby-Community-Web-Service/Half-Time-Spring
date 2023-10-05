@@ -1,17 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   
-</head>
 
-<body>  
   <!-- 번개 생성 -->
   <div class="lmake_content">
-    <div class="lmake_title"> ⚡모임생성 <span class="lmake_closebtn">&times;</span></div>
+    <div class="lmake_title">⚡모임생성</div>
     <div class="lmake_container">
       <form method="post" action="">
         <div class="form-floating mb-3">
@@ -23,14 +17,13 @@
 
         <div class="form-floating mb-3 lmake_schedule">
           <span>일정:</span>
-          <input name="startTime" class="startTime form-control" type="datetime-local" max="2023-12-240T21:00" min=""
-            value="" style="height: 30px;">
-          <input name="endTime" class="endTime form-control" type="datetime-local" max="2023-12-24T21:00" min=""
-            value="">
           <fieldset class="lmake_checkbox">
             <input name="check" id="endTime" type="checkbox" checked>
             <label for="endTime">끝나는 시간</label>
           </fieldset>
+          <br>
+          <input name="startTime" class="startTime form-control" type="datetime-local" max="2023-12-240T21:00" min="" value="" style="height: 30px;">
+          <input name="endTime" class="endTime form-control" type="datetime-local" max="2023-12-24T21:00" min="" value="">          
         </div>
 
         <div class="form-floating mb-3">
@@ -68,4 +61,3 @@
       </form>
     </div>
   </div>  
-</body>

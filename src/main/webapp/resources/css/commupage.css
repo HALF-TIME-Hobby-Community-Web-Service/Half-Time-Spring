@@ -86,14 +86,18 @@ div.active {
 
 /* 모든 커뮤 박스 (공지, 게시판, 히스토리) */
 .commu_box {
-  width: 95%;
+  width: 100%;
   height: fit-content;
-  margin-left: 2.5%;
 
   border: 3px solid;
   border-radius: 5px;
   text-align: center;
   padding-bottom: 50px;
+}
+
+.schedule {
+  min-height: 830px;
+  background: #f6f4eb;
 }
 
 /* 커뮤니티 소개 */
@@ -137,9 +141,6 @@ div.intro > img.mainImage {
 }
 
 /* display */
-.board {
-  
-}
 
 .board_container {
   min-height: 700px;
