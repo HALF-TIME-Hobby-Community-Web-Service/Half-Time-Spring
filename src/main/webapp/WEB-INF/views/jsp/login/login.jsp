@@ -115,13 +115,17 @@
 	<div id="naver_id_login"></div>
 	<script type="text/javascript">
   	var naver_id_login = new naver_id_login("ti9znvrk0HWNWiRlqWm8", "http://localhost:8888/user/naver");
+  											//클라이언트 아이디 			//로그인 후, 리디렉션 될 url
   	var state = naver_id_login.getUniqState();
-  	//naver_id_login.setButton("white", 2,40);
+ 	//토큰 생성 (로그인 요청의 유효성 확인)
   	naver_id_login.setButton("white", 25,60);
-  	naver_id_login.setDomain("http://localhost:8888/user/login");
+	
+ 	naver_id_login.setDomain("http://localhost:8888/user/naver");
+ 	//로그인 후 리디렉션 될 도메인 (전에는 /login으로 함)
   	naver_id_login.setState(state);
-  	naver_id_login.setPopup();
-  	naver_id_login.init_naver_id_login();	
+  	//naver_id_login.setPopup();
+  	naver_id_login.init_naver_id_login();
+  	
   </script>
   
 
