@@ -6,16 +6,101 @@ $(() => {
    let momentmodal;
    let momentmodalAll;
     const container = $('.feed_container_append');
-
     var state = true;
     
-    
+     $('body').append(
+                        '<div class="feed_modal_content" id = "momentmodal">' +
+                        '<div class="feed_modal_img_box">'+
+                        '<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">' +
+                        '<div class="carousel-indicators">' +
+                        '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"' +
+                        'aria-current="true" aria-label="Slide 1"></button>' +
+                        '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"' +
+                        'aria-label="Slide 2"></button>' +
+                        '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"' +
+                        'aria-label="Slide 3"></button>' +
+                        '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"' +
+                        'aria-label="Slide 4"></button>' +
+                        '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"' +
+                        'aria-label="Slide 5"></button>' +
+                        '</div>' +
+                        '<div class="carousel-inner">' +
+                        '<div class="carousel-item active">' +
+                        '<img src="" class="d-block w-100" alt="...">' +
+                        '</div>' +
+                        '<div class="carousel-item">' +
+                        '<img src="" class="d-block w-100" alt="...">' +
+                        '</div>' +
+                        '<div class="carousel-item">' +
+                        '<img src="" class="d-block w-100" alt="...">' +
+                        '</div>' +
+                        '<div class="carousel-item">' +
+                        '<img src="" class="d-block w-100" alt="...">' +
+                        '</div>' +
+                        '<div class="carousel-item">' +
+                        '<img src="" class="d-block w-100" alt="...">' +
+                        '</div>' +
+                        '</div>' +
+                        '<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"' +
+                        'data-bs-slide="prev">' +
+                        '<span class="carousel-control-prev-icon" aria-hidden="true"></span>' +
+                        '<span class="visually-hidden">Previous</span>' +
+                        '</button>' +
+                        '<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"' +
+                        'data-bs-slide="next">' +
+                        '<span class="carousel-control-next-icon " aria-hidden="true"></span>' +
+                        '<span class="visually-hidden">Next</span>' +
+                        '</button>' +
+                        '</div>' +
+                        
+                        '</div>'+
+                        '<div class="feed_modal_container">' +
+                        '<div class="feed_modal_box">' +
+                        '<div class="feed_modal_title">' +
+                        '<div class="feed_modal_title_name">✍</div>' +
+                        '<div class="feed_modal_title_date"></div>' +
+                        '<div class="feed_modal_title_time"></div>' +
+                        '<div class="feed_modal_title_category"></div>' +
+                        '<div class="feed_modal_title_location"></div>' +
+                        '</div>' +
+                        '<div class="feed_comment_box">' +
+                        '<div class="feed_comment_top">' +
+                        '<img class="feed_comment_top_heart" src="/resources/items/feed/comment/heart.svg" alt="좋아요버튼">' +
+                        '<img class="feed_comment_top_comment" src="/resources/items/feed/comment/chat.svg" alt="댓글버튼">' +
+                        '<img class="feed_comment_top_send" src="/resources/items/feed/comment/send.svg">' +
+                        '<img class="feed_comment_top_add" src="/resources/items/comment/three-dots.svg" alt="더보기버튼">' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="feed_modal_text_box">' +
+                        '<div class="feed_modal_text">' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="feed_comment_bottom">' +
+                        '<div class="feed_comment_bottom_box">' +
+                        '<div class="feed_comment_user">신유리</div> :&nbsp;' +
+                        '<div class="feed_comment">아, 한자리 더 있습니다!</div>' +
+                        '</div>' +
+                        '<div class="feed_comment_bottom_box">' +
+                        '<div class="feed_comment_user">이수완</div> :&nbsp;' +
+                        '<div class="feed_comment">남자도 가능한가요?</div>' +
+                        '</div>' +
+                        '<div class="feed_comment_bottom_box">' +
+                        '<div class="feed_comment_user">신유리</div> :&nbsp;' +
+                        '<div class="feed_comment">여자만 가능해요</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>'+
+                        '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>'
+                    ); 
+                    $('.feed_modal_content').remove();
 	
 	$(window).on("click", function(e) {
 	if (!$(e.target).is(momentmodalAll)&&!$(e.target).is(momentmodal)) {
         console.log("11111111111111111111111111111111111");
-			momentmodal.remove();
-			state=true;
+    	momentmodal.remove();
+		state=true;
     }
 		       
     });
@@ -52,6 +137,10 @@ $(() => {
                         'aria-label="Slide 2"></button>' +
                         '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"' +
                         'aria-label="Slide 3"></button>' +
+                        '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"' +
+                        'aria-label="Slide 4"></button>' +
+                        '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"' +
+                        'aria-label="Slide 5"></button>' +
                         '</div>' +
                         '<div class="carousel-inner">' +
                         '<div class="carousel-item active">' +
@@ -77,10 +166,11 @@ $(() => {
                         '</button>' +
                         '<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"' +
                         'data-bs-slide="next">' +
-                        '<span class="carousel-control-next-icon" aria-hidden="true"></span>' +
+                        '<span class="carousel-control-next-icon " aria-hidden="true"></span>' +
                         '<span class="visually-hidden">Next</span>' +
                         '</button>' +
                         '</div>' +
+                        
                         '</div>'+
                         '<div class="feed_modal_container">' +
                         '<div class="feed_modal_box">' +
@@ -120,7 +210,8 @@ $(() => {
                         '</div>' +
                         '</div>' +
                         '</div>' +
-                        '</div>'
+                        '</div>'+
+                        '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>'
                     );
                     console.log(newItem);
                     state = false;
