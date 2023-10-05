@@ -30,6 +30,7 @@ public class CommuService {
 		return mapper.getCommuList();
 	}
 	public List<CommuInfo> getCommuListByLocation(String location){
+		log.info("¿©±â~~~~~~~~~~~~~~¿ä~~~~~~~~~~~~~~");
 		return mapper.getCommuListByLocation(location);
 	}
 	
