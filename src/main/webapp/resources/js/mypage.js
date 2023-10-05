@@ -20,10 +20,7 @@ $(() => {
 	        }
       });
   });
-<<<<<<< HEAD
-})
 
-=======
 
   pwdUpdateBtn.click((e)=>{
 	alert("@");
@@ -58,5 +55,4 @@ pnumUpdateBtn.click((e)=>{
 		}
   });
 });
-})
->>>>>>> 1be168d2ec6ecdc8ef2024cba49f7adb76a54b7e
+});

@@ -19,6 +19,7 @@ public class S3Config {
         return AmazonS3Client.builder()
                 .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("https://s3.ap-northeast-2.amazonaws.com", "ap-northeast-2")) // 엔드포인트 및 리전 설정
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
+               
                 .build();
     }
 }

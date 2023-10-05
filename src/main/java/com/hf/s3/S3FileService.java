@@ -4,6 +4,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
@@ -22,12 +24,13 @@ public class S3FileService {
         this.amazonS3 = amazonS3;
     }
 
-    public void uploadFile(String bucketName, String key, byte[] content) {
+    public void uploadFile(String bucketName, String filename, byte[] content, MultipartFile file) {
         ObjectMetadata metadata = new ObjectMetadata();
         metadata.setContentLength(content.length);
-
+        metadata.setContentType(file.getContentType());
+        String key = "moment/" + filename;
         PutObjectRequest request = new PutObjectRequest(bucketName, key, new ByteArrayInputStream(content), metadata);
-
+        request.setMetadata(metadata);
         amazonS3.putObject(request);
     }
 
@@ -44,7 +47,7 @@ public class S3FileService {
                 byteArrayOutputStream.write(buffer, 0, len);
             }
         } catch (IOException e) {
-            // 贸府 吝 抗寇 惯积 矫 贸府
+            e.printStackTrace();
         }
 
         return byteArrayOutputStream.toByteArray();

@@ -62,7 +62,7 @@ public class MomentController {
 		List<MomentWithContent> list = new ArrayList<MomentWithContent>();
 		list = momentService.getMomentsWithContent(pageNum);
 		for(int i = 0;i<list.size();i++) {
-			log.info("ID : "+list.get(i).getMomentID()+" writer : "+ list.get(i).getWriter()+" contentpath1 : "+ list.get(i).getContentPath1());
+			log.info("ID : "+list.get(i).getMomentID()+" writer : "+ list.get(i).getWriter()+" contentpath1 : "+ list.get(i).getContentPath1()+" contentpath2 : "+ list.get(i).getContentPath2()+" contentpath3 : "+ list.get(i).getContentPath3()+" contentpath4 : "+ list.get(i).getContentPath4()+" contentpath5 : "+ list.get(i).getContentPath5());
 		}return  list;
 	}
 
@@ -88,20 +88,12 @@ public class MomentController {
 
 		return list;
 	}
-	@ResponseBody
-	@PostMapping("/modal_MiddleCategory")
-	public List<String> miidle(@RequestParam("largecate") String largecate){
-		List<String> list = new ArrayList<String>();
-		list = momentService.modal_MiddleCategory(largecate);
-		log.info(list);
-
-		return list;
-	}
+	
 	@ResponseBody
 	@PostMapping("/modal_SmallCategory")
-	public List<String> small(@RequestParam("middlecate") String middlecate){
+	public List<String> small(@RequestParam("largecate") String largecate){
 		List<String> list = new ArrayList<String>();
-		list = momentService.modal_SmallCategory(middlecate);
+		list = momentService.modal_SmallCategory(largecate);
 		log.info(list);
 
 		return list;
@@ -115,7 +107,6 @@ public class MomentController {
 	                       @RequestParam("writer") String writer) {
 	    MomentWithContent mwc = new MomentWithContent();
 	    String bucket = "halftimespring";
-	    String resource = "/resources/img/moment/";
 		log.info(writer);
 		log.info(category);
 		log.info(text);
@@ -126,7 +117,6 @@ public class MomentController {
 		if(mwc.getWriter()==null) {
 			return "nologin";
 		}
-<<<<<<< HEAD
 		momentService.uploadMoment(mwc);
 		mwc.setReferenceID(momentService.getMaxMomentID());
 		int i =1;
@@ -134,81 +124,58 @@ public class MomentController {
 	    AmazonS3 amazonS3 = AmazonS3ClientBuilder.standard()
 	            .withRegion("ap-northeast-2")
 	            .build();
-
+	    log.info("fileSize : "+files.size());
 	    // S3FileService 생성
 	    S3FileService fileService = new S3FileService(amazonS3);
 
 	    try {
+	    	 
 	        for (MultipartFile file : files) {
 	            String fileName = file.getOriginalFilename();
 	            String fileExtName = fileName.substring(fileName.lastIndexOf("."), fileName.length());
 	            String filenameuuid = UUID.randomUUID().toString() + fileExtName; // S3에 저장될 파일 이름
-	           
-	            // 파일 업로드
-	            fileService.uploadFile(bucket, filenameuuid, file.getBytes());
-
-	            // 파일 URL 생성
-	            String fileUrl = "https://" + bucket + "/moment/" + filenameuuid;
 	            
-	            String Url = amazonS3.getUrl(bucket, filenameuuid).toString();
-	            // 여기서 파일 URL을 반환하거나 다른 작업을 수행할 수 있음
+	            // 파일 업로드
+	            fileService.uploadFile(bucket, filenameuuid, file.getBytes(),file);
+	            String filepath = "moment/"+filenameuuid;
+	            String Url = amazonS3.getUrl(bucket, filepath).toString();
+	            log.info(Url);
+	            
 	            switch (i) {
-				case 1:
-					mwc.setContentPath1(Url);
-					break;
-				case 2:
-					mwc.setContentPath2(Url);
-					break;
-				case 3:
-					mwc.setContentPath3(Url);
-					break;
-				case 4:
-					mwc.setContentPath4(Url);
-					break;
-				case 5:
-					mwc.setContentPath5(Url);
-					break;
-				default:
-					break;
-				}
+	                case 1:
+	                    mwc.setContentPath1(Url);
+	                    break;
+	                case 2:
+	                    mwc.setContentPath2(Url);
+	                    break;
+	                case 3:
+	                    mwc.setContentPath3(Url);
+	                    break;
+	                case 4:
+	                    mwc.setContentPath4(Url);
+	                    break;
+	                case 5:
+	                    mwc.setContentPath5(Url);
+	                    break;
+	                default:
+	                    break;
+	            }
 	            i++;
-	            return "finish";
+	        
 	        }
+	        // for 루프가 모든 파일을 업로드한 후에 momentService.fileUpload(mwc); 호출
+	        momentService.fileUpload(mwc);
+	        
+	        return "finish";
+	        
+	       
 	    } catch (IOException e) {
 	        e.printStackTrace();
 	        // 오류 처리
-=======
-
-	    @ResponseBody
-	    @PostMapping("/modal_SmallCategory")
-		public List<String> small(@RequestParam("largecate") String largecate){
-	    	List<String> list = new ArrayList<String>();
-	    	list = momentService.modal_SmallCategory(largecate);
-	    	log.info(list);
-	    	
-			return list;
-		}
-	    
-	    @ResponseBody
-	    @PostMapping("/momentUpload")
-	    public String upload(@RequestParam("text") String text, @RequestParam("category") String category, @RequestParam("writer") String writer) {
-	    	log.info(writer);
-	    	log.info(category);
-	    	log.info(text);
-	    	
-	    	momentService.upload(text, writer, category);
-	    	
-	    	return "flase";
->>>>>>> 1be168d2ec6ecdc8ef2024cba49f7adb76a54b7e
-	    }
 
 	    // 업로드 실패 시 false 반환
+	    
+	    	}
 	    return "false";
+		}
 	}
-
-
-
-}
-
-
-
