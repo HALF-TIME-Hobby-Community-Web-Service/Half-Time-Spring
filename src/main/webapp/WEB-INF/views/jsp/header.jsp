@@ -33,7 +33,6 @@
 	href="/resources/css/feed_modal.css">
 
 <script src="/resources/js/navbar.js"></script>
-<script src="/resources/js/moment_modal.js"></script>
 <script src="/resources/js/modalfeed_inside.js"></script>
 <script src="/resources/js/floatingbtn.js"></script>
 <script src="/resources/js/moment_post.js"></script>
