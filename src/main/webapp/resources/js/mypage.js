@@ -1,5 +1,4 @@
 $(() => {
-
 	const updateinfoBtn = $(".update_info");
 	const pwdUpdateBtn = $("#pw_updateBtn");
 	const pnumUpdateBtn = $("#pnum_updateBtn");
@@ -21,6 +20,7 @@ $(() => {
 	        }
       });
   });
+
 
   pwdUpdateBtn.click((e)=>{
 	alert("@");
@@ -55,4 +55,4 @@ pnumUpdateBtn.click((e)=>{
 		}
   });
 });
-})
+});

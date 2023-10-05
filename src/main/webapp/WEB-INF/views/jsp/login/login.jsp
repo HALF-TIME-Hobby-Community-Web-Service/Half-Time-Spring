@@ -1,19 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<% response.setHeader("Access-Control-Allow-Origin", "*"); %>
 <!DOCTYPE html>
 <html>
+
+
 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-signin-scope" content="profile email">
+<meta name="google-signin-client_id" content="153411467894-hb0a8uu4blq7dpkuhhi83apucdgd1s1s.apps.googleusercontent.com">
+
 <title>Login page</title>
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/resources/css/join.css">
 <link rel="stylesheet" href="/resources/css/login.css">
 </head>
@@ -51,7 +60,7 @@
     		<input type="hidden" name="kakaoID" class="hidden"/> 
     	</form>
     </div>
-    
+
     
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>
@@ -101,6 +110,24 @@
             });
         }
     </script>    
+    
+    <!-- 네이버 로그인 -->
+	<div id="naver_id_login"></div>
+	<script type="text/javascript">
+  	var naver_id_login = new naver_id_login("ti9znvrk0HWNWiRlqWm8", "http://localhost:8888/user/naver");
+  	var state = naver_id_login.getUniqState();
+  	//naver_id_login.setButton("white", 2,40);
+  	naver_id_login.setButton("white", 25,60);
+  	naver_id_login.setDomain("http://localhost:8888/user/login");
+  	naver_id_login.setState(state);
+  	naver_id_login.setPopup();
+  	naver_id_login.init_naver_id_login();	
+  </script>
+  
+
+ 
+</script>
+   
 		<br> <br>
 		<button class="login_findIDbtn"
 			onclick="location.href='http://localhost:8888/user/findid'">아이디 찾기</button>

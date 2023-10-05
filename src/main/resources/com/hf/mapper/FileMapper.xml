@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hf.mapper.FileMapper">
+
+
+
+
+<!-- MyBatis의 동적 SQL을 사용하여 파일 업로드 처리 -->
+<insert id="insert_img" >
+    INSERT INTO CONTENTSRC (CONTENTID, REFERENCEID, CONTENTTYPE,
+        <if test="fileNames.size() >= 1">CONTENTPATH1,</if>
+        <if test="fileNames.size() >= 2">CONTENTPATH2,</if>
+        <if test="fileNames.size() >= 3">CONTENTPATH3,</if>
+        <if test="fileNames.size() >= 4">CONTENTPATH4,</if>
+        <if test="fileNames.size() >= 5">CONTENTPATH5,</if>
+        CONTENTPATH6, CONTENTPATH7, CONTENTPATH8, CONTENTPATH9, CONTENTPATH10)
+    VALUES (#{contentId}, #{referenceId}, 1,
+        <foreach collection="fileNames" item="fileName" separator=",">
+            #{fileName}
+        </foreach>
+    )
+</insert>
+
+</mapper>

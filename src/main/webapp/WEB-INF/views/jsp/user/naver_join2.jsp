@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/resources/css/join2.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/resources/js/join_kakao2.js"></script>
+    <script src="/resources/js/join_naver2.js"></script>
     <title>join page2</title>
 </head>
 
