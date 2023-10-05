@@ -33,7 +33,8 @@ public class SearchController {
 		List<CommuInfo> ci = service.getCommuListByLocation(location);
 		log.info(ci);
 		return ci;
-		
+		//참고사항 여기서 search_location은 검색되는 사항이며 고칠게 많아지고 수정하기 까다로워 이름은 안고쳤음 
 	}
+	
 
 }

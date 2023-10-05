@@ -4,7 +4,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hf.mapper.CommuMapper">
 
-
+	<insert id="join">
+        <![CDATA[
+		INSERT INTO COMMUMEMBER 
+		VALUES (#{commuID}, #{nickname}, #{userID}, 0, 1)
+        ]]>
+	</insert>
 
 	<select id="getCommuList" resultType = "com.hf.domain.CommuInfo">
 		<![CDATA[
@@ -21,6 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getCommuListByLocation" resultType="com.hf.domain.CommuInfo">
         <![CDATA[
   		SELECT * FROM commu WHERE commulocation LIKE '%' || #{commuLocation} || '%'
+  		or commucategory LIKE '%' || #{commuLocation} || '%' or communame LIKE '%' || #{commuLocation} || '%'
         ]]>
 	</select>
 
@@ -88,6 +94,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <![CDATA[		
 		SELECT capacity, accepttype, agelimitmin, agelimitmax, gender, (select count(*) from commumember WHERE commuID = #{commuID})as memberCnt FROM commuconst WHERE commuid = #{commuID}
         ]]>
+	</select>
+
+	<select id="selectCommuName"  resultType="int">
+		<![CDATA[	
+		SELECT count(*) from commu WHERE communame = #{commuName}
+		]]>
 	</select>
 
 </mapper>

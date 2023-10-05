@@ -13,8 +13,8 @@ import com.hf.domain.Post;
 public interface CommuMapper {
 	public CommuInfo getCommuInfo(String commuID);
 	public List<Post> getCommuPost(String commuID);
-
 	
+	public int join(@Param("commuID")String commuID, @Param("userID")String userID, @Param("nickname")String nickname);
 	
 	public void insertGathering(Gathering gObj);
 	public List<Gathering> getGathering();
@@ -26,4 +26,6 @@ public interface CommuMapper {
 	public List<Commumember> getAllCommumember(String commuID);
 	public CommuConst getCommuConst(String commuID);
 	public List<CommuInfo> getCommuListByLocation(@Param("commuLocation") String commuLocation);
+	
+	public int selectCommuName(String commuName);
 }

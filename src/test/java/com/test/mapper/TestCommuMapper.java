@@ -22,7 +22,8 @@ public class TestCommuMapper {
 	
 	@Test
 	public void test() {
-		log.info(mapper.getAllCommumember("1"));
+		int result = mapper.join("2", "lgakslgk@naver.com", "잘가요 내사랑");
+		log.info("result: " + result);
 	}
 
 }

@@ -33,15 +33,21 @@ public class CommuService {
 		return mapper.getCommuListByLocation(location);
 	}
 	
-
-//	@Override
-//	@Autowired
-//	public List<Post> getCommuPost(String commuID, SqlSessionTemplate sqlSession) {
-//		
-//		this.sqlSession = sqlSession;
-//		
-//		return sqlSession.selectList("com.hf.commu.mapper.CommuMapper.getCommuList", commuID);
-//	}
+	public String join(String commuID, String userID, String nickname) {
+		
+		log.info("service/join/commuID: " + commuID);
+		
+		String returnMSG = "fail";
+		try {
+			if (mapper.join(commuID, userID, nickname) >= 1)
+				returnMSG = "success";
+			log.info("service/join: " + returnMSG);
+		}
+		catch (Exception e) {
+			log.info("service/join에러" + returnMSG);
+		} 
+		return returnMSG;		
+	}
 
 	public List<CommuInfo> getCommuList1(){
 		return mapper.getCommuList();
@@ -74,6 +80,16 @@ public class CommuService {
 	public CommuConst getConst(String commuID) {
 		log.info("service/getCommuConst");
 		return mapper.getCommuConst(commuID);
+	}
+	
+	public String checkCommuName(String commuName) {		
+		try {
+			if (mapper.selectCommuName(commuName) >= 1)
+			    return "fail";
+			return "success";
+		} catch(Exception e) {
+			return "error";
+		}
 	}
 
 }
