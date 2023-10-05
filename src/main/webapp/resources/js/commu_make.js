@@ -100,48 +100,63 @@ $(() => {
         });
     });
     
+    /* 커뮤니티 생성 */
     const form = $('.cmake_form');
+    const commuName = $('input[name="communame"]');
+    
     form.submit((e)=> {
-	    e.preventDefault();
-	    	    
-	    checkBlank();
-	    /*
-	    
+	    e.preventDefault();	    
+
+		// 1. 커뮤 이름 공백 검사	    	    
+		if (commuName.val() == '') {
+    		run_swal('커뮤니티 이름을 입력해주세요');
+		    $('.cmake_form').css('transform', 'translateX(0%)');
+		    x = 0;
+    		commuName.focus();
+    		return;
+    	}	
+    	// 2. 커뮤 이름 중복 검사	
     	$.ajax({
-            url: 'http://localhost:8888/commu/????',
+            url: 'http://localhost:8888/commu/checkcommuname',
+            method: 'POST',
+            data:{commuName: commuName.val()},
+            dataType: 'text',
+            success: function (data) {
+            	if (data =='fail') {
+       	 			swal('커뮤니티 생성 실패!', '이미 존재하는 커뮤니티 이름입니다', 'error');
+   	 				$('.cmake_form').css('transform', 'translateX(0%)');
+   	 				x = 0;
+       	 			commuName.focus();
+       	 			return;
+   	 			}	
+            },error: function(error) {
+            	alert('데이터를 가져오는 중 오류가 발생했습니다');
+        	}
+   		});//ajax끝
+    	
+    	// 3. 커뮤니티 생성
+		console.log($('.cmake_form').serialize()); 	    	    	
+		
+    	$.ajax({
+            url: 'http://localhost:8888/commu/cmake',
             method: 'POST',
             data: $('.cmake_form').serialize(),
+            dataType: 'text',
             success: function (data) {
-           	 	alert('form submit 성공~');
-            },error: function(error) {
-            	alert('데이터를 가져오는 중 오류가 발생했습니다:', error);
-        	}
-        });//ajax끝
-        */ 
+            	if (data=='success')
+	   	 			swal('커뮤니티 생성 성공!', '환영합니다!', 'success');
+	   	 		else
+	   	 			swal('커뮤니티 생성 실패!', '서버 오류에용', 'warning');	
+            },error: function (error) {
+            	swal('커뮤니티 생성 실패!', '안세준 일해라', 'error');
+            }
+		});
     })
     
-    const commuName = $('input[name="communame"]');
-    function checkBlank() {		
-    	if (commuName.val() == '') {
-    		run_swal('커뮤니티 이름을 입력해주세요');
-    	}				
-		else {	
- 	    	$.ajax({
-	            url: 'http://localhost:8888/commu/checkcommuname',
-	            method: 'POST',
-	            data:{commuName: commuName.val()},
-	            dataType: 'text',
-	            success: function (data) {
-	            	if (data =='fail')
-           	 			swal('커뮤니티 생성 실패!', '이미 존재하는 커뮤니티 이름입니다', 'error');	
-	            },error: function(error) {
-	            	alert('데이터를 가져오는 중 오류가 발생했습니다');
-	        	}
-       		});//ajax끝
-    	}
-    }
     
     function run_swal(errorMSG) {
     	swal('커뮤니티 생성 실패!', errorMSG, 'warning');	
     }
+     
+    
 })

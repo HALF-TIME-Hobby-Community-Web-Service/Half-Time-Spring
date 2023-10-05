@@ -1,5 +1,6 @@
 package com.hf.commu.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import com.hf.domain.CommuInfo;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
 import com.hf.domain.Post;
+import com.hf.domain.commuSerise;
 import com.hf.mapper.CommuMapper;
 
 import lombok.Setter;
@@ -91,5 +93,39 @@ public class CommuService {
 			return "error";
 		}
 	}
-
+	
+	public String cmake(commuSerise c) {
+		try {				
+			/* 정원 */
+			if(c.getCapacity()==null || c.getCapacity().compareTo(BigDecimal.valueOf(-0.01)) > 0)
+				c.setCapacity(BigDecimal.valueOf(50));
+				
+			/* 나이제한 */
+			if(c.getAgelimitmin()==null)
+				c.setAgelimitmin(BigDecimal.valueOf(0));
+			if(c.getAgelimitmax()==null)
+				c.setAgelimitmax(BigDecimal.valueOf(0));
+			/* 성별제한 */
+			BigDecimal gender;
+			if (c.getGender().equals("all")) 
+				gender = BigDecimal.valueOf(0);
+			else if (c.getGender().equals("man")) 
+				gender = BigDecimal.valueOf(1);
+			else
+				gender = BigDecimal.valueOf(2);						
+			
+			/* 시퀀스 받기 */
+			long seq = mapper.selectCommuSeq();			
+			log.info("seq: " + seq);
+			c.setCommuID(BigDecimal.valueOf(seq));			
+			
+			log.info("commu생성1 " + mapper.insertCommu(c));
+			log.info("commu생성2 " + mapper.insertCommuConst(c, gender));
+			log.info("commu생성3 " + mapper.insertCommuManager(c));
+			
+			return "success";
+		} catch(Exception e) {
+			return "error";
+		}
+	}
 }

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +18,7 @@ import com.hf.domain.CommuInfo;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
 import com.hf.domain.Post;
+import com.hf.domain.commuSerise;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -39,7 +41,7 @@ public class CommuController {
 	public List<Commumember> getCommumemberList(@RequestParam("commuID") String commuID) {
 		log.info("commu/getMember/commuID: " + commuID);
 		List<Commumember> cList = service.getCommumember(commuID);		
-		log.info(cList);
+		log.info("cList: " + cList);
 		return cList;
 	}
 
@@ -104,11 +106,16 @@ public class CommuController {
 	
 	@PostMapping("/checkcommuname")
 	public String checkCommuName(@RequestParam("commuName")String commuName) {
-		log.info("checkCommuName/controller: " +  commuName);
 		String result = service.checkCommuName(commuName);
-		log.info("result:" + result);
 		return result;
 	}
 	
+	@PostMapping("/cmake")
+	public String cmake(@ModelAttribute commuSerise c) {
+		log.info("cmake: " + c.toString());
+		String result = service.cmake(c);
+		log.info("cmake:result: " + result);
+		return result;
+	}
 	
 }

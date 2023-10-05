@@ -24,7 +24,7 @@
       <div class="commuBox_clone">
         <p class="commuName"></p>
         <hr style="width: 90%; margin-left: 5%;" >
-        <img src="" class="img">
+        <img src="" class="img" onerror="this.src='/resources/items/commu_preview_default.png'">
       </div>
     </div>
     
