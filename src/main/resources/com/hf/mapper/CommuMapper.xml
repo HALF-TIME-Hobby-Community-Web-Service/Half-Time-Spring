@@ -21,6 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getCommuListByLocation" resultType="com.hf.domain.CommuInfo">
         <![CDATA[
   		SELECT * FROM commu WHERE commulocation LIKE '%' || #{commuLocation} || '%'
+  		or commucategory LIKE '%' || #{commuLocation} || '%' or communame LIKE '%' || #{commuLocation} || '%'
         ]]>
 	</select>
 
