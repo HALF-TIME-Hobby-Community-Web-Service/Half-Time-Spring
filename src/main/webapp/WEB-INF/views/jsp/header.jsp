@@ -7,12 +7,21 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link
+	href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap"
+	rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css"
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
+<<<<<<< HEAD
 <!-- sweetAlert -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
@@ -20,11 +29,18 @@
 
 
 <link rel="stylesheet" type="text/css" href="/resources/css/modalwrite.css">
+=======
+<link rel="stylesheet" type="text/css"
+	href="/resources/css/modalwrite.css">
+>>>>>>> 3efbe52b781a7d06c3dd8d1d2a833dce29b2d35c
 <link rel="stylesheet" type="text/css" href="/resources/css/navbar.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/feed.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/floatingBtn.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/feed_inside.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/feed_modal.css">
+<link rel="stylesheet" type="text/css"
+	href="/resources/css/floatingBtn.css">
+<link rel="stylesheet" type="text/css"
+	href="/resources/css/feed_inside.css">
+<link rel="stylesheet" type="text/css"
+	href="/resources/css/feed_modal.css">
 
 <script src="/resources/js/navbar.js"></script>
 <script src="/resources/js/moment_modal.js"></script>
@@ -49,8 +65,16 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0" id="searchul">
 					<form class="d-flex" role="search" id="searchform">
-						<input class="form-control me-2" type="search"
-							placeholder="Search" aria-label="Search" id="feed_searchinput">
+					
+						<select name="selection" id="selection">
+							<option value="moment">모멘트</option>
+							<option value="community">커뮤니티</option>
+						</select><br>
+						
+						 <input class="form-control me-2" type="search"
+							placeholder="Search" aria-label="Search" id="feed_searchinput"
+							name="search_location">
+							
 						<button type="button"
 							class="btn btn-outline-dark btn-outline-success"
 							id="nav-searchbtn" type="submit">Search</button>
