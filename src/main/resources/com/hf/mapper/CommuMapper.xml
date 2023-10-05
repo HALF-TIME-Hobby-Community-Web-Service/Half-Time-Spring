@@ -65,7 +65,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	        c.cNickname, 
 	        c.userID, 
 	        c.cAuth, 
-	        c.memberState, 
 	        u.Gender, 
 	        u.birth 
 	    FROM 
@@ -92,7 +91,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="getCommuConst" resultType="com.hf.domain.CommuConst">
         <![CDATA[		
-		SELECT capacity, accepttype, agelimitmin, agelimitmax, gender, (select count(*) from commumember WHERE commuID = #{commuID})as memberCnt FROM commuconst WHERE commuid = #{commuID}
+		SELECT capacity, agelimitmin, agelimitmax, gender, (select count(*) from commumember WHERE commuID = #{commuID})as memberCnt FROM commuconst WHERE commuid = #{commuID}
         ]]>
 	</select>
 
@@ -100,6 +99,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<![CDATA[	
 		SELECT count(*) from commu WHERE communame = #{commuName}
 		]]>
+	</select>	
+	
+	
+	
+	<select id="selectCommuSeq" resultType="long">
+	  <![CDATA[
+	  select commu_seq.nextval FROM dual
+	  ]]>
 	</select>
+	
+	<insert id="insertCommu">    	    
+       <![CDATA[
+		INSERT INTO commu VALUES (#{c.commuID}, #{c.communame}, #{c.commuintro}, #{c.commucategory}, #{c.commulocation})      		   
+       ]]>
+	</insert>	
+
+	<insert id="insertCommuConst">    	    
+        <![CDATA[
+     	   INSERT INTO commuconst VALUES (#{c.commuID}, #{c.capacity}, #{c.agelimitmin}, #{c.agelimitmax}, #{gender})
+        ]]> 
+    </insert>	
+    
+    <!-- TODO -->
+   	<insert id="insertCommuManager">    	    
+        <![CDATA[
+     	   INSERT INTO commumember VALUES (#{c.commuID}, #{c.cnickname}, 'sooyeol', 2)
+        ]]> 
+    </insert>	
+
 
 </mapper>

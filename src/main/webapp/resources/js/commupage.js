@@ -160,8 +160,7 @@ $(() => {
         clone.find('.boardTitleIntro').text(p.title);
 
         //사진
-        clone.find('.boardimg')
-        .attr('src',`/resources/items/commu/commu_board/${p.commuid}-${p.commupostid}-1.jpg`);
+        clone.find('.boardimg').attr('src',`/resources/items/commu/commu_board/${p.commuid}-${p.commupostid}-1.jpg`);
 
         //텍스트
         clone.find('.boardText').html(p.text);

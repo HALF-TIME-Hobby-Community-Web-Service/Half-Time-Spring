@@ -71,8 +71,8 @@
           <div class="form-floating genderbox" >
             <select class="form-select" name="gender">
               <option value="all">성별 - 모두</option>
-              <option value="woman">여자만</option>
               <option value="man">남자만</option>
+              <option value="woman">여자만</option>
             </select>
           </div>
           <hr>

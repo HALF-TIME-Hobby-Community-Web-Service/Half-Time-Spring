@@ -13,7 +13,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class CommuConst {
 	private BigDecimal capacity;
-	private BigDecimal acceptType;
 	private BigDecimal ageLimitMin;
 	private BigDecimal ageLimitMax;
 	private BigDecimal gender;

@@ -45,7 +45,7 @@
           <span class="introCategory"></span> &nbsp;|&nbsp;
           <span class="introLocation"></span>
         </div>
-        <img src="" alt="커뮤 메인 사진" class="mainImage" />
+        <img src="" class="mainImage" onerror="this.src='/resources/items/commu_img_default.png'" alt="커뮤 메인 사진" />
         <!-- 커뮤니티 소개 -->
         <p class="introBox introText"></p>
         <!-- 커뮤니티 안내사항(const) -->
@@ -78,7 +78,7 @@
             <span class="boardTitleIntro">오리역 강도 코스프레 후기~~ </span>
           </p>
           <div class="board_imgbox">
-            <img class="board boardimg" src="/resources/items/commu/commu_board/4-9-1.jpg" alt="이미지1" />
+            <img class="board boardimg" src="/resources/items/commu/commu_board/4-9-1.jpg"  alt="이미지1" />
           </div>
           <div class="boardTextBox">
             <p class="board boardText">
