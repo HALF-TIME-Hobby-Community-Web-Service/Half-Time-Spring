@@ -2,6 +2,7 @@ $(function () {
   const maxInputBoxes = 6;
 
   const userid = sessionStorage.getItem('userid');
+  const useridnaver = userid + ':naver';
   const formObj = $('form.join_container');
   const location = $('.join_userlocation_input');
   const category = $('.join_category_input');
@@ -53,13 +54,13 @@ $(function () {
 
   $(formObj).submit(function (event) {
     event.preventDefault(); // 폼 전송 방지
-    console.log('userid:'+userid);
+    console.log('useridnaver:'+useridnaver);
     $.ajax({
       url: 'http://localhost:8888/user/join2',
       method: 'POST',
       dataType: "JSON",
       data: {
-        userid: userid,
+        userid: useridnaver,
         location: location.val(),
         category: category.val(),
       },

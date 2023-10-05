@@ -95,6 +95,33 @@ public class UserService {
  	
     }
     
-
-
+    //네이버 가입페이지1
+    public int naverjoinCheck(User user,String navergender) {
+    	 if(navergender.equals("F")) {
+    		 user.setGender(1);
+    		 user.setPwd(generateRandomNumber(10));
+    	 }else if(navergender.equals("M")){
+    		 user.setGender(0);
+    		 user.setPwd(generateRandomNumber(10));
+    	 }
+    	 mapper.insertNaverUser(user); 
+    	 return 1;
+    }
+   
+    //네이버 가입페이지2
+    public int naverjoinCheck2 (User user) { 	
+    	System.out.println("유저 아이디 :"+ user.getId());
+    	mapper.insertnaverUserLocation(user.getId(), user.getLocation());
+    	mapper.insertnaverUserCategory(user.getId(),user.getCategory());
+    	return 2;
+    }
+   
+    // 네이버 아이디 체크 (아이디 가입여부 확인) 
+    public boolean naverIDCheck(String naverID) {
+    	String naverIDCheck = mapper.naverIDCheck(naverID);	
+    		return naverIDCheck!=null;
+ 	
+    }
+    
+  
 }

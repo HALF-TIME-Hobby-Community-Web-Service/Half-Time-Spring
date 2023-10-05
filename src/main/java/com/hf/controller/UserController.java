@@ -306,7 +306,7 @@ public class UserController {
 	        return state;
 	    }
 	    
-	    //회원가입 페이지2
+	    //카카오 회원가입 페이지2
 		  @GetMapping("/kakao2")
 		  public String getKakaoUser2() {
 			  return "/jsp/user/kakao_join2";
@@ -328,6 +328,96 @@ public class UserController {
 
 		        return state;
 		    }
-	    
+		 
+		 //네이버 로그인 > 가입페이지
+		 @GetMapping("/naver")
+		 public String getNaver(String nickname, String gender, String name,  HttpServletRequest request) {
+			 log.info("Get|naver  nickname : " +nickname);
+			 log.info("Get|naver  gender : " +gender);
+			 log.info("Get|naver  name : " +name);
+			 
+		 	  	HttpSession session = request.getSession();
+		 	  	session.setAttribute("nickname", nickname);	 	  	
+		 	  	session.setAttribute("gender", gender);
+		 	  	session.setAttribute("name", name);
+		 	  	
+		 	  	String naverID = nickname + gender + name + ":naver";
+		 	  	log.info(naverID);
+		 	  	
+		 	  	session.setAttribute("naverID", naverID);
+		 	  	
+		 	  	if(service.naverIDCheck(naverID)) {
+		 	  		session.setAttribute("id", naverID);
+		 	  		session.setMaxInactiveInterval(1800);
+		 	  		log.info("세---------------------------션:"+session.getAttribute("id"));
+		 	  		// return "./jsp/home"; 
+		 	  		// return "redirect:/hf";
+		 	  		return "redirect:/hf";
+		 	  	}else 
+		 	  		return "/jsp/user/naver_join";
+		 }
+		 
+		// 네이버 회원가입 페이지 1 
+		    @PostMapping("/naver")
+		    @ResponseBody
+		    public int postNaverUser(
+		    	//네이버 id 전달
+		        @RequestParam("join_ID") String id,
+		        @RequestParam("join_name") String name,
+		        @RequestParam("join_birth") String birth,
+		        //네이버 성별 전달 (String female male) 
+		        @RequestParam("join_gender") String navergender,
+		        @RequestParam("join_address") String address,
+		        @RequestParam("join_pnum1") String phonenuma,
+		        @RequestParam("join_pnum2") String phonenumb,
+		        @RequestParam("join_pnum3") String phonenumc,
+		        //네이버 닉네임 전달 
+		        @RequestParam("join_nickname") String nickname
+		    
+		       
+		    ) {
+		        String pnum = phonenuma + phonenumb + phonenumc;     
+		        int gender = 0;
+		        String pwd = id+"naver";
+		        id= id+":naver";
+		        
+		        User user = new User(id, pwd, name, birth, gender, address, pnum, nickname);
 
+		        log.info("회원가입정보" + " ID:" + id + " PWD:"+ pwd+
+		                " NAME:" + name + " BIRTH:" + birth +
+		                " GENDER:" + navergender + " ADDRESS:" + address +
+		                " PHONENUM:" + pnum + " NICKNAME" + nickname);
+
+		        int state = service.naverjoinCheck(user,navergender);
+		        log.info("가입 : " + state + "페이지 작성 완료");
+		        
+		        //가입페이지1 작성 완료 시, 숫자 1 반환
+		        return state;
+		    }
+		    
+		  //네이버 회원가입 페이지2
+			  @GetMapping("/naver2")
+			  public String getNaverUser2() {
+				  return "/jsp/user/naver_join2";
+			    }
+			  
+			 @PostMapping("/naver2")
+			 @ResponseBody
+			    public int postNaverUser2(
+			        @RequestParam("location") String location,
+			        @RequestParam("category") String category,
+			        @RequestParam("userid") String id
+			    ) {
+				 	log.info(id + "회원의 관심지역: " + location + " & 관심사: " + category);
+			        User user = new User(location, category, id);
+			        
+			        log.info("유저 생성자 이후 아이디 : " + user.getId());
+
+			        int state = service.naverjoinCheck2(user);
+			        log.info("가입 : " + state + "페이지 작성 완료");
+
+			        return state;
+			    }
+		 
+		 
 }
