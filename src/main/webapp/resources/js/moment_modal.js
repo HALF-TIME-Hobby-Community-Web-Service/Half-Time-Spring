@@ -3,10 +3,23 @@ $(() => {
     const momentWriteCloseBtn = $('.closeBtn');
     const momentWrite = $('.modalWrap');
     const memberListClick = $('.memberList');
-    const momentmodal = $('');
+   let momentmodal;
+   let momentmodalAll;
     const container = $('.feed_container_append');
 
     var state = true;
+    
+    
+	
+	$(window).on("click", function(e) {
+	if (!$(e.target).is(momentmodalAll)&&!$(e.target).is(momentmodal)) {
+        console.log("11111111111111111111111111111111111");
+			momentmodal.remove();
+			state=true;
+    }
+		       
+    });
+
 
     $(document).on("click", ".feed_container_append", function (e) {
         console.log("feed_container_append Clicked");
@@ -14,7 +27,7 @@ $(() => {
         var clickedTarget = e.target.className;
         var momentid = parseInt(clickedFeedContainer.id);
         console.log(momentid);
-        if (clickedTarget === "carousel-control-prev" || clickedTarget === "carousel-control-next" || clickedTarget === "carousel-control-prev-icon" || clickedTarget === "carousel-control-next-icon") {
+        if (clickedTarget === "carousel-control-prev" || clickedTarget === "carousel-control-next" || clickedTarget === "carousel-control-prev-icon" || clickedTarget === "carousel-control-next-icon"||clickedTarget === "feed_container_append") {
             return; // continue 대신에 return을 사용
         } else {
             $.ajax({
@@ -29,17 +42,8 @@ $(() => {
                     }
                     var newItem = $('body');
                     newItem.append(
-                        '<div class="feed_modal_content">' +
-                        '<div class="feed_modal_container">' +
-                        '<div class="feed_modal_box">' +
-                        '<div class="feed_modal_title">' +
-                        '<div class="feed_modal_title_name">✍' + data.writer + '</div>' +
-                        '<div class="feed_modal_title_date">' + data.date + '</div>' +
-                        '<div class="feed_modal_title_time">' + data.time + '</div>' +
-                        '<div class="feed_modal_title_category">' + data.category + '</div>' +
-                        '<div class="feed_modal_title_location">' + data.location + '</div>' +
-                        '</div>' +
-
+                        '<div class="feed_modal_content" id = "momentmodal">' +
+                        '<div class="feed_modal_img_box">'+
                         '<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">' +
                         '<div class="carousel-indicators">' +
                         '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"' +
@@ -77,7 +81,16 @@ $(() => {
                         '<span class="visually-hidden">Next</span>' +
                         '</button>' +
                         '</div>' +
-
+                        '</div>'+
+                        '<div class="feed_modal_container">' +
+                        '<div class="feed_modal_box">' +
+                        '<div class="feed_modal_title">' +
+                        '<div class="feed_modal_title_name">✍' + data.writer + '</div>' +
+                        '<div class="feed_modal_title_date">' + data.date + '</div>' +
+                        '<div class="feed_modal_title_time">' + data.time + '</div>' +
+                        '<div class="feed_modal_title_category">' + data.category + '</div>' +
+                        '<div class="feed_modal_title_location">' + data.location + '</div>' +
+                        '</div>' +
                         '<div class="feed_comment_box">' +
                         '<div class="feed_comment_top">' +
                         '<img class="feed_comment_top_heart" src="/resources/items/feed/comment/heart.svg" alt="좋아요버튼">' +
@@ -111,8 +124,13 @@ $(() => {
                     );
                     console.log(newItem);
                     state = false;
+                    momentmodalAll = $('.feed_modal_content *');
+                    momentmodal = $('.feed_modal_content');
                 }
             });
+            
+            
+            
         }
     });
 });
