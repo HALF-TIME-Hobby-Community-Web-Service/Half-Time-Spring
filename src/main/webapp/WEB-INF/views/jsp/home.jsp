@@ -21,9 +21,7 @@
 	</div>
 </div>
 
-<div class="feed_content">	
-
-</div>
+<div class="feed_content"></div>
 <jsp:include page="./moment/moment_write_modal.jsp"/>
 <jsp:include page="./moment/feed_modal.jsp"/>	
 <script>
