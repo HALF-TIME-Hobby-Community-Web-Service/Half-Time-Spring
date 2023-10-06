@@ -121,7 +121,6 @@ $(() => {
                 data: { momentID: momentid },
                 dataType: "json",
                 success: function (data) {
-                    alert(data.writer);
                     if (!state) {
                         return;
                     }

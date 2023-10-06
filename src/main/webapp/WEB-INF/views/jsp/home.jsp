@@ -5,6 +5,7 @@
 <head>
 	<jsp:include page="header.jsp"/>
 	<script src="/resources/js/feed.js"></script>
+<<<<<<< HEAD
 
 
 	<script src="/resources/js/moment_modal.js"></script>
@@ -13,6 +14,9 @@
 
 	
 
+=======
+	<script src="/resources/js/moment_modal.js"></script>
+>>>>>>> 9b8bc29b80962278cff8d5b85900e8333098018a
 </head>
 
 <div class="fab_container ">
