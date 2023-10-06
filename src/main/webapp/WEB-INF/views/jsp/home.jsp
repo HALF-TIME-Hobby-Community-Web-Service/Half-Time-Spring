@@ -5,6 +5,14 @@
 <head>
 	<jsp:include page="header.jsp"/>
 	<script src="/resources/js/feed.js"></script>
+
+
+	<script src="/resources/js/moment_modal.js"></script>
+
+
+
+	
+
 	<script src="/resources/js/moment_modal.js"></script>
 </head>
 

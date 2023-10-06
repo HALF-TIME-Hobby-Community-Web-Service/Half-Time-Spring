@@ -1,84 +1,84 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
-		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
-		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
-		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
-	
-	<!-- Root Context: defines shared resources visible to all other web components -->
-	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-	<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
-	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.44:1521:XE" />
-	<property name="username" value="moon" />
-	<property name="password" value="bomi" />
-	</bean>
-	
-	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
-	<constructor-arg ref="hikariConfig"/>	
-	</bean>
-	
-	<bean id="sqlSessionFactory"
-		class="org.mybatis.spring.SqlSessionFactoryBean" primary="false">
-	<property name="dataSource" ref="dataSource"></property>
-	</bean>
-	
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dataSource"></property>
-	</bean>
-	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:aop="http://www.springframework.org/schema/aop"
+   xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+   xmlns:tx="http://www.springframework.org/schema/tx"
+   xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+      http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+      http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+   
+   <!-- Root Context: defines shared resources visible to all other web components -->
+   <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+   <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
+   <property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
+   <property name="username" value="hf2" />
+   <property name="password" value="hf2" />
+   </bean>
+   
+   <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+   <constructor-arg ref="hikariConfig"/>   
+   </bean>
+   
+   <bean id="sqlSessionFactory"
+      class="org.mybatis.spring.SqlSessionFactoryBean" primary="false">
+   <property name="dataSource" ref="dataSource"></property>
+   </bean>
+   
+   <bean id="transactionManager"
+      class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      <property name="dataSource" ref="dataSource"></property>
+   </bean>
+   <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
     <constructor-arg ref="sqlSessionFactory" />
-	</bean>
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-	    <property name="maxUploadSize" value="26214400 " /> <!-- 25MB -->
-		<property name="maxUploadSizePerFile" value="5242880 " /> <!-- 5MB -->
-		<property name="defaultEncoding" value="UTF-8" />
-		<property name="uploadTempDir" value="/resources/img/moment/" />
-		<property name="maxInMemorySize" value="4096" /> <!-- 4KB -->
+   </bean>
+   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+       <property name="maxUploadSize" value="26214400 " /> <!-- 25MB -->
+      <property name="maxUploadSizePerFile" value="5242880 " /> <!-- 5MB -->
+      <property name="defaultEncoding" value="UTF-8" />
+      <property name="uploadTempDir" value="/resources/img/moment/" />
+      <property name="maxInMemorySize" value="4096" /> <!-- 4KB -->
 </bean>
 
-	<bean id="amazonS3" class="com.amazonaws.services.s3.AmazonS3Client">
+   <bean id="amazonS3" class="com.amazonaws.services.s3.AmazonS3Client">
     <constructor-arg ref="awsCredentials" />
-	</bean>
+   </bean>
 
 <!-- AWS 인증 정보 빈 설정 -->
-	<bean id="awsCredentials" class="com.amazonaws.auth.BasicAWSCredentials">
-    	<constructor-arg value="AKIASS6WBEKJCGYTD5ET" />
-    	<constructor-arg value="IuRgMRm4ir8jkoaUBir99mNoOvkO8gh9SkhC9UEz" />
-	</bean>
+   <bean id="awsCredentials" class="com.amazonaws.auth.BasicAWSCredentials">
+       <constructor-arg value="AKIASS6WBEKJCGYTD5ET" />
+       <constructor-arg value="IuRgMRm4ir8jkoaUBir99mNoOvkO8gh9SkhC9UEz" />
+   </bean>
 
-	<bean id="momentService"
-		class="com.hf.moment.service.MomentService">
-	</bean>
-	<bean id="commuService"
-		class="com.hf.commu.service.CommuService">
-	</bean>
-	<bean id="commentService"
-		class="com.hf.comment.service.CommentService">
-	</bean>
-	<bean id="userService"
-		class="com.hf.user.service.UserService">
-	</bean>
+   <bean id="momentService"
+      class="com.hf.moment.service.MomentService">
+   </bean>
+   <bean id="commuService"
+      class="com.hf.commu.service.CommuService">
+   </bean>
+   <bean id="commentService"
+      class="com.hf.comment.service.CommentService">
+   </bean>
+   <bean id="userService"
+      class="com.hf.user.service.UserService">
+   </bean>
 
-	<bean id="mypageService"
-		class="com.hf.user.service.MyPageService">
-	</bean>
-	<bean id="s3config"
-		class="S3Config.S3Config">
-	</bean>
-	<bean id="s3Service"
-		class="com.hf.s3.S3FileService">
-	</bean>
-	
-	<tx:annotation-driven/>
-	
-	<mybatis-spring:scan base-package="com.hf.mapper"/>
-	
-	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>	
+   <bean id="mypageService"
+      class="com.hf.user.service.MyPageService">
+   </bean>
+   <bean id="s3config"
+      class="S3Config.S3Config">
+   </bean>
+   <bean id="s3Service"
+      class="com.hf.s3.S3FileService">
+   </bean>
+   
+   <tx:annotation-driven/>
+   
+   <mybatis-spring:scan base-package="com.hf.mapper"/>
+   
+   <aop:aspectj-autoproxy></aop:aspectj-autoproxy>   
 </beans>
