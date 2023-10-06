@@ -46,7 +46,7 @@
           <span class="introCategory"></span> &nbsp;|&nbsp;
           <span class="introLocation"></span>
         </div>
-        <img src="" class="mainImage" onerror="this.src='/resources/items/commu_img_default.png'" alt="커뮤 메인 사진" />
+        <img src="" class="mainImage" onerror="this.src='/resources/items/commu_preview_default.png'" alt="커뮤 메인 사진" />
         <!-- 커뮤니티 소개 -->
         <p class="introBox introText"></p>
         <!-- 커뮤니티 안내사항(const) -->
