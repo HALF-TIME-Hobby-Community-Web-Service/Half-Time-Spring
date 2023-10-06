@@ -3,7 +3,6 @@
 <head>
 <script src="/resources/js/feed.js"></script>
 
-	<script src="/resources/js/moment_modal.js"></script>
 </head>
 	
 
