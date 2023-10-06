@@ -64,47 +64,80 @@ $(()=>{
     const userid = $('input.userid_input');
     const comment = $('input.comment_input');
     const type =$('select.type_select');
-    
-    //alert('댓글 보내지는 중');
 
-    $(commentBtn).click(()=> {
-        // $(commentBtn).click() 함수 내부
+    $(commentBtn).click(() => {
         alert('댓글 버튼 클릭');
 
         $.ajax({
-            url:'http://localhost:8888/comment',
-            method:'POST',
+            url: 'http://localhost:8888/comment',
+            method: 'POST',
             data: {
                 userid: userid.val(),
                 comment: comment.val(),
                 type: type.val()
             },
             dataType: 'json',
-            success:(response) => {
-                alert(userid.val()+' 님이 '+type.val()+'에 댓글 ['+comment.val()+'] 입력 중');
-                if(response == 0){
+            success: (response) => {
+                alert(userid.val() + ' 님이 ' + type.val() + '에 댓글 [' + comment.val() + '] 입력 중');
+                if (response == 0) {
                     alert('댓글 작성이 완료됐습니다');
-                    const newComment = $('<li></li>');
-                    
-          			if(type.val()==0){
-                         newComment.text(userid.val() + '님의 댓글: ' + comment.val());
-                         $('#commucomments').append(newComment);
-          			}else if(type.val()==1){
-                        newComment.text(userid.val() + '님의 댓글: ' + comment.val());
-                        $('#momentcomments').append(newComment);
-          			}
                    
-                }else if(response ==1){
+                    const newComment = $('<li></li>');
+                    if (type.val() == 0) {
+                        
+                        alert('날짜받으러 갑니다');
+                        $.ajax({
+                            url: 'http://localhost:8888/commentGet',
+                            method: 'POST',
+                            data: {
+                                userid: userid.val(),
+                                comment: comment.val(),
+                                type: type.val()
+                            },
+                            dataType: 'text',
+                            success: (response) => {
+                            	  newComment.text(userid.val() + '님의 댓글 (커뮤니티): ' + comment.val()+' (댓글작성시간:' + response+')');
+                                  $('#commucomments').append(newComment);
+ 
+                            },
+                            error: (jqXhr, status) => {
+                                alert(`실패: ${status}\n오류명:${jqXhr.statusCode}`);
+                            },
+                        });
+                        
+                    } else if (type.val() == 1) {
+                        
+                        alert('날짜받으러 갑니다');
+                        $.ajax({
+                            url: 'http://localhost:8888/commentGet',
+                            method: 'POST',
+                            data: {
+                                userid: userid.val(),
+                                comment: comment.val(),
+                                type: type.val()
+                            },
+                            dataType: 'text',
+                            success: (response) => {
+                            	newComment.text(userid.val() + '님의 댓글 (모먼트): ' + comment.val() + ' (댓글작성시간:' + response+')');
+                                $('#momentcomments').append(newComment);
+  
+                            },
+                            error: (jqXhr, status) => {
+                                alert(`실패: ${status}\n오류명:${jqXhr.statusCode}`);
+                            },
+                        });                     
+                    }                             
+                } else if (response == 1) {
                     alert('댓글 작성이 실패됐습니다');
-                  
                 }
             },
             error: (jqXhr, status) => {
                 alert(`실패: ${status}\n오류명:${jqXhr.statusCode}`);
             },
         });
-       
     });
+    
+    
 });
 </script>
 

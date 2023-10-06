@@ -21,7 +21,10 @@
 	<property name="username" value="hf2" />
 	<property name="password" value="hf2" />
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> df0ac9f14d00cfb9d42b42c5c309b9321c18bad4
 	</bean>
 	
 	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
