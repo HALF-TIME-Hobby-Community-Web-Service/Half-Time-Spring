@@ -11,13 +11,13 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
-<<<<<<< HEAD
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	
 <link rel="stylesheet" type="text/css"
 	href="/resources/css/modalwrite.css">
-=======
+
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <!-- sweetAlert -->
@@ -27,7 +27,6 @@
 
 
 <link rel="stylesheet" type="text/css" href="/resources/css/modalwrite.css">
->>>>>>> 72757ec5d2c51e0f8269ba9f8c51dc79bed6fa05
 <link rel="stylesheet" type="text/css" href="/resources/css/navbar.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/feed.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/floatingBtn.css">

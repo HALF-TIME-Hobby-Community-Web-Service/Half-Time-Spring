@@ -28,6 +28,7 @@ public interface CommuMapper {
 	public List<Commumember> getAllCommumember(String commuID);
 	public CommuConst getCommuConst(String commuID);
 	public List<CommuInfo> getCommuListByLocation(@Param("commuLocation") String commuLocation);
+	public List<CommuInfo> selectCommuById(@Param("commuID") String commuLocation);
 	
 	public int selectCommuName(String commuName);
 	
