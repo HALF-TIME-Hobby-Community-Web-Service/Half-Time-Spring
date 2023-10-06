@@ -94,7 +94,7 @@ $(() => {
     // 페이지 로드 시 기본 탭을 설정합니다.
     switchTab('community');
     
-    $('.filtering').click(()=> {
+    $('.clist-float').click(()=> {
     	$('.cmake_content').css('display','block');
     });
 });

@@ -89,9 +89,11 @@
           <div class="board_comment_box">
             <span style="font-size: larger; display: block; border-bottom: 1px solid; padding-left: 2px;">댓글</span>
             <div class="board_comment">
-              <span class="board_comment_writer">👼닉네임</span>:&nbsp;
-              <span class="board_comment_text">댓글내용</span>
-              <input class="board_comment_write form-control">
+              <!-- <span class="board_comment_writer">👼닉네임</span>:&nbsp;
+              <span class="board_comment_text">댓글내용</span> -->
+              <form class="board_comment_form" action="">
+              	<input class="board_comment_input form-control" placeholder="댓글">
+              </form>
             </div>
           </div>
         </div>
@@ -126,6 +128,11 @@
   function history_modal_open() {
   	$('.history_modal_content').css('display','block');
   }
+  
+  $('.board_write_btn').on('click', () => {
+	    alert('1');
+	    $('.bmake_content').css('display', 'block');
+  });
   </script>
 </body>
 

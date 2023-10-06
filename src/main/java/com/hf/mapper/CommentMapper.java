@@ -6,5 +6,5 @@ import com.hf.comment.service.CommentService;
 
 public interface CommentMapper {
 	public void commentCheck(@Param("userid") String userid,@Param("comment") String comment, @Param("type") int type);		
-	public String commentDate();
+	public String commentGet(@Param("userid") String userid,@Param("comment") String comment, @Param("type") int type);
 }

@@ -11,14 +11,14 @@
   <jsp:include page="./commulist_modal.jsp"/>
   <jsp:include page="./commu_make.jsp"/>
 	  
-  <div class="commuevery">
-    <div class="filteringBox">
+   <div class="commuevery">
+<!--     <div class="filteringBox">
       <span class="filtering">최신순</span>
       <span class="filtering">인기순</span>
 	  <span class="filtering">추천순</span>
       <span class="filtering">지역별</span>
       <span class="filtering">내 커뮤니티</span>
-    </div>
+    </div> --> 
     
     <div class="list community" id="community">
       <div class="commuBox_clone">
@@ -29,3 +29,10 @@
     </div>
     
   </div>
+  
+  <script>
+  $('.fab_container').html('');
+  $('.fab_container').append('<div class="fab clist-float">'
+  						 + '<img src="/resources/items/floatitem/close.png" alt="">'
+  						 + '</div>');
+  </script>
