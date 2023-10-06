@@ -12,14 +12,11 @@ import lombok.extern.log4j.Log4j;
 
 @Service
 public class CommentService {
-
-	@Setter(onMethod_ = @Autowired)
-	private CommentMapper mapper;	
+	private CommentMapper mapper;
 	
-	//댓글작성
 	public int commentCheck(String userid, String comment, int type) {		
-			mapper.commentCheck(userid, comment, type);
-			log.info(userid+""+comment+""+type);
+		mapper.commentCheck(userid, comment, type);
+		log.info(userid+""+comment+""+type);
 		return 0;
 	};
 

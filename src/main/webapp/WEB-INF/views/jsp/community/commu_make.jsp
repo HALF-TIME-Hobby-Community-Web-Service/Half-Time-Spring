@@ -54,7 +54,7 @@
         </div>
         <div class="cmake_right">
           <div class="modal_subtitle">커뮤니티 설정</div>
-          <input class="form-control" name="capacity" type="number" placeholder="커뮤니티 총원 (기본: 50)"/>  
+          <input class="form-control" name="capacity" type="number" placeholder="커뮤니티 정원 (기본: 50)"/>  
 
           <div class="form-check form-switch mtop30px">
             <input class="form-check-input age_check" type="checkbox" role="switch" id="flexSwitchCheckDefault">

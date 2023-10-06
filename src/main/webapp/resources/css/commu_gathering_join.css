@@ -1,27 +1,17 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 /* 모달 전체*/
 .ljoin_content {
-  display: none;
-
-  position: fixed;
-
+  float: left;
   overflow-y: auto;
-  width: 850px;
-  height: 600px;
-
-  top: 20%;
-  left: 27.5%;
+  width: 49%;
+  height: 800px;
 
   margin-top: 10px;
   margin-left: 10px;
 
   background: white;
   border: 2px solid;
+  
+  text-align: left;
 }
 
 /* ⚡번개 신청 */

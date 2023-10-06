@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<html>
-<head>
-</head>
-<body>
+
+<script src="/resources/js/commu_board_make.js"></script>
+
 <!-- 게시물 추가 -->
   <div class="modal_content bmake_content">
     <div class="modal_title bmake_title"> 🎴게시글 작성<span class="modal_closebtn bmake_closebtn">&times;</span></div>
@@ -63,5 +62,3 @@
 	  $('.bmake_content').css('display','none');
   })			
   </script>
-</body>
-</html>

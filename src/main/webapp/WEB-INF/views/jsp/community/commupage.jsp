@@ -20,13 +20,14 @@
   <link rel="stylesheet" href="/resources/css/commupage.css" />
   <link rel="stylesheet" href="/resources/css/modal.css">
   <link rel="stylesheet" href="/resources/css/modalmemberlist.css" />
-  <link rel="stylesheet" href="/resources/css/commu_gathering_make.css">
+  <link rel="stylesheet" href="/resources/css/commu_gathering_make.css">  
+  <link rel="stylesheet" href="/resources/css/commu_gathering_join.css">
   
-  <!-- js-->  
+  <!-- js -->  
   <script src="/resources/js/commupage.js"></script>
   <script src="/resources/js/commumemberlist.js"></script>  
-  <script src="/resources/js/commu_gathering_join.js"></script>
   <script src="/resources/js/commu_gathering_make.js"></script>
+  <script src="/resources/js/commu_gathering_join.js"></script>
 
 </head>
 
@@ -88,15 +89,18 @@
           <div class="board_comment_box">
             <span style="font-size: larger; display: block; border-bottom: 1px solid; padding-left: 2px;">댓글</span>
             <div class="board_comment">
-              <span class="board_comment_writer">👼닉네임</span>:&nbsp;
-              <span class="board_comment_text">댓글내용</span>
-              <input class="board_comment_write form-control">
+              <!-- <span class="board_comment_writer">👼닉네임</span>:&nbsp;
+              <span class="board_comment_text">댓글내용</span> -->
+              <form class="board_comment_form" action="">
+              	<input class="board_comment_input form-control" placeholder="댓글">
+              </form>
             </div>
           </div>
         </div>
       </div>
-	  <div class="commu_box schedule">
-	  	<p>안뇽 </p>
+	  <div class="commu_box schedule">	  	
+  		<jsp:include page="./gathering_join_modal.jsp"/>	  	
+  		<jsp:include page="./gathering_make_modal.jsp"/>
 	  </div>
       <div class="commu_box history">
         <div class="history_text">
@@ -113,8 +117,6 @@
 	
   <!-- 모달 페이지 -->
   <jsp:include page="./commu_board_write_modal.jsp"/>
-  <jsp:include page="./gathering_make_modal.jsp"/>
-  <jsp:include page="./gathering_join_modal.jsp"/>
   <jsp:include page="./commu_history_modal.jsp"/>
   
   <script>
@@ -126,6 +128,11 @@
   function history_modal_open() {
   	$('.history_modal_content').css('display','block');
   }
+  
+  $('.board_write_btn').on('click', () => {
+	    alert('1');
+	    $('.bmake_content').css('display', 'block');
+  });
   </script>
 </body>
 
