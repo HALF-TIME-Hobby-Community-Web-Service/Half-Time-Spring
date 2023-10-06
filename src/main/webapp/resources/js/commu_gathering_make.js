@@ -9,8 +9,7 @@ $(() => {
   var hours = currentDate.getHours().toString().padStart(2, '0');
   var minutes = currentDate.getMinutes().toString().padStart(2, '0');
 
-  var formattedDate =
-    year + '-' + month + '-' + day + 'T' + hours + ':' + minutes;
+  var formattedDate = year + '-' + month + '-' + day + 'T' + hours + ':' + minutes;
 
   $('.startTime').attr('min', formattedDate);
   $('.startTime').val(formattedDate);
@@ -57,34 +56,38 @@ $(() => {
     return false;
   });
 
-  /* 정원 */
   $('.lmake_btn').on('click', function () {
-    var inputField = $('input[name=capacity]');
-    var currentValue = parseFloat(inputField.val());
-
-    if ($(this).hasClass('lmake_cap_plus')) {
-      currentValue++;
-    } else if ($(this).hasClass('lmake_cap_minus')) {
-      currentValue--;
-      if (currentValue < 0) 
-      currentValue = 0;
-    }
-
-    inputField.val(currentValue.toString().padStart(2, '0') + '명');
+   	var currentValue = parseInt($('.cap').val(), 10);
+	  if ($(this).hasClass('lmake_cap_plus')) {
+	    currentValue++;
+	  } 
+	  else if ($(this).hasClass('lmake_cap_minus')) {
+	    currentValue--;
+	    if (currentValue < 2) 
+	      currentValue = 2;
+	  }
+	  else
+	    return;
+	  
+	  $('input[name=capacity]').val(currentValue);
   });
 
-  /* 금액 */
-  $('.lmake_btn').on('click', function () {
-    var inputField = $('input[name=price]');
-    var currentValue = parseFloat(inputField.val());
 
+  /* 금액 */
+  $('.lmake_btn2').on('click', function () {
+   	var currentValue = parseInt($('input[name=price]').val(), 10);
+   	
     if ($(this).hasClass('lmake_price_plus')) {
       currentValue += 10000;
-    } else if ($(this).hasClass('lmake_price_minus')) {
+    } 
+    else if ($(this).hasClass('lmake_price_minus')) {
       currentValue -= 10000;
-      if (currentValue < 0) currentValue = 0;
+      if (currentValue <= 0) 
+      	currentValue = 0;
     }
-
-    inputField.val(currentValue.toString().padStart(2, '0') + '원');
+    else
+    	return;
+    
+    $('input[name=price]').val(currentValue);
   });
 });

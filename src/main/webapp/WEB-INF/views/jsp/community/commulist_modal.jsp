@@ -14,7 +14,7 @@
       </div>
 	  <hr>
       <div class="cmodal_container">
-		  <img class="modalimg" src="">
+		  <img class="modalimg" src="" onerror="this.src='/resources/items/commu_preview_default.png'">
 	      <div class="modalintro">
 	        <span class="modalintro2"></span>
 	      </div>

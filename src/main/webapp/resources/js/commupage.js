@@ -39,25 +39,6 @@ $(() => {
     switchTab('intro');
   }
 
-  /* 모임 생성 모달 */
-  {
-    $('.lmakebtn').on('click', () => {
-      $('.lmake_content').css('display', 'block');
-    });
-    $('.lmake_closebtn').on('click', () => {
-      $('.lmake_content').css('display', 'none');
-    });
-  }
-
-  /* 모임 참가 모달 */
-  {
-    $('.ljoinbtn').on('click', () => {
-      $('.ljoin_content').css('display', 'block');
-    });
-    $('.ljoin_closebtn').on('click', () => {
-      $('.ljoin_content').css('display', 'none');
-    });
-  }
 
   /* 커뮤 소개 로드*/
   $.ajax({
@@ -66,10 +47,19 @@ $(() => {
     data: { commuID: commuID },
     success: (c) => {
       $('.introTitle').text(c.commuName);
-      $('.introText').html('커뮤니티 소개: ' + c.commuIntro);
       $('.mainImage').attr('src', `/resources/items/commu/commu_page/${c.commuID}.jpg`);
+      
+      if (c.commuCategory=='카테고리 소분류') 
+      	c.commuCategory = '뭐든지';
       $('.introCategory').text('⚡' + c.commuCategory);
-      $('.introLocation').text('🌎' + c.commuLocation);           
+            
+      if (c.commuLocation == null)
+      	c.commuLocation = '지구';
+      $('.introLocation').text('🌎' + c.commuLocation);  
+      
+      if(c.commuIntro == null)
+        c.commuIntro = '';
+      $('.introText').html('커뮤니티 소개: ' + c.commuIntro);         
     },
     error: (jqXhr, status) => {
       alert(`실패: ${status}\n오류명:${jqXhr.status}`);
@@ -83,16 +73,32 @@ $(() => {
     data: { commuID: commuID },
     success: (c) => {
  	  $('.commu_const').append(`<p>커뮤니티 안내사항: </p>`);
- 	  $('.commu_const').append(`<p>😀 ${c.memberCnt}/${c.capacity}</p>`);
+ 	  $('.commu_const').append(`<p>😀커뮤니티 정원 ${c.memberCnt}/${c.capacity}</p>`);
  	  
  	  let gender; 
- 	  if (c.gender == 1) gender = '모두';
- 	  else if (c.gender == 2) gender = '남자만';
- 	  else if (c.gender == 3) gender = '여자만';  	  
- 	  $('.commu_const').append(`<p>👧🧑 ${gender}</p>`);
+	    if (c.gender == 0 || c.gender == '') 
+	    	gender = '👧남녀모두🧑';
+		else if (c.gender == '1') 
+			gender = '🧑남자만';
+	  	else if (c.gender == '2') 
+	  		gender = '👧여자만';
+	  		  	  
+	  $('.commu_const').append(`<p>${gender}</p>`);
  	  
- 	  if(c.ageLimitMin > 0);
- 	  	
+	  let min;
+	  let max;
+	  let age_val;
+	  min = (c.ageLimitMin <= 0) ? '' : c.ageLimitMin;
+	  max = (0 == c.ageLimitMax) ? '' : c.ageLimitMax;
+ 	  if (min == '' && max == '')
+		age_val = '나이제한없음';
+	  else if (min == '' && max != '')
+	  	age_val = `${min}세부터`;
+  	  else if (min != '' && max == '')
+	  	age_val = `${max}세까지`;
+	  else
+	  	age_val = `${min}세부터 ${max}세까지`;
+ 	  $('.commu_const').append(`<p>${age_val}</p>`);
     },
     error: (jqXhr, status) => {
       alert(`실패: ${status}\n오류명:${jqXhr.status}`);
@@ -109,11 +115,11 @@ $(() => {
         const clone = $('.boardBox_clone').clone().addClass('boardBox').removeClass('boardBox_clone');
 
         if (p.posttype == '1') 
-        	clone.find('.board_posttype').text('📖게시글');
+    	  clone.find('.board_posttype').text('📖게시글');
         else if (p.posttype == '2')
           clone.find('.board_posttype').text('📖공지사항');
         else 
-        	alert('posttype 오류~');
+          alert('posttype 오류~');
 
         //쓰니
         clone.find('.board_writer').text('✍🏻' + p.writer);
@@ -148,8 +154,7 @@ $(() => {
         clone.find('.boardTitleIntro').text(p.title);
 
         //사진
-        clone.find('.boardimg')
-        .attr('src',`/resources/items/commu/commu_board/${p.commuid}-${p.commupostid}-1.jpg`);
+        clone.find('.boardimg').attr('src',`/resources/items/commu/commu_board/${p.commuid}-${p.commupostid}-1.jpg`);
 
         //텍스트
         clone.find('.boardText').html(p.text);
@@ -183,4 +188,16 @@ $(() => {
       $('.bmake_content').css('display', 'none');
   })
 
+
+  /* 플러팅 버튼 */
+  {
+$('.fab_container').html('');
+$('.fab_container').append('<div class="fab commu-float">'
+						 + '<img src="/resources/items/floatitem/close.png" alt="">'
+						 + '</div>');
+  	
+    $('.commu-float').click(()=> {
+	  $('.bmake_content').css('display','block');
+    })
+  }
 });

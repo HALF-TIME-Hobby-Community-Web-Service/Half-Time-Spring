@@ -20,33 +20,19 @@
   <link rel="stylesheet" href="/resources/css/commupage.css" />
   <link rel="stylesheet" href="/resources/css/modal.css">
   <link rel="stylesheet" href="/resources/css/modalmemberlist.css" />
+  <link rel="stylesheet" href="/resources/css/commu_gathering_make.css">  
   <link rel="stylesheet" href="/resources/css/commu_gathering_join.css">
-  <link rel="stylesheet" href="/resources/css/commu_gathering_make.css">
   
-  <!-- js-->  
+  <!-- js -->  
   <script src="/resources/js/commupage.js"></script>
   <script src="/resources/js/commumemberlist.js"></script>  
-  <script src="/resources/js/commu_board_make.js"></script>
-  <script src="/resources/js/commu_gathering_join.js"></script>
   <script src="/resources/js/commu_gathering_make.js"></script>
+  <script src="/resources/js/commu_gathering_join.js"></script>
 
 </head>
 
 <body>  
   <section class="commu_content">
-    <div class="right_nav">
-      <div class="lightning">
-        <button class="btn btn-primary lightningBtn lmakebtn">
-          모임생성
-        </button>
-        <button class="btn btn-danger lightningBtn ljoinbtn">
-          모임참가
-        </button>
-        <button class="btn btn-danger lightningBtn boardBtn">
-          게시물작성(임시)
-        </button>
-      </div>
-    </div>
 	<div class="tabbox">
 	  <div class="tab active" data-tab="intro">커뮤니티 소개</div>
 	  <div class="tab commu_tab_board" data-tab="board">게시판</div>
@@ -60,7 +46,7 @@
           <span class="introCategory"></span> &nbsp;|&nbsp;
           <span class="introLocation"></span>
         </div>
-        <img src="" alt="커뮤 메인 사진" class="mainImage" />
+        <img src="" class="mainImage" onerror="this.src='/resources/items/commu_img_default.png'" alt="커뮤 메인 사진" />
         <!-- 커뮤니티 소개 -->
         <p class="introBox introText"></p>
         <!-- 커뮤니티 안내사항(const) -->
@@ -93,7 +79,7 @@
             <span class="boardTitleIntro">오리역 강도 코스프레 후기~~ </span>
           </p>
           <div class="board_imgbox">
-            <img class="board boardimg" src="/resources/items/commu/commu_board/4-9-1.jpg" alt="이미지1" />
+            <img class="board boardimg" src="/resources/items/commu/commu_board/4-9-1.jpg"  alt="이미지1" />
           </div>
           <div class="boardTextBox">
             <p class="board boardText">
@@ -103,15 +89,18 @@
           <div class="board_comment_box">
             <span style="font-size: larger; display: block; border-bottom: 1px solid; padding-left: 2px;">댓글</span>
             <div class="board_comment">
-              <span class="board_comment_writer">👼닉네임</span>:&nbsp;
-              <span class="board_comment_text">댓글내용</span>
-              <input class="board_comment_write form-control">
+              <!-- <span class="board_comment_writer">👼닉네임</span>:&nbsp;
+              <span class="board_comment_text">댓글내용</span> -->
+              <form class="board_comment_form" action="">
+              	<input class="board_comment_input form-control" placeholder="댓글">
+              </form>
             </div>
           </div>
         </div>
       </div>
-	  <div class="commu_box schedule">
-	  	<p>안뇽 </p>
+	  <div class="commu_box schedule">	  	
+  		<jsp:include page="./gathering_join_modal.jsp"/>	  	
+  		<jsp:include page="./gathering_make_modal.jsp"/>
 	  </div>
       <div class="commu_box history">
         <div class="history_text">
@@ -128,8 +117,6 @@
 	
   <!-- 모달 페이지 -->
   <jsp:include page="./commu_board_write_modal.jsp"/>
-  <jsp:include page="./gathering_make_modal.jsp"/>
-  <jsp:include page="./gathering_join_modal.jsp"/>
   <jsp:include page="./commu_history_modal.jsp"/>
   
   <script>
@@ -141,6 +128,11 @@
   function history_modal_open() {
   	$('.history_modal_content').css('display','block');
   }
+  
+  $('.board_write_btn').on('click', () => {
+	    alert('1');
+	    $('.bmake_content').css('display', 'block');
+  });
   </script>
 </body>
 

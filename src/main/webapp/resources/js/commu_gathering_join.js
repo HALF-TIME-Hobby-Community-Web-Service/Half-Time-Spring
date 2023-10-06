@@ -2,21 +2,19 @@ $(() => {
   const url = 'http://localhost:8888/commu';
 
   const commuID = sessionStorage.getItem('commuID');   
-
-  $('.ljoinbtn').click(() => {
-    $.ajax({
-      url: `${url}/lget`,
-      method: 'POST',
-      data: {commuID : commuID},
-      success: (data) => {
-        data.forEach((element) => {
-          appendGathering(element);
-        });
-      },
-      error: (jqXhr, status) => {
-        alert(`실패: ${status}\n오류명:${jqXhr.status}`);
-      },
-    });
+  
+  $.ajax({
+    url: `${url}/lget`,
+    method: 'POST',
+    data: {commuID : commuID},
+    success: (data) => {
+      data.forEach((element) => {
+        appendGathering(element);
+      });
+    },
+    error: (jqXhr, status) => {
+      alert(`실패: ${status}\n오류명:${jqXhr.status}`);
+    },
   });
 });
 
@@ -63,10 +61,10 @@ function appendGathering(data) {
     const month = ('0' + (dateTime.getMonth() + 1)).slice(-2);
     const day = ('0' + dateTime.getDate()).slice(-2);
 
-    let period = '오전';
+    let period = '오전 ';
     let hours = dateTime.getHours();
     if (hours >= 12) {
-      period = '오후';
+      period = '오후 ';
       if (hours > 12) {
         hours -= 12;
       }
@@ -83,10 +81,9 @@ function appendGathering(data) {
   //모임 기본정보들
   {
     newItem.find('.ljoin_box_container > p').text(data.title);
-    //newItem.find('.ljoin_box_date2').text(data.startTime);
     newItem.find('.ljoin_box_location').text(data.location);
     newItem.find('.ljoin_box_text').text(data.text);
-    newItem.find('.ljoin_box_price').text(data.price + '원');
+    newItem.find('.ljoin_box_price').text(data.price + '원');	ㅂ
     newItem.find('.ljoin_box_count').text(data.count);
     newItem.find('.ljoin_box_capacity').text(data.capacity + '명');
   }

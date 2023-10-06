@@ -4,8 +4,31 @@
 <html>
 <div class="feed_modal_content" style='display:none'>
   <div class="feed_modal_img_box">  	
-  	<img src="/resources/items/moment/6.jpg">
+  	<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  	<div class="carousel-indicators">
+  	<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+  	</button>
+  	<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2">
+  	</button>
+  	<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3">
+  	</button></div><div class="carousel-inner">
+  	<div class="carousel-item active">
+  	<img src="https://halftimespring.s3.ap-northeast-2.amazonaws.com/moment/b33b79d0-52b4-4370-a5a1-c1b04d2652da.jpg" class="d-block w-100" alt="...">
+  	</div>
+  	<div class="carousel-item">
+  	<img src="https://halftimespring.s3.ap-northeast-2.amazonaws.com/moment/61956fe9-bcca-47ee-a71c-be148e83474d.jpg" class="d-block w-100" alt="...">
+  	</div><div class="carousel-item">
+  	<img src="https://halftimespring.s3.ap-northeast-2.amazonaws.com/moment/07f0ec34-8c9f-49ad-8475-82b8b25e3c6f.jpg" class="d-block w-100" alt="...">
+  	</div><div class="carousel-item">
+  	<img src="https://halftimespring.s3.ap-northeast-2.amazonaws.com/moment/9682ff85-3fe3-4676-b740-072962092199.jpg" class="d-block w-100" alt="..."></div>
+  	<div class="carousel-item"><img src="https://halftimespring.s3.ap-northeast-2.amazonaws.com/moment/0310cb77-b1f1-47b8-b3f3-48f819f1d2b6.jpg" class="d-block w-100" alt="..."></div>
+  	</div><button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  	<span class="visually-hidden">Previous</span></button><button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+  	<span class="carousel-control-next-icon" aria-hidden="true">
+  	</span><span class="visually-hidden">Next</span></button></div>
   </div>
+  
+  
   <div class="feed_modal_container">
   	<div class="feed_modal_title">
   		<div>

@@ -41,7 +41,7 @@ $(() => {
 
                     newItem.append(
                         '<div class="feedbox">'
-                        + '<div class="feed_title" id="' + item.momentid + '">'
+                        + '<div class="feed_title">'
                         + '<span class="feed_title_name">🐱' + '<a href="" class="feed_a_name">' + item.writer + '</a>' + '</span>'
                         + '<span class="feed_title_date">⏰23/12/10' + "" + '</span>'
                         + '<span class="feed_title_category">🚩' + item.category + '</span>'

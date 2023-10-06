@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +18,7 @@ import com.hf.domain.CommuInfo;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
 import com.hf.domain.Post;
+import com.hf.domain.commuSerise;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -25,25 +27,29 @@ import lombok.extern.log4j.Log4j;
 @RequestMapping(value = "/commu/*", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
 @Log4j
 public class CommuController {
-
 	@Setter(onMethod_ = @Autowired)
 	private CommuService service;
+	
+	@PostMapping("/join")
+	public String join(@RequestParam("commuID") String commuID, @RequestParam("userID") String userID,
+				    @RequestParam("nickname") String nickname)	{		
+		log.info("join컨트롤러 "  + commuID + userID + nickname);
+		return service.join(commuID, userID, nickname);
+	}
 	
 	@PostMapping("/getmember")
 	public List<Commumember> getCommumemberList(@RequestParam("commuID") String commuID) {
 		log.info("commu/getMember/commuID: " + commuID);
 		List<Commumember> cList = service.getCommumember(commuID);		
-		log.info(cList);
+		log.info("cList: " + cList);
 		return cList;
 	}
-
 
 	@GetMapping("/getpost")
 	public List<Post> getBoard(@RequestParam("commuID") String commuID) {
 		List<Post> boardList = service.getCommuPost(commuID);
 		return boardList;
 	}
-
 
 	@GetMapping("/getcommuinfo")
 	public CommuInfo getCommuInfo(@RequestParam("commuID") String commuID) {
@@ -53,16 +59,14 @@ public class CommuController {
 		return commuInfo;
 	}
 
-
 	@PostMapping("/lget")
 	public List<Gathering> getGathering(String commuID) {
 		log.info("lget: " + commuID);
 		List<Gathering> gatheringList = service.getGathering(commuID);
-		log.info(gatheringList);
+		log.info("gatheringList: " + gatheringList);
 		return gatheringList;
 	}
-	
-	
+		
 	@PostMapping("/lmake")
 	public String lmake(
 			@RequestParam String title,
@@ -81,8 +85,7 @@ public class CommuController {
 		service.lmake(g);
 		return "1";	
 	}
-	
-	
+		
 	@PostMapping("/const")
 	public CommuConst getcommuConst(@RequestParam String commuID) {						
 		log.info("commu/const/commuID: " + commuID);
@@ -101,5 +104,18 @@ public class CommuController {
 		
 	}
 	
+	@PostMapping("/checkcommuname")
+	public String checkCommuName(@RequestParam("commuName")String commuName) {
+		String result = service.checkCommuName(commuName);
+		return result;
+	}
+	
+	@PostMapping("/cmake")
+	public String cmake(@ModelAttribute commuSerise c) {
+		log.info("cmake: " + c.toString());
+		String result = service.cmake(c);
+		log.info("cmake:result: " + result);
+		return result;
+	}
 	
 }
