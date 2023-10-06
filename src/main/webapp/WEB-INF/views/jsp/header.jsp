@@ -11,6 +11,14 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	
+	
+<link rel="stylesheet" type="text/css"
+	href="/resources/css/modalwrite.css">
+
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <!-- sweetAlert -->
@@ -81,18 +89,15 @@
 					id="commuBtn" href="" class="atag">COMMUNITY</a></li>
 				<li class="nav_line">──────</li>
 				<li class="nav_item"><img
-					src="/resources/items/sideItem/hand-index.svg" alt="Interest"><a
-					id="insertBtn" href="" class="atag">INTEREST</a></li>
-				<li class="nav_item"><img
 					src="/resources/items/sideItem/geo-alt.svg" alt="Location"><a
 					id="locationBtn" href="" class="atag">LOCATION</a></li>
 				<li class="nav_item"><img
 					src="/resources/items/sideItem/geo-alt.svg" alt="MyPage"><a
 					id="mypageBtn" class="atag">MyPage</a></li>
 				<li class="nav_line">──────</li>
-				<li class="nav_item"><img
-					src="/resources/items/sideItem/chat-left-dots.svg" alt="Chatting"><a
-					id="chattingBtn" href="" class="atag">CHATTING</a></li>
+				<div class="footer" style="color:white; text-align: center; background-color: black;">
+					KOSTA 263기 HalfTime
+				</div>
 			</ul>
 		</div>
 	</div>

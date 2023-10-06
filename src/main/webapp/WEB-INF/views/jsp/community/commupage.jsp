@@ -26,8 +26,8 @@
   <!-- js -->  
   <script src="/resources/js/commupage.js"></script>
   <script src="/resources/js/commumemberlist.js"></script>  
-  <script src="/resources/js/commu_gathering_make.js"></script>
   <script src="/resources/js/commu_gathering_join.js"></script>
+  <script src="/resources/js/commu_gathering_make.js"></script>
 
 </head>
 
@@ -46,7 +46,7 @@
           <span class="introCategory"></span> &nbsp;|&nbsp;
           <span class="introLocation"></span>
         </div>
-        <img src="" class="mainImage" onerror="this.src='/resources/items/commu_img_default.png'" alt="커뮤 메인 사진" />
+        <img src="" class="mainImage" onerror="this.src='/resources/items/commu_preview_default.png'" alt="커뮤 메인 사진" />
         <!-- 커뮤니티 소개 -->
         <p class="introBox introText"></p>
         <!-- 커뮤니티 안내사항(const) -->
@@ -128,11 +128,6 @@
   function history_modal_open() {
   	$('.history_modal_content').css('display','block');
   }
-  
-  $('.board_write_btn').on('click', () => {
-	    alert('1');
-	    $('.bmake_content').css('display', 'block');
-  });
   </script>
 </body>
 

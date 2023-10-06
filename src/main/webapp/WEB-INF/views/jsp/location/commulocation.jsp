@@ -5,10 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="/resources/js/commulocation.js"></script>
-
 </head>
 <body>
 	<div>
@@ -41,7 +37,8 @@
 			</div>	
 		</div>
 		
-		
+<jsp:include page="./googlemap.jsp"/>
 </body>
+	
 </body>
 </html>

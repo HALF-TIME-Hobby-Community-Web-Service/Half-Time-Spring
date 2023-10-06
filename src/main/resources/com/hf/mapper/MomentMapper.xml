@@ -67,13 +67,13 @@ WHERE
 
 <select id="modal_LargeCategory" resultType="String">
     <![CDATA[
-	SELECT DISTINCT LARGECATE FROM CATEGORY
+   SELECT DISTINCT LARGECATE FROM CATEGORY
     ]]>
 </select>
 
 <select id="modal_SmallCategory" resultType="String">
     <![CDATA[
-	SELECT SMALLCATE FROM CATEGORY WHERE LARGECATE=#{largecate}
+   SELECT SMALLCATE FROM CATEGORY WHERE LARGECATE=#{largecate}
     ]]>
 </select>
 

@@ -34,7 +34,12 @@ public class CommuService {
 		return mapper.getCommuList();
 	}
 	public List<CommuInfo> getCommuListByLocation(String location){
+		log.info("여기~~~~~~~~~~~~~~요~~~~~~~~~~~~~~");
 		return mapper.getCommuListByLocation(location);
+	}
+	public List<CommuInfo> getCommuListById(String id){
+		log.info("여기~~~~~~~~~~~~~~요~~~~~~~~~~~~~~");
+		return mapper.selectCommuById(id);
 	}
 	
 	public String join(String commuID, String userID, String nickname) {

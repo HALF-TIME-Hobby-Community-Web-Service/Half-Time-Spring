@@ -5,7 +5,7 @@
 <head>
 	<jsp:include page="header.jsp"/>
 	<script src="/resources/js/feed.js"></script>
-	
+	<script src="/resources/js/moment_modal.js"></script>
 </head>
 
 <div class="fab_container ">
@@ -17,6 +17,11 @@
 <div class="feed_content"></div>
 <jsp:include page="./moment/moment_write_modal.jsp"/>
 <jsp:include page="./moment/feed_modal.jsp"/>	
+
+<jsp:include page="./location/googlemap.jsp"/>
+
+
+
 
 <script>
 

@@ -5,6 +5,9 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -109,6 +112,16 @@ public class CommuController {
 		log.info("而ㅻ�ㅻ땲�떚 �쐞移섎뒗?"+location);
 		List<CommuInfo> ci = service.getCommuListByLocation(location);
 		log.info(ci);
+		return ci;
+		
+	}
+	
+	@PostMapping("/mycommu")
+	public List<CommuInfo> selectCommuById(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("id");
+		List<CommuInfo> ci = service.getCommuListById(id);
+		
 		return ci;
 		
 	}

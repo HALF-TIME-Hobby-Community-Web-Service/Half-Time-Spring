@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
   <!-- 번개 생성 -->
   <div class="lmake_content">
@@ -41,7 +40,7 @@
             <span>정원:</span>
             <span class="lmake_calcbox">
               <button type="button" class="btn btn-light lmake_btn lmake_cap_minus">-</button>
-              <input name="capacity" class="form-control cap" value="10" style="margin-right: 0px; width:20%;"/>명&nbsp;&nbsp;
+              <input name="capacity" class="form-control cap" value="10" style="margin-right: 0px; width:20%; text-align: right;"/>명&nbsp;&nbsp;
               <button type="button" class="btn btn-light lmake_btn lmake_cap_plus">+</button>
             </span>
           </div>
@@ -49,7 +48,7 @@
             <span>금액:</span>
             <span class="lmake_calcbox">
               <button type="button" class="btn btn-light lmake_btn2 lmake_btn lmake_price_minus">-</button>
-              <input name="price" class="form-control" value="0" style="margin-right: 0px; width:20%;"/>원&nbsp;&nbsp;
+              <input name="price" class="form-control" value="0" style="margin-right: 0px; width:20%; text-align: right;"/>원&nbsp;&nbsp;
               <button type="button" class="btn btn-light lmake_btn2 lmake_price_plus">+</button>
             </span>
           </div>
