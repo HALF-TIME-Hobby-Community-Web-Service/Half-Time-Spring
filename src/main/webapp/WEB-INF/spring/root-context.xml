@@ -14,17 +14,11 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 	<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
-<<<<<<< HEAD
-	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@192.168.0.44:1521:XE" />
-	<property name="username" value="moon" />
-	<property name="password" value="bomi" />
-=======
 
 	<!-- @192.168.0.26  -->
 	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
-	<property name="username" value="hf" />
-	<property name="password" value="hf" />
->>>>>>> f84b141a35fe65eab29e48083e5eddc998a3860b
+	<property name="username" value="hf2" />
+	<property name="password" value="hf2" />
 
 	</bean>
 	

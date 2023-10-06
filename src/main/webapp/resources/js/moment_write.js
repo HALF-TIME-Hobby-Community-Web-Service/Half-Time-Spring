@@ -88,6 +88,7 @@ $(() => {
     const thumbnail = $(".m_img");
 
     upload.on("click", function (e) {
+    consile.log("wadawdawdawd");
         const category = $('.selectSmallCategory').val();
         const text = $('#uploadText').val();
         const fileInput = $(".input_moment_file");

@@ -97,7 +97,7 @@ $(() => {
                     $('.feed_modal_content').remove();
 	
 	$(window).on("click", function(e) {
-	if (!$(e.target).is(momentmodalAll)&&!$(e.target).is(momentmodal)) {
+	if (!$(e.target).is(momentmodalAll)&&!$(e.target).is(momentmodal)&&!state) {
         console.log("11111111111111111111111111111111111");
     	momentmodal.remove();
 		state=true;
