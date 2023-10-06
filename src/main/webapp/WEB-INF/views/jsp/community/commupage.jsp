@@ -26,8 +26,8 @@
   <!-- js -->  
   <script src="/resources/js/commupage.js"></script>
   <script src="/resources/js/commumemberlist.js"></script>  
-  <script src="/resources/js/commu_gathering_make.js"></script>
   <script src="/resources/js/commu_gathering_join.js"></script>
+  <script src="/resources/js/commu_gathering_make.js"></script>
 
 </head>
 
@@ -128,11 +128,6 @@
   function history_modal_open() {
   	$('.history_modal_content').css('display','block');
   }
-  
-  $('.board_write_btn').on('click', () => {
-	    alert('1');
-	    $('.bmake_content').css('display', 'block');
-  });
   </script>
 </body>
 
