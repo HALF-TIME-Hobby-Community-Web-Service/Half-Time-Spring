@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 회원가입 1 -->
     <insert id="insertUser">
     <![CDATA[
-        INSERT INTO Users (id, pwd, name, nickname, gender, birth, phoneNum, address)
+        INSERT INTO Users (id, pwd, name, nickname, gender, birth, pNum, address)
         VALUES (#{id}, #{pwd}, #{name}, #{nickname}, #{gender}, #{birth}, #{pnum}, #{address})
         ]]>
     </insert>
@@ -45,14 +45,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 아이디 찾기 -->
 	<select id="LoginFindID" resultType="String">
 	<![CDATA[
-		select * from users where name = #{name} and phonenum = #{pnum}
+		select * from users where name = #{name} and pnum = #{pnum}
 	]]>
 	</select>
 
 	<!-- 비밀번호 찾기 -->
 	<select id="LoginFindPW" resultType="String">
 	<![CDATA[
-		SELECT pwd FROM users WHERE id = #{id} AND name =#{name} AND gender = #{gender} AND TO_CHAR(birth, 'YYYY-MM-DD') = #{birth} AND phonenum =#{pnum}
+		SELECT pwd FROM users WHERE id = #{id} AND name =#{name} AND gender = #{gender} AND TO_CHAR(birth, 'YYYY-MM-DD') = #{birth} AND pnum =#{pnum}
 	]]>
 	</select>
 	
@@ -66,7 +66,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 카카오 회원가입 1 -->
     <insert id="insertKakaoUser">
     <![CDATA[
-        INSERT INTO Users (id, pwd, name, nickname, gender, birth, phoneNum, address)
+        INSERT INTO Users (id, pwd, name, nickname, gender, birth, pNum, address)
         VALUES (#{id}, #{pwd}, #{name}, #{nickname}, #{gender}, #{birth}, #{pnum}, #{address})
         ]]>
     </insert>
