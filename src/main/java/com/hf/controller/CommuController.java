@@ -63,7 +63,7 @@ public class CommuController {
 	public List<Gathering> getGathering(String commuID) {
 		log.info("lget: " + commuID);
 		List<Gathering> gatheringList = service.getGathering(commuID);
-		log.info(gatheringList);
+		log.info("gatheringList: " + gatheringList);
 		return gatheringList;
 	}
 		

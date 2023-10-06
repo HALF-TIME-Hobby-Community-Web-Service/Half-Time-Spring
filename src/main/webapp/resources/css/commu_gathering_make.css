@@ -37,7 +37,7 @@
 
 /* 번개신청 입력 창*/
 .lmake_container {
-  height: 80%;
+  height: 82%;
 
   padding-left: 5%;
   padding-right: 5%;
@@ -89,7 +89,6 @@ textarea.lmake_text {
 }
 
 .startTime  {
-  font-size: 14px;
   width: 40%;
 }
 
@@ -114,8 +113,17 @@ textarea.lmake_text {
 }
 
 .lmake_btn {
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  border: 1px solid;
+}
+
+.lmake_btn2 {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  border: 1px solid;
 }
 
 /* 개설, 개설 요청 버튼*/
@@ -126,6 +134,5 @@ textarea.lmake_text {
 }
 
 .lmake_button_container > button {
-  margin: 30px;
 }
 

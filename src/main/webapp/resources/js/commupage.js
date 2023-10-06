@@ -191,8 +191,13 @@ $(() => {
 
   /* 플러팅 버튼 */
   {
-  	$('.float-box').html('');
-	$('.float-box').append('<span class="float-item float-item1"><img src="/resources/items/floatitem/write.png" alt=""></span>');
-	$('.float-box').append('<span class="float-item float-item1"><img src="/resources/items/floatitem/write.png" alt=""></span>');  
+$('.fab_container').html('');
+$('.fab_container').append('<div class="fab commu-float">'
+						 + '<img src="/resources/items/floatitem/close.png" alt="">'
+						 + '</div>');
+  	
+    $('.commu-float').click(()=> {
+	  $('.bmake_content').css('display','block');
+    })
   }
 });
