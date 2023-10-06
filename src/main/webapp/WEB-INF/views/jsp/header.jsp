@@ -93,6 +93,10 @@
 				<li class="nav_item"><img
 					src="/resources/items/sideItem/geo-alt.svg" alt="MyPage"><a
 					id="mypageBtn" class="atag">MyPage</a></li>
+				<li class="nav_line">──────</li>
+				<div class="footer" style="color:white; text-align: center; background-color: black;">
+					KOSTA 263기 HalfTime
+				</div>
 			</ul>
 		</div>
 	</div>

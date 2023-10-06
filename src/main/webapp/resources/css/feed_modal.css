@@ -4,6 +4,7 @@
     left: 27.5%;
     top: 5%;
     
+    width: 1000px;
     height: 800px;   
     
     background-color: white;
@@ -13,12 +14,13 @@
 }
 
 .feed_modal_img_box {
-	width: 500px;
+	width: 70%;
 	min-width: 50%;
 	height: 100%;
 	float:left;
 }
 .imgslide{
+	width: 100%;
 	height:700px;
 	padding: 25px;
 	margin-top:50px;
@@ -89,6 +91,6 @@
 }
 
 .feed_modal_items > button {
-	width: 24%;
+	width: 32.5%;
 	display: inline;
 }
