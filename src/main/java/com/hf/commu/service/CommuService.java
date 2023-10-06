@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.hf.domain.CommuConst;
 import com.hf.domain.CommuInfo;
+import com.hf.domain.CommuWithContent;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
+import com.hf.domain.MomentWithContent;
 import com.hf.domain.Post;
 import com.hf.domain.commuSerise;
 import com.hf.mapper.CommuMapper;
@@ -46,7 +48,7 @@ public class CommuService {
 			log.info("service/join: " + returnMSG);
 		}
 		catch (Exception e) {
-			log.info("service/join에러" + returnMSG);
+			log.info("service/join�뿉�윭" + returnMSG);
 		} 
 		return returnMSG;		
 	}
@@ -96,19 +98,19 @@ public class CommuService {
 	
 	public String cmake(commuSerise c) {
 		try {				
-			/* 정원 */
+			/* �젙�썝 */
 			if (c.getCapacity() == null)
 				c.setCapacity(BigDecimal.valueOf(50));
 			else if (c.getCapacity().compareTo(BigDecimal.valueOf(0)) <= 0)					
 				c.setCapacity(BigDecimal.valueOf(50));
 				
-			/* 나이제한 */
+			/* �굹�씠�젣�븳 */
 			if(c.getAgelimitmin()==null)
 				c.setAgelimitmin(BigDecimal.valueOf(0));
 			if(c.getAgelimitmax()==null)
 				c.setAgelimitmax(BigDecimal.valueOf(0));
 			
-			/* 성별제한 */
+			/* �꽦蹂꾩젣�븳 */
 			BigDecimal gender;
 			if (c.getGender().equals("all")) 
 				gender = BigDecimal.valueOf(0);
@@ -117,18 +119,33 @@ public class CommuService {
 			else
 				gender = BigDecimal.valueOf(2);						
 			
-			/* 시퀀스 받기 */
+			/* �떆���뒪 諛쏄린 */
 			long seq = mapper.selectCommuSeq();			
 			log.info("seq: " + seq);
 			c.setCommuID(BigDecimal.valueOf(seq));			
 			
-			log.info("commu생성1 " + mapper.insertCommu(c));
-			log.info("commu생성2 " + mapper.insertCommuConst(c, gender));
-			log.info("commu생성3 " + mapper.insertCommuManager(c));
+			log.info("commu�깮�꽦1 " + mapper.insertCommu(c));
+			log.info("commu�깮�꽦2 " + mapper.insertCommuConst(c, gender));
+			log.info("commu�깮�꽦3 " + mapper.insertCommuManager(c));
 			
 			return "success";
 		} catch(Exception e) {
 			return "error";
 		}
 	}
+	
+	
+	public void commuUpload(CommuWithContent cwc){
+    	log.warn(cwc.getWRITER());
+    	log.warn(cwc.getTEXT());
+    	log.warn(cwc.getPOSTTYPE());
+    	mapper.modalUpload(cwc);
+    } 
+	public void fileUpload(CommuWithContent cwc) {
+    	mapper.fileUpload(cwc);	
+    }
+	
+	public int getMaxCommuID() {
+    	return mapper.getMaxCommuID();
+    }
 }

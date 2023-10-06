@@ -7,14 +7,14 @@
     <div class="modal_title bmake_title"> 🎴게시글 작성<span class="modal_closebtn bmake_closebtn">&times;</span></div>
     
     <div class="modal_container b_container">
-      <form method="post" action="">      
+      <form method="post" action="" class="commu_upload_form">      
               
         <div class="form-floating mb-3">
-	        <select name="" class="form-select">
-		        <option value="category">카테고리</option>
-			    <option value="info">공지사항</option>
-			    <option value="board">게시글</option>
-			    <option value="history">히스토리</option>
+	        <select name="" class="form-select commucategory">
+		        <option value="0">카테고리</option>
+			    <option value="1">공지사항</option>
+			    <option value="2">게시글</option>
+			    <option value="3">히스토리</option>
 			</select>
 		</div>
       
@@ -42,7 +42,7 @@
         
 
         <div class="modal_button_container bmake_button_container" style="border-top: 1px solid;">
-          <button class="btn btn-primary">완료</button>
+          <button class="btn btn-primary commu_upload_btn">완료</button>
         </div>
                 
       </form>

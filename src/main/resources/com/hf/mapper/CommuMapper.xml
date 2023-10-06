@@ -128,5 +128,41 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         ]]> 
     </insert>	
 
-
+<insert id="modalUpload" parameterType="com.hf.domain.CommuWithContent">
+    <![CDATA[
+         INSERT INTO COMMUPOST (COMMUPOSTID, COMMUID, WRITER, TITLE, POSTTYPE, TEXT, POSTTIME)
+        VALUES (
+            commupost_seq.nextval,
+            #{COMMUID},
+            #{WRITER},
+            #{TITLE},
+            #{POSTTYPE},
+            #{TEXT},
+            SYSDATE
+        )
+        ]]>
+    </insert>
+    
+    <insert id="fileUpload" parameterType="com.hf.domain.CommuWithContent">
+    <![CDATA[
+    INSERT INTO CONTENTSRC (
+        CONTENTID, REFERENCEID, CONTENTTYPE, CONTENTPATH1, CONTENTPATH2, CONTENTPATH3,
+        CONTENTPATH4, CONTENTPATH5,CONTENTPATH6,CONTENTPATH7,CONTENTPATH8,CONTENTPATH9,CONTENTPATH10
+    ) VALUES (
+        CONTENTSRC_SEQ.nextval,
+        #{COMMUID},
+        2,
+        #{contentPath1, jdbcType=VARCHAR},
+        #{contentPath2, jdbcType=VARCHAR},
+        #{contentPath3, jdbcType=VARCHAR},
+        #{contentPath4, jdbcType=VARCHAR},
+        #{contentPath5, jdbcType=VARCHAR},
+        #{contentPath6, jdbcType=VARCHAR},
+        #{contentPath7, jdbcType=VARCHAR},
+        #{contentPath8, jdbcType=VARCHAR},
+        #{contentPath9, jdbcType=VARCHAR},
+        #{contentPath10, jdbcType=VARCHAR}
+    )
+    ]]>
+</insert>
 </mapper>
