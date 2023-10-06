@@ -15,11 +15,19 @@ public class CommentService {
 
 	@Setter(onMethod_ = @Autowired)
 	private CommentMapper mapper;	
+	
+	//댓글작성
 	public int commentCheck(String userid, String comment, int type) {		
 			mapper.commentCheck(userid, comment, type);
 			log.info(userid+""+comment+""+type);
 		return 0;
 	};
+
+	//시간불러오기
+	public String commentGet(String userid, String comment, int type) {
+			String data = mapper.commentGet(userid, comment, type);
+		return data;
+	}
 
 
 	

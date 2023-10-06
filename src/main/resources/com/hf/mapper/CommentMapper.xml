@@ -11,4 +11,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         VALUES (comments_seq.nextval, #{userid}, '1', #{comment}, 1 ,#{type}, sysdate)
         ]]>
     </insert>
+    
+ <!-- 댓글 가져오기(시간) -->
+ 	<select id="commentGet" resultType="String"> <!-- domain --> 
+	<![CDATA[
+		select commenttime from Comments where userid=#{userid} and commenttext=#{comment} and commenttype=#{type}
+	]]>
+	</select>
+ 	
+    
+    
 </mapper>
