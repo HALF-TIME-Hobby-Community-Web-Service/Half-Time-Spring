@@ -20,7 +20,6 @@
 
 
 <link rel="stylesheet" type="text/css" href="/resources/css/modalwrite.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/modalwrite.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/navbar.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/feed.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/floatingBtn.css">
@@ -32,6 +31,7 @@
 <script src="/resources/js/floatingbtn.js"></script>
 <script src="/resources/js/moment_post.js"></script>
 
+	<script src="/resources/js/moment_modal.js"></script>
 
 </head>
 
