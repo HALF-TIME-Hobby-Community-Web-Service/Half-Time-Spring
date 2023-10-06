@@ -101,6 +101,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		]]>
 	</select>	
 	
+	<select id="selectCommuById"  resultType="com.hf.domain.CommuInfo">
+		<![CDATA[	
+		SELECT C.*
+		FROM Commu C
+		INNER JOIN CommuMember CM ON C.CommuID = CM.CommuID
+		INNER JOIN Users U ON CM.UserID = U.id
+		WHERE U.id = #{commuID}
+		
+		]]>
+	</select>	
+	
 	
 	
 	<select id="selectCommuSeq" resultType="long">

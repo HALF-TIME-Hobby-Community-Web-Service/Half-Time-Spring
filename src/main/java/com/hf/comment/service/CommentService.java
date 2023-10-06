@@ -12,8 +12,6 @@ import lombok.extern.log4j.Log4j;
 
 @Service
 public class CommentService {
-
-	@Setter(onMethod_ = @Autowired)
 	private CommentMapper mapper;
 	
 	public int commentCheck(String userid, String comment, int type) {		
@@ -21,6 +19,12 @@ public class CommentService {
 		log.info(userid+""+comment+""+type);
 		return 0;
 	};
+
+	//시간불러오기
+	public String commentGet(String userid, String comment, int type) {
+			String data = mapper.commentGet(userid, comment, type);
+		return data;
+	}
 
 
 	

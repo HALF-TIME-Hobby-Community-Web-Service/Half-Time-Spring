@@ -32,7 +32,12 @@ public class CommuService {
 		return mapper.getCommuList();
 	}
 	public List<CommuInfo> getCommuListByLocation(String location){
+		log.info("여기~~~~~~~~~~~~~~요~~~~~~~~~~~~~~");
 		return mapper.getCommuListByLocation(location);
+	}
+	public List<CommuInfo> getCommuListById(String id){
+		log.info("여기~~~~~~~~~~~~~~요~~~~~~~~~~~~~~");
+		return mapper.selectCommuById(id);
 	}
 	
 	public String join(String commuID, String userID, String nickname) {
@@ -46,7 +51,7 @@ public class CommuService {
 			log.info("service/join: " + returnMSG);
 		}
 		catch (Exception e) {
-			log.info("service/join에러" + returnMSG);
+			log.info("service/join�뿉�윭" + returnMSG);
 		} 
 		return returnMSG;		
 	}
@@ -96,19 +101,19 @@ public class CommuService {
 	
 	public String cmake(commuSerise c) {
 		try {				
-			/* 정원 */
+			/* �젙�썝 */
 			if (c.getCapacity() == null)
 				c.setCapacity(BigDecimal.valueOf(50));
 			else if (c.getCapacity().compareTo(BigDecimal.valueOf(0)) <= 0)					
 				c.setCapacity(BigDecimal.valueOf(50));
 				
-			/* 나이제한 */
+			/* �굹�씠�젣�븳 */
 			if(c.getAgelimitmin()==null)
 				c.setAgelimitmin(BigDecimal.valueOf(0));
 			if(c.getAgelimitmax()==null)
 				c.setAgelimitmax(BigDecimal.valueOf(0));
 			
-			/* 성별제한 */
+			/* �꽦蹂꾩젣�븳 */
 			BigDecimal gender;
 			if (c.getGender().equals("all")) 
 				gender = BigDecimal.valueOf(0);
@@ -117,14 +122,14 @@ public class CommuService {
 			else
 				gender = BigDecimal.valueOf(2);						
 			
-			/* 시퀀스 받기 */
+			/* �떆���뒪 諛쏄린 */
 			long seq = mapper.selectCommuSeq();			
 			log.info("seq: " + seq);
 			c.setCommuID(BigDecimal.valueOf(seq));			
 			
-			log.info("commu생성1 " + mapper.insertCommu(c));
-			log.info("commu생성2 " + mapper.insertCommuConst(c, gender));
-			log.info("commu생성3 " + mapper.insertCommuManager(c));
+			log.info("commu�깮�꽦1 " + mapper.insertCommu(c));
+			log.info("commu�깮�꽦2 " + mapper.insertCommuConst(c, gender));
+			log.info("commu�깮�꽦3 " + mapper.insertCommuManager(c));
 			
 			return "success";
 		} catch(Exception e) {

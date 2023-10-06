@@ -144,19 +144,19 @@ $(() => {
                         '</div>' +
                         '<div class="carousel-inner">' +
                         '<div class="carousel-item active">' +
-                        '<img src="' + data.contentPath1 + '" class="d-block w-100" alt="...">' +
+                        '<img class="imgslide" src="' + data.contentPath1 + '" class="d-block w-100" alt="...">' +
                         '</div>' +
                         '<div class="carousel-item">' +
-                        '<img src="' + data.contentPath2 + '" class="d-block w-100" alt="...">' +
+                        '<img class="imgslide" src="' + data.contentPath2 + '" class="d-block w-100" alt="...">' +
                         '</div>' +
                         '<div class="carousel-item">' +
-                        '<img src="' + data.contentPath3 + '" class="d-block w-100" alt="...">' +
+                        '<img class="imgslide" src="' + data.contentPath3 + '" class="d-block w-100" alt="...">' +
                         '</div>' +
                         '<div class="carousel-item">' +
-                        '<img src="' + data.contentPath4 + '" class="d-block w-100" alt="...">' +
+                        '<img class="imgslide" src="' + data.contentPath4 + '" class="d-block w-100" alt="...">' +
                         '</div>' +
                         '<div class="carousel-item">' +
-                        '<img src="' + data.contentPath5 + '" class="d-block w-100" alt="...">' +
+                        '<img class="imgslide" src="' + data.contentPath5 + '" class="d-block w-100" alt="...">' +
                         '</div>' +
                         '</div>' +
                         '<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"' +
@@ -170,14 +170,12 @@ $(() => {
                         '<span class="visually-hidden">Next</span>' +
                         '</button>' +
                         '</div>' +
-                        
                         '</div>'+
                         '<div class="feed_modal_container">' +
                         '<div class="feed_modal_box">' +
                         '<div class="feed_modal_title">' +
                         '<div class="feed_modal_title_name">✍' + data.writer + '</div>' +
                         '<div class="feed_modal_title_date">' + data.date + '</div>' +
-                        '<div class="feed_modal_title_time">' + data.time + '</div>' +
                         '<div class="feed_modal_title_category">' + data.category + '</div>' +
                         '<div class="feed_modal_title_location">' + data.location + '</div>' +
                         '</div>' +

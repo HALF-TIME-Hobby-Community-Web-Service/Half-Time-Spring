@@ -3,6 +3,9 @@ package com.hf.controller;
 import java.math.BigDecimal;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -100,6 +103,16 @@ public class CommuController {
 		log.info("커뮤니티 위치는?"+location);
 		List<CommuInfo> ci = service.getCommuListByLocation(location);
 		log.info(ci);
+		return ci;
+		
+	}
+	
+	@PostMapping("/mycommu")
+	public List<CommuInfo> selectCommuById(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		String id = (String) session.getAttribute("id");
+		List<CommuInfo> ci = service.getCommuListById(id);
+		
 		return ci;
 		
 	}

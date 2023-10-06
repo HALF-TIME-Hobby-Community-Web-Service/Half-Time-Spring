@@ -14,6 +14,7 @@ $(() => {
 	const searchForm = $("#searchform");
 	const selectObj = $("#selection")
 	const searchObj = $("input[name='search_location']");
+	const mapBtn = $(".float-item4");
 
 	var cnt = 0;
 
@@ -81,6 +82,15 @@ $(() => {
 
 	logoBtn.click((e) => {
 		location.href = "/hf";
+	});
+	
+	mapBtn.click((e)=>{
+		var mapDisplay = $("#map_content").css('display');
+    if (mapDisplay === 'none') {
+      $('#map_content').css('display', 'block');
+  } else {
+      $('#map_content').css('display', 'none');
+  }
 	});
 
 	loginBtn.on("click", (e) => {
