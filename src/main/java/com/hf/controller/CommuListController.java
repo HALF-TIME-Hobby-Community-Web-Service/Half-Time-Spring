@@ -66,11 +66,19 @@ public class CommuListController {
 	@PostMapping("check_joined")
 	public String checkJoined(HttpServletRequest request, @RequestParam("commuID") String commuID) {
 		HttpSession session = request.getSession();
-        String userID = (String) session.getAttribute("id");
-        
-        String result = commuService.checkJoined(commuID, userID);
-        log.info("checkJoined/result: " + result );
-        
-        return result;
+		try {
+	        String userID = (String) session.getAttribute("id");
+	        if (userID == null)
+	        	return "NOTYET";
+	        
+	        String result = commuService.checkJoined(commuID, userID);
+	        log.info("checkJoined/result: " + result );
+	        
+	        return result;
+		}
+		catch (NullPointerException e) {
+			log.info("Check_joined: NPE발생");
+			return "";
+		}
     }
 }
