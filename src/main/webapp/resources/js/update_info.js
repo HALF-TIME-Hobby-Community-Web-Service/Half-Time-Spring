@@ -5,6 +5,20 @@ $(() => {
 	const pnumUpdateBtn = $("#pnum_updateBtn");
 	const pwdFormObj = $("#pw_update");
 	const pnumFormObj = $("#pnum_update");
+	
+	$.ajax({
+		url: 'http://localhost:8888/commu/mycommu', // 불러올 페이지의 경로
+		method: 'post', // GET 요청
+		dataType: "json",
+		success: (response) => {
+		  alert(response);
+		
+		  mycommuContent.html(response); // 페이지 내용을 .feed_content에 삽입
+		},
+		error: (jqXhr, status) => {
+		  alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+		}
+	});
 
 
 	pwdUpdateBtn.click((e) => {

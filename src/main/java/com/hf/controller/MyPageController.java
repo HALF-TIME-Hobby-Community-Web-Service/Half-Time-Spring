@@ -1,17 +1,24 @@
 package com.hf.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hf.commu.service.CommuService;
+import com.hf.domain.CommuInfo;
 import com.hf.domain.User;
 import com.hf.user.service.MyPageService;
 
@@ -24,22 +31,68 @@ import lombok.extern.log4j.Log4j;
 public class MyPageController {
 	@Setter(onMethod_ = @Autowired)
 	public MyPageService service;
+	
+	@Setter(onMethod_ = @Autowired)
+	public CommuService commuservice;
 
 	@PostMapping("/mypage")
-	public String showMyPage(HttpServletRequest request) {
+	public String showMyPage(HttpServletRequest request, Model model) {
 
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
-		log.info(id);
+		User user = service.getUserInfo(id);
+		model.addAttribute("id", id);
+		model.addAttribute("nickname", user.getNickname());
+		model.addAttribute("pwd", user.getPwd());
+		model.addAttribute("name", user.getName());
+		
+		model.addAttribute("pnum", user.getPnum());
+		model.addAttribute("address", user.getAddress());
+		if(user.getGender()==1) {
+			model.addAttribute("gender", "ë‚¨");
+			}else {
+			model.addAttribute("gender", "ì—¬");
+			}
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date birth = null;
+        try {
+            birth = dateFormat.parse(user.getBirth());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        
+        Date currentDate = new Date();
 
-		if (id != null) {
-			return "./jsp/mypage/mypage";// ¼¼¼Ç°ªÀÌ Á¸ÀçÇÏ¸é ¸¶ÀÌÆäÀÌÁö·Î ÃßÈÄ sql¹® »ğÀÔ¹öÀüÀ¸·Î ¼öÁ¤ÇÊ¿ä
+        // Calendar ê°ì²´ë¥¼ ì‚¬ìš©í•˜ì—¬ ë‚˜ì´ ê³„ì‚°
+        Calendar dobCalendar = Calendar.getInstance();
+        dobCalendar.setTime(birth);
+        Calendar currentCalendar = Calendar.getInstance();
+        currentCalendar.setTime(currentDate);
+
+        int age = currentCalendar.get(Calendar.YEAR) - dobCalendar.get(Calendar.YEAR);
+
+        if (currentCalendar.get(Calendar.DAY_OF_YEAR) < dobCalendar.get(Calendar.DAY_OF_YEAR)) {
+            age--;
+        }
+        model.addAttribute("birth", age);
+        //ì—¬ê¸°ê¹Œì§€ê°€ ê¸°ë³¸ ê°œì¸ì •ë³´ë¥¼ í‘œì‹œí•˜ëŠ” ì½”ë“œ
+        
+        
+        List<CommuInfo> ci = commuservice.getCommuListById(id);
+        model.addAttribute("commu", ci);
+        
+
+        log.info("ì„¸ì…˜idëŠ”?"+id+"ìœ ì €ì•„ì´ë””"+user.getId());
+		if (id.equals(user.getId())) {
+			return "./jsp/mypage/mypage";
 		} else {
 			return "redirect:user/login";
 		}
 
 	}
 
+	
 	@PostMapping("/updateInfo")
 	public String updateInfo(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
@@ -52,7 +105,8 @@ public class MyPageController {
 		model.addAttribute("birth", user.getBirth());
 		model.addAttribute("pnum", user.getPnum());
 
-		log.info("¿©±â¿È~");
+
+		log.info("ï¿½ï¿½ï¿½ï¿½ï¿½~");
 
 		return "./jsp/mypage/infoupdate";
 	}
@@ -70,7 +124,7 @@ public class MyPageController {
 	@ResponseBody
 	@PostMapping(value = "/updatePhoneNumber", produces = "application/json")
 	public int updatePhoneNumber(HttpServletRequest request, @RequestParam("pnum_update") String pnum) {
-		log.info("¿©±â¿È Àü¹ø¼öÁ¤~" + pnum);
+		log.info("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½~" + pnum);
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		int result = service.updatePhoneNumber(id,pnum);

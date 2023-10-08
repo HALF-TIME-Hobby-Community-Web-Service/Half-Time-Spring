@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +28,6 @@ import com.hf.domain.CommuInfo;
 import com.hf.domain.CommuWithContent;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
-import com.hf.domain.MomentWithContent;
 import com.hf.domain.Post;
 import com.hf.domain.commuSerise;
 import com.hf.s3.S3FileService;
@@ -124,10 +124,11 @@ public class CommuController {
 	}
 	
 	@PostMapping("/mycommu")
-	public List<CommuInfo> selectCommuById(HttpServletRequest request) {
+	public List<CommuInfo> selectCommuById(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		List<CommuInfo> ci = service.getCommuListById(id);
+		
 		
 		return ci;
 		

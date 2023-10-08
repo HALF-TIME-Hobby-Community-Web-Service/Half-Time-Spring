@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="/resources/js/update_info.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="/resources/js/update_info.js"></script>
+<script src="/resources/js/mypage.js"></script>
 </head>
 <body>
 

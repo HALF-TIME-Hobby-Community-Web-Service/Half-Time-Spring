@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.hf.mapper.MyPageMapper">
 
 	<select id="getUserInfo" resultType="com.hf.domain.User">
-		select id,pwd,name,nickname,birth,pnum from users
+		select id,pwd,name,nickname,birth,pnum,gender,address from users
 		WHERE id = #{id}
 	</select>
 

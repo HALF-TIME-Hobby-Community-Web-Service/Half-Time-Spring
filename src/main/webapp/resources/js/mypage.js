@@ -8,7 +8,7 @@ $(() => {
   $.ajax({
 		url: 'http://localhost:8888/commu/mycommu', // 불러올 페이지의 경로
 		method: 'post', // GET 요청
-		dataType: "html",
+		dataType: "json",
 		success: (response) => {
 		  console.log(response);
 		
