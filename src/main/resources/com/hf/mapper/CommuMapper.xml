@@ -183,4 +183,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE commuID = #{commuID} and CNICKNAME = #{nickname}
         ]]>
 	</select>		
+	
+	<select id="checkJoined" resultType="int">
+        <![CDATA[
+		SELECT count(*) FROM commumember
+		WHERE commuID = #{commuID} and userID = #{userID}
+        ]]>
+	</select>		
 </mapper>

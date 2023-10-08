@@ -3,7 +3,22 @@ $(() => {
     const closeBtn = document.getElementById('closeBtn');
     const commubox = $('.commuBox');
     const feedContent = $('.commuevery');
-    var commuID;
+    var commuID;    
+    let session = '';
+    
+    
+    $.ajax({
+        url: 'http://localhost:8888/getSession',       
+        dataType: 'text',   
+        success: (response) => { 
+        	if (response != '')
+        		session = response;
+    	},
+        error: (jqXhr, status) => {
+            swal('오류', '세션 에러', 'error');
+        }
+    });    
+    
     
     //AJAX로 서버에서 데이터 가져오기
     $.ajax({
@@ -23,7 +38,34 @@ $(() => {
                 communityBox.append(`<p style="display:none" class="commuID">${commuID}</p>`)
                 
                 // 커뮤니티 박스 클릭 시 모달 열기
-                communityBox.click(function(e) {                
+                communityBox.click(function(e) {
+                	commuID = community.commuID;
+                	$.ajax({
+				        url: 'http://localhost:8888/community/check_joined',
+				        data: {commuID: commuID},       
+				        dataType: 'text',   
+				        success: (response) => { 
+				        	if (response == 'JOINED') {
+				        		 sessionStorage.setItem('commuID', commuID);
+				        		 $.ajax({
+						            url: 'http://localhost:8888/commupage', // 불러올 페이지의 경로
+						            method: 'get', // GET 요청
+						            data: { commuID: commuID },            
+						            success: (response) => {          	
+						                modal.style.display = 'none';
+						                feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
+						            },
+						            error: (jqXhr, status) => {
+						                alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+						            },
+				       			 });
+				        	}
+				    	},
+				        error: (jqXhr, status) => {
+				            swal('오류', '멤버 체크 에러', 'error');
+				        }
+			   		 });
+                                             
                 	commuID = $(this).find('.commuID').text();
                 
                     modal.style.display = 'block';
@@ -49,10 +91,14 @@ $(() => {
     });
     
     $('#commuSignup').click(function(e) {	  
-    	sessionStorage.setItem('commuID', commuID);
-    	$('.cjoin_content').css('display','block');
-    	const title = $('.modaltitle').text();
-    	$('.commutitle').text(title);
+    	if (session != '') {
+    		sessionStorage.setItem('commuID', commuID);
+    		$('.cjoin_content').css('display','block');
+    		const title = $('.modaltitle').text();
+    		$('.commutitle').text(title);
+    	}
+    	else
+    	    swal('오류', '로그인을 해주세요~', 'warning');
     });
     
     // 모달 닫기 버튼 처리
@@ -81,8 +127,7 @@ $(() => {
         switchTab(tabName);
     });
     
-    // 페이지 로드 시 기본 탭을 설정합니다.
-    switchTab('community');
+
     
 
 });

@@ -165,4 +165,11 @@ public class CommuService {
 			return "ERROR";
 		}
 	}
+	
+	public String checkJoined(String commuID, String userID) {		
+		int result = mapper.checkJoined(commuID, userID);
+		if (result >= 1) 
+			return "JOINED";
+		return "NOTYET";				
+	}
 }

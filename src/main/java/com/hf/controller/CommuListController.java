@@ -56,8 +56,18 @@ public class CommuListController {
 	public String cjoin(HttpServletRequest request, @RequestParam("commuID") String commuID, @RequestParam("nickname") String nickname) {		
 		HttpSession session = request.getSession();
         String userid = (String) session.getAttribute("id");
-        
+        log.info(userid);
 		return userid;
 	}
 	
+	@PostMapping("check_joined")
+	public String checkJoined(HttpServletRequest request, @RequestParam("commuID") String commuID) {
+		HttpSession session = request.getSession();
+        String userID = (String) session.getAttribute("id");
+        
+        String result = commuService.checkJoined(commuID, userID);
+        log.info("checkJoined/result: " + result );
+        
+        return result;
+    }
 }

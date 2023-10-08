@@ -88,13 +88,16 @@
     });
 
     $('.cjoin_btn').click(()=> {
+       const nickname = $('.nickname').val();
+       const commuID = sessionStorage.getItem("commuID");
+    	
        $.ajax({
-            url: 'http://localhost:8888/community/cjoin', // 
-            method: 'post', // 
-            data: { commuID: commuID, nickname: $('.nickname').val() },            
-            success: (response) => {                 	
-                modal.style.display = 'none';
-                feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
+            url: 'http://localhost:8888/community/cjoin', 
+            method: 'post',  
+            data: { commuID: commuID, nickname: nickname },       
+            dataType: 'text',   
+            success: (response) => { 
+            	alert(response);
             },
             error: (jqXhr, status) => {
                 swal('오류', '닉네임중복확인 에러', 'error');

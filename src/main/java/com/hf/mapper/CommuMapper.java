@@ -46,6 +46,7 @@ public interface CommuMapper {
 	public int getMaxCommuID();
 	
 	public int checkmember(@Param("commuID")String commuID, @Param("nickname")String nickname);
+	public int checkJoined(@Param("commuID")String commuID, @Param("userID")String userID);
 }
 
 
