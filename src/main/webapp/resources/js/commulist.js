@@ -50,19 +50,9 @@ $(() => {
     
     $('#commuSignup').click(function(e) {	  
     	sessionStorage.setItem('commuID', commuID);
-    
-        $.ajax({
-            url: 'http://localhost:8888/commupage', // 불러올 페이지의 경로
-            method: 'get', // GET 요청
-            data: { commuID: commuID },            
-            success: (response) => {                 	
-                modal.style.display = 'none';
-                feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
-            },
-            error: (jqXhr, status) => {
-                alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
-            },
-        });
+    	$('.cjoin_content').css('display','block');
+    	const title = $('.modaltitle').text();
+    	$('.commutitle').text(title);
     });
     
     // 모달 닫기 버튼 처리
@@ -94,7 +84,5 @@ $(() => {
     // 페이지 로드 시 기본 탭을 설정합니다.
     switchTab('community');
     
-    $('.clist-float').click(()=> {
-    	$('.cmake_content').css('display','block');
-    });
+
 });

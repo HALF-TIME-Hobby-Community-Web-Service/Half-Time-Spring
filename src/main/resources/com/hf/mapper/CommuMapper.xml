@@ -175,5 +175,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         #{contentPath10, jdbcType=VARCHAR}
     )
     ]]>
-</insert>
+	</insert>
+	
+	<select id="checkmember" resultType="int">
+        <![CDATA[
+		SELECT count(*) FROM commumember
+		WHERE commuID = #{commuID} and CNICKNAME = #{nickname}
+        ]]>
+	</select>		
 </mapper>

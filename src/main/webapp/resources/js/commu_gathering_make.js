@@ -31,24 +31,23 @@ $(() => {
     $('.lmake_text').html(function(index, oldHtml) {
     	return oldHtml.replace(/(?:\r\n|\r|\n)/g, '<br/>');
     });
-    
-    alert($('.lmake_text').html());    
+       
     
     var formData = $('.lmake_container form').serialize();    
     formData += `&commuID=${commuID}`;
         
     if ($('.startTime').val() > $('.endTime').val()) {
-      alert('끝나는 시간이 시작시간보다 빠릅니다~~@!@@#@# ^^');
+      swal('모임 생성 실패!', '모임의 끝나는시간이 시작시간보다 빠릅니다!^', 'warning'); 
     } else {
       $.ajax({
         url: 'http://localhost:8888/commu/lmake',
         method: 'POST',
         data: formData,
         success: () => {
-          alert('모임이 생성됐습니다~~')
+          swal('모임 생성 성공!', '모임을 홍보해보세요!', 'warning'); 
         },
         error: (jqXhr, status) => {
-          alert(`실패: ${status}\n오류명:${jqXhr.status}`);
+          swal('오류 발생!', `${status}`, 'error');
         },
       });
     }

@@ -44,4 +44,8 @@ public interface CommuMapper {
 	public void fileUpload(CommuWithContent cwc);
 	void modalUpload(CommuWithContent cwc);
 	public int getMaxCommuID();
+	
+	public int checkmember(@Param("commuID")String commuID, @Param("nickname")String nickname);
 }
+
+

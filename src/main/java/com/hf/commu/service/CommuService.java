@@ -11,7 +11,6 @@ import com.hf.domain.CommuInfo;
 import com.hf.domain.CommuWithContent;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
-import com.hf.domain.MomentWithContent;
 import com.hf.domain.Post;
 import com.hf.domain.commuSerise;
 import com.hf.mapper.CommuMapper;
@@ -153,4 +152,17 @@ public class CommuService {
 	public int getMaxCommuID() {
     	return mapper.getMaxCommuID();
     }
+	
+	
+	//2023-10-08 추가
+	public String checkmember(String commuID, String nickname) {
+		try {
+			if (mapper.checkmember(commuID, nickname) >= 1)
+				return "duplicated";
+			else
+				return "OK";
+		} catch(NullPointerException e) {
+			return "ERROR";
+		}
+	}
 }
