@@ -86,7 +86,8 @@
                         oninput="this.value = this.value.replace(/[^0-9]/g, '');"
                         required="required"
                         style="width: 70px;">
-                        <button class="login_findPW_pnum_checkbtn" type="button">확인</button>
+                        <br>
+                        <button class="login_findPW_pnum_checkbtn" type="button">비밀번호 찾기</button>
                 </div><br>
             </form>
         </div>

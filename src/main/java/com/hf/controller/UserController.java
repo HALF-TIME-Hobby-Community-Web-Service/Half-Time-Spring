@@ -377,7 +377,7 @@ public class UserController {
 		        String pnum = phonenuma + phonenumb + phonenumc;     
 		        int gender = 0;
 		        String pwd = id+"naver";
-		        id= id+":naver";
+		        //id= id+":naver"; 이거 변
 		        
 		        User user = new User(id, pwd, name, birth, gender, address, pnum, nickname);
 
