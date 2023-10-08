@@ -28,7 +28,7 @@ $(() => {
                     
           if (data.gender == 1) 
             var gender = '남';
-          else if (data.gender == 2) 
+          else if (data.gender == 2 || data.gender == 0) 
             var gender = '여';                     
 
           if (data.cauth == 2)           	

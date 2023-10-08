@@ -47,6 +47,7 @@ public interface CommuMapper {
 	
 	public int checkmember(@Param("commuID")String commuID, @Param("nickname")String nickname);
 	public int checkJoined(@Param("commuID")String commuID, @Param("userID")String userID);
+	public String cjoin(@Param("commuID")String commuID, @Param("nickname")String nickname, @Param("userID")String userID);
 }
 
 

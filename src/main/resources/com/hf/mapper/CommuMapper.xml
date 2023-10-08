@@ -139,7 +139,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         ]]> 
     </insert>	
 
-<insert id="modalUpload" parameterType="com.hf.domain.CommuWithContent">
+	<insert id="modalUpload" parameterType="com.hf.domain.CommuWithContent">
     <![CDATA[
          INSERT INTO COMMUPOST (COMMUPOSTID, COMMUID, WRITER, TITLE, POSTTYPE, TEXT, POSTTIME)
         VALUES (
@@ -189,5 +189,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT count(*) FROM commumember
 		WHERE commuID = #{commuID} and userID = #{userID}
         ]]>
-	</select>		
+	</select>	
+	
+	
+    <insert id="cjoin" >
+    <![CDATA[
+    INSERT INTO commumember VALUES (
+        #{commuID},
+        #{nickname},
+        #{userID},
+        0
+    )
+    ]]>
+	</insert>
+	
 </mapper>

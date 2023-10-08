@@ -55,9 +55,12 @@ public class CommuListController {
 	@PostMapping("/cjoin")
 	public String cjoin(HttpServletRequest request, @RequestParam("commuID") String commuID, @RequestParam("nickname") String nickname) {		
 		HttpSession session = request.getSession();
-        String userid = (String) session.getAttribute("id");
-        log.info(userid);
-		return userid;
+        String userID = (String) session.getAttribute("id");
+        
+        String result = commuService.cjoin(commuID, nickname, userID);
+        log.info("/cjoin/result: " + result );
+        
+		return result;
 	}
 	
 	@PostMapping("check_joined")

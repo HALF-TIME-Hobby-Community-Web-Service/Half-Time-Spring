@@ -166,10 +166,21 @@ public class CommuService {
 		}
 	}
 	
+	public String cjoin(String commuID, String nickname, String userID) {
+		try {
+			mapper.cjoin(commuID, nickname, userID);
+			return "success";
+		} catch (Exception e) {
+			return "fail";
+		}
+	}
+	
 	public String checkJoined(String commuID, String userID) {		
 		int result = mapper.checkJoined(commuID, userID);
 		if (result >= 1) 
 			return "JOINED";
 		return "NOTYET";				
 	}
+	
+
 }

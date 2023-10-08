@@ -97,7 +97,20 @@
             data: { commuID: commuID, nickname: nickname },       
             dataType: 'text',   
             success: (response) => { 
-            	alert(response);
+            	$.ajax({
+		            url: 'http://localhost:8888/commupage', // 불러올 페이지의 경로
+		            method: 'get', // GET 요청
+		            data: { commuID: commuID },            
+		            success: (response) => {          	
+		            	$('.cjoin_content').css('display','none');
+		            	const modal = document.getElementById('modalWrap');
+		            	modal.style.display = 'none';
+	            		$('.commuevery').html(response); // 페이지 내용을 .feed_content에 삽입
+		            },
+		            error: (jqXhr, status) => {
+		                alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+		            },
+       			 });
             },
             error: (jqXhr, status) => {
                 swal('오류', '닉네임중복확인 에러', 'error');
