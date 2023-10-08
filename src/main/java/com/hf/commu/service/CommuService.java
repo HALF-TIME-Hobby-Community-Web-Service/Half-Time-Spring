@@ -42,7 +42,6 @@ public class CommuService {
 	}
 	
 	public String join(String commuID, String userID, String nickname) {
-		
 		log.info("service/join/commuID: " + commuID);
 		
 		String returnMSG = "fail";
@@ -61,13 +60,8 @@ public class CommuService {
 		return mapper.getCommuList();
 	}
 	
-	public void lmake(Gathering gObj) {
-		mapper.insertGathering(gObj,"1");
-	}
-	public void lmake(Gathering gObj, String commuID) {
-		log.info("service/lmake");
-		mapper.insertGathering(gObj, commuID);
-
+	public void lmake(Gathering g) {
+		mapper.insertGathering(g);
 	}
 
 	public List<Gathering> getGathering(String commuID) {
@@ -182,5 +176,8 @@ public class CommuService {
 		return "NOTYET";				
 	}
 	
+	public String getMember(String commuID, String userID) {
+		return mapper.getMember(commuID, userID);		
+	}
 
 }

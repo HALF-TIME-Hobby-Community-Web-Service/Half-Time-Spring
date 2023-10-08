@@ -24,6 +24,4 @@ public class Gathering {
 	private BigDecimal price;
 	private String location;
 	private BigDecimal capacity;
-	
-	
 }

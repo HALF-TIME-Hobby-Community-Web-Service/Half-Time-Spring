@@ -105,29 +105,10 @@ $(() => {
     $('.modalclose').click(() => {
         modal.style.display = 'none';
     });
-    
-    // 탭 기능 추가
-    function switchTab(tabName) {
-        // 모든 탭 컨텐츠를 숨깁니다.
-        $('.list').hide();
-        
-        // 모든 탭에서 활성화 클래스를 제거합니다.
-        $('.tab').removeClass('active');
-        
-        // 선택한 탭 컨텐츠를 보이도록 설정합니다.
-        $(`.${tabName}`).show();
-        
-        // 선택한 탭에 활성화 클래스를 추가합니다.
-        $(`[data-tab=${tabName}]`).addClass('active');
-    }
-    
-    // 탭에 클릭 이벤트 리스너를 추가합니다.
-    $('.tab').click(function () {
-        const tabName = $(this).attr('data-tab');
-        switchTab(tabName);
-    });
-    
-
-    
+   
+   
+   $('.clist-float').on('click', function() {
+   		$('.cmake_content').css('display', 'block');
+   });
 
 });

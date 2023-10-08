@@ -80,7 +80,7 @@ public class CommuController {
 	}
 		
 	@PostMapping("/lmake")
-	public String lmake(
+	public String lmake(HttpServletRequest request, 
 			@RequestParam String title,
 			@RequestParam String startTime,
 			@RequestParam String endTime,
@@ -91,10 +91,16 @@ public class CommuController {
 			@RequestParam String commuID) {			
 				
 		log.info(commuID);
-	
-		Gathering g = new Gathering(title, text, commuID, "광주조폭마누라", startTime, endTime, new BigDecimal(price.split("원")[0]), location, new BigDecimal(capacity.split("명")[0]));
-		log.info("lmake: " + g.toString());
-		log.info("Gathering: " + g);	        
+		
+		HttpSession session = request.getSession();
+        String id = (String) session.getAttribute("id");
+        
+        log.info("lmake/userID: " + id);
+        String nickname = service.getMember(commuID, id);
+        log.info("lmake/nickname: " + nickname);
+		
+		Gathering g = new Gathering(title, text, commuID, nickname, startTime, endTime, new BigDecimal(price.split("원")[0]), location, new BigDecimal(capacity.split("명")[0]));
+		log.info("lmake: " + g.toString());    
 		service.lmake(g);
 		return "1";	
 	}

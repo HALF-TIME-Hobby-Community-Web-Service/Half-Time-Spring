@@ -36,13 +36,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         ]]>
 	</select>
 
-	<insert id="insertGathering">
+	<insert id="insertGathering" parameterType="com.hf.domain.Gathering">
         <![CDATA[
 		INSERT INTO gathering 
 		VALUES ( 
-			gathering_seq.nextval, #{gObj.title}, #{gObj.text}, #{gObj.commuID}, #{gObj.organizer}, 
- 			TO_DATE(#{gObj.startTime}, 'YYYY/MM/DD"T"HH24:MI'), TO_DATE(#{gObj.endTime}, 'YYYY/MM/DD"T"HH24:MI'), 
- 			#{gObj.price}, #{gObj.location}, #{gObj.capacity})
+			gathering_seq.nextval, #{g.title}, #{g.text}, #{g.commuID}, #{g.organizer}, 
+ 			TO_DATE(#{g.startTime}, 'YYYY/MM/DD"T"HH24:MI'), TO_DATE(#{g.endTime}, 'YYYY/MM/DD"T"HH24:MI'), 
+ 			#{g.price}, #{g.location}, #{g.capacity})
         ]]>
 	</insert>
 
@@ -202,5 +202,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     )
     ]]>
 	</insert>
+	
+	<select id="getMember" resultType="String">
+	 <![CDATA[
+	 SELECT cnickname FROM commumember
+	 WHERE commuID = #{commuID} and userID = #{userID} 
+     ]]>
+	</select>
 	
 </mapper>

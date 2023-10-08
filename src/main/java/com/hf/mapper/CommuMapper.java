@@ -21,12 +21,11 @@ public interface CommuMapper {
 	
 	public int join(@Param("commuID")String commuID, @Param("userID")String userID, @Param("nickname")String nickname);
 	
-	public void insertGathering(Gathering gObj);
+	public void insertGathering(@Param("g") Gathering g);
 	public List<Gathering> getGathering();
 	public List<Commumember> getAllCommumember();
 	public List<CommuInfo> getCommuList();
-
-	public void insertGathering(@Param("gObj")Gathering gObj, @Param("commuID")String commuID);
+	
 	public List<Gathering> getGathering(String commuID);
 	public List<Commumember> getAllCommumember(String commuID);
 	public CommuConst getCommuConst(String commuID);
@@ -48,6 +47,8 @@ public interface CommuMapper {
 	public int checkmember(@Param("commuID")String commuID, @Param("nickname")String nickname);
 	public int checkJoined(@Param("commuID")String commuID, @Param("userID")String userID);
 	public String cjoin(@Param("commuID")String commuID, @Param("nickname")String nickname, @Param("userID")String userID);
+	
+	public String getMember(@Param("commuID")String commuID, @Param("userID")String userID);
 }
 
 
