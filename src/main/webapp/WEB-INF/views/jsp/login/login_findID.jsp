@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/resources/css/login_find.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/resources/js/login_findID.js"></script>
-   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Login find_ID page</title>
 </head>
 
