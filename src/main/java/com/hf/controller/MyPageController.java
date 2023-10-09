@@ -64,7 +64,7 @@ public class MyPageController {
         
         Date currentDate = new Date();
 
-        // Calendar 객체를 사용하여 나이 계산
+        // Calendar 媛앹껜瑜� �궗�슜�븯�뿬 �굹�씠 怨꾩궛
         Calendar dobCalendar = Calendar.getInstance();
         dobCalendar.setTime(birth);
         Calendar currentCalendar = Calendar.getInstance();
@@ -76,14 +76,14 @@ public class MyPageController {
             age--;
         }
         model.addAttribute("birth", age);
-        //여기까지가 기본 개인정보를 표시하는 코드
+        //�뿬湲곌퉴吏�媛� 湲곕낯 媛쒖씤�젙蹂대�� �몴�떆�븯�뒗 肄붾뱶
         
         
         List<CommuInfo> ci = commuservice.getCommuListById(id);
         model.addAttribute("commu", ci);
         
 
-        log.info("세션id는?"+id+"유저아이디"+user.getId());
+        log.info("�꽭�뀡id�뒗?"+id+"�쑀���븘�씠�뵒"+user.getId());
 		if (id.equals(user.getId())) {
 			return "./jsp/mypage/mypage";
 		} else {
@@ -106,7 +106,7 @@ public class MyPageController {
 		model.addAttribute("pnum", user.getPnum());
 
 
-		log.info("�����~");
+		log.info("占쏙옙占쏙옙占�~");
 
 		return "./jsp/mypage/infoupdate";
 	}
@@ -124,7 +124,7 @@ public class MyPageController {
 	@ResponseBody
 	@PostMapping(value = "/updatePhoneNumber", produces = "application/json")
 	public int updatePhoneNumber(HttpServletRequest request, @RequestParam("pnum_update") String pnum) {
-		log.info("����� ��������~" + pnum);
+		log.info("占쏙옙占쏙옙占� 占쏙옙占쏙옙占쏙옙占쏙옙~" + pnum);
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		int result = service.updatePhoneNumber(id,pnum);

@@ -6,12 +6,13 @@
 <head>
    
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="/resources/js/mypage.js"></script>
 	
 	
 <style>
 .mypageContent {
 	width: 700px;
-	height: 700px;
+	height: 800px;
 	 
 	margin-left: 25%;
 	margin-top: 40px;
@@ -111,7 +112,7 @@
 </style>
 </head>
 <body>
- <script src="/resources/js/mypage.js"></script>
+
     <div class="mypageContent">
     	<div class="userinfo">
     		<div class="userinfo_box">
