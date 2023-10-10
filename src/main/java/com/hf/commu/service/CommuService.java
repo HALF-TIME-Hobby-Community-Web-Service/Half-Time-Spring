@@ -79,6 +79,11 @@ public class CommuService {
 		return mapper.getCommuPost(commuID);
 	}
 	
+	public List<Post> getHistory(String commuID) {
+		log.info("service/getHistory");
+		return mapper.getHistory(commuID);
+	}	
+	
 	public CommuConst getConst(String commuID) {
 		log.info("service/getCommuConst");
 		return mapper.getCommuConst(commuID);

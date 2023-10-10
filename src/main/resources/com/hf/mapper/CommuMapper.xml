@@ -32,9 +32,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="getCommuPost" resultType="com.hf.domain.Post">
         <![CDATA[
-		SELECT * FROM commupost WHERE commuid = #{commuID} order by postTime
+		SELECT * FROM commupost WHERE commuid = #{commuID} and (posttype = '1' or posttype = '0') order by postTime
         ]]>
 	</select>
+	
+	<select id="getHistory" resultType="com.hf.domain.Post">
+        <![CDATA[
+		SELECT * FROM commupost WHERE commuid = #{commuID} and posttype = 2 order by postTime desc
+        ]]>
+	</select>
+	
 
 	<insert id="insertGathering" parameterType="com.hf.domain.Gathering">
         <![CDATA[

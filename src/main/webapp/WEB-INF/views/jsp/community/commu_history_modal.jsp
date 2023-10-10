@@ -56,7 +56,7 @@
   <div class="modal_container history_modal_container">
   	<div class="history_title_box">
   		<span class="history_title">📖HISTORY</span>
-  		<span class="history_writer">✍🏻
+  		<span class="history_writer">✍🏻</span>
   		<span class="history_time">⏰</span>
   	</div>
     <div class="history_modal_img_box">  	
@@ -69,11 +69,17 @@
 </div>
 
 <script>
+  $(()=> {
+	  
+  });
+
   $(function(){
   	$('.history_modal_content').draggable({'cancel':'.history_modal_container', containment:'parent', scroll:false});
   });
+    
   
   $('.history_closebtn').click(()=> {
 	  $('.history_modal_content').css('display','none');
-  })
+  })  
+  
 </script>
