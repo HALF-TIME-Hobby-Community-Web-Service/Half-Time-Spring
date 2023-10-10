@@ -33,7 +33,15 @@ public class S3FileService {
         request.setMetadata(metadata);
         amazonS3.putObject(request);
     }
-
+    public void uploadFileCommu(String bucketName, String filename, byte[] content, MultipartFile file) {
+        ObjectMetadata metadata = new ObjectMetadata();
+        metadata.setContentLength(content.length);
+        metadata.setContentType(file.getContentType());
+        String key = "commu/rep/" + filename;
+        PutObjectRequest request = new PutObjectRequest(bucketName, key, new ByteArrayInputStream(content), metadata);
+        request.setMetadata(metadata);
+        amazonS3.putObject(request);
+    }
     public byte[] downloadFile(String bucketName, String key) {
         S3Object object = amazonS3.getObject(bucketName, key);
         S3ObjectInputStream objectInputStream = object.getObjectContent();

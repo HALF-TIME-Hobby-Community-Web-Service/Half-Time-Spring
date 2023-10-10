@@ -179,5 +179,11 @@ public class CommuService {
 	public String getMember(String commuID, String userID) {
 		return mapper.getMember(commuID, userID);		
 	}
-
+	public void fileUploadCommuRep(int id,String filepath) {	
+		mapper.fileUploadCommuRep(id,filepath);
+	}
+	public int commuSeq() {
+		int intmax = mapper.getMaxCommuID();
+		return intmax;
+	}
 }

@@ -1,5 +1,6 @@
 package com.hf.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.List;
@@ -27,6 +28,7 @@ import com.hf.domain.CommuConst;
 import com.hf.domain.CommuInfo;
 import com.hf.domain.CommuWithContent;
 import com.hf.domain.Commumember;
+import com.hf.domain.Content;
 import com.hf.domain.Gathering;
 import com.hf.domain.Post;
 import com.hf.domain.commuSerise;
@@ -141,75 +143,55 @@ public class CommuController {
 	}
 	
 	@PostMapping("/cmake")
-	public String cmake(@ModelAttribute commuSerise c) {
+	public String cmake(@ModelAttribute commuSerise c) throws IOException {
 		log.info("cmake: " + c.toString());
 		String result = service.cmake(c);
 		log.info("cmake:result: " + result);
+		
 		return result;
 	}
 	
 	@PostMapping("/commuUploads3")
 	@ResponseBody
-	public String s3upload(@RequestParam(name = "files", required = false) List<MultipartFile> files,
-	                       @RequestParam("text") String text,
-	                       @RequestParam("title") String title,
-	                       @RequestParam("contenttype") String contenttype,
-	                       @RequestParam("writer") String writer,
-	                       @RequestParam("commuid") String commuid) {
-	    CommuWithContent cwc = new CommuWithContent();
+	public String s3upload(@RequestParam("file") MultipartFile file) throws IOException {
+		Content content = new Content();
 	    String bucket = "halftimespring";
-		log.info(writer);
-		log.info(contenttype);
-		log.info(text);
-		
-		cwc.setPOSTTYPE(Integer.parseInt(contenttype));
-		cwc.setTEXT(text);
-		cwc.setWRITER(writer);
-		cwc.setTITLE(title);
-		cwc.setCOMMUID(Integer.parseInt(commuid));
-		if(cwc.getWRITER()==null) {
-			return "nologin";
-		}
-		
-		service.commuUpload(cwc);
-		cwc.setReferenceID(Integer.parseInt(commuid));
+	    int id = service.getMaxCommuID();
+		log.info("아이디"+id);
 		int i =1;
 	    
+		content.setReferenceID(id);
+		
+		
 	    AmazonS3 amazonS3 = AmazonS3ClientBuilder.standard()
 	            .withRegion("ap-northeast-2")
 	            .build();
-	    log.info("fileSize : "+files.size());
-	    // S3FileService �깮�꽦
+	   
 	    S3FileService fileService = new S3FileService(amazonS3);
 
-	    try {
-	    	 
-	        for (MultipartFile file : files) {
+	   
 	            String fileName = file.getOriginalFilename();
+	            log.info("진짜 파일이름"+fileName);
 	            String fileExtName = fileName.substring(fileName.lastIndexOf("."), fileName.length());
-	            String filenameuuid = UUID.randomUUID().toString() + fileExtName; // S3�뿉 ���옣�맆 �뙆�씪 �씠由�
+	            String filenameuuid = UUID.randomUUID().toString() + fileExtName; 
+	            fileService.uploadFileCommu(bucket, filenameuuid, file.getBytes(),file);
+	            String filepath = "commu/rep/"+filenameuuid;
 	            
-	            // �뙆�씪 �뾽濡쒕뱶
-	            fileService.uploadFile(bucket, filenameuuid, file.getBytes(),file);
-	            String filepath = "commu/"+filenameuuid;
+	           
+	            
 	            String Url = amazonS3.getUrl(bucket, filepath).toString();
-	            log.info(Url);
+	            log.info("유알엘"+Url);
+	            content.setContentPath1(Url);
 	        
-	        }
-	        // for 猷⑦봽媛� 紐⑤뱺 �뙆�씪�쓣 �뾽濡쒕뱶�븳 �썑�뿉 momentService.fileUpload(mwc); �샇異�
-	        service.fileUpload(cwc);
 	        
-	        return "finish";
+	        service.fileUploadCommuRep(id,Url);
 	        
-	       
-	    } catch (IOException e) {
-	        e.printStackTrace();
-	        // �삤瑜� 泥섎━
-
-	    // �뾽濡쒕뱶 �떎�뙣 �떆 false 諛섑솚
+	        return "success";
+	  
 	    
-	    	}
-	    return "false";
 		}
+	
+	
+		
 	
 }

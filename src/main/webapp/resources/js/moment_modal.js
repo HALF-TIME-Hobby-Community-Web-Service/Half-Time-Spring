@@ -190,7 +190,7 @@ $(() => {
 			  						'<span class="comment_writer"> <a href="" class="feed_modal_a_name">moon_bomi</a> </span>'  +
 			  						'<span class="comment_time">3시간</span>' +
 	  							'</div>'  +
-	  							'<span class="comment_text">와 너무 멋져요 ㅠㅠ ♥</span>'  +
+	  							'<span class="comment_text"></span>'  +
 	  						'</div>'  +
 	  						'<div class="feed_modal_comment_box">' +
 	  							'<div>' +

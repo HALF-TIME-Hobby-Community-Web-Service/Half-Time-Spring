@@ -153,29 +153,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         )
         ]]>
     </insert>
-    
-    <insert id="fileUpload" parameterType="com.hf.domain.CommuWithContent">
-    <![CDATA[
-    INSERT INTO CONTENTSRC (
-        CONTENTID, REFERENCEID, CONTENTTYPE, CONTENTPATH1, CONTENTPATH2, CONTENTPATH3,
-        CONTENTPATH4, CONTENTPATH5,CONTENTPATH6,CONTENTPATH7,CONTENTPATH8,CONTENTPATH9,CONTENTPATH10
-    ) VALUES (
-        CONTENTSRC_SEQ.nextval,
-        #{COMMUID},
-        2,
-        #{contentPath1, jdbcType=VARCHAR},
-        #{contentPath2, jdbcType=VARCHAR},
-        #{contentPath3, jdbcType=VARCHAR},
-        #{contentPath4, jdbcType=VARCHAR},
-        #{contentPath5, jdbcType=VARCHAR},
-        #{contentPath6, jdbcType=VARCHAR},
-        #{contentPath7, jdbcType=VARCHAR},
-        #{contentPath8, jdbcType=VARCHAR},
-        #{contentPath9, jdbcType=VARCHAR},
-        #{contentPath10, jdbcType=VARCHAR}
-    )
-    ]]>
-	</insert>
 	
 	<select id="checkmember" resultType="int">
         <![CDATA[
@@ -209,5 +186,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 WHERE commuID = #{commuID} and userID = #{userID} 
      ]]>
 	</select>
+	
+	<select id="getMaxCommuID"  resultType="Integer">
+		<![CDATA[	
+		SELECT MAX(COMMUID)
+		FROM Commu
+		]]>
+	</select>	
+	
+	 <insert id="fileUploadCommuRep">
+    <![CDATA[
+    INSERT INTO CONTENTSRC (
+        CONTENTID, REFERENCEID, CONTENTTYPE, CONTENTPATH1
+    ) VALUES (
+        CONTENTSRC_SEQ.nextval,
+        #{commuMaxSeq},
+        3,
+        #{filepath, jdbcType=VARCHAR}
+    )
+    ]]>
+</insert>
 	
 </mapper>

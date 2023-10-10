@@ -40,7 +40,7 @@
         
 
         <div class="modal_button_container bmake_button_container" style="border-top: 1px solid;">
-          <button class="btn btn-primary commu_upload_btn">완료</button>
+          <button class="btn btn-primary commu_upload_btn" type="button">완료</button>
         </div>
                 
       </form>
