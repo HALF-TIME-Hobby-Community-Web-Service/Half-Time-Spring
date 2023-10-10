@@ -10,9 +10,7 @@ $(() => {
 		method: 'post', // GET 요청
 		dataType: "json",
 		success: (response) => {
-		  console.log(response);
-		
-		  mycommuContent.html(response); // 페이지 내용을 .feed_content에 삽입
+		  $('.feed_content').append(response); // 페이지 내용을 .feed_content에 삽입
 		},
 		error: (jqXhr, status) => {
 		  alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
@@ -20,7 +18,6 @@ $(() => {
 	});
 	
 	updateinfoBtn.click((e)=>{
-		alert("@");
 	    $.ajax({
 	        url: 'http://localhost:8888/user/updateInfo', // 불러올 페이지의 경로
 	        method: 'post', // GET 요청
@@ -36,4 +33,8 @@ $(() => {
       });
   });
 
+
+	$('.mypage_closebtn').on('click', function() {
+		$('.mypageContent').remove();
+	});
 });

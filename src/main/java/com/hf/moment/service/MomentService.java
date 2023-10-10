@@ -27,6 +27,12 @@ public class MomentService {
         log.info(momentMapper.selectMomentsWithContent(pageNum));
         return list;
     }
+    public List<MomentWithContent> searchMoment(String location) {
+    	List<MomentWithContent> list = new ArrayList();
+    	list = momentMapper.searchMoment(location);
+
+    	return list;
+    }
     public int countMomentsWithContent() {
         return momentMapper.countMomentsWithContent();
     }

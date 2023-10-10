@@ -3,10 +3,12 @@ $(() => {
     const momentWriteCloseBtn = $('.closeBtn');
     const momentWrite = $('.modalWrap');
     const memberListClick = $('.memberList');
-   let momentmodal;
-   let momentmodalAll;
+    let momentmodal;
+    let momentmodalAll;
     const container = $('.feed_container_append');
     var state = true;
+    
+
     
      $('body').append(
                         '<div class="feed_modal_content" id = "momentmodal">' +
@@ -96,17 +98,38 @@ $(() => {
                     ); 
                     $('.feed_modal_content').remove();
 	
+
 	$(window).on("click", function(e) {
-	if (!$(e.target).is(momentmodalAll)&&!$(e.target).is(momentmodal)&&!state) {
-        console.log("11111111111111111111111111111111111");
-    	momentmodal.remove();
-		state=true;
-    }
-		       
+    	if ($(e.target).is($('.feed_modal_closebtn')) ) {
+	    	momentmodal.remove();
+	    	state=true;
+	    }
+	    else if ($(e.target).is($('.feed_modal_a_name')) ) {
+	  		e.preventDefault();
+	    	const idLink = $(e.target); 
+		    const value = idLink.text();
+		
+		  $.ajax({
+			url: "/user/userpage",
+			type: "post",
+			data: { value: value },
+			success: function (response) {
+			  $('.feed_content').append(response);
+			},
+			error: function (jqXhr, status) {
+				alert('없는 유저 입니다!');
+			}
+		  });
+	    }		       
     });
 
-
     $(document).on("click", ".feed_container_append", function (e) {
+    
+    	 if ($(e.target).is("a")) {
+    	  // 클릭한 요소가 <a> 태그인 경우 아무 처리도 하지 않음
+   		  return;
+  		}
+    
         console.log("feed_container_append Clicked");
         var clickedFeedContainer = e.currentTarget;
         var clickedTarget = e.target.className;
@@ -173,7 +196,7 @@ $(() => {
                         '<div class="feed_modal_container">' +
   						 	'<div class="feed_modal_title">' +
 	  							'<div>' +
-	  								'<a href="" class="feed_modal_a_name">👦🏻 sungmin123</a>' +
+	  								'👦🏻<a href="" class="feed_modal_a_name">sungmin12</a>' +
 	  								 '<button class="feed_modal_closebtn btn">X</button>' +
 	  							'</div>' +
 	  							'<hr>' +
@@ -242,4 +265,8 @@ $(() => {
             
         }
     });
+    
+    
+
+    
 });

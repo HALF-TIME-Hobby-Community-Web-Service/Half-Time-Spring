@@ -5,8 +5,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.hf.mapper.MyPageMapper">
 
 	<select id="getUserInfo" resultType="com.hf.domain.User">
-		select id,pwd,name,nickname,birth,pnum,gender,address from users
+	
+	SELECT UC.CategoryName AS "CategoryName",
+        UL.LocationName AS "LocationName",
+        U.ID,
+        U.PWD,
+        U.NAME,
+        U.NICKNAME,
+        U.Birth,
+        U.PNUM,
+        U.Gender,
+        U.ADDRESS
+		FROM Users U
+		LEFT JOIN UserCategory UC ON U.Id = UC.UserId
+		LEFT JOIN UserLocation UL ON U.Id = UL.UserId
 		WHERE id = #{id}
+	
 	</select>
 
 	<update id="updatePhoneNumber">

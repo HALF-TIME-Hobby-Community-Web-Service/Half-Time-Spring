@@ -122,7 +122,7 @@ $(() => {
           alert('posttype 오류~');
 
         //쓰니
-        clone.find('.board_writer').text('✍🏻' + p.writer);
+        clone.find('.board_writer2').html(p.writer);
 
         //작성시간
         {
@@ -168,16 +168,32 @@ $(() => {
   });
 
   /* 히스토리 로드 */  
-  var cnt = 0;
-  {    
-    while (cnt++ <= 30) {   
-      const clone = $('.historyBox:first-child').clone();
-      clone.find('.history_box_img').attr('src', `/resources/items/commu/commu_history/${commuID}-${cnt}.jpg`).css('display','none');                   	      
-      $('.history_container').append(clone);          
-    }
-    $('.historyBox:first-child').css('display', 'none');
-  }
+        
+	$.ajax({
+	  url: `${backURL}/gethistory`,
+	  method: 'POST',
+	  data: { commuID: commuID },
+	  success: (response) => {
+	  	response.forEach((p) => {
+			const clone = $('.historyBox:first-child').clone();
+	  		//clone.find('.history_box_img').attr('src', `/resources/items/commu/commu_history/${commuID}-1.jpg`);
+	  		clone.append(`<input type="hidden" name="title" value=${p.title}>`);
+	  		clone.append(`<input type="hidden" name="writer" value=${p.writer}>`);
+	  		clone.append(`<input type="hidden" name="posttime" value=${p.posttime}>`);
+	  		clone.append(`<input type="hidden" name="text" value=${p.text}>`);
+		    $('.history_container').append(clone);                 	           		
+	 	});     
+	 	$('.history_container .historyBox:first').css('display', 'none');  		 
+	  },
+	  error: (jqXhr, status) => {
+	 	 alert(`히스토리 로드 실패: ${status}\n오류명:${jqXhr.status}`);
+	  }
+	});
+	
+	
           
+  
+  
   /* 이미지 로드 된 것만 block 처리*/
   $('.history_box_img').on('load', function(e) {
     $(e.target).css('display', 'block');

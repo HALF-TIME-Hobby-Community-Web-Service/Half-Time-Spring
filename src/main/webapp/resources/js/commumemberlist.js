@@ -49,7 +49,7 @@ $(() => {
          
           const cca = $('<div>').text(age + 1 + '세'); // 나이로 변환하여 출력
           const ca  = $('<div>').text(autho);
-          const cn  = $('<div>').html(`<a href="" style="	text-decoration: none;
+          const cn  = $('<div>').html(`<a href="" class="feed_a_name2" style="	text-decoration: none;
 	color: black;">` + data.cnickName + `</a>`);
           const ci  = $('<div>').text(gender);
           const cs  = $('<div>').text(data.birth);

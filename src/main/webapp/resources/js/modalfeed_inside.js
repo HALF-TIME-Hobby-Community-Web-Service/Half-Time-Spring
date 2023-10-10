@@ -1,18 +1,18 @@
 $(()=>{
 
-const feed_box_click = $('.feedbox')
-const feed_modalWrap = $('.feed_modalWrap')
-const feed_closeBtn = $('.feed_closeBtn')
+	const feed_box_click = $('.feedbox')
+	const feed_modalWrap = $('.feed_modalWrap')
+	const feed_closeBtn = $('.feed_closeBtn')
+	
+	feed_box_click.click((e)=>{
+	    feed_modalWrap.css('display','block')
+	})
+	
+	feed_closeBtn.click(()=>{
+	    feed_modalWrap.css('display','none')
+	})
 
-feed_box_click.click((e)=>{
-    feed_modalWrap.css('display','block')
-})
-
-feed_closeBtn.click(()=>{
-    feed_modalWrap.css('display','none')
-})
-
-
+  	
 })
 
 /*js가 실행이 안된다

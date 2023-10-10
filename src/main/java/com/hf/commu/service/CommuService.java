@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hf.domain.CommuConst;
 import com.hf.domain.CommuInfo;
@@ -78,6 +79,11 @@ public class CommuService {
 		log.info("service/getCommuPost");
 		return mapper.getCommuPost(commuID);
 	}
+	
+	public List<Post> getHistory(String commuID) {
+		log.info("service/getHistory");
+		return mapper.getHistory(commuID);
+	}	
 	
 	public CommuConst getConst(String commuID) {
 		log.info("service/getCommuConst");
@@ -179,6 +185,7 @@ public class CommuService {
 	public String getMember(String commuID, String userID) {
 		return mapper.getMember(commuID, userID);		
 	}
+<<<<<<< HEAD
 	public void fileUploadCommuRep(int id,String filepath) {	
 		mapper.fileUploadCommuRep(id,filepath);
 	}
@@ -186,4 +193,11 @@ public class CommuService {
 		int intmax = mapper.getMaxCommuID();
 		return intmax;
 	}
+=======
+	
+	public String getUserID(String commuID, String nickname) {
+		return mapper.getUserID(commuID, nickname);
+	}
+
+>>>>>>> 16dd62eecca63e65a4ba6a7af89666b25a27a82c
 }

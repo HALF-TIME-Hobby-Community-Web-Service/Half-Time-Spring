@@ -64,6 +64,13 @@ public class CommuController {
 		List<Post> boardList = service.getCommuPost(commuID);
 		return boardList;
 	}
+	
+	@GetMapping("/gethistory")
+	public List<Post> getHistory(@RequestParam("commuID") String commuID) {
+		List<Post> boardList = service.getHistory(commuID);
+		log.info("historylist: " + boardList);
+		return boardList;
+	}
 
 	@GetMapping("/getcommuinfo")
 	public CommuInfo getCommuInfo(@RequestParam("commuID") String commuID) {
@@ -192,6 +199,15 @@ public class CommuController {
 		}
 	
 	
+<<<<<<< HEAD
 		
 	
+=======
+	@PostMapping("getuserid")
+	public String getUserID(@RequestParam("commuID")String commuID, @RequestParam("nickname")String nickname) {
+		String result = service.getUserID(commuID, nickname);
+		log.info("getuserid/result :" + result);
+		return result;
+	}
+>>>>>>> 16dd62eecca63e65a4ba6a7af89666b25a27a82c
 }

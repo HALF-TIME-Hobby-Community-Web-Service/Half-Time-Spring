@@ -22,8 +22,12 @@ public class User {
 	private String category; 
 	private String profileImg;
 	
+	private String locationName;
+	private String categoryName;
+	
+	
 
-	//鍮꾨�踰덊샇 李얘린 �깮�꽦�옄
+	//�뜮袁⑨옙甕곕뜇�깈 筌≪뼐由� 占쎄문占쎄쉐占쎌쁽
 	public User(String id, String name, int gender, String birth, String pnum) {
 		this.id=id;
 		this.name=name;
@@ -34,13 +38,15 @@ public class User {
 	public User() {
 	
 	}
-	//濡쒓렇�씤 �깮�꽦�옄
+	//嚥≪뮄�젃占쎌뵥 占쎄문占쎄쉐占쎌쁽
 	public User(String id, String pwd){
 		this.id=id;
 		this.pwd=pwd;		
 	}
 	
-	//�쉶�썝媛��엯 �럹�씠吏�1 �깮�꽦�옄
+	
+	
+	//占쎌돳占쎌뜚揶쏉옙占쎌뿯 占쎈읂占쎌뵠筌욑옙1 占쎄문占쎄쉐占쎌쁽
 	public User(String id, String pwd, String name, String birth, int gender, String address, String pnum, String nickname){
 		this.id = id;
 		this.pwd = pwd;
@@ -49,17 +55,19 @@ public class User {
 		this.gender = gender;
 		this.address = address; 
 		this.pnum = pnum; 
-		this.nickname = nickname;				
+		this.nickname = nickname;
+
+
 	}
 
-	//�쉶�썝媛��엯 �럹�씠吏�2 �깮�꽦�옄
+	//占쎌돳占쎌뜚揶쏉옙占쎌뿯 占쎈읂占쎌뵠筌욑옙2 占쎄문占쎄쉐占쎌쁽
 	public User(String location, String category, String id) {
 		this.location = location;
 		this.category = category;
 		this.id=id;
 	}
 	
-	//�븘�씠�뵒 以묐났泥댄겕
+	//占쎈툡占쎌뵠占쎈탵 餓λ쵎�궗筌ｋ똾寃�
 	public User(String id) {
 		this.id = id;
 	}
@@ -99,6 +107,18 @@ public class User {
 		this.gender = gender;
 		this.address = address;
 		this.pnum = pnum;
+	}
+	public User(String id, String pwd, String name, String birth, int gender, String address, String pnum, String nickname,String categoryName, String locationName){
+		this.id = id;
+		this.pwd = pwd;
+		this.name = name; 
+		this.birth = birth; 
+		this.gender = gender;
+		this.address = address; 
+		this.pnum = pnum; 
+		this.nickname = nickname;
+		this.categoryName=categoryName;
+		this.locationName=locationName;
 	}
 
 	

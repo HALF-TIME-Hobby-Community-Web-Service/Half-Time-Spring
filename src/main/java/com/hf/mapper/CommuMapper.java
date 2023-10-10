@@ -10,14 +10,14 @@ import com.hf.domain.CommuInfo;
 import com.hf.domain.CommuWithContent;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
-import com.hf.domain.MomentWithContent;
-import com.hf.domain.CommuWithContent;
 import com.hf.domain.Post;
 import com.hf.domain.commuSerise;
 
 public interface CommuMapper {
 	public CommuInfo getCommuInfo(String commuID);
 	public List<Post> getCommuPost(String commuID);
+	public List<Post> getHistory(String commuID);
+	
 	
 	public int join(@Param("commuID")String commuID, @Param("userID")String userID, @Param("nickname")String nickname);
 	
@@ -49,8 +49,12 @@ public interface CommuMapper {
 	public String cjoin(@Param("commuID")String commuID, @Param("nickname")String nickname, @Param("userID")String userID);
 	
 	public String getMember(@Param("commuID")String commuID, @Param("userID")String userID);
+<<<<<<< HEAD
 	public void fileUploadCommuRep(@Param("commuMaxSeq") int commuMaxSeq,@Param("filepath") String filepath);
 	public Integer getMaxCommuID();
+=======
+	public String getUserID(@Param("commuID")String commuID, @Param("nickname")String nickname);
+>>>>>>> 16dd62eecca63e65a4ba6a7af89666b25a27a82c
 }
 
 
