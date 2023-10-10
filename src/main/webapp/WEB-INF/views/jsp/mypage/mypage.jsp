@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<html>
 
-<head>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
    
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-	<script src="/resources/js/mypage.js"></script>
+	
+<script src="/resources/js/mypage.js"></script>
 	
 	
 <style>
@@ -29,15 +27,15 @@
 	margin-top: 20px;
 	margin-left: 5%;
 	margin-right: 5%;
-	padding-top: 15px;
+	padding-top: 25px;
 	padding-bottom: 10px;
 	
-	font-size: 24px;	
+	font-size: 18px;	
 	font-weight: bolder;
 	
 	border: 1px solid;
 	border-radius: 5px;
-	background-color: #f6f4eb;
+	background-color: #fffae5;
 }
 
 .userinfo_box {
@@ -71,10 +69,7 @@
 	font-size: 18px;
 }
 
-.userinfo2 {
-	display:flex;
-	justify-content: center;
-	
+.userinfo2 {	
 	border-bottom: 1px solid;
 }
 
@@ -86,7 +81,7 @@
 
 .mypage_commu_container {
 	overflow-y: auto;	 
-	height: 89%;
+	height: 86.2%;
 }
 
 .mypage_commu_box {
@@ -105,131 +100,51 @@
 }
 
 
-.mypageContainer_myCommu {
-	
+
+/* etc */
+.marginleft30px {
+	margin-left: 30px;
 }
 
 </style>
-</head>
-<body>
 
     <div class="mypageContent">
     	<div class="userinfo">
     		<div class="userinfo_box">
 		    	<span class="mypage_id">😀아이디:${id}</span>
 		    	<span class="mypage_name" style="margin-left: 20px;">🤷‍♀️이름: ${name}</span>
-		    	<span class="mypage_nickname" style="margin-left: 20px;">🕵️‍♂️닉네임:${nickname}</span>
+		    	<span class="mypage_nickname" style="margin-left: 20px;">🕵️‍♂️닉네임: ${nickname}</span>
 	    	</div> 
            	<button class="btn btn-danger update_info" >수정</button>        	    
     	</div>
     	<div class="mypageContainer">
-	    	<div class="userinfo2">    	
-		    	<span >🎂나이:${birth}</span>
-		    	<span>❤성별:${gender}</span>
-		    	<span>🌎주소:${address}</span> | 
-	    		<span>👀관심취미:</span>
-	    		<span>🌎관심지역</span>
+	    	<div class="userinfo2">
+	    		<div>    	
+		    		<span >🎂나이: ${birth} </span>
+		    		<span class="marginleft30px">❤성별: ${gender} </span>
+		    		<span class="marginleft30px">🌎주소: ${address}</span>
+		    	</div> 
+		    	<div>
+	    			<span>👀관심취미:  </span>
+	    			<span class="marginleft30px">🌎관심지역: </span>
+	    		</div>
 	    	</div>
 	    	
-	    	<%-- <c:forEach items="${commu}" var="commuItem">
-    			<p>${commuItem.commuID} ${commuItem.commuName}</p>
-			</c:forEach> --%>
+	    	
 	    	
 	
-	        <div class="mypage_subtitle">가입한 커뮤니티 </div>
+        <div class="mypage_subtitle">가입한 커뮤니티 </div>
 	    	<div class="mypage_commu_container">
-	          <div class="mypage_commu_box">
-	             <img class="mypage_commu_img" src="/resources/items/commu/commu_page/1.jpg" alt="안녕" />
-	             <div style="float: left">
-	             	<div style="margin-top: 5px;">이름: ${commu[0].commuName}<span class="commu_name"></span></div>
-	             	<div>지역:${commu[0].commuLocation} <span class="commu_location"></span></div>
-	             	<div>장르:${commu[0].commuCategory} <span class="commu_category"></span></div>
-	             </div>		             
-		      </div>	
-		      <div class="mypage_commu_box">
-	             <img class="mypage_commu_img" src="/resources/items/commu/commu_page/1.jpg" alt="안녕" />
-	             <div style="float: left">
-	             	<div style="margin-top: 5px;">이름:${commu[1].commuName}<span class="commu_name"></span></div>
-	             	<div>지역:${commu[1].commuLocation} <span class="commu_location"></span></div>
-	             	<div>장르:${commu[1].commuCategory} <span class="commu_category"></span></div>
-	             </div>		             
-		      </div>	
-		      <div class="mypage_commu_box">
-	             <img class="mypage_commu_img" src="/resources/items/commu/commu_page/1.jpg" alt="안녕" />
-	             <div style="float: left">
-	             	<div style="margin-top: 5px;">이름: <span class="commu_name"></span></div>
-	             	<div>지역: <span class="commu_location"></span></div>
-	             	<div>장르: <span class="commu_category"></span></div>
-	             </div>		             
-		      </div>	
-		      <div class="mypage_commu_box">
-	             <img class="mypage_commu_img" src="/resources/items/commu/commu_page/1.jpg" alt="안녕" />
-	             <div style="float: left">
-	             	<div style="margin-top: 5px;">이름: <span class="commu_name"></span></div>
-	             	<div>지역: <span class="commu_location"></span></div>
-	             	<div>장르: <span class="commu_category"></span></div>
-	             </div>		             
-		      </div>	
-		      <div class="mypage_commu_box">
-	             <img class="mypage_commu_img" src="/resources/items/commu/commu_page/1.jpg" alt="안녕" />
-	             <div style="float: left">
-	             	<div style="margin-top: 5px;">이름: <span class="commu_name"></span></div>
-	             	<div>지역: <span class="commu_location"></span></div>
-	             	<div>장르: <span class="commu_category"></span></div>
-	             </div>		             
-		      </div>	
-		      <div class="mypage_commu_box">
-	             <img class="mypage_commu_img" src="/resources/items/commu/commu_page/1.jpg" alt="안녕" />
-	             <div style="float: left">
-	             	<div style="margin-top: 5px;">이름: <span class="commu_name"></span></div>
-	             	<div>지역: <span class="commu_location"></span></div>
-	             	<div>장르: <span class="commu_category"></span></div>
-	             </div>		             
-		      </div>	
-		      <div class="mypage_commu_box">
-	             <img class="mypage_commu_img" src="/resources/items/commu/commu_page/1.jpg" alt="안녕" />
-	             <div style="float: left">
-	             	<div style="margin-top: 5px;">이름: <span class="commu_name"></span></div>
-	             	<div>지역: <span class="commu_location"></span></div>
-	             	<div>장르: <span class="commu_category"></span></div>
-	             </div>		             
-		      </div>	
-		      <div class="mypage_commu_box">
-	             <img class="mypage_commu_img" src="/resources/items/commu/commu_page/1.jpg" alt="안녕" />
-	             <div style="float: left">
-	             	<div style="margin-top: 5px;">이름: <span class="commu_name"></span></div>
-	             	<div>지역: <span class="commu_location"></span></div>
-	             	<div>장르: <span class="commu_category"></span></div>
-	             </div>		             
-		      </div>	
-		      <div class="mypage_commu_box">
-	             <img class="mypage_commu_img" src="/resources/items/commu/commu_page/1.jpg" alt="안녕" />
-	             <div style="float: left">
-	             	<div style="margin-top: 5px;">이름: <span class="commu_name"></span></div>
-	             	<div>지역: <span class="commu_location"></span></div>
-	             	<div>장르: <span class="commu_category"></span></div>
-	             </div>		             
-		      </div>	
-		      <div class="mypage_commu_box">
-	             <img class="mypage_commu_img" src="/resources/items/commu/commu_page/1.jpg" alt="안녕" />
-	             <div style="float: left">
-	             	<div style="margin-top: 5px;">이름: <span class="commu_name"></span></div>
-	             	<div>지역: <span class="commu_location"></span></div>
-	             	<div>장르: <span class="commu_category"></span></div>
-	             </div>		             
-		      </div>	
-		      <div class="mypage_commu_box">
-	             <img class="mypage_commu_img" src="/resources/items/commu/commu_page/1.jpg" alt="안녕" />
-	             <div style="float: left">
-	             	<div style="margin-top: 5px;">이름: <span class="commu_name"></span></div>
-	             	<div>지역: <span class="commu_location"></span></div>
-	             	<div>장르: <span class="commu_category"></span></div>
-	             </div>		             
-		      </div>		              
+          		<c:forEach items="${commu}" var="commuItem">
+	    		  <div class="mypage_commu_box">
+		            <img class="mypage_commu_img" src="/resources/items/commu/commu_page/1.jpg" alt="안녕" />
+		            <div style="float: left">
+		             	<div style="margin-top: 5px;">이름: ${commuItem.commuName}<span class="commu_name"></span></div>
+		             	<div>지역:${commuItem.commuLocation} <span class="commu_location"></span></div>
+		             	<div>장르:${commuItem.commuCategory} <span class="commu_category"></span></div>
+		             </div>		             
+			      </div>
+				</c:forEach> 		             
 	        </div>	        
         </div>
     </div>
-
-</body>
-
-</html>
