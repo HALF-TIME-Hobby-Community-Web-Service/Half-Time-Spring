@@ -16,8 +16,8 @@
    <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
    
    <property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
-   <property name="username" value="moon" />
-   <property name="password" value="bomi" />
+   <property name="username" value="hf2" />
+   <property name="password" value="hf2" />
    </bean>
    
    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">

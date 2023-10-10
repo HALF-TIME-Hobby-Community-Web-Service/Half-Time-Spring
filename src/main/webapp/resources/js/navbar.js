@@ -157,7 +157,6 @@ $(() => {
 			}
 		});
 	});
-<<<<<<< HEAD
 
 	$('.feed_content').on("click", ".feed_a_name", function (e) {
 
@@ -178,10 +177,8 @@ $(() => {
 		});
 
 	});
-=======
 	
 	
->>>>>>> c401a898a93acad46d7ccdb8e517fd78186d2afc
 
 	searchForm.submit((e) => {
 		e.preventDefault();

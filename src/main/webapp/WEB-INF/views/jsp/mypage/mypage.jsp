@@ -125,8 +125,8 @@
 		    		<span class="marginleft30px">🌎주소: ${address}</span>
 		    	</div> 
 		    	<div>
-	    			<span>👀관심취미:  </span>
-	    			<span class="marginleft30px">🌎관심지역: </span>
+	    			<span>👀관심취미:${categoryName}  </span>
+	    			<span class="marginleft30px">🌎관심지역:${locationName} </span>
 	    		</div>
 	    	</div>
 	    	

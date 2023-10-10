@@ -45,6 +45,8 @@ public class MyPageController {
 		model.addAttribute("nickname", user.getNickname());
 		model.addAttribute("pwd", user.getPwd());
 		model.addAttribute("name", user.getName());
+		model.addAttribute("locationName", user.getLocationName());
+		model.addAttribute("categoryName", user.getCategoryName());
 		
 		model.addAttribute("pnum", user.getPnum());
 		model.addAttribute("address", user.getAddress());
@@ -82,6 +84,7 @@ public class MyPageController {
         List<CommuInfo> ci = commuservice.getCommuListById(id);
         model.addAttribute("commu", ci);
         
+        
 		if (id.equals(user.getId())) {
 			return "./jsp/mypage/mypage";
 		} else {
@@ -101,7 +104,8 @@ public class MyPageController {
 		model.addAttribute("nickname", user.getNickname());
 		model.addAttribute("pwd", user.getPwd());
 		model.addAttribute("name", user.getName());
-		
+		model.addAttribute("locationName", user.getLocationName());
+		model.addAttribute("categoryName", user.getCategoryName());
 		model.addAttribute("pnum", user.getPnum());
 		model.addAttribute("address", user.getAddress());
 		if(user.getGender()==1) {
@@ -154,6 +158,7 @@ public class MyPageController {
 		model.addAttribute("name", user.getName());
 		model.addAttribute("birth", user.getBirth());
 		model.addAttribute("pnum", user.getPnum());
+		
 
 
 		log.info("�뜝�룞�삕�뜝�룞�삕�뜝占�~");
