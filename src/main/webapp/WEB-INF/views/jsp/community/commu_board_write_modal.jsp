@@ -5,7 +5,7 @@
     <div class="modal_title bmake_title"> 🎴게시글 작성<span class="modal_closebtn bmake_closebtn">&times;</span></div>
     
     <div class="modal_container b_container">
-      <form method="post" action="" class="commu_upload_form">      
+      <form method="post" action="http://localhost:8888/commu/commuUploads3" class="commu_upload_form">      
               
         <div class="form-floating mb-3">
 	        <select name="" class="form-select commucategory">

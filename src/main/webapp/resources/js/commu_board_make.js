@@ -42,50 +42,21 @@ $(() => {
         img_cnt++;
     });
 
-    const LargeCate = $('.selectLargeCategory');
-   	const SmallCate = $('.selectSmallCategory'); 
-      
-    $('.float-item1').click(() => {
-        $.ajax({
-            url: 'http://localhost:8888/moment/modal_LargeCategory',
-            method: 'POST',
-            dataType: "json",
-            success: function (data) {
-                $.each(data, function (index, item) {
-                    LargeCate.append('<option value="' + item + '">' + item + '</option>');
-                });
-            },
-            error: function (error) {
-                console.log("largeCategory error");
-                console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
-            }
-        });
-    });
-
+   
     const upload = $('.commu_upload_btn');
     const modal_form = $('.commu_upload_form');
     const thumbnail = $(".b_img");
 	
 	
     upload.on("click", function (e) {
+     e.preventDefault();
     console.log("wadawdawdawd");
         const category = $('.commucategory').val();
         const text = $('.bmake_text').val();
 		const commuid = sessionStorage.getItem('commuID');
 		const title = $('.bmake_name').val();
-        let contenttype;
         
-        e.preventDefault();
-        
-        if(category==="대분류"){
-        	contenttype=0;
-        }else if(category==="공지사항"){
-        	contenttype=1;
-        }else if(category==="게시글"){
-        	contenttype=2;
-        }else if(category==="히스토리"){
-        	contenttype=3;
-        }
+       
         
         
         if(text==''){
@@ -105,7 +76,7 @@ $(() => {
         for (var i = 0; i < inputFiles.length; i++) {
             formData.append('files', inputFiles[i]); // 'files'라는 이름으로 파일 데이터를 추가
         }
-
+		alert(category);
         formData.append("text", text);
         formData.append("writer", writer);
         formData.append("contenttype", category);

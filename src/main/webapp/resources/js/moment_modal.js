@@ -181,7 +181,7 @@ $(() => {
 		  							'<span class="feed_modal_category">😘자기과시</span>' +
 		  							'<span class="feed_modal_location">🌎경기도 동탄시</span>' +
 								'</div>' +
-		        				'<div class="feed_modal_feedtext">나는 너무 과하게 잘생겨서 슬퍼 ㅠㅠ 공감좀요...?</div>' +        
+		        				'<div class="feed_modal_feedtext">'+data.text+'</div>' +        
 		  						'</div>' +
 	  						'<hr>' +
 	  						'<div class="feed_modal_comment_container">' +
