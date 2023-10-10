@@ -3,8 +3,8 @@
  
 <link rel="stylesheet" href="/resources/css/mypage.css">	
 <script src="/resources/js/mypage.js"></script>
-		
 
+</style>
 <div class="mypageContent">
 	<div class="userinfo">
 		<div class="userinfo_box">
