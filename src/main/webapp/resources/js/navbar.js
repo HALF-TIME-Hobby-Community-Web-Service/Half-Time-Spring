@@ -157,6 +157,7 @@ $(() => {
 			}
 		});
 	});
+<<<<<<< HEAD
 
 	$('.feed_content').on("click", ".feed_a_name", function (e) {
 
@@ -177,9 +178,12 @@ $(() => {
 		});
 
 	});
+=======
+	
+	
+>>>>>>> c401a898a93acad46d7ccdb8e517fd78186d2afc
 
 	searchForm.submit((e) => {
-
 		e.preventDefault();
 		if (selectObj.val() == "moment") {
 			//선택자가 모먼트일 경우 ajax로 모먼트를 검색하는 방식 작성

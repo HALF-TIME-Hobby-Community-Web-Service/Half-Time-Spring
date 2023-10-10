@@ -71,7 +71,7 @@
         <div class="boardBox_clone">
           <div class="boardBox_topbox">
             <span class="boardbox_top board_posttype">📖공지사항</span>
-            <span class="boardbox_top board_writer">✍🏻김수열</span>
+            <span class="boardbox_top board_writer ">✍🏻<a href="" class="board_writer2 feed_a_name2">김수열</a></span>
             <span class="boardbox_top board_posttime">⏰23.08.10</span>
           </div>
           <p class="board boardTitle">
@@ -106,7 +106,7 @@
           HISTORY
         </div>
         <div class="history_container">
-          <div class="historyBox" onclick="history_modal_open()">
+          <div class="historyBox" onclick="history_modal_open(this)">
             <img src="/resources/items/commu_preview_default.png" class="history_box_img" />
           </div>
         </div>
@@ -124,9 +124,9 @@
 	  })
 	  
  	/* 히스토리 모달 클릭 동작 */
-	function history_modal_open() {
-	    var historyBox = $(this); // 클릭된 historyBox 요소를 jQuery 객체로 저장
-	    
+	function history_modal_open(historyBox) {
+		var historyBox = $(historyBox);	  
+		  
 	    var title 	 = historyBox.find('input[name="title"]').val();
 	    var writer 	 = historyBox.find('input[name="writer"]').val();
 	    var posttime = historyBox.find('input[name="posttime"]').val();
@@ -134,13 +134,15 @@
 	    
 	    // 이제 title, writer, posttime, text를 사용할 수 있습니다.	
 	    $('.history_title').text('📖' + title);
-	    $('.history_writer').text('✍🏻' + writer);
+	    $('.history_writer').text(writer);
 	    $('.history_time').text('⏰' + posttime);
 	    //$('.history_modal_img').attr('src',  '');
 	   	$('.history_modal_text').text(' ' + text);
 	    
 	    $('.history_modal_content').css('display', 'block');	    
 	}
+
+	  
 
   </script>
 </body>

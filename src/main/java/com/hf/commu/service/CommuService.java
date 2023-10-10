@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hf.domain.CommuConst;
 import com.hf.domain.CommuInfo;
@@ -183,6 +184,10 @@ public class CommuService {
 	
 	public String getMember(String commuID, String userID) {
 		return mapper.getMember(commuID, userID);		
+	}
+	
+	public String getUserID(String commuID, String nickname) {
+		return mapper.getUserID(commuID, nickname);
 	}
 
 }

@@ -217,4 +217,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      ]]>
 	</select>
 	
+	<select id="getUserID" resultType="String">
+	 <![CDATA[
+	 SELECT userID FROM commumember
+	 WHERE commuID = #{commuID} and cnickname = #{nickname} 
+     ]]>
+	</select>
+	
 </mapper>

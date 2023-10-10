@@ -122,7 +122,7 @@ $(() => {
           alert('posttype 오류~');
 
         //쓰니
-        clone.find('.board_writer').text('✍🏻' + p.writer);
+        clone.find('.board_writer2').html(p.writer);
 
         //작성시간
         {
