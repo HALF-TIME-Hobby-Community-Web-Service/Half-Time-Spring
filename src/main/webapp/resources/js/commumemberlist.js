@@ -28,8 +28,10 @@ $(() => {
                     
           if (data.gender == 1) 
             var gender = '남';
-          else if (data.gender == 2) 
-            var gender = '여';                     
+          else if (data.gender == 2 ) 
+            var gender = '여';        
+          else
+            var gender = '?';             
 
           if (data.cauth == 2)           	
           	var autho = '👑매니저';                   
@@ -47,7 +49,8 @@ $(() => {
          
           const cca = $('<div>').text(age + 1 + '세'); // 나이로 변환하여 출력
           const ca  = $('<div>').text(autho);
-          const cn  = $('<div>').text(data.cnickName);
+          const cn  = $('<div>').html(`<a href="" style="	text-decoration: none;
+	color: black;">` + data.cnickName + `</a>`);
           const ci  = $('<div>').text(gender);
           const cs  = $('<div>').text(data.birth);
 

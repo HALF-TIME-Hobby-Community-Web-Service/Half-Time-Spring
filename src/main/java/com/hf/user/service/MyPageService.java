@@ -15,8 +15,9 @@ public class MyPageService {
 	@Setter(onMethod_ = @Autowired)
 	private MyPageMapper mapper;
 	
-	 public User getUserInfo(String id ) {
+	 public User getUserInfo(String id) {
    	User user = mapper.getUserInfo(id);
+
    	  return user;
 
    }

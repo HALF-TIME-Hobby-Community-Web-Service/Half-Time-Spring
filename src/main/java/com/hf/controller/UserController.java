@@ -57,14 +57,14 @@ public class UserController {
 	       
 	    ) {
 	        String id = ida + idb;
-	        String phonenum = phonenuma + phonenumb + phonenumc;     
+	        String pnum = phonenuma + phonenumb + phonenumc;     
 	        
-	        User user = new User(id, pwd, name, birth, gender, address, phonenum, nickname);
+	        User user = new User(id, pwd, name, birth, gender, address, pnum, nickname);
 
 	        log.info("회원가입정보" + " ID:" + id + " PWD:" + pwd +
 	                " NAME:" + name + " BIRTH:" + birth +
 	                " GENDER:" + gender + " ADDRESS:" + address +
-	                " PHONENUM:" + phonenum + " NICKNAME" + nickname);
+	                " PHONENUM:" + pnum + " NICKNAME" + nickname);
 
 	        int state = service.joinCheck(user);
 	        log.info("가입 " + state + "페이지 작성 완료");
@@ -377,7 +377,7 @@ public class UserController {
 		        String pnum = phonenuma + phonenumb + phonenumc;     
 		        int gender = 0;
 		        String pwd = id+"naver";
-		        id= id+":naver";
+		        //id= id+":naver"; 이거 변
 		        
 		        User user = new User(id, pwd, name, birth, gender, address, pnum, nickname);
 

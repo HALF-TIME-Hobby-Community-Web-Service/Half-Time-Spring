@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/resources/css/login_find.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/resources/js/login_findID.js"></script>
+   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Login find_ID page</title>
 </head>
 
@@ -54,7 +55,7 @@
                             name="login_pnum3"
                             oninput="this.value = this.value.replace(/[^0-9]/g, '');"
                             required="required">
-                            <button class="login_findpnum_checkbtn" type="button">확인</button>
+                            <button class="login_findpnum_checkbtn" type="button">아이디 찾기</button>
                     </div><br>
                 </form>
             </div>

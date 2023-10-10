@@ -11,7 +11,6 @@ import com.hf.domain.CommuInfo;
 import com.hf.domain.CommuWithContent;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
-import com.hf.domain.MomentWithContent;
 import com.hf.domain.Post;
 import com.hf.domain.commuSerise;
 import com.hf.mapper.CommuMapper;
@@ -43,7 +42,6 @@ public class CommuService {
 	}
 	
 	public String join(String commuID, String userID, String nickname) {
-		
 		log.info("service/join/commuID: " + commuID);
 		
 		String returnMSG = "fail";
@@ -62,13 +60,8 @@ public class CommuService {
 		return mapper.getCommuList();
 	}
 	
-	public void lmake(Gathering gObj) {
-		mapper.insertGathering(gObj,"1");
-	}
-	public void lmake(Gathering gObj, String commuID) {
-		log.info("service/lmake");
-		mapper.insertGathering(gObj, commuID);
-
+	public void lmake(Gathering g) {
+		mapper.insertGathering(g);
 	}
 
 	public List<Gathering> getGathering(String commuID) {
@@ -153,4 +146,38 @@ public class CommuService {
 	public int getMaxCommuID() {
     	return mapper.getMaxCommuID();
     }
+	
+	
+	//2023-10-08 추가
+	public String checkmember(String commuID, String nickname) {
+		try {
+			if (mapper.checkmember(commuID, nickname) >= 1)
+				return "duplicated";
+			else
+				return "OK";
+		} catch(NullPointerException e) {
+			return "ERROR";
+		}
+	}
+	
+	public String cjoin(String commuID, String nickname, String userID) {
+		try {
+			mapper.cjoin(commuID, nickname, userID);
+			return "success";
+		} catch (Exception e) {
+			return "fail";
+		}
+	}
+	
+	public String checkJoined(String commuID, String userID) {		
+		int result = mapper.checkJoined(commuID, userID);
+		if (result >= 1) 
+			return "JOINED";
+		return "NOTYET";				
+	}
+	
+	public String getMember(String commuID, String userID) {
+		return mapper.getMember(commuID, userID);		
+	}
+
 }

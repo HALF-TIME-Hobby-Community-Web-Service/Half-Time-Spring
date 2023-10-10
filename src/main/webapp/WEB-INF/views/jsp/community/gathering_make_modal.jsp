@@ -8,7 +8,7 @@
         <div class="form-floating mb-3">
           <fieldset>
             <span>이름:</span>
-            <input name="title" wrap="hard" cols="40" class="form-control lmake_name" />
+            <input name="title" wrap="hard" cols="40" class="form-control lmake_name" required/>
           </fieldset>
         </div>
 
@@ -26,13 +26,13 @@
 
         <div class="form-floating mb-3">
           <span>위치:</span>
-          <input class="form-control location" name="location" />
+          <input class="form-control location" name="location" required/>
           <!-- <input class="form-control location" name="location_map" value="서울시-강남구-도곡동" /> -->
         </div>
 
         <div class="form-floating mb-3">
           <span>내용:</span>
-          <textarea name="text" class="lmake_text"></textarea>
+          <textarea name="text" class="lmake_text" required></textarea>
         </div>
 
         <div class="form-floating mb-3 lmake_detailbox">
@@ -40,7 +40,7 @@
             <span>정원:</span>
             <span class="lmake_calcbox">
               <button type="button" class="btn btn-light lmake_btn lmake_cap_minus">-</button>
-              <input name="capacity" class="form-control cap" value="10" style="margin-right: 0px; width:20%; text-align: right;"/>명&nbsp;&nbsp;
+              <input name="capacity" class="form-control cap" value="10" style="margin-right: 0px; width:20%; text-align: right;" required/>명&nbsp;&nbsp;
               <button type="button" class="btn btn-light lmake_btn lmake_cap_plus">+</button>
             </span>
           </div>
@@ -48,7 +48,7 @@
             <span>금액:</span>
             <span class="lmake_calcbox">
               <button type="button" class="btn btn-light lmake_btn2 lmake_btn lmake_price_minus">-</button>
-              <input name="price" class="form-control" value="0" style="margin-right: 0px; width:20%; text-align: right;"/>원&nbsp;&nbsp;
+              <input name="price" class="form-control" value="0" style="margin-right: 0px; width:20%; text-align: right;" required/>원&nbsp;&nbsp;
               <button type="button" class="btn btn-light lmake_btn2 lmake_price_plus">+</button>
             </span>
           </div>

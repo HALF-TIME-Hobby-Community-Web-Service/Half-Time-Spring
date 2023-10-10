@@ -50,7 +50,7 @@ public class HomeController {
 	
 	@GetMapping("/commupage")
 	public String commuPage(@RequestParam String commuID, Model model) {
-		log.info("commuID: " + commuID);
+		log.info("commupage/commuID: " + commuID);
 		
 		model.addAttribute("commuID", commuID);
 		

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +28,6 @@ import com.hf.domain.CommuInfo;
 import com.hf.domain.CommuWithContent;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
-import com.hf.domain.MomentWithContent;
 import com.hf.domain.Post;
 import com.hf.domain.commuSerise;
 import com.hf.s3.S3FileService;
@@ -45,7 +45,7 @@ public class CommuController {
 	@PostMapping("/join")
 	public String join(@RequestParam("commuID") String commuID, @RequestParam("userID") String userID,
 				    @RequestParam("nickname") String nickname)	{		
-		log.info("join而⑦듃濡ㅻ윭 "  + commuID + userID + nickname);
+		log.info("join�뚢뫂�뱜嚥▲끇�쑎 "  + commuID + userID + nickname);
 		return service.join(commuID, userID, nickname);
 	}
 	
@@ -80,7 +80,7 @@ public class CommuController {
 	}
 		
 	@PostMapping("/lmake")
-	public String lmake(
+	public String lmake(HttpServletRequest request, 
 			@RequestParam String title,
 			@RequestParam String startTime,
 			@RequestParam String endTime,
@@ -91,9 +91,16 @@ public class CommuController {
 			@RequestParam String commuID) {			
 				
 		log.info(commuID);
-	
-		Gathering g = new Gathering(title, text, commuID, "肄붿뒪���궓�떊源��닔�뿴", startTime, endTime, new BigDecimal(price.split("�썝")[0]), location, new BigDecimal(capacity.split("紐�")[0]));
-		log.info("Gathering: " + g);	        
+		
+		HttpSession session = request.getSession();
+        String id = (String) session.getAttribute("id");
+        
+        log.info("lmake/userID: " + id);
+        String nickname = service.getMember(commuID, id);
+        log.info("lmake/nickname: " + nickname);
+		
+		Gathering g = new Gathering(title, text, commuID, nickname, startTime, endTime, new BigDecimal(price.split("원")[0]), location, new BigDecimal(capacity.split("명")[0]));
+		log.info("lmake: " + g.toString());    
 		service.lmake(g);
 		return "1";	
 	}
@@ -109,7 +116,7 @@ public class CommuController {
 	
 	@PostMapping("/location")
 	public List<CommuInfo> getCommuLocation(@RequestParam("search_loation") String location) {
-		log.info("而ㅻ�ㅻ땲�떚 �쐞移섎뒗?"+location);
+		log.info("�뚣끇占썬끇�빍占쎈뼒 占쎌맄燁살꼶�뮉?"+location);
 		List<CommuInfo> ci = service.getCommuListByLocation(location);
 		log.info(ci);
 		return ci;
@@ -117,10 +124,11 @@ public class CommuController {
 	}
 	
 	@PostMapping("/mycommu")
-	public List<CommuInfo> selectCommuById(HttpServletRequest request) {
+	public List<CommuInfo> selectCommuById(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		List<CommuInfo> ci = service.getCommuListById(id);
+		
 		
 		return ci;
 		
@@ -171,7 +179,7 @@ public class CommuController {
 	            .withRegion("ap-northeast-2")
 	            .build();
 	    log.info("fileSize : "+files.size());
-	    // S3FileService 생성
+	    // S3FileService �깮�꽦
 	    S3FileService fileService = new S3FileService(amazonS3);
 
 	    try {
@@ -179,16 +187,16 @@ public class CommuController {
 	        for (MultipartFile file : files) {
 	            String fileName = file.getOriginalFilename();
 	            String fileExtName = fileName.substring(fileName.lastIndexOf("."), fileName.length());
-	            String filenameuuid = UUID.randomUUID().toString() + fileExtName; // S3에 저장될 파일 이름
+	            String filenameuuid = UUID.randomUUID().toString() + fileExtName; // S3�뿉 ���옣�맆 �뙆�씪 �씠由�
 	            
-	            // 파일 업로드
+	            // �뙆�씪 �뾽濡쒕뱶
 	            fileService.uploadFile(bucket, filenameuuid, file.getBytes(),file);
 	            String filepath = "commu/"+filenameuuid;
 	            String Url = amazonS3.getUrl(bucket, filepath).toString();
 	            log.info(Url);
 	        
 	        }
-	        // for 루프가 모든 파일을 업로드한 후에 momentService.fileUpload(mwc); 호출
+	        // for 猷⑦봽媛� 紐⑤뱺 �뙆�씪�쓣 �뾽濡쒕뱶�븳 �썑�뿉 momentService.fileUpload(mwc); �샇異�
 	        service.fileUpload(cwc);
 	        
 	        return "finish";
@@ -196,9 +204,9 @@ public class CommuController {
 	       
 	    } catch (IOException e) {
 	        e.printStackTrace();
-	        // 오류 처리
+	        // �삤瑜� 泥섎━
 
-	    // 업로드 실패 시 false 반환
+	    // �뾽濡쒕뱶 �떎�뙣 �떆 false 諛섑솚
 	    
 	    	}
 	    return "false";

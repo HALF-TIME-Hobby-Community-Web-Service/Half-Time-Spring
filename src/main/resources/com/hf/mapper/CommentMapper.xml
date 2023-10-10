@@ -7,18 +7,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- 댓글입력 -->
     <insert id="commentCheck">
     <![CDATA[
-        INSERT INTO Comments (commentid, userid, referenceid, commenttext, commentlikecnt, commenttype, commenttime)
-        VALUES (comments_seq.nextval, #{userid}, '1', #{comment}, 1 ,#{type}, sysdate)
+        INSERT INTO Comments (commentid, userid, referenceid, commenttext, commenttype, commenttime)
+        VALUES (comments_seq.nextval, #{userid}, #{referenceid}, #{commenttext},#{commenttype}, sysdate)
         ]]>
     </insert>
     
  <!-- 댓글 가져오기(시간) -->
- 	<select id="commentGet" resultType="String"> <!-- domain --> 
+ 	<select id="commentGet" resultType="String"> 
 	<![CDATA[
-		select commenttime from Comments where userid=#{userid} and commenttext=#{comment} and commenttype=#{type}
+		select commenttime from Comments where userid=#{userid} and commenttext=#{commenttext} and commenttype=#{commenttype} and referenceid=#{referenceid}
 	]]>
 	</select>
  	
-    
+ 	
+ <!-- 페이지, 글번호 별 댓글 가져오 -->
+      <select id="getCommentsByTypeAndPageNum" resultType="com.hf.domain.Comments">
+        <![CDATA[
+        SELECT * FROM comments WHERE commenttype = #{commenttype} and referenceid= #{referenceid}
+        ]]>
+    </select>
     
 </mapper>

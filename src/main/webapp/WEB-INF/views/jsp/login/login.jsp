@@ -21,6 +21,8 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/resources/css/join.css">
@@ -158,15 +160,18 @@
 				
 				if(!data.result){
 					alert("false"+ data.result);
+					//swal('false',data.result,'error')
 					location.href="/user/login";
 					
 				}else{
 					alert("환영합니다");
+					//swal('로그인 성공!', "환영합니다",'success')
 					location.href="/hf";			
 				}
 			},
 			error: function(jqXhr,status){
 				alert("status : " + status);
+				//swal('에러!', "",'error')
 			} 	
 		});
 	})
