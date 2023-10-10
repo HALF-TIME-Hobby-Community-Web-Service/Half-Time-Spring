@@ -46,7 +46,7 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0" id="searchul">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0" id="searchul"/>
 					<form class="d-flex" role="search" id="searchform">
 					
 						<select name="selection" id="selection">
@@ -60,7 +60,7 @@
 							
 						<button type="button"
 							class="btn btn-outline-dark btn-outline-success"
-							id="nav-searchbtn" type="submit">Search</button>
+							id="nav-searchbtn" type="submit" name="total_search">Search</button>
 					</form>
 			</div>
 		</div>

@@ -1,8 +1,8 @@
 $(() => {
 
-  const locationButton = $("#location_search");
-  const searchObj = $("input[name='search_loation']");
-  const searchForm = $("#search_location");
+  const locationButton = $("#nav-searchbtn");
+  const searchObj = $("input[name='search_location']");
+  const searchForm = $("#searchform");
 
   const communityList = $('div.community_List');
   const memberList = $('table');
@@ -31,7 +31,6 @@ $(() => {
       dataType: "json",
       data: { search_loation: searchObj.val() },
       success: (response) => {
-        alert("성공이요~" + response);
         response.forEach((data) => {
           const div = $('<div>').text('\t' + data.commuName + '\t' + data.commuIntro + '\t' + data.commuLocation + '\t' + data.commuCategory)
 
