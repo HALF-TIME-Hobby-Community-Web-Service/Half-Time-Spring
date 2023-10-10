@@ -220,4 +220,10 @@ public class CommuController {
 		}
 	
 	
+	@PostMapping("getuserid")
+	public String getUserID(@RequestParam("commuID")String commuID, @RequestParam("nickname")String nickname) {
+		String result = service.getUserID(commuID, nickname);
+		log.info("getuserid/result :" + result);
+		return result;
+	}
 }

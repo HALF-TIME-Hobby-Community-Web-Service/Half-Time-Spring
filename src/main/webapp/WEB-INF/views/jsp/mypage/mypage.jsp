@@ -2,15 +2,17 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-   
-	
 <script src="/resources/js/mypage.js"></script>
-	
-	
+		
 <style>
 .mypageContent {
+	z-index: 300;
 	width: 700px;
 	height: 800px;
+	
+    position: fixed;
+    top: 5%;
+    left: 27.5%;
 	 
 	margin-left: 25%;
 	margin-top: 40px;
@@ -18,8 +20,6 @@
 	border: 3px solid; 
 	background-color: white;
 }
-
-
 
 .userinfo {
 	height: 10%;
@@ -53,7 +53,6 @@
 	margin-bottom: 5px;
 	margin-right: 3px;
 }
-
 
 .mypageContainer {
 	margin-left: 5%;
@@ -108,12 +107,13 @@
 
 </style>
 
-    <div class="mypageContent">
+    <div class="modal_content mypageContent">
     	<div class="userinfo">
     		<div class="userinfo_box">
 		    	<span class="mypage_id">😀아이디:${id}</span>
 		    	<span class="mypage_name" style="margin-left: 20px;">🤷‍♀️이름: ${name}</span>
 		    	<span class="mypage_nickname" style="margin-left: 20px;">🕵️‍♂️닉네임: ${nickname}</span>
+		    	<span class="modal_closebtn mypage_closebtn">&times;</span>
 	    	</div> 
            	<button class="btn btn-danger update_info" >수정</button>        	    
     	</div>

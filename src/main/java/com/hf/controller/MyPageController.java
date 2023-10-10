@@ -93,7 +93,7 @@ public class MyPageController {
 	
 	
 	@PostMapping("/userpage")
-	public String showUserPage(@RequestParam("value") String id,Model model) {
+	public String showUserPage(@RequestParam("value") String id, Model model) {
 
 
 		User user = service.getUserInfo(id);

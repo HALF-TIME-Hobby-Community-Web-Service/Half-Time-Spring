@@ -129,17 +129,6 @@ $(() => {
 		}
 	}, options);
 	initialObserver.observe($('.feed_content').last()[0]);
-  
-  
-  //$('.feed_modal_content').css('display','block');
-  // 게시물 클릭시 피드 모달 두둥등장 -> 안먹어
-	$('.feedbox').click(() => {    	
-	$('.feed_modal_content').css('display','block');
-	});
-  
-  //임시    
-	$('.float-item2').click(()=> {
-	$('.feed_modal_content').css('display','block');
-  });	
+
   });
   

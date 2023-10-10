@@ -10,8 +10,6 @@ import com.hf.domain.CommuInfo;
 import com.hf.domain.CommuWithContent;
 import com.hf.domain.Commumember;
 import com.hf.domain.Gathering;
-import com.hf.domain.MomentWithContent;
-import com.hf.domain.CommuWithContent;
 import com.hf.domain.Post;
 import com.hf.domain.commuSerise;
 
@@ -51,6 +49,7 @@ public interface CommuMapper {
 	public String cjoin(@Param("commuID")String commuID, @Param("nickname")String nickname, @Param("userID")String userID);
 	
 	public String getMember(@Param("commuID")String commuID, @Param("userID")String userID);
+	public String getUserID(@Param("commuID")String commuID, @Param("nickname")String nickname);
 }
 
 

@@ -44,21 +44,20 @@ $(() => {
         method: 'POST',
         data: formData,
         success: () => {
-        $.ajax({
-		    url: `http://localhost:8888/commu/lget`,
-		    method: 'POST',
-		    data: {commuID : commuID},
-		    success: (data) => {      
-		      data.forEach((element) => {
-		        appendGathering(element);
-		      });
-		    },
-		    error: (jqXhr, status) => {
-		      alert(`모임 불러오기 실패~~`);
-		    },
-		  });
-          swal('모임 생성 성공!', '모임을 홍보해보세요!', 'success'); 
-          
+	        $.ajax({
+			    url: `http://localhost:8888/commu/lget`,
+			    method: 'POST',
+			    data: {commuID : commuID},
+			    success: (data) => {      
+			      data.forEach((element) => {
+			        appendGathering(element);
+			      });
+			    },
+			    error: (jqXhr, status) => {
+			      alert(`모임 불러오기 실패~~`);
+			    },
+			  });
+	          swal('모임 생성 성공!', '모임을 홍보해보세요!', 'success');       
         },
         error: (jqXhr, status) => {
           swal('오류 발생!', `${status}`, 'error');
@@ -103,4 +102,6 @@ $(() => {
     
     $('input[name=price]').val(currentValue);
   });
+  
+  
 });

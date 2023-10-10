@@ -1,8 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 
 <div class="feed_modal_content" style='display:none'>
   <div class="feed_modal_img_box">  	
@@ -34,7 +30,7 @@
   <div class="feed_modal_container">
   	<div class="feed_modal_title">
   		<div>
-  			<a href="" class="feed_modal_a_name">👦🏻 sungmin123</a>
+  			<a href="" class="feed_modal_a_name">sungmin12</a>
   			<button class="feed_modal_closebtn btn">X</button>
   		</div>
   		<hr>
@@ -191,13 +187,3 @@
   </div>
 </div>
 
-<script>
-  $(function(){
-  	$('.feed_modal_content').draggable({'cancel':'.feed_modal_container', containment:'parent', scroll:false});
-  });
-  
-  $('.feed_modal_closebtn').click(()=>{
-	  $('.feed_modal_content').css('display','none');
-  })
-</script>
-</html>

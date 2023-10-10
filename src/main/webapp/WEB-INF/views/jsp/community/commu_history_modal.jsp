@@ -33,7 +33,7 @@
 		max-height: 50%;
 	}
 	
-	.history_writer, .history_time {
+	.margin-left20 {
 		margin-left: 20px;
 	}
 	
@@ -56,8 +56,8 @@
   <div class="modal_container history_modal_container">
   	<div class="history_title_box">
   		<span class="history_title">📖HISTORY</span>
-  		<span class="history_writer">✍🏻</span>
-  		<span class="history_time">⏰</span>
+  		<span class="margin-left20">✍🏻<a href="" class="feed_a_name2 history_writer"></a></span>
+  		<span class="margin-left20 history_time">⏰</span>
   	</div>
     <div class="history_modal_img_box">  	
   	  <img src="/resources/items/moment/2.jpg" class="history_modal_img">
@@ -67,7 +67,7 @@
 </div>
 
 <script>
-  $(function(){
+  $(function() {
   	$('.history_modal_content').draggable({'cancel':'.history_modal_container', containment:'parent', scroll:false});
   });
     

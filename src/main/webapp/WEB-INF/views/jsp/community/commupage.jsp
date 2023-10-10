@@ -71,7 +71,7 @@
         <div class="boardBox_clone">
           <div class="boardBox_topbox">
             <span class="boardbox_top board_posttype">📖공지사항</span>
-            <span class="boardbox_top board_writer">✍🏻김수열</span>
+            <span class="boardbox_top board_writer ">✍🏻<a href="" class="board_writer2 feed_a_name2">김수열</a></span>
             <span class="boardbox_top board_posttime">⏰23.08.10</span>
           </div>
           <p class="board boardTitle">
@@ -134,7 +134,7 @@
 	    
 	    // 이제 title, writer, posttime, text를 사용할 수 있습니다.	
 	    $('.history_title').text('📖' + title);
-	    $('.history_writer').text('✍🏻' + writer);
+	    $('.history_writer').text(writer);
 	    $('.history_time').text('⏰' + posttime);
 	    //$('.history_modal_img').attr('src',  '');
 	   	$('.history_modal_text').text(' ' + text);

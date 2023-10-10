@@ -157,28 +157,9 @@ $(() => {
 		});
 	});
 	
-		$('.feed_content').on("click", ".feed_a_name", function (e) {
-		
-	  e.preventDefault();
-		const idLink = $(this); 
-  		const value = idLink.text();
-  		alert(value);
-	  $.ajax({
-		url: "/user/userpage",
-		type: "post",
-		data: { value: value },
-		success: function (response) {
-			feedContent.html(response);
-		},
-		error: function (jqXhr, status) {
-			location.href = "/user/login";
-		}
-	});
-	  
-	});
+	
 
 	searchForm.submit((e) => {
-
 		e.preventDefault();
 		if (selectObj.val() == "moment") {
 			//선택자가 모먼트일 경우 ajax로 모먼트를 검색하는 방식 작성
