@@ -104,7 +104,7 @@ $(() => {
 	    	momentmodal.remove();
 	    	state=true;
 	    }
-	    else if ($(e.target).is($('a')) ) {
+	    else if ($(e.target).is($('.feed_modal_a_name')) ) {
 	  		e.preventDefault();
 	    	const idLink = $(e.target); 
 		    const value = idLink.text();
@@ -117,7 +117,7 @@ $(() => {
 			  $('.feed_content').append(response);
 			},
 			error: function (jqXhr, status) {
-				location.href = "/user/login";
+				alert('없는 유저 입니다!');
 			}
 		  });
 	    }		       

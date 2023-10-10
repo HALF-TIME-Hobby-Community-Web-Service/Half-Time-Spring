@@ -79,12 +79,10 @@
 					src="/resources/items/sideItem/people.svg" alt="Community"><a
 					id="commuBtn" href="" class="atag">COMMUNITY</a></li>
 				<li class="nav_line">──────</li>
-			<!-- 	<li class="nav_item"><img
-					src="/resources/items/sideItem/geo-alt.svg" alt="Location"><a
-					id="locationBtn" href="" class="atag">LOCATION</a></li> -->
-				<li class="nav_item"><img
-					src="/resources/items/sideItem/geo-alt.svg" alt="MyPage"><a
-					id="mypageBtn" class="atag">MyPage</a></li>
+				<li class="nav_item">
+					<img src="/resources/items/sideItem/geo-alt.svg" alt="MyPage">
+					<a id="mypagebtn" class="atag">MyPage</a>
+				</li>
 				<li class="nav_line">──────</li>
 				<div class="footer" style="color:white; text-align: center; background-color: black;">
 					KOSTA 263기 HalfTime

@@ -144,17 +144,33 @@ $(() => {
 		});
 	});
 
-	mypagebtn.on("click", function () {
+	mypagebtn.click(function(e) {
+		e.preventDefault();			
+		alert('1');
 		$.ajax({
-			url: "/user/mypage",
+			url: "http://localhost:8888/commu/getuserid",
 			type: "post",
+			data: { commuID: commuID, nickname: 'sooyeol' },
+			dataType: "text",
 			success: function (response) {
-				feedContent.html(response);
+				value = response;
+			    $.ajax({
+				 	url: "/user/userpage",
+					type: "post",
+					data: { value: value },
+					success: function (response) {
+					  $('.feed_content').append(response);
+					},
+					error: function (jqXhr, status) {
+						alert('로그인을 해야 합니다!');
+						location.href = "/user/login";
+					}
+			  	});
 			},
 			error: function (jqXhr, status) {
-				location.href = "/user/login";
+				alert('웨옹');
 			}
-		});
+	  });
 	});
 	
 	
