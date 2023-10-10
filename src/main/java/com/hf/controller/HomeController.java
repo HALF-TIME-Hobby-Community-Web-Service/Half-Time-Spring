@@ -34,8 +34,7 @@ public class HomeController {
 	public String home() {
 		return "./jsp/home";
 	}
-
-
+	
 	@GetMapping("/2")
 	public String clist() {
 		return "./jsp/community/commulist";

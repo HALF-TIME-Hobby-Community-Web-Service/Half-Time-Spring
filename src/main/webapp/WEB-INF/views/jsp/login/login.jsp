@@ -170,7 +170,7 @@
 				}
 			},
 			error: function(jqXhr,status){
-				alert("status : " + status);
+				alert("아이디 혹은 비밀번호를 다시 입력해주세요 ");
 				//swal('에러!', "",'error')
 			} 	
 		});

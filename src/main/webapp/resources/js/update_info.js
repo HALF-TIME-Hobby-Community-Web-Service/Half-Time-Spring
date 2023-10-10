@@ -14,13 +14,16 @@ $(() => {
 			data:pwdFormObj.serialize(),
 			method: 'post', 
 			dataType:"json",
+			cache: false,
 			success: (response) => {
 			
 				if(response == 1){
 					alert("비밀번호가 변경되었습니다!");
 					
+					location.reload();
+					
 				}else{
-					alert("실패다이놈");
+					alert("!");
 				}
 			},
 			error: (jqXhr, status) => {
@@ -40,7 +43,8 @@ $(() => {
 			
 				if(response == 1){
 					alert("전화번호가 변경되었습니다.");
-
+					location.reload();
+					
 				}else{
 					alert("실패다이놈");
 				}
