@@ -13,6 +13,7 @@ public interface MomentMapper {
 	Criteria cri = new Criteria();
 	
 	List<MomentWithContent> selectMomentsWithContent(int pageNum);
+	List<MomentWithContent> searchMoment(@Param("momentLocation")String location);
     int countMomentsWithContent();
     MomentWithContent selectModalWithContent(int momentid);
     List<String> modal_LargeCategory(); 
