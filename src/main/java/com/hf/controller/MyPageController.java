@@ -64,7 +64,7 @@ public class MyPageController {
         
         Date currentDate = new Date();
 
-        // Calendar 媛앹껜瑜� �궗�슜�븯�뿬 �굹�씠 怨꾩궛
+        // Calendar 揶쏆빘猿쒐몴占� 占쎄텢占쎌뒠占쎈릭占쎈연 占쎄돌占쎌뵠 �④쑴沅�
         Calendar dobCalendar = Calendar.getInstance();
         dobCalendar.setTime(birth);
         Calendar currentCalendar = Calendar.getInstance();
@@ -76,19 +76,69 @@ public class MyPageController {
             age--;
         }
         model.addAttribute("birth", age);
-        //�뿬湲곌퉴吏�媛� 湲곕낯 媛쒖씤�젙蹂대�� �몴�떆�븯�뒗 肄붾뱶
+      
         
         
         List<CommuInfo> ci = commuservice.getCommuListById(id);
         model.addAttribute("commu", ci);
         
-
-        log.info("�꽭�뀡id�뒗?"+id+"�쑀���븘�씠�뵒"+user.getId());
 		if (id.equals(user.getId())) {
 			return "./jsp/mypage/mypage";
 		} else {
 			return "redirect:user/login";
 		}
+
+	}
+	
+	
+	
+	@PostMapping("/userpage")
+	public String showUserPage(@RequestParam("value") String id,Model model) {
+
+
+		User user = service.getUserInfo(id);
+		model.addAttribute("id", id);
+		model.addAttribute("nickname", user.getNickname());
+		model.addAttribute("pwd", user.getPwd());
+		model.addAttribute("name", user.getName());
+		
+		model.addAttribute("pnum", user.getPnum());
+		model.addAttribute("address", user.getAddress());
+		if(user.getGender()==1) {
+			model.addAttribute("gender", "남");
+			}else {
+			model.addAttribute("gender", "여");
+			}
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date birth = null;
+        try {
+            birth = dateFormat.parse(user.getBirth());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        
+        Date currentDate = new Date();
+
+        // Calendar 揶쏆빘猿쒐몴占� 占쎄텢占쎌뒠占쎈릭占쎈연 占쎄돌占쎌뵠 �④쑴沅�
+        Calendar dobCalendar = Calendar.getInstance();
+        dobCalendar.setTime(birth);
+        Calendar currentCalendar = Calendar.getInstance();
+        currentCalendar.setTime(currentDate);
+
+        int age = currentCalendar.get(Calendar.YEAR) - dobCalendar.get(Calendar.YEAR);
+
+        if (currentCalendar.get(Calendar.DAY_OF_YEAR) < dobCalendar.get(Calendar.DAY_OF_YEAR)) {
+            age--;
+        }
+        model.addAttribute("birth", age);
+      
+        
+        
+        List<CommuInfo> ci = commuservice.getCommuListById(id);
+        model.addAttribute("commu", ci);
+       
+			return "./jsp/mypage/userpage";
 
 	}
 
@@ -106,7 +156,7 @@ public class MyPageController {
 		model.addAttribute("pnum", user.getPnum());
 
 
-		log.info("占쏙옙占쏙옙占�~");
+		log.info("�뜝�룞�삕�뜝�룞�삕�뜝占�~");
 
 		return "./jsp/mypage/infoupdate";
 	}
@@ -124,7 +174,7 @@ public class MyPageController {
 	@ResponseBody
 	@PostMapping(value = "/updatePhoneNumber", produces = "application/json")
 	public int updatePhoneNumber(HttpServletRequest request, @RequestParam("pnum_update") String pnum) {
-		log.info("占쏙옙占쏙옙占� 占쏙옙占쏙옙占쏙옙占쏙옙~" + pnum);
+		log.info("�뜝�룞�삕�뜝�룞�삕�뜝占� �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕�뜝�룞�삕~" + pnum);
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("id");
 		int result = service.updatePhoneNumber(id,pnum);
