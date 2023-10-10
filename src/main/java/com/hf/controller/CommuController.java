@@ -62,6 +62,13 @@ public class CommuController {
 		List<Post> boardList = service.getCommuPost(commuID);
 		return boardList;
 	}
+	
+	@GetMapping("/gethistory")
+	public List<Post> getHistory(@RequestParam("commuID") String commuID) {
+		List<Post> boardList = service.getHistory(commuID);
+		log.info("historylist: " + boardList);
+		return boardList;
+	}
 
 	@GetMapping("/getcommuinfo")
 	public CommuInfo getCommuInfo(@RequestParam("commuID") String commuID) {
@@ -211,5 +218,6 @@ public class CommuController {
 	    	}
 	    return "false";
 		}
+	
 	
 }

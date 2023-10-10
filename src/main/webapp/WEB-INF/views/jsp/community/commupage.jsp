@@ -7,7 +7,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>community</title>
 
 <!-- 부트스트랩, ajax, jquery-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -108,7 +107,7 @@
         </div>
         <div class="history_container">
           <div class="historyBox" onclick="history_modal_open()">
-            <img src="/resources/items/moment/1.jpg" class="history_box_img" />
+            <img src="/resources/items/commu_preview_default.png" class="history_box_img" />
           </div>
         </div>
       </div>
@@ -120,14 +119,29 @@
   <jsp:include page="./commu_history_modal.jsp"/>
   
   <script>
-  $('.history_modal_closebtn').click(()=>{
-	  $('.history_modal_content').css('display','none');
-  })
-  
-  /* 히스토리 모달 클릭 동작 */
-  function history_modal_open() {
-  	$('.history_modal_content').css('display','block');
-  }
+	  $('.history_modal_closebtn').click(()=>{
+		  $('.history_modal_content').css('display','none');
+	  })
+	  
+ 	/* 히스토리 모달 클릭 동작 */
+	function history_modal_open() {
+	    var historyBox = $(this); // 클릭된 historyBox 요소를 jQuery 객체로 저장
+	    
+	    var title 	 = historyBox.find('input[name="title"]').val();
+	    var writer 	 = historyBox.find('input[name="writer"]').val();
+	    var posttime = historyBox.find('input[name="posttime"]').val();
+	    var text 	 = historyBox.find('input[name="text"]').val();
+	    
+	    // 이제 title, writer, posttime, text를 사용할 수 있습니다.	
+	    $('.history_title').text('📖' + title);
+	    $('.history_writer').text('✍🏻' + writer);
+	    $('.history_time').text('⏰' + posttime);
+	    //$('.history_modal_img').attr('src',  '');
+	   	$('.history_modal_text').text(' ' + text);
+	    
+	    $('.history_modal_content').css('display', 'block');	    
+	}
+
   </script>
 </body>
 

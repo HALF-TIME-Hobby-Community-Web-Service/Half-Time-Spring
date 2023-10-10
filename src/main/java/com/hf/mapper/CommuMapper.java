@@ -18,6 +18,8 @@ import com.hf.domain.commuSerise;
 public interface CommuMapper {
 	public CommuInfo getCommuInfo(String commuID);
 	public List<Post> getCommuPost(String commuID);
+	public List<Post> getHistory(String commuID);
+	
 	
 	public int join(@Param("commuID")String commuID, @Param("userID")String userID, @Param("nickname")String nickname);
 	
