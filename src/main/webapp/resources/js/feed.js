@@ -110,29 +110,7 @@ $(() => {
 			}
 		});
 	}
-  
-	
-	
-	$('.feed_content').on("click", ".feed_a_name", function (e) {
-		
-	  e.preventDefault();
-		const idLink = $(this); 
-  		const value = idLink.text();
-  		alert(value);
-	  $.ajax({
-		url: "/user/userpage",
-		type: "post",
-		data: { value: value },
-		success: function (response) {
-			feedContent.html(response);
-		},
-		error: function (jqXhr, status) {
-			location.href = "/user/login";
-		}
-	});
-	  
-	});
-	
+  	
   
 	$('.feed_content').scroll(() => {
 		const lastFeedContainer = $('.feed_container_append').last()[0];

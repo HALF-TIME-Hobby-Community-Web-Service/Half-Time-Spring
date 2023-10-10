@@ -139,7 +139,6 @@ public class MyPageController {
         model.addAttribute("commu", ci);
        
 			return "./jsp/mypage/userpage";
-		 
 
 	}
 
