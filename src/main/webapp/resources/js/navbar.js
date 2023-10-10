@@ -10,14 +10,14 @@ $(() => {
 	const feedContent = $('.feed_content');
 	const logoBtn = $('#logo');
 	const locationBtn = $('#locationBtn');
-	const mypagebtn = $("#mypageBtn");
+	const mypagebtn = $("#mypageBtn1");
 	const searchForm = $("#searchform");
 	const selectObj = $("#selection")
 	const searchObj = $("input[name='search_location']");
 	const searchBtn = $("#locationBtn");
 	const mapBtn = $(".float-item4");
 
-	var cnt = 0;
+	var cnt = 0;	
 
 	$.ajax({
 		url: "/getSession",
@@ -55,7 +55,7 @@ $(() => {
 				feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
 			},
 			error: (jqXhr, status) => {
-				alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+				alert(`locationBtn실패: ${status}\n오류명: ${jqXhr.statusCode}`);
 			},
 		});
 
@@ -76,7 +76,7 @@ $(() => {
 				feedContent.html(response);
 			},
 			error: (jqXhr, status) => {
-				alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+				alert(`momentBtn실패: ${status}\n오류명: ${jqXhr.statusCode}`);
 			},
 		});
 	});
@@ -85,14 +85,6 @@ $(() => {
 		location.href = "/hf";
 	});
 
-	mapBtn.click((e) => {
-		var mapDisplay = $("#map_content").css('display');
-		if (mapDisplay === 'none') {
-			$('#map_content').css('display', 'block');
-		} else {
-			$('#map_content').css('display', 'none');
-		}
-	});
 
 	loginBtn.on("click", (e) => {
 		e.preventDefault();
@@ -107,7 +99,7 @@ $(() => {
 					location.href = "/user/login";
 				},
 				error: (jqXhr, status) => {
-					alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+					alert(`loginBtn실패: ${status}\n오류명: ${jqXhr.statusCode}`);
 				},
 			});
 		} else if (loginBtn.html() == "Logout") {
@@ -118,7 +110,7 @@ $(() => {
 					location.href = "/user/logout";
 				},
 				error: (jqXhr, status) => {
-					alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+					alert(`loginBtn실패: ${status}\n오류명: ${jqXhr.statusCode}`);
 				},
 			});
 		} else {
@@ -140,59 +132,28 @@ $(() => {
 				feedContent.html(response);
 			},
 			error: (jqXhr, status) => {
-				alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+				alert(`commuBtn실패: ${status}\n오류명: ${jqXhr.statusCode}`);
 			},
 		});
 	});
 
-	mypagebtn.click(function(e) {
+	$('#mypagebtn1').on('click', function(e) {
 		e.preventDefault();			
-		alert('1');
-		$.ajax({
-			url: "http://localhost:8888/commu/getuserid",
+			
+	    $.ajax({
+		 	url: "/user/mypage",
 			type: "post",
-			data: { commuID: commuID, nickname: 'sooyeol' },
-			dataType: "text",
 			success: function (response) {
-				value = response;
-			    $.ajax({
-				 	url: "/user/userpage",
-					type: "post",
-					data: { value: value },
-					success: function (response) {
-					  $('.feed_content').append(response);
-					},
-					error: function (jqXhr, status) {
-						alert('로그인을 해야 합니다!');
-						location.href = "/user/login";
-					}
-			  	});
+			  $('body').append(response);
 			},
 			error: function (jqXhr, status) {
-				alert('웨옹');
-			}
-	  });
-	});
-
-	$('.feed_content').on("click", ".feed_a_name", function (e) {
-
-		e.preventDefault();
-		const idLink = $(this);
-		const value = idLink.text();
-		alert(value);
-		$.ajax({
-			url: "/user/userpage",
-			type: "post",
-			data: { value: value },
-			success: function (response) {
-				feedContent.html(response);
-			},
-			error: function (jqXhr, status) {
+				alert('로그인을 해야 합니다!');
 				location.href = "/user/login";
 			}
-		});
-
+	  	});
+			
 	});
+
 	
 	
 
@@ -348,7 +309,7 @@ $(() => {
 				feedContent.html(response);
 			},
 			error: (jqXhr, status) => {
-				alert(`실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+				alert(`momentBtn실패: ${status}\n오류명: ${jqXhr.statusCode}`);
 			},
 		});
 	});

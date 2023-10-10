@@ -210,21 +210,21 @@ $(() => {
 	  						'<div class="feed_modal_comment_container">' +
 		  						'<div class="feed_modal_comment_box">' +
 		  						'<div>' +
-			  						'<span class="comment_writer"> <a href="" class="feed_modal_a_name">moon_bomi</a> </span>'  +
+			  						'<span class="comment_writer"> <a href="" class="feed_a_name">moon_bomi</a> </span>'  +
 			  						'<span class="comment_time">3시간</span>' +
 	  							'</div>'  +
 	  							'<span class="comment_text">와 너무 멋져요 ㅠㅠ ♥</span>'  +
 	  						'</div>'  +
 	  						'<div class="feed_modal_comment_box">' +
 	  							'<div>' +
-	  								'<span class="comment_writer"> <a href="" class="feed_modal_a_name">china_yerim</a> </span>' +
+	  								'<span class="comment_writer"> <a href="" class="feed_a_name">china_yerim</a> </span>' +
 	  								'<span class="comment_time">5시간</span>' +
 	  							'</div>' +
 	  							'<span class="comment_text">Hen piaoliang~</span>' +
 	  						'</div>' +
 							'<div class="feed_modal_comment_box">' +
 	  							'<div>' +
-	  								'<span class="comment_writer"> <a href="" class="feed_modal_a_name">안세준</a> </span>' +
+	  								'<span class="comment_writer"> <a href="" class="feed_a_name">안세준</a> </span>' +
 	  								'<span class="comment_time">6시간</span>' +
 	  							'</div>'  +
 	  							'<span class="comment_text">집 가고 싶다</span>' +
