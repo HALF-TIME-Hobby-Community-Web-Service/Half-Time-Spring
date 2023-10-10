@@ -106,7 +106,7 @@
           HISTORY
         </div>
         <div class="history_container">
-          <div class="historyBox" onclick="history_modal_open()">
+          <div class="historyBox" onclick="history_modal_open(this)">
             <img src="/resources/items/commu_preview_default.png" class="history_box_img" />
           </div>
         </div>
@@ -124,9 +124,9 @@
 	  })
 	  
  	/* 히스토리 모달 클릭 동작 */
-	function history_modal_open() {
-	    var historyBox = $(this); // 클릭된 historyBox 요소를 jQuery 객체로 저장
-	    
+	function history_modal_open(historyBox) {
+		var historyBox = $(historyBox);	  
+		  
 	    var title 	 = historyBox.find('input[name="title"]').val();
 	    var writer 	 = historyBox.find('input[name="writer"]').val();
 	    var posttime = historyBox.find('input[name="posttime"]').val();
@@ -141,6 +141,8 @@
 	    
 	    $('.history_modal_content').css('display', 'block');	    
 	}
+
+	  
 
   </script>
 </body>
