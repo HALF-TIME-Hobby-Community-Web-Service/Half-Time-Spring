@@ -101,7 +101,6 @@ function appendGathering(data) {
   
   
   $('.ljoin_joinbtn').click(()=> {
-  	  alert('1');
 	  swal('머쓱', '미완성이에요', 'error');
   })
 }

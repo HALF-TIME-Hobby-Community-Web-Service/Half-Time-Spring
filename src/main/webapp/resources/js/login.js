@@ -11,7 +11,7 @@ $(() => {
         success: (response) => {  
           //alert(response.loginID);
           if (response.state == '1') {
-            alert(response.loginID+'님 환영합니다')
+            alert(response.loginID+'님 환영합니다');            
             location.href = './navbar.html';
           }
           else if (response.state == '0') {

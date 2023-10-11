@@ -154,8 +154,17 @@ $(() => {
         clone.find('.boardTitleIntro').text(p.title);
 
         //사진
-        clone.find('.boardimg').attr('src',`/resources/items/commu/commu_board/${p.commuid}-${p.commupostid}-1.jpg`);
-
+         $.ajax({
+	        url: 'http://localhost:8888/content/getcontentsrc',
+	        data: {referenceid: commuID, contenttype: 3},
+	        success: (response) => {				        	
+        		clone.find('.boardimg').attr('src', response);
+	    	},
+	        error: (jqXhr, status) => {
+	        	clone.find('.boardimg').attr('src',`resources/items/commu_preview_default.jpg`);
+	        }
+   		 });         
+        
         //텍스트
         clone.find('.boardText').html(p.text);
 
@@ -176,7 +185,19 @@ $(() => {
 	  success: (response) => {
 	  	response.forEach((p) => {
 			const clone = $('.historyBox:first-child').clone();
-	  		//clone.find('.history_box_img').attr('src', `/resources/items/commu/commu_history/${commuID}-1.jpg`);
+			
+			$.ajax({
+		        url: 'http://localhost:8888/content/getcontentsrc',
+		        method: 'POST',
+		        data: {referenceid: commuID, contenttype: 3},
+		        success: (response) => {				        	
+	        		clone.find('.history_box_img').attr('src', response);
+		    	},
+		        error: (jqXhr, status) => {
+		        	clone.find('.history_box_img').attr('src', '/resources/items/commu_preview_default.png');
+		        }
+	   		 }); 
+	   		 			
 	  		clone.append(`<input type="hidden" name="title" value=${p.title}>`);
 	  		clone.append(`<input type="hidden" name="writer" value=${p.writer}>`);
 	  		clone.append(`<input type="hidden" name="posttime" value=${p.posttime}>`);
@@ -207,13 +228,14 @@ $(() => {
 
   /* 플러팅 버튼 */
   {
-$('.fab_container').html('');
-$('.fab_container').append('<div class="fab commu-float">'
+	$('.fab_container').html('');
+	$('.fab_container').append('<div class="fab commu-float">'
 						 + '<img src="/resources/items/floatitem/close.png" alt="">'
 						 + '</div>');
   	
     $('.commu-float').click(()=> {
 	  $('.bmake_content').css('display','block');
-    })
+    });
   }
+
 });
