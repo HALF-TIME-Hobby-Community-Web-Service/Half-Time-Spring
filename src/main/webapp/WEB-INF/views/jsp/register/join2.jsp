@@ -21,15 +21,24 @@
             <div class="join_container_border">
                 <div class="join_userlocation_box">
                     관심지역
+                    
+                    <br>
+                    <select class="join_userlocation_select">
+	                    <option value="집" selected>집</option>
+						<option value="회사" >회사</option>
+						<option value="관심지" >관심지</option>
+						<option value="기타" >기타</option>
+                    </select>
+                    
                     <input class="join_userlocation_input" 
                         type="text"
                         name="join_userlocation"
                         maxlength="15"
                         placeholder="관심지역(집/회사)"
-        
                         required="required">
-                    <button class="join_userlocation_addbtn">추가</button>
-                    <br>
+                         <br>
+                  <!-- <button class="join_userlocation_addbtn">추가</button>
+                      <br>-->
                 </div><br>
 
                 <div class="join_category_box">
@@ -40,8 +49,8 @@
                         maxlength="15"
                         placeholder="관심취미"
                         required="required">
-                    <button class="join_category_addbtn">추가</button>
-                    <br>
+                  <!--  <button class="join_category_addbtn">추가</button>
+                    <br><br>-->
                 </div><br>
             </div>
             <button class="join_pagebtn">회원가입 완료</button>

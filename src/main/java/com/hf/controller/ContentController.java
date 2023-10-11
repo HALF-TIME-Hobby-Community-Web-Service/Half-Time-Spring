@@ -20,7 +20,7 @@ public class ContentController {
 	@Setter(onMethod_ = @Autowired)
 	private ContentService service;
 	
-	@PostMapping("/getContentSrc")
+	@PostMapping("/getcontentsrc")
 	public Content5 join(@RequestParam("referenceid") String referenceid, @RequestParam("contenttype") String contenttype)	{		
 		log.info("getContentSrc: "  + referenceid + ", " + contenttype );
 		return service.getContentSrc(referenceid, contenttype);

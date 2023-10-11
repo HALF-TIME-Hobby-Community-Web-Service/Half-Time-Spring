@@ -25,6 +25,8 @@ public class User {
 	private String locationName;
 	private String categoryName;
 	
+	private String locationtag;
+	
 	
 
 	//�뜮袁⑨옙甕곕뜇�깈 筌≪뼐由� 占쎄문占쎄쉐占쎌쁽
@@ -61,6 +63,13 @@ public class User {
 	}
 
 	//占쎌돳占쎌뜚揶쏉옙占쎌뿯 占쎈읂占쎌뵠筌욑옙2 占쎄문占쎄쉐占쎌쁽
+	public User(String location, String category, String id, String locationtag) {
+		this.location = location;
+		this.category = category;
+		this.id=id;
+		this.locationtag = locationtag;
+	}
+	
 	public User(String location, String category, String id) {
 		this.location = location;
 		this.category = category;

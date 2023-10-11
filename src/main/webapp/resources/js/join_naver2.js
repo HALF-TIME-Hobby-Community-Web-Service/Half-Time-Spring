@@ -6,6 +6,8 @@ $(function () {
   const formObj = $('form.join_container');
   const location = $('.join_userlocation_input');
   const category = $('.join_category_input');
+  
+   const locationtag = $('.join_userlocation_select')
 
   function addInputBox($container) {
     if ($container.children().length < maxInputBoxes) {
@@ -63,6 +65,7 @@ $(function () {
         userid: useridnaver,
         location: location.val(),
         category: category.val(),
+        locationtag: locationtag.val()
       },
 
       //여기부터 다시하기
