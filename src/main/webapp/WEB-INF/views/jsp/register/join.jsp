@@ -126,3 +126,14 @@
     </div>
 </body>
 </html>
+
+<script>
+ 
+    window.onload = function() {
+        var birthInput = document.querySelector('input[name="join_birth"]');
+        var today = new Date();
+        var minDate = new Date(1900, 0, 1); 
+        birthInput.setAttribute('min', minDate.toISOString().split('T')[0]);
+        birthInput.setAttribute('max', today.toISOString().split('T')[0]);
+    };
+</script>
