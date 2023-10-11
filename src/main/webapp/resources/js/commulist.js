@@ -76,7 +76,21 @@ $(() => {
                     } else {
                         $('.modalaround').html(`#${community.commuCategory} | ${community.commuLocation}`);
                     }
-                    $('.modalimg').attr('src', `/resources/items/commu/commu_page/${commuID}.jpg`);
+                    
+                    
+                    
+                    // 대문주소 받기
+                    $.ajax({
+				        url: 'http://localhost:8888/content/getcontentsrc',
+				        data: {referenceid: commuID, contenttype: 3},
+				        success: (response) => {				        	
+                    		$('.modalimg').attr('src', `/resources/items/commu/commu_page/${commuID}.jpg`);
+				    	},
+				        error: (jqXhr, status) => {
+				            $('.modalimg').attr('src', `/resources/items/commu_preview_default.jpg`);
+				        }
+			   		 });                    
+                    
                     $('.modalintro2').html(community.commuIntro);
                     $('.commumember').html(`정원 ${community.memberCount}/${community.maxMember}`);
                 });

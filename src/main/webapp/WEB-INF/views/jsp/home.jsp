@@ -71,8 +71,7 @@ $('body').on("click", ".feed_a_name2", function (e) {
 					  $('.feed_content').append(response);
 					},
 					error: function (jqXhr, status) {
-						alert('없는 유저 입니다!')
-						location.href = "/user/login";
+						swal('오류','없는 유저 입니다!','error');
 					}
 			  	});
 			},
