@@ -200,14 +200,19 @@ public class CommuController {
 	
 	@PostMapping("/commuBoardUploads3")
 	@ResponseBody
-	public String s3Boardupload(@RequestParam("file") List<MultipartFile> files) throws IOException {
+	public String s3Boardupload(@RequestParam("file") List<MultipartFile> files,@RequestParam("text") String text,@RequestParam("writer") String writer,@RequestParam("contenttype")String contenttype, @RequestParam("commuid") String commuid,@RequestParam("title") String title) throws IOException {
 		CommuWithContent cwc = new CommuWithContent();
 	    String bucket = "halftimespring";
 	    int id = service.getMaxCommuPostID();
 		log.info("아이디"+id);
 		int i =1;
-	    
-		
+	    cwc.setCOMMUID(Integer.parseInt(commuid));
+	    cwc.setCOMMUPOSTID(id);
+	    cwc.setPOSTTYPE(Integer.parseInt(contenttype));
+		cwc.setTEXT(text);
+		cwc.setWRITER(writer);
+		cwc.setTITLE(title);
+		cwc.setReferenceID(id);
 		
 	    AmazonS3 amazonS3 = AmazonS3ClientBuilder.standard()
 	            .withRegion("ap-northeast-2")
@@ -255,7 +260,14 @@ public class CommuController {
 	        
 	}
 	
-
+	@PostMapping("/communame")
+	@ResponseBody
+	public String getCommuName(@RequestParam("userid") String userid,@RequestParam("commuid") String commuid) {
+		String communame;
+		communame = service.getCommuName(userid, commuid);
+		return communame;
+	}
+	
 	@PostMapping("getuserid")
 	public String getUserID(@RequestParam("commuID")String commuID, @RequestParam("nickname")String nickname) {
 		String result = service.getUserID(commuID, nickname);

@@ -222,7 +222,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <insert id="fileUploadCommuBoard">
     <![CDATA[
     INSERT INTO CONTENTSRC (
-        CONTENTID, REFERENCEID, CONTENTTYPE, CONTENTPATH1
+        CONTENTID, REFERENCEID, CONTENTTYPE, CONTENTPATH1,CONTENTPATH2,CONTENTPATH3,CONTENTPATH4,CONTENTPATH5,CONTENTPATH6,CONTENTPATH7,CONTENTPATH8,CONTENTPATH9,CONTENTPATH10
     ) VALUES (
         CONTENTSRC_SEQ.nextval,
         #{COMMUID},
@@ -252,7 +252,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     INSERT INTO COMMUPOST (
         COMMUPOSTID, COMMUID, POSTTYPE, WRITER, TITLE,  TEXT, POSTTIME
     ) VALUES (
-        COMMUPOSTID_SEQ.nextval,
+        COMMUPOST_SEQ.nextval,
         #{COMMUID},
         2,
         #{WRITER},
@@ -262,5 +262,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     )
     ]]>
 </insert>
-	
+	<select id="getCommuName" resultType="String">
+	  <![CDATA[
+	  select CNICKNAME FROM COMMUMEMBER WHERE USERID = #{userid} and COMMUID = #{commuid}
+	  ]]>
+	</select>
 </mapper>

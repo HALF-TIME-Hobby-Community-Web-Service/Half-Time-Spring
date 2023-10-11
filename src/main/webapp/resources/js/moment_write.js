@@ -91,7 +91,6 @@ $(() => {
    
         const category = $('.selectSmallCategory').val();
         const text = $('#uploadText').val();
-        const fileInput = $(".input_moment_file");
 		
         e.preventDefault();
         
