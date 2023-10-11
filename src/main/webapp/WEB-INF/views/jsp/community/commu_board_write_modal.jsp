@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<script src="/resources/js/commu_board_make.js"></script>
+
 
 <!-- 게시물 추가 -->
   <div class="modal_content bmake_content">
@@ -27,8 +27,7 @@
           <textarea name="text" class="form-control modal_textarea bmake_text" placeholder="게시글 내용" style="width: 100%; height: 200px" cols="40" wrap="hard"></textarea>
         </div>
         
-		<div class="form-floating " style="border-top: 1px solid;">
-          
+		<div class="form-floating " style="border-top: 1px solid;">          
         </div>        
         
      	<!-- 이미지토글 -->
@@ -36,10 +35,9 @@
 			<div class="bmake_img_box" >			
 				<img class="b_img" src="/resources/items/moment/moment_default.png" style="width: 200px; margin-left:35%;"/>
 			</div>			
-			<input type="file" class="input_file commu_board_file" style="display: none" multiple accept="image/*" /> 
+			<input type="file" class="input_file2 commu_board_file" style="display: none" accept="image/*" /> 
 		</div>
         
-
         <div class="modal_button_container bmake_button_container" style="border-top: 1px solid;">
           <button class="btn btn-primary commu_upload_btn" type="submit">완료</button>
         </div>
@@ -49,10 +47,9 @@
   </div>
   
   <script>
-  $(function(){
+/*   $(function(){
   	$('.bmake_content').draggable({'cancel':'.b_container', containment:'parent', scroll:false});
-  });
-  
+  }); */ 
   
   
   $('.bmake_closebtn').click(()=>{
