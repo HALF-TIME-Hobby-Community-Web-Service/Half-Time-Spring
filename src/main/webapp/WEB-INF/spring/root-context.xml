@@ -63,10 +63,12 @@
    <bean id="commentService"
       class="com.hf.comment.service.CommentService">
    </bean>
+      <bean id="contentService"
+      class="com.hf.content.service.ContentService">
+   </bean>
    <bean id="userService"
       class="com.hf.user.service.UserService">
    </bean>
-
    <bean id="mypageService"
       class="com.hf.user.service.MyPageService">
    </bean>
