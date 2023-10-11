@@ -83,11 +83,12 @@ public class UserController {
 		    public int joinUser2(
 		        @RequestParam("location") String location,
 		        @RequestParam("category") String category,
-		        @RequestParam("userid") String id
+		        @RequestParam("userid") String id,
+		        @RequestParam("locationtag") String locationtag
 		    ) {
 			
-			 	log.info(id + "회원의 관심지역: " + location + "과 관심사: " + category);
-		        User user = new User(location, category, id);
+			 	log.info(id + "회원의 관심지역: "+"["+locationtag+"}" + location + "과 관심사: " + category);
+		        User user = new User(location, category, id, locationtag);
 
 
 		        int state = service.joinCheck2(user);
@@ -317,12 +318,15 @@ public class UserController {
 		    public int postKakaoUser2(
 		        @RequestParam("location") String location,
 		        @RequestParam("category") String category,
-		        @RequestParam("userid") String id
+		        @RequestParam("userid") String id,
+		        @RequestParam("locationtag") String locationtag
+		        
 		    ) {
-			 	log.info(id + "회원의 관심지역: " + location + " & 관심사: " + category);
-		        User user = new User(location, category, id);
-
-
+			
+		        log.info(id + "회원의 관심지역: "+"["+locationtag+"}" + location + "과 관심사: " + category);
+		        User user = new User(location, category, id, locationtag);
+		        
+		        
 		        int state = service.kakaojoinCheck2(user);
 		        log.info("가입 : " + state + "페이지 작성 완료");
 
@@ -404,10 +408,14 @@ public class UserController {
 			    public int postNaverUser2(
 			        @RequestParam("location") String location,
 			        @RequestParam("category") String category,
-			        @RequestParam("userid") String id
+			        @RequestParam("userid") String id,
+			        @RequestParam("locationtag") String locationtag
 			    ) {
-				 	log.info(id + "회원의 관심지역: " + location + " & 관심사: " + category);
-			        User user = new User(location, category, id);
+				 
+				 
+				  log.info(id + "회원의 관심지역: "+"["+locationtag+"}" + location + "과 관심사: " + category);
+			        User user = new User(location, category, id, locationtag);
+				
 			        
 			        log.info("유저 생성자 이후 아이디 : " + user.getId());
 

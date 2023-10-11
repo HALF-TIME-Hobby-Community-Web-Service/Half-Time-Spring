@@ -9,7 +9,7 @@ import com.hf.domain.User;
 public interface UserMapper {
 		
     	public void insertUser(User user);
-    	public void insertUserLocation(@Param("id") String id , @Param("location") String location);
+    	public void insertUserLocation(@Param("id") String id , @Param("location") String location, @Param("locationtag") String locationtag);
     	public void insertUserCategory(@Param("id") String id, @Param("category") String category);
     	public int joinIDcheckpage(String id);
     	public User userLogin(@Param("ID") String ID, @Param("PWD")String PWD);
@@ -21,13 +21,13 @@ public interface UserMapper {
 		public String loginfindPW_IDCheck(String id);
 		//카카오
 		public void insertKakaoUser(User user);
-		public void insertkakaoUserLocation(@Param("id") String id , @Param("location") String location);
+		public void insertkakaoUserLocation(@Param("id") String id , @Param("location") String location, @Param("locationtag") String locationtag);
 		public void insertkakaoUserCategory(@Param("id") String id, @Param("category") String category);
 		public String kakaoIDCheck(String kakaoID);
 		
 		//네이버
 		public void insertNaverUser(User user);
-		public void insertnaverUserLocation(@Param("id") String id , @Param("location") String location);
+		public void insertnaverUserLocation(@Param("id") String id , @Param("location") String location, @Param("locationtag") String locationtag);
 		public void insertnaverUserCategory(@Param("id") String id, @Param("category") String category);
 		public String naverIDCheck(String naverID);
 		

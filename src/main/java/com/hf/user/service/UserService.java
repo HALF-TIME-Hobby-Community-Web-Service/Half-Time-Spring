@@ -23,7 +23,7 @@ public class UserService {
     
     //가입페이지 2
     public int joinCheck2 (User user) {
-    	mapper.insertUserLocation(user.getId(), user.getLocation());
+    	mapper.insertUserLocation(user.getId(), user.getLocation(), user.getLocationtag());
     	mapper.insertUserCategory(user.getId(),user.getCategory());
     	return 2;
     }
@@ -83,7 +83,7 @@ public class UserService {
 	
 	// 카카오 가입페이지 2
     public int kakaojoinCheck2 (User user) { 	
-    	mapper.insertkakaoUserLocation(user.getId(), user.getLocation());
+    	mapper.insertkakaoUserLocation(user.getId(), user.getLocation(),user.getLocationtag());
     	mapper.insertkakaoUserCategory(user.getId(),user.getCategory());
     	return 2;
     }
@@ -111,7 +111,7 @@ public class UserService {
     //네이버 가입페이지2
     public int naverjoinCheck2 (User user) { 	
     	System.out.println("유저 아이디 :"+ user.getId());
-    	mapper.insertnaverUserLocation(user.getId(), user.getLocation());
+    	mapper.insertnaverUserLocation(user.getId(), user.getLocation(), user.getLocationtag());
     	mapper.insertnaverUserCategory(user.getId(),user.getCategory());
     	return 2;
     }

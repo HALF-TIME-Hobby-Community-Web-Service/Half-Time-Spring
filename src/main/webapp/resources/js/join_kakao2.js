@@ -7,6 +7,9 @@ $(function () {
   const location = $('.join_userlocation_input');
   const category = $('.join_category_input');
 
+  const locationtag = $('.join_userlocation_select')
+
+
   function addInputBox($container) {
     if ($container.children().length < maxInputBoxes) {
       const placeholder = $container.hasClass('join_userlocation_box')
@@ -63,6 +66,7 @@ $(function () {
         userid: useridkakao,
         location: location.val(),
         category: category.val(),
+        locationtag: locationtag.val()
       },
 
       //여기부터 다시하기

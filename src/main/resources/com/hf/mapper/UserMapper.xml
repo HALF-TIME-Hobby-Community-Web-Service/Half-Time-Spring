@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <insert id="insertUserLocation" >
         <![CDATA[
         INSERT INTO Userlocation 
-        VALUES (userlocation_seq.nextval, #{id}, '집', #{location})
+        VALUES (userlocation_seq.nextval, #{id}, #{locationtag}, #{location})
          ]]>
     </insert>
     
@@ -75,7 +75,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <insert id="insertkakaoUserLocation" >
         <![CDATA[
         INSERT INTO Userlocation 
-        VALUES (userlocation_seq.nextval, #{id}, '집', #{location})
+        VALUES (userlocation_seq.nextval, #{id}, #{locationtag}, #{location})
          ]]>
     </insert>
     
@@ -107,7 +107,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      <insert id="insertnaverUserLocation" >
         <![CDATA[
         INSERT INTO Userlocation 
-        VALUES (userlocation_seq.nextval, #{id}, '집', #{location})
+        VALUES (userlocation_seq.nextval, #{id}, #{locationtag}, #{location})
          ]]>
     </insert>
     
