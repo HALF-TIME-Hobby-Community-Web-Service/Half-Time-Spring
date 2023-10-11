@@ -43,7 +43,7 @@ $(() => {
         }
         
         var formData = new FormData();
-        var inputFiles = $('.input_file')[0].files; // 파일 input에서 선택한 파일들을 가져옴
+        var inputFiles = $('.commu_board_file')[0].files; // 파일 input에서 선택한 파일들을 가져옴
 
         for (var i = 0; i < inputFiles.length; i++) {
             formData.append('files', inputFiles[i]); // 'files'라는 이름으로 파일 데이터를 추가
@@ -57,11 +57,12 @@ $(() => {
 		
 		console.log("contenttpye : "+title);
         $.ajax({
-            url: 'http://localhost:8888/commu/commuUploads3',
+            url: 'http://localhost:8888/commu/commuBoardUploads3',
             method: 'POST',
             data: formData,
             processData: false, // 데이터 처리 비활성화
-            contentType: false, // 컨텐츠 유형 설정 비활성화
+            contentType: false,
+            dataType: "text", // 컨텐츠 유형 설정 비활성화
             success: function (data) {
                     $('.mmake_content').css('display', 'none');
                     alert("업로드가 완료되었습니다.");

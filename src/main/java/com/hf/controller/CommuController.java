@@ -198,16 +198,68 @@ public class CommuController {
 	    
 		}
 	
-	
-<<<<<<< HEAD
+	@PostMapping("/commuBoardUploads3")
+	@ResponseBody
+	public String s3Boardupload(@RequestParam("file") List<MultipartFile> files) throws IOException {
+		CommuWithContent cwc = new CommuWithContent();
+	    String bucket = "halftimespring";
+	    int id = service.getMaxCommuPostID();
+		log.info("아이디"+id);
+		int i =1;
+	    
 		
+		
+	    AmazonS3 amazonS3 = AmazonS3ClientBuilder.standard()
+	            .withRegion("ap-northeast-2")
+	            .build();
+	   
+	    S3FileService fileService = new S3FileService(amazonS3);
+
+	     	 
+	        for (MultipartFile file : files) {
+	            String fileName = file.getOriginalFilename();
+	            String fileExtName = fileName.substring(fileName.lastIndexOf("."), fileName.length());
+	            String filenameuuid = UUID.randomUUID().toString() + fileExtName; // S3에 저장될 파일 이름
+	            
+	            // 파일 업로드
+	            fileService.uploadFile(bucket, filenameuuid, file.getBytes(),file);
+	            String filepath = "commu/board/"+filenameuuid;
+	            String Url = amazonS3.getUrl(bucket, filepath).toString();
+	            log.info(Url);
+	            
+	            switch (i) {
+	                case 1:
+	                    cwc.setContentPath1(Url);
+	                    break;
+	                case 2:
+	                    cwc.setContentPath2(Url);
+	                    break;
+	                case 3:
+	                    cwc.setContentPath3(Url);
+	                    break;
+	                case 4:
+	                    cwc.setContentPath4(Url);
+	                    break;
+	                case 5:
+	                    cwc.setContentPath5(Url);
+	                    break;
+	                default:
+	                    break;
+	            }
+	            i++;
+	        
+	        }
+	        service.boardUpload(cwc);
+	        service.fileUploadCommuBoard(cwc);
+	        	return "success";
+	        
+	}
 	
-=======
+
 	@PostMapping("getuserid")
 	public String getUserID(@RequestParam("commuID")String commuID, @RequestParam("nickname")String nickname) {
 		String result = service.getUserID(commuID, nickname);
 		log.info("getuserid/result :" + result);
 		return result;
 	}
->>>>>>> 16dd62eecca63e65a4ba6a7af89666b25a27a82c
 }

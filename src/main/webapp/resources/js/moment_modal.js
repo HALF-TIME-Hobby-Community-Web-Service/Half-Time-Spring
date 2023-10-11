@@ -196,7 +196,7 @@ $(() => {
                         '<div class="feed_modal_container">' +
   						 	'<div class="feed_modal_title">' +
 	  							'<div>' +
-	  								'👦🏻<a href="" class="feed_modal_a_name">sungmin12</a>' +
+	  								'👦🏻<a href="" class="feed_modal_a_name">'+data.writer+'</a>' +
 	  								 '<button class="feed_modal_closebtn btn">X</button>' +
 	  							'</div>' +
 	  							'<hr>' +

@@ -49,12 +49,15 @@ public interface CommuMapper {
 	public String cjoin(@Param("commuID")String commuID, @Param("nickname")String nickname, @Param("userID")String userID);
 	
 	public String getMember(@Param("commuID")String commuID, @Param("userID")String userID);
-<<<<<<< HEAD
+
 	public void fileUploadCommuRep(@Param("commuMaxSeq") int commuMaxSeq,@Param("filepath") String filepath);
 	public Integer getMaxCommuID();
-=======
+
 	public String getUserID(@Param("commuID")String commuID, @Param("nickname")String nickname);
->>>>>>> 16dd62eecca63e65a4ba6a7af89666b25a27a82c
+	public Integer getMaxCommuPostID();
+	public void fileUploadCommuBoard(CommuWithContent cwc);
+	public void boardUpload(CommuWithContent cwc);
+
 }
 
 

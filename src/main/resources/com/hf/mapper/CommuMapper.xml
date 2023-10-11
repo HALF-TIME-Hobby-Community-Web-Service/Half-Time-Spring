@@ -194,14 +194,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      ]]>
 	</select>
 	
-<<<<<<< HEAD
+
 	<select id="getMaxCommuID"  resultType="Integer">
 		<![CDATA[	
 		SELECT MAX(COMMUID)
 		FROM Commu
 		]]>
 	</select>	
-	
+	<select id="getMaxCommuPostID"  resultType="Integer">
+		<![CDATA[	
+		SELECT MAX(COMMUPOSTID)
+		FROM COMMUPOST
+		]]>
+	</select>	
 	 <insert id="fileUploadCommuRep">
     <![CDATA[
     INSERT INTO CONTENTSRC (
@@ -214,13 +219,48 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     )
     ]]>
 </insert>
-=======
+<insert id="fileUploadCommuBoard">
+    <![CDATA[
+    INSERT INTO CONTENTSRC (
+        CONTENTID, REFERENCEID, CONTENTTYPE, CONTENTPATH1
+    ) VALUES (
+        CONTENTSRC_SEQ.nextval,
+        #{COMMUID},
+        2,
+        #{contentPath1, jdbcType=VARCHAR},
+        #{contentPath2, jdbcType=VARCHAR},
+        #{contentPath3, jdbcType=VARCHAR},
+        #{contentPath4, jdbcType=VARCHAR},
+        #{contentPath5, jdbcType=VARCHAR},
+        #{contentPath6, jdbcType=VARCHAR},
+        #{contentPath7, jdbcType=VARCHAR},
+        #{contentPath8, jdbcType=VARCHAR},
+        #{contentPath9, jdbcType=VARCHAR},
+        #{contentPath10, jdbcType=VARCHAR}
+    )
+    ]]>
+</insert>
 	<select id="getUserID" resultType="String">
 	 <![CDATA[
 	 SELECT userID FROM commumember
 	 WHERE commuID = #{commuID} and cnickname = #{nickname} 
      ]]>
 	</select>
->>>>>>> 16dd62eecca63e65a4ba6a7af89666b25a27a82c
+	
+	 <insert id="boardUpload">
+    <![CDATA[
+    INSERT INTO COMMUPOST (
+        COMMUPOSTID, COMMUID, POSTTYPE, WRITER, TITLE,  TEXT, POSTTIME
+    ) VALUES (
+        COMMUPOSTID_SEQ.nextval,
+        #{COMMUID},
+        2,
+        #{WRITER},
+        #{TITLE},
+        #{TEXT},
+        SYSDATE
+    )
+    ]]>
+</insert>
 	
 </mapper>
