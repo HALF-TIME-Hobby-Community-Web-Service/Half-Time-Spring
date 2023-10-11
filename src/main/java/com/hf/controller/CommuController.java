@@ -180,7 +180,7 @@ public class CommuController {
 	            String fileName = file.getOriginalFilename();
 	            log.info("진짜 파일이름"+fileName);
 	            String fileExtName = fileName.substring(fileName.lastIndexOf("."), fileName.length());
-	            String filenameuuid = UUID.randomUUID().toString() + fileExtName; 
+	            String filenameuuid = id + fileExtName; 
 	            fileService.uploadFileCommu(bucket, filenameuuid, file.getBytes(),file);
 	            String filepath = "commu/rep/"+filenameuuid;
 	            

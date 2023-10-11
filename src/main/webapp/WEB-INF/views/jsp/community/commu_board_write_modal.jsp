@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<script src="/resources/js/commu_board_make.js"></script>
 
 <!-- 게시물 추가 -->
   <div class="modal_content bmake_content">
@@ -52,9 +53,7 @@
   	$('.bmake_content').draggable({'cancel':'.b_container', containment:'parent', scroll:false});
   });
   
-  $('.b_img').click(()=>{
-	  $('.input_file').click();
-  })
+  
   
   $('.bmake_closebtn').click(()=>{
 	  $('.bmake_content').css('display','none');

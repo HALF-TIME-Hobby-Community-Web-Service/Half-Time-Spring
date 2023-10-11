@@ -19,7 +19,10 @@ $(() => {
     const modal_form = $('.commu_upload_form');
     const thumbnail = $(".b_img");
 	
-	
+	$('.b_img').click(()=>{
+	  $('.input_file').click();
+  })
+  
     upload.on("click", function (e) {
      
     console.log("wadawdawdawd");
