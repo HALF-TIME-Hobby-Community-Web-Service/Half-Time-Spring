@@ -104,16 +104,19 @@ public class MomentController {
 	public String s3upload(@RequestParam(name = "files", required = false) List<MultipartFile> files,
 	                       @RequestParam("text") String text,
 	                       @RequestParam("category") String category,
+	                       @RequestParam("location") String location,
 	                       @RequestParam("writer") String writer) {
 	    MomentWithContent mwc = new MomentWithContent();
 	    String bucket = "halftimespring";
 		log.info(writer);
 		log.info(category);
 		log.info(text);
+		log.info(location);
 
 		mwc.setCategory(category);
 		mwc.setText(text);
 		mwc.setWriter(writer);
+		mwc.setLocation(location);
 		if(mwc.getWriter()==null) {
 			return "nologin";
 		}
@@ -125,7 +128,7 @@ public class MomentController {
 	            .withRegion("ap-northeast-2")
 	            .build();
 	    log.info("fileSize : "+files.size());
-	    // S3FileService »ý¼º
+	    // S3FileService ï¿½ï¿½ï¿½ï¿½
 	    S3FileService fileService = new S3FileService(amazonS3);
 
 	    try {
@@ -133,9 +136,9 @@ public class MomentController {
 	        for (MultipartFile file : files) {
 	            String fileName = file.getOriginalFilename();
 	            String fileExtName = fileName.substring(fileName.lastIndexOf("."), fileName.length());
-	            String filenameuuid = UUID.randomUUID().toString() + fileExtName; // S3¿¡ ÀúÀåµÉ ÆÄÀÏ ÀÌ¸§
+	            String filenameuuid = UUID.randomUUID().toString() + fileExtName; // S3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 	            
-	            // ÆÄÀÏ ¾÷·Îµå
+	            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½
 	            fileService.uploadFile(bucket, filenameuuid, file.getBytes(),file);
 	            String filepath = "moment/"+filenameuuid;
 	            String Url = amazonS3.getUrl(bucket, filepath).toString();
@@ -163,7 +166,7 @@ public class MomentController {
 	            i++;
 	        
 	        }
-	        // for ·çÇÁ°¡ ¸ðµç ÆÄÀÏÀ» ¾÷·ÎµåÇÑ ÈÄ¿¡ momentService.fileUpload(mwc); È£Ãâ
+	        // for ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ä¿ï¿½ momentService.fileUpload(mwc); È£ï¿½ï¿½
 	        momentService.fileUpload(mwc);
 	        
 	        return "finish";
@@ -171,9 +174,9 @@ public class MomentController {
 	       
 	    } catch (IOException e) {
 	        e.printStackTrace();
-	        // ¿À·ù Ã³¸®
+	        // ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
 
-	    // ¾÷·Îµå ½ÇÆÐ ½Ã false ¹ÝÈ¯
+	    // ï¿½ï¿½ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ false ï¿½ï¿½È¯
 	    
 	    	}
 	    return "false";

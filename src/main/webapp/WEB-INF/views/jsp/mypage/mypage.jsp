@@ -28,7 +28,7 @@
  	</div>
  	
  	
-    <div class="mypage_subtitle">가입한 커뮤니티 </div>
+    <div class="mypage_subtitle"><b>가입한 커뮤니티</b> </div>
  	<div class="mypage_commu_container">
       		<c:forEach items="${commu}" var="commuItem">
  		  <div class="mypage_commu_box">

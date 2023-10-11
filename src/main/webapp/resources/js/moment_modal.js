@@ -120,15 +120,14 @@ $(() => {
 				alert('없는 유저 입니다!');
 			}
 		  });
-	    }		       
+	    }       	       
     });
 
     $(document).on("click", ".feed_container_append", function (e) {
     
-    	 if ($(e.target).is("a")) {
-    	  // 클릭한 요소가 <a> 태그인 경우 아무 처리도 하지 않음
-   		  return;
-  		}
+    	if ($(e.target).is("a")) { return; }
+  				
+  		if ($(e.target).is('span')) { return; }
     
         console.log("feed_container_append Clicked");
         var clickedFeedContainer = e.currentTarget;
@@ -201,8 +200,8 @@ $(() => {
 	  							'</div>' +
 	  							'<hr>' +
 	  							'<div style="font-size:15px;margin-top: 10px;">' +
-		  							'<span class="feed_modal_category">😘자기과시</span>' +
-		  							'<span class="feed_modal_location">🌎경기도 동탄시</span>' +
+		  							'<span class="feed_modal_category">😘' + data.category + '</span>' +
+		  							'<span class="feed_modal_location"> 🌎' + data.location + '</span>' +
 								'</div>' +
 		        				'<div class="feed_modal_feedtext">'+data.text+'</div>' +        
 		  						'</div>' +
@@ -210,29 +209,16 @@ $(() => {
 	  						'<div class="feed_modal_comment_container">' +
 		  						'<div class="feed_modal_comment_box">' +
 		  						'<div>' +
-			  						'<span class="comment_writer"> <a href="" class="feed_a_name">moon_bomi</a> </span>'  +
-			  						'<span class="comment_time">3시간</span>' +
+			  						'<span class="comment_writer"> <a href="" class="feed_a_name">sooyeol</a> </span>'  +
+			  						'<span class="comment_time">1시간</span>' +
 	  							'</div>'  +
-	  							'<span class="comment_text"></span>'  +
+	  							'<span class="comment_text">댓글예시</span>'  +
 	  						'</div>'  +
-	  						'<div class="feed_modal_comment_box">' +
-	  							'<div>' +
-	  								'<span class="comment_writer"> <a href="" class="feed_a_name">china_yerim</a> </span>' +
-	  								'<span class="comment_time">5시간</span>' +
-	  							'</div>' +
-	  							'<span class="comment_text">Hen piaoliang~</span>' +
-	  						'</div>' +
-							'<div class="feed_modal_comment_box">' +
-	  							'<div>' +
-	  								'<span class="comment_writer"> <a href="" class="feed_a_name">안세준</a> </span>' +
-	  								'<span class="comment_time">6시간</span>' +
-	  							'</div>'  +
-	  							'<span class="comment_text">집 가고 싶다</span>' +
-	  						'</div>' +
 	  						'<div class="feed_modal_comment_write">' +
-	  							'<form class="comment_form" action="">' +
-	  								'<input class="feed_modal_comment_write_input form-control" style="width:80%; display:inline;">' +
-	  								'<button class="btn" style="width: 19.5%; color:blue; display: inline-block; float:right;">게시</button>' +
+	  							'<form class="comment_form" action="" style="padding-left: 5px; padding-right: 5px;' +
+	  								' position: absolute; bottom: 10%; ">' +
+	  								'<input class="feed_modal_comment_write_input form-control" style="width:70%; display:inline;">' +
+	  								'<button type="button" class="btn btn-primary" style="width: 29.5%; float:right;">게시</button>' +
 								'</form>' +
 	  						'</div>' +
 						'</div>' +
