@@ -11,17 +11,19 @@
 <meta name="google-signin-scope" content="profile email">
 <meta name="google-signin-client_id" content="153411467894-hb0a8uu4blq7dpkuhhi83apucdgd1s1s.apps.googleusercontent.com">
 
-<title>Login page</title>
+<title>로그인</title>
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
@@ -156,17 +158,29 @@
 			type:"post",
 			dataType: "json",
 			data: form.serialize(),
-			success: function(data){
-				
+			success: function(data){				
 				if(!data.result){
-					alert("false"+ data.result);
-					//swal('false',data.result,'error')
-					location.href="/user/login";
-					
-				}else{
-					alert("환영합니다");
-					//swal('로그인 성공!', "환영합니다",'success')
-					location.href="/hf";			
+					Swal.fire({
+						  title: '로그인 실패!',
+						  text: '아이디 또는 비번이 틀렸습니다!',
+						  icon: 'error'
+						}).then((result) => {
+						  if (result.isConfirmed) {
+						    // 여기에서 페이지 이동을 수행
+						    location.href = "/user/login";
+						  }
+					});					
+				}else{		
+					Swal.fire({
+						  title: '로그인 성공!',
+						  text: '환영합니다',
+						  icon: 'success'
+						}).then((result) => {
+						  if (result.isConfirmed) {
+						    // 여기에서 페이지 이동을 수행
+						    location.href = '/hf';
+						  }
+					});				
 				}
 			},
 			error: function(jqXhr,status){
