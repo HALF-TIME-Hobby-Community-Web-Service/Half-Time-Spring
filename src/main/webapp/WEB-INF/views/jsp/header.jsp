@@ -67,7 +67,7 @@
 	</nav>
 	<div id="side_nav">
 		<div>
-			<ul class="nav flex-column">
+			<ul class="nav flex-column" style="height: 95%;">
 				<li class="nav_item" id="sidefirst"><img
 					src="/resources/items/sideItem/login.svg" alt="Login"><a
 					id="loginBtn" href="" class="atag">LOGIN</a></li>
@@ -83,11 +83,14 @@
 					<img src="/resources/items/sideItem/geo-alt.svg" alt="MyPage">
 					<a id="mypagebtn1" href="" class="atag">MyPage</a>
 				</li>
-				<li class="nav_line">──────</li>
-				<div class="footer" style="color:white; text-align: center; background-color: black;">
-					KOSTA 263기 HalfTime
-				</div>
+				<li class="nav_line">──────</li>				
 			</ul>
+		</div>
+		<div class="footer" style="color: black; text-align: left; background-color: lightgray;  position: absolute;
+  						width: 12%; bottom: 0%; padding-left: 10px;">
+			 Designed by<br>
+			 KOSTA 263기 팀 HALFTIME<br>
+			 2023.10.16
 		</div>
 	</div>
 </header>
