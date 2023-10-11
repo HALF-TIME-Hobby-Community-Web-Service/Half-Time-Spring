@@ -40,7 +40,7 @@ $(document).ready(function() {
         }
 
         const formData = new FormData();
-        const inputFiles = $('.input_file2')[0].files;
+        const inputFiles = $('#commu_board_file')[0].files;
 
         for (let i = 0; i < inputFiles.length; i++) {
             formData.append('files', inputFiles[i]);

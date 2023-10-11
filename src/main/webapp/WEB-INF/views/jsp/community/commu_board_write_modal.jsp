@@ -35,7 +35,7 @@
 			<div class="bmake_img_box" >			
 				<img class="b_img" src="/resources/items/moment/moment_default.png" style="width: 200px; margin-left:35%;"/>
 			</div>			
-			<input type="file" class="input_file2 commu_board_file" style="display: none" multiple accept="image/*" /> 
+			<input type="file" class="input_file2" id="commu_board_file" style="display: none" multiple accept="image/*" /> 
 		</div>
         
         <div class="modal_button_container bmake_button_container" style="border-top: 1px solid;">
