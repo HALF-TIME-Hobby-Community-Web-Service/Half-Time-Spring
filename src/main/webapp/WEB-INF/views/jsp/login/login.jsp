@@ -20,7 +20,6 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
