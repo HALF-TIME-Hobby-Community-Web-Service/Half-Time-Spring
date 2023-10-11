@@ -3,6 +3,7 @@
 <html>
 
 <head>
+	<title>HALFTIME</title>
 	<jsp:include page="header.jsp"/>
 	<script src="/resources/js/feed.js"></script>
 </head>

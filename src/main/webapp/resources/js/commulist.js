@@ -33,7 +33,20 @@ $(() => {
                 const communityBox = $('.commuBox_clone').clone().addClass('commuBox').removeClass('commuBox_clone');
                 
                 communityBox.find('.commuName').html(community.commuName); // 커뮤니티 이름 설정
-                communityBox.find('.img').attr('src', `/resources/items/commu/commu_page/${commuID}.jpg`); // 이미지 설정
+                
+                $.ajax({
+				        url: 'http://localhost:8888/content/getcontentsrc',
+				        method: 'POST',
+				        data: {referenceid: commuID, contenttype: 3},
+				        success: (response) => {		
+                    		communityBox.find('.img').attr('src', response[0]); // 이미지 설정
+				    	},
+				        error: (jqXhr, status) => {
+				        	communityBox.find('.img').attr('src', `/resources/items/commu_preview_default.png`); // 이미지 설정
+				        }
+			   		 });
+                
+                
                 communityBox.find('.commuintro').html(community.commuIntro); // 커뮤니티 소개 설정
                 communityBox.append(`<p style="display:none" class="commuID">${commuID}</p>`)
                 
@@ -76,18 +89,17 @@ $(() => {
                     } else {
                         $('.modalaround').html(`#${community.commuCategory} | ${community.commuLocation}`);
                     }
-                    
-                    
-                    
+                                        
                     // 대문주소 받기
                     $.ajax({
 				        url: 'http://localhost:8888/content/getcontentsrc',
+				        method: 'POST',
 				        data: {referenceid: commuID, contenttype: 3},
-				        success: (response) => {				        	
-                    		$('.modalimg').attr('src', `/resources/items/commu/commu_page/${commuID}.jpg`);
+				        success: (response) => {		
+                    		//$('.modalimg').attr('src', response[0]);
 				    	},
 				        error: (jqXhr, status) => {
-				            $('.modalimg').attr('src', `/resources/items/commu_preview_default.jpg`);
+				            //$('.modalimg').attr('src', '/resources/items/commu_preview_default.png');
 				        }
 			   		 });                    
                     
