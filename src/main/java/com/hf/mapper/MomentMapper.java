@@ -22,7 +22,7 @@ public interface MomentMapper {
 	public void fileUpload(MomentWithContent mwc);
 	public int getMaxMomentID();
     List<String> modal_SmallCategory(String largecate); 
-    void modalUpload(@Param("text") String text, @Param("writer") String writer, @Param("category") String catgory);
+    void modalUpload(@Param("text") String text, @Param("writer") String writer, @Param("location") String location, @Param("category") String catgory);
 
 }
 

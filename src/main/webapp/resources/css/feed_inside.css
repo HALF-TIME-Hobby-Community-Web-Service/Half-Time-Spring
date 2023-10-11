@@ -30,18 +30,24 @@ div.feed_container {
 
 .feed_title {          
     font-weight: bold;
-    text-align: center;
+    text-align: left;
     
-    padding-top: 20px;
+    padding-top: 15px;
 }
 
-.feed_title_name,
+.feed_title_name {
+	font-size: 20px;
+    margin-left: 20px;
+	margin-bottom: 7px;
+	padding-bottom: 3px;
+}
+
 .feed_title_date,
 .feed_title_category,
 .feed_title_location {
-	display: inline-block;
-    width: 25%;
     font-size: 20px;
+    margin-left: 20px;
+    text-align: center;
 }
 
 .feed_a_name {

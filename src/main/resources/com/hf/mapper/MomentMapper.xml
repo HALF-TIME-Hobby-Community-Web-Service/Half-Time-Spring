@@ -108,7 +108,7 @@ WHERE
             momentid_seq.nextval,
             #{writer},
             #{category},
-            '부산',
+            #{location},
             #{text},
             SYSDATE
         )

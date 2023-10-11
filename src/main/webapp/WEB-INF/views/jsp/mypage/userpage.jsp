@@ -11,7 +11,7 @@
   	<span class="mypage_id">😀아이디:${id}</span>
   	<span class="mypage_name" style="margin-left: 20px;">🤷‍♀️이름: ${name}</span>
   	<span class="mypage_nickname" style="margin-left: 20px;">🕵️‍♂️닉네임: ${nickname}</span>
-  	<span class="modal_closebtn mypage_closebtn" style="float: right;">&times;</span>
+  	<span class="modal_closebtn mypage_closebtn" style="position:absolute; right: 8%; top: 4.2%;">&times;</span>
  	</div> 
 	</div>
 	<div class="mypageContainer">
@@ -27,7 +27,7 @@
  		</div>
  	</div>
  	
-    <div class="mypage_subtitle">가입한 커뮤니티 </div>
+    <div class="mypage_subtitle"><b>가입한 커뮤니티</b></div>
  	<div class="mypage_commu_container">
  		<c:forEach items="${commu}" var="commuItem">
  		  <div class="mypage_commu_box">

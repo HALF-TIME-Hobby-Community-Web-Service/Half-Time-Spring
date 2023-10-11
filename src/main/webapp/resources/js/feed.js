@@ -42,10 +42,11 @@ $(() => {
 					newItem.append(
 						'<div class="feedbox">'
 						+ '<div class="feed_title">'
-						+ '<span class="feed_title_name">🐱' + '<a href="" class="feed_a_name">' + item.writer + '</a>' + '</span>'
-						+ '<span class="feed_title_date">⏰23/12/10' + "" + '</span>'
+						+ '<div class="feed_title_name">🐱' + '<a href="" class="feed_a_name" style="' +
+															'border-bottom: 1px solid;">' + item.writer + '</a></div>'
 						+ '<span class="feed_title_category">🚩' + item.category + '</span>'
-						+ '<span class="feed_title_location">⛱' + item.location + '</span>'
+						+ '<span class="feed_title_location">🌎' + item.location + '</span>'
+						+ '<span class="feed_title_date">⏰23/12/10' + "" + '</span>'
 						+ '</div>'
 						+ '<hr>'
 						+ '<div id="carouselExample" class="carousel slide">'

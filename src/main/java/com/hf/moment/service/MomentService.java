@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hf.domain.Category;
 import com.hf.domain.MomentWithContent;
 import com.hf.mapper.MomentMapper;
 
@@ -64,8 +63,8 @@ public class MomentService {
         
         
       //  if (!fileExtName.equals(".jpg") || !fileExtName.equals(".jpeg") || !fileExtName.equals(".png")|| !fileExtName.equals(".JPG")|| !fileExtName.equals(".JPEG")|| !fileExtName.equals(".PNG")|| !fileExtName.equals(".SVG")) {
-       //     log.info("ÀÌ¹ÌÁö È®ÀåÀÚ ¿¹¿Ü Ã³¸®");
-        //    return saveFileName="ÀÌ¹ÌÁö È®ÀåÀÚ ¿À·ù";
+       //     log.info("ï¿½Ì¹ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½");
+        //    return saveFileName="ï¿½Ì¹ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½";
         //}
         saveFileName = MaxNumFile()+fileExtName;
         log.warn("saveFileName : "+saveFileName);

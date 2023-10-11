@@ -76,7 +76,7 @@ $(() => {
 				feedContent.html(response);
 			},
 			error: (jqXhr, status) => {
-				alert(`momentBtn실패: ${status}\n오류명: ${jqXhr.statusCode}`);
+				alert(`momentBtn실패: 얏호`);
 			},
 		});
 	});
@@ -314,25 +314,7 @@ $(() => {
 			
 		}
 	  });	  
-});
+	});
 	
 
-	momentBtn.click((e) => {
-		console.log("momentBtn Click");
-		feedContent.html('');
-		e.preventDefault();
-
-		$.ajax({
-			url: 'http://localhost:8888/moment/list',
-			method: 'get',
-			dataType: "html",
-			success: (response) => {
-				console.log(response);
-				feedContent.html(response);
-			},
-			error: (jqXhr, status) => {
-				alert(`momentBtn실패: ${status}\n오류명: ${jqXhr.statusCode}`);
-			},
-		});
-	});
 });

@@ -45,24 +45,23 @@ $(() => {
     const LargeCate = $('.selectLargeCategory');
    	const SmallCate = $('.selectSmallCategory'); 
       
-    $('.float-item1').click(() => {
-        $.ajax({
-            url: 'http://localhost:8888/moment/modal_LargeCategory',
-            method: 'POST',
-            dataType: "json",
-            success: function (data) {
-                $.each(data, function (index, item) {
-                    LargeCate.append('<option value="' + item + '">' + item + '</option>');
-                });
-            },
-            error: function (error) {
-                console.log("largeCategory error");
-                console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
-            }
-        });
-    });
 
-    $('.largecategory').change(() => {
+    $.ajax({
+        url: 'http://localhost:8888/moment/modal_LargeCategory',
+        method: 'POST',
+        dataType: "json",
+        success: function (data) {
+            $.each(data, function (index, item) {
+                LargeCate.append('<option value="' + item + '">' + item + '</option>');
+            });
+        },
+        error: function (error) {
+            console.log("largeCategory error");
+            console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
+        }
+    });
+    
+    LargeCate.change(() => {
         SmallCate.html('');
         $.ajax({
             url: 'http://localhost:8888/moment/modal_SmallCategory',
@@ -91,12 +90,18 @@ $(() => {
    
         const category = $('.selectSmallCategory').val();
         const text = $('#uploadText').val();
+<<<<<<< HEAD
+=======
+        const fileInput = $(".input_moment_file");
+        const location = $("input[name=location]").val();
+        alert(location);
+>>>>>>> 46dfa5a401b9947a512b9e1bae937cf975ff5346
 		
         e.preventDefault();
         
         if(text==''){
-        alert("내용을 작성해주세요");
-        return;
+	        alert("내용을 작성해주세요");
+	        return;
         }else if(category==''){
         	alert("카테고리를 정해주세요");
         	return;
@@ -104,6 +109,7 @@ $(() => {
         	alert("로그인 해주세요.");
         	return;
         }
+        
         var formData = new FormData();
         var inputFiles = $('.input_file')[0].files; // 파일 input에서 선택한 파일들을 가져옴
 
@@ -114,6 +120,7 @@ $(() => {
         formData.append("text", text);
         formData.append("writer", writer);
         formData.append("category", category);
+        formData.append("location", location);
 
         $.ajax({
             url: 'http://localhost:8888/moment/momentUploads3',
