@@ -2,7 +2,7 @@ $(function () {
   const maxInputBoxes = 6;
 
   const userid = sessionStorage.getItem('userid');
-  const useridnaver = userid + ':naver';
+  const useridnaver = userid;
   const formObj = $('form.join_container');
   const location = $('.join_userlocation_input');
   const category = $('.join_category_input');
