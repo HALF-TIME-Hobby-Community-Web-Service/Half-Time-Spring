@@ -96,8 +96,8 @@ $(() => {
 						+ '</div>'
 						+ '</div>'
 					);
-  
-					container.append(newItem);
+  					container.append(newItem);
+				
 				});
   
 				pageNum++;

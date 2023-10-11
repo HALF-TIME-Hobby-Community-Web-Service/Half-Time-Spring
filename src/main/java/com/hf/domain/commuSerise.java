@@ -3,6 +3,7 @@ package com.hf.domain;
 import java.math.BigDecimal;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,4 +25,5 @@ public class commuSerise {
 	private String cnickname;	
 	private BigDecimal commuID;
 	private String userID;
+	private MultipartFile file;
 }

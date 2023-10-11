@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hf.mapper.ContentMapper">
+	
+	<select id="getContentSrc" resultType="com.hf.domain.Content5">
+        <![CDATA[
+		SELECT 
+		    contentpath1, 
+		    contentpath2,
+		    contentpath3,
+		    contentpath4,
+		    contentpath5
+		FROM 
+			contentsrc 
+		WHERE 
+			referenceid = #{referenceid} and contenttype = #{contenttype}
+        ]]>
+	</select>		
+	
+		
+</mapper>

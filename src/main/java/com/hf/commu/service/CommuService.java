@@ -185,9 +185,29 @@ public class CommuService {
 	public String getMember(String commuID, String userID) {
 		return mapper.getMember(commuID, userID);		
 	}
+
+	public void fileUploadCommuRep(int id,String filepath) {	
+		mapper.fileUploadCommuRep(id,filepath);
+	}
+	public int commuSeq() {
+		int intmax = mapper.getMaxCommuID();
+		return intmax;
+	}
+
 	
 	public String getUserID(String commuID, String nickname) {
 		return mapper.getUserID(commuID, nickname);
+	}
+	public int getMaxCommuPostID() {
+		int intmax = mapper.getMaxCommuPostID();
+		return intmax;
+	}
+	public void fileUploadCommuBoard(CommuWithContent cwc) {
+		mapper.fileUploadCommuBoard(cwc);
+	}
+	public void boardUpload(CommuWithContent cwc) {
+		mapper.boardUpload(cwc);
+		
 	}
 
 }
