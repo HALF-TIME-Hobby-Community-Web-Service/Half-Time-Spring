@@ -42,14 +42,22 @@ public interface CommuMapper {
 	
 	public void fileUpload(CommuWithContent cwc);
 	void modalUpload(CommuWithContent cwc);
-	public int getMaxCommuID();
+	
 	
 	public int checkmember(@Param("commuID")String commuID, @Param("nickname")String nickname);
 	public int checkJoined(@Param("commuID")String commuID, @Param("userID")String userID);
 	public String cjoin(@Param("commuID")String commuID, @Param("nickname")String nickname, @Param("userID")String userID);
 	
 	public String getMember(@Param("commuID")String commuID, @Param("userID")String userID);
+
+	public void fileUploadCommuRep(@Param("commuMaxSeq") int commuMaxSeq,@Param("filepath") String filepath);
+	public Integer getMaxCommuID();
+
 	public String getUserID(@Param("commuID")String commuID, @Param("nickname")String nickname);
+	public Integer getMaxCommuPostID();
+	public void fileUploadCommuBoard(CommuWithContent cwc);
+	public void boardUpload(CommuWithContent cwc);
+
 }
 
 

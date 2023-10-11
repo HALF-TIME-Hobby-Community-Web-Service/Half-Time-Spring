@@ -13,8 +13,7 @@
    
    <!-- Root Context: defines shared resources visible to all other web components -->
    <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-   <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />
-   
+   <property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" />   
    <property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
    <property name="username" value="moon" />
    <property name="password" value="bomi" />
@@ -42,7 +41,7 @@
       <property name="defaultEncoding" value="UTF-8" />
       <property name="uploadTempDir" value="/resources/img/moment/" />
       <property name="maxInMemorySize" value="4096" /> <!-- 4KB -->
-</bean>
+	</bean>
 
    <bean id="amazonS3" class="com.amazonaws.services.s3.AmazonS3Client">
     <constructor-arg ref="awsCredentials" />

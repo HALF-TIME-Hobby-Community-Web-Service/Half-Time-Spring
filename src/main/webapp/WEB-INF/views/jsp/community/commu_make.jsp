@@ -25,8 +25,8 @@
       <form class="cmake_form" method="post" action="">         
         <div class="cmake_left">
           <div class="modal_subtitle">커뮤니티 기본 정보</div>
-          <input class="form-control" name="communame" placeholder="커뮤니티 이름" />
-          <textarea  placeholder="커뮤니티 소개" class="form-control" name="commuintro" style="width: 90%; height: 200px; max-height: 400px;"></textarea>
+          <input class="form-control inputname" name="communame" placeholder="커뮤니티 이름" />
+          <textarea  placeholder="커뮤니티 소개" class="form-control inputintro" name="commuintro" style="width: 90%; height: 200px; max-height: 400px;"></textarea>
           
           <div class="form-floating selectBox">
             <select class="form-select lcate">
@@ -36,7 +36,7 @@
               <option>카테고리 소분류</option>            
             </select>
           </div>
-          <input class="form-control" name="commulocation" placeholder="커뮤니티 지역" />
+          <input class="form-control inputlocation" name="commulocation" placeholder="커뮤니티 지역" />
           <hr>
           <div class="buttonBox">
             <button type="button" class="btn btn-primary next">다음</button>          
@@ -54,7 +54,7 @@
         </div>
         <div class="cmake_right">
           <div class="modal_subtitle">커뮤니티 설정</div>
-          <input class="form-control" name="capacity" type="number" placeholder="커뮤니티 정원 (기본: 50)"/>  
+          <input class="form-control inputcapacity" name="capacity" type="number" placeholder="커뮤니티 정원 (기본: 50)"/>  
 
           <div class="form-check form-switch mtop30px">
             <input class="form-check-input age_check" type="checkbox" role="switch" id="flexSwitchCheckDefault">

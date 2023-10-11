@@ -260,15 +260,16 @@ $(() => {
 					$.each(data, function (data, item) {
 						// 새로운 리스트 아이템을 만들고 데이터를 포함시킵니다.
 						
-						const newItem = $('<div class="community_container_append" id=' + item.commuID + '>');
+						const newItem = $('<div class="community_container_append" id=' + '>');
 						newItem.append(
-							'<div class="communitybox">'
-							+ '<div class="community_title">'
-							+ '<span class="community_title_name">🐱' + '<a href="" class="community_a_name">' + item.commuName + '</a>' + '</span>'
-							+ '<span class="community_title_intro">🐱' + item.commuIntro + '</span>'
-							+ '<span class="community_title_category">🚩' + item.commuCategory + '</span>'
-							+ '<span class="community_title_location">⛱' + item.commuLocation + '</span>'
-							+ '</div>'
+							'<ul class="list-group" id="#community_box">'
+							+ '<div class="community_title"/>'
+							+ '<li class="list-group-item" id="community_title_name">' +'커뮤니티 이름:&nbsp;'+ '<a href="" class="community_a_name" id="'+item.commuID+'">' + item.commuName + '</a><br>' 
+							+ '<span class="community_title_intro">커뮤니티 소개:&nbsp;' + item.commuIntro + '</span><br>'
+							+ '<span class="community_title_category">카테고리:&nbsp;' + item.commuCategory + '</span><br>'
+							+ '<span class="community_title_location">위치:&nbsp;' + item.commuLocation + '</span>'
+							+ '</li>'
+							+ '</ul>'
 							+ '</div>'
 							+'</div>'
 
@@ -294,6 +295,27 @@ $(() => {
 
 
 	});
+	
+	
+	
+	$('body').on("click", ".community_a_name", function (e) {		
+	  e.preventDefault();
+	  const commuLink = $(this); 
+	  const value = commuLink.attr('id');
+	  sessionStorage.setItem('commuID', value);
+	  $.ajax({
+		url: "http://localhost:8888/commupage",
+		type: "get",
+		data: { commuID: value },
+		success: function (response) {
+		  $('.feed_content').html(response);
+		},
+		error: function (jqXhr, status) {
+			
+		}
+	  });	  
+});
+	
 
 	momentBtn.click((e) => {
 		console.log("momentBtn Click");

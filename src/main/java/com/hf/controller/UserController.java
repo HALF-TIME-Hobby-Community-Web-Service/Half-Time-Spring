@@ -347,7 +347,7 @@ public class UserController {
 		 	  	session.setAttribute("naverID", naverID);
 		 	  	
 		 	  	if(service.naverIDCheck(naverID)) {
-		 	  		session.setAttribute("id", naverID);
+		 	  		session.setAttribute("naverID", naverID);
 		 	  		session.setMaxInactiveInterval(1800);
 		 	  		log.info("세---------------------------션:"+session.getAttribute("id"));
 		 	  		return "redirect:/hf";
@@ -377,7 +377,7 @@ public class UserController {
 		        String pnum = phonenuma + phonenumb + phonenumc;     
 		        int gender = 0;
 		        String pwd = id+"naver";
-		        //id= id+":naver"; 이거 변
+		        //id= id+":naver";
 		        
 		        User user = new User(id, pwd, name, birth, gender, address, pnum, nickname);
 

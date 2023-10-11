@@ -49,7 +49,7 @@
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0" id="searchul"/>
 					<form class="d-flex" role="search" id="searchform">
 					
-						<select name="selection" id="selection">
+						<select name="selection" id="selection" class="form-select" style="width:20%; margin-right:10px;">
 							<option value="moment">모멘트</option>
 							<option value="community">커뮤니티</option>
 						</select><br>
@@ -58,9 +58,9 @@
 							placeholder="Search" aria-label="Search" id="feed_searchinput"
 							name="search_location">
 							
-						<button type="button"
+						<button type="submit"
 							class="btn btn-outline-dark btn-outline-success"
-							id="nav-searchbtn" type="submit" name="total_search">Search</button>
+							id="nav-searchbtn" name="total_search">Search</button>
 					</form>
 			</div>
 		</div>

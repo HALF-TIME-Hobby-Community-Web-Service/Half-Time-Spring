@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<script src="/resources/js/commu_board_make.js"></script>
 
 <!-- 게시물 추가 -->
   <div class="modal_content bmake_content">
     <div class="modal_title bmake_title"> 🎴게시글 작성<span class="modal_closebtn bmake_closebtn">&times;</span></div>
     
     <div class="modal_container b_container">
-      <form method="post" action="" class="commu_upload_form">      
+      <form method="post" action="http://localhost:8888/commu/commuUploads3" class="commu_upload_form" enctype="multipart/form-data">      
               
         <div class="form-floating mb-3">
 	        <select name="" class="form-select commucategory">
@@ -35,12 +36,12 @@
 			<div class="bmake_img_box" >			
 				<img class="b_img" src="/resources/items/moment/moment_default.png" style="width: 200px; margin-left:35%;"/>
 			</div>			
-			<input type="file" class="input_file" style="display: none" multiple accept="image/*" /> 
+			<input type="file" class="input_file commu_board_file" style="display: none" multiple accept="image/*" /> 
 		</div>
         
 
         <div class="modal_button_container bmake_button_container" style="border-top: 1px solid;">
-          <button class="btn btn-primary commu_upload_btn">완료</button>
+          <button class="btn btn-primary commu_upload_btn" type="submit">완료</button>
         </div>
                 
       </form>
@@ -52,9 +53,7 @@
   	$('.bmake_content').draggable({'cancel':'.b_container', containment:'parent', scroll:false});
   });
   
-  $('.b_img').click(()=>{
-	  $('.input_file').click();
-  })
+  
   
   $('.bmake_closebtn').click(()=>{
 	  $('.bmake_content').css('display','none');
