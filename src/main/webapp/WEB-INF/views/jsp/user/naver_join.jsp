@@ -20,7 +20,7 @@
     <div class="join_content">
         <form class="join_container">
             <div class="join_container_border">
-                <div class="join_ID_box">
+                <div class="join_ID_box" hidden>
                 <!-- 아이디 안보이게 가리기 -->
                    	아이디
                             <input class="join_ID_input" 
