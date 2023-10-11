@@ -82,8 +82,7 @@
 				<li class="nav_item">
 					<img src="/resources/items/sideItem/geo-alt.svg" alt="MyPage">
 					<a id="mypagebtn1" href="" class="atag">MyPage</a>
-				</li>
-				<li class="nav_line">──────</li>				
+				</li>			
 			</ul>
 		</div>
 		<div class="footer" style="color: black; text-align: left; background-color: lightgray;  position: absolute;
