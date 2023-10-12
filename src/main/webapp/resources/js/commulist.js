@@ -65,7 +65,7 @@ $(() => {
 						            method: 'get', // GET 요청
 						            data: { commuID: commuID },            
 						            success: (response) => {          	
-						                modal.style.display4 = 'none';
+						                modal.style.display = 'none';
 						                feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
 						            },
 						            error: (jqXhr, status) => {
@@ -94,7 +94,7 @@ $(() => {
                     $.ajax({
 				        url: 'http://localhost:8888/content/getcontentsrc',
 				        method: 'POST',
-				        data: {referenceid: commuID, contenttype: 3},
+				        data: {referenceid: commuID, contenttype: 2},
 				        success: (response) => {		
                     		$('.modalimg').attr('src', response.contentPath1);
 				    	},

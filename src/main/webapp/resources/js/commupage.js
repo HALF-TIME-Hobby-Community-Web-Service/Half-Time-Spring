@@ -156,9 +156,9 @@ $(() => {
         //사진
          $.ajax({
 	        url: 'http://localhost:8888/content/getcontentsrc',
-	        data: {referenceid: commuID, contenttype: 3},
+	        data: {referenceid: commuID, contenttype: 4},
 	        success: (response) => {				        	
-        		clone.find('.boardimg').attr('src', response);
+        		clone.find('.boardimg').attr('src', response.contentPath1);
 	    	},
 	        error: (jqXhr, status) => {
 	        	clone.find('.boardimg').attr('src',`resources/items/commu_preview_default.jpg`);
@@ -189,7 +189,7 @@ $(() => {
 			$.ajax({
 		        url: 'http://localhost:8888/content/getcontentsrc',
 		        method: 'POST',
-		        data: {referenceid: commuID, contenttype: 3},
+		        data: {referenceid: commuID, contenttype: 5},
 		        success: (response) => {				        	
 	        		clone.find('.history_box_img').attr('src', response);
 		    	},
