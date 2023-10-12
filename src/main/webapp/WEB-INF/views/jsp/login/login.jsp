@@ -103,8 +103,8 @@
 	                           	 url: '/user/kakao',
 	                           	 method: 'get',
 	                           	 success:(data)=>{
-	                           		location.href = "/hf";
-	                           		//$('body').html(data);
+	                           		//location.href = "/hf";
+	                           		$('body').html(data);
 	                           	 }
                              });   
                         }
