@@ -17,7 +17,7 @@
       	<!-- 모먼트 내용 -->
         <div class="form-floating mb-3">
         	<textarea id="uploadText" class="form-control modal_textarea mmake_text" name="text"
-          		placeholder="게시글 내용" style="width: 100%; height: 200px"></textarea>
+          		placeholder="게시글 내용" style="width: 100%; height: 200px" required></textarea>
         </div>
         <div class="category">
         <!-- 카테고리 -->
@@ -33,8 +33,7 @@
 		</div>
 		</div>
 		<!-- 지역 -->
-		<input class="form-control" name="location" placeholder="지역을 작성해주세요">
-		
+		<input class="form-control" name="location" placeholder="지역을 작성해주세요" required>		
 		
 		<!-- 이미지토글 -->
 		<div class="mmake_img_container">

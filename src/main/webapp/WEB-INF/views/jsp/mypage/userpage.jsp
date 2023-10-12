@@ -17,11 +17,11 @@
 	<div class="mypageContainer">
  	<div class="userinfo2">
  		<div>    	
-  		<span >🎂나이: ${birth} </span>
-  		<span class="marginleft30px">❤성별: ${gender} </span>
-  		<span class="marginleft30px">🌎주소: ${address}</span>
-  	</div> 
-  	<div>
+	  		<span >🎂나이: ${birth} </span>
+	  		<span class="marginleft30px">❤성별: ${gender} </span>
+	  		<span class="marginleft30px">🌎주소: ${address}</span>
+  		</div> 
+  		<div>
  			<span>👀관심취미: </span>
  			<span class="marginleft30px">🌎관심지역: </span>
  		</div>

@@ -100,4 +100,3 @@
 <button class="login_findPW_findIDbtn" onclick="location.href='http://localhost:8888/user/findid'">아이디 찾기</button>
 </footer>
 
-

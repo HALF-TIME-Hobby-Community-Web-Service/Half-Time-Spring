@@ -9,8 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/resources/css/login_find.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+	
     <script src="/resources/js/login_findID.js"></script>
-   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Login find_ID page</title>
 </head>
 
