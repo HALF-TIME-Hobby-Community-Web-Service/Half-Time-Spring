@@ -16,8 +16,8 @@ $(() => {
 	        error: (jqXhr, status) => {
 	          swal('오류!',`update실패: ${status}\n오류명: ${jqXhr.statusCode}`,'error');
 	        }
-      });
-  });
+        });
+    });
 
 
 	$('.mypage_closebtn').on('click', function() {

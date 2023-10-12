@@ -47,7 +47,19 @@ $(() => {
     data: { commuID: commuID },
     success: (c) => {
       $('.introTitle').text(c.commuName);
-      $('.mainImage').attr('src', `/resources/items/commu/commu_page/${c.commuID}.jpg`);
+            
+      $.ajax({
+        url: 'http://localhost:8888/content/getcontentsrc',
+        method: 'POST',
+        data: {referenceid: commuID, contenttype: 3},
+        success: (response) => {		
+    		$('.mainImage').attr('src', response.contentPath1);
+    	},
+        error: (jqXhr, status) => {
+            $('.mainImage').attr('src', '/resources/items/commu_preview_default.png');
+        }
+	 });    
+      
       
       if (c.commuCategory=='카테고리 소분류') 
       	c.commuCategory = '뭐든지';
