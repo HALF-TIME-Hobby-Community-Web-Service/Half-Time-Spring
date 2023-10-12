@@ -15,17 +15,18 @@ $(() => {
 		dataType: "JSON" , 
 		 
         success: (response) => {  
-        
-         alert('다음페이지로 이동합니다');
-          if (response == 1) {
+        // alert('다음페이지로 이동합니다');
+        swal('1페이지 작성완료!',"다음페이지로 이동합니다",'success')
+		.then(function(){
+			  if (response == 1) {
             location.href = 'http://localhost:8888/user/join2';
-  
           } else {
-            alert('전부작성해주세요')
+          swal('1페이지 작성실패!',"전부작성해주세요",'error');
           }
+		})
         },
         error: (jqXhr, status) => {
-          alert(`실패: ${status}\n오류명:${jqXhr.statusCode}`);
+        	alert(`실패: ${status}\n오류명:${jqXhr.statusCode}`);
         },
       });
       return false;
@@ -39,8 +40,8 @@ $(() => {
     const email=$('select.join_ID_select');
    
     $(checkObj).click(() => { 
-      
-      alert(id.val()+email.val());
+      //swal('중복확인',id.val()+email.val(),'info');
+      //alert(id.val()+email.val());
       $.ajax({
         url: 'http://localhost:8888/user/idcheck', 
         method: 'POST',
@@ -52,10 +53,12 @@ $(() => {
         success: (response) => {  
             // alert(response);
           if (response == '0') {
-            alert('사용할 수 있는 아이디입니다')
+           swal('중복확인',"사용할 수 있는 아이디입니다",'success');
+          //alert('사용할 수 있는 아이디입니다')
           }
           else if (response == '1') {
-            alert('이미 사용중인 아이디입니다');
+           swal('중복확인',"이미 사용중인 아이디입니다",'error');
+            //alert('이미 사용중인 아이디입니다');
           }else if(response == '2'){
             alert('오류가 발생했습니다')
           }
@@ -74,11 +77,13 @@ $(() => {
   
       $('.join_PW_checkbtn').click(()=>{
 
-        if (pw.val() == pwcheck.val()) {
-          alert('비밀번호가 같습니다')
+        if (pw.val() == pwcheck.val()) { 
+         swal('비밀번호 확인',"비밀번호가 같습니다",'success');
+          //alert('비밀번호가 같습니다')
         }
         else {
-          alert('비밀번호가 다릅니다')
+        swal('비밀번호 확인',"비밀번호가 다릅니다",'error');
+          //alert('비밀번호가 다릅니다')
         }
       })     
   });
@@ -89,6 +94,7 @@ $(() => {
   const pnumchk = $('.join_pnum_checkbtn');
 
     $(pnumchk).click(()=>{
-      alert('핸드폰 번호가 인증되었습니다')
+       swal('핸드폰번호 확인',"핸드폰 번호가 인증되었습니다",'success');
+      //alert('핸드폰 번호가 인증되었습니다')
     })     
 });
