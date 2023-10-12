@@ -181,9 +181,10 @@ public class CommuController {
 	            log.info("진짜 파일이름"+fileName);
 	            String fileExtName = fileName.substring(fileName.lastIndexOf("."), fileName.length());
 	            String filenameuuid = id + fileExtName; 
-	            fileService.uploadFileCommu(bucket, filenameuuid, file.getBytes(),file);
+	            String filePath = "commu/rep/" + filenameuuid;
+	            fileService.uploadFileCommu(bucket, filePath, file.getBytes(),file);
 	            String filepath = "commu/rep/"+filenameuuid;
-	            
+	           
 	           
 	            
 	            String Url = amazonS3.getUrl(bucket, filepath).toString();
@@ -200,15 +201,23 @@ public class CommuController {
 	
 	@PostMapping("/commuBoardUploads3")
 	@ResponseBody
-	public String s3Boardupload(@RequestParam("file") List<MultipartFile> files) throws IOException {
+	public String s3Boardupload(@RequestParam("files") List<MultipartFile> files, @RequestParam("text") String text,@RequestParam("writer") String writer,@RequestParam("contenttype")String contenttype, @RequestParam("commuid") String commuid,@RequestParam("title") String title) throws IOException {
 		CommuWithContent cwc = new CommuWithContent();
 	    String bucket = "halftimespring";
 	    int id = service.getMaxCommuPostID();
 		log.info("아이디"+id);
 		int i =1;
-	    
+	    cwc.setCOMMUID(Integer.parseInt(commuid));
+	    cwc.setCOMMUPOSTID(id);
+	    cwc.setPOSTTYPE(Integer.parseInt(contenttype));
+		cwc.setTEXT(text);
+		cwc.setWRITER(writer);
+		cwc.setTITLE(title);
+		cwc.setReferenceID(id);
 		
+		for (MultipartFile file : files) {
 		
+		}
 	    AmazonS3 amazonS3 = AmazonS3ClientBuilder.standard()
 	            .withRegion("ap-northeast-2")
 	            .build();
@@ -218,11 +227,12 @@ public class CommuController {
 	     	 
 	        for (MultipartFile file : files) {
 	            String fileName = file.getOriginalFilename();
+	            log.info("파일 받아온거"+file);
 	            String fileExtName = fileName.substring(fileName.lastIndexOf("."), fileName.length());
 	            String filenameuuid = UUID.randomUUID().toString() + fileExtName; // S3에 저장될 파일 이름
-	            
+	            String filePath = "commu/board/" + filenameuuid;
 	            // 파일 업로드
-	            fileService.uploadFile(bucket, filenameuuid, file.getBytes(),file);
+	            fileService.uploadFileCommu(bucket, filePath, file.getBytes(),file);
 	            String filepath = "commu/board/"+filenameuuid;
 	            String Url = amazonS3.getUrl(bucket, filepath).toString();
 	            log.info(Url);
@@ -255,7 +265,14 @@ public class CommuController {
 	        
 	}
 	
-
+	@PostMapping("/communame")
+	@ResponseBody
+	public String getCommuName(@RequestParam("userid") String userid,@RequestParam("commuid") String commuid) {
+		String communame;
+		communame = service.getCommuName(userid, commuid);
+		return communame;
+	}
+	
 	@PostMapping("getuserid")
 	public String getUserID(@RequestParam("commuID")String commuID, @RequestParam("nickname")String nickname) {
 		String result = service.getUserID(commuID, nickname);

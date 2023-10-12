@@ -57,6 +57,7 @@ public interface CommuMapper {
 	public Integer getMaxCommuPostID();
 	public void fileUploadCommuBoard(CommuWithContent cwc);
 	public void boardUpload(CommuWithContent cwc);
+	public String getCommuName(@Param("userid")String userid, @Param("commuid")String commuid);
 
 }
 

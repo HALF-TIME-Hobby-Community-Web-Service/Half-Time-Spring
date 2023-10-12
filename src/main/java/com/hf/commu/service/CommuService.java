@@ -209,5 +209,8 @@ public class CommuService {
 		mapper.boardUpload(cwc);
 		
 	}
+	public String getCommuName(String userid, String commuid) {
+		return mapper.getCommuName(userid, commuid);
+	}
 
 }

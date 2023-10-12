@@ -10,7 +10,7 @@ import lombok.ToString;
 @Getter
 @Setter@ToString
 public class CommuWithContent {
-		private String COMMUPOSTID;
+		private int COMMUPOSTID;
 		private int COMMUID;
 		private String WRITER;
 		private String TITLE;
