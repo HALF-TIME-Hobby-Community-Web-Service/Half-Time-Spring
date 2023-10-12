@@ -96,10 +96,10 @@ $(() => {
 				        method: 'POST',
 				        data: {referenceid: commuID, contenttype: 3},
 				        success: (response) => {		
-                    		//$('.modalimg').attr('src', response[0]);
+                    		$('.modalimg').attr('src', response.contentPath1);
 				    	},
 				        error: (jqXhr, status) => {
-				            //$('.modalimg').attr('src', '/resources/items/commu_preview_default.png');
+				            $('.modalimg').attr('src', '/resources/items/commu_preview_default.png');
 				        }
 			   		 });                    
                     
