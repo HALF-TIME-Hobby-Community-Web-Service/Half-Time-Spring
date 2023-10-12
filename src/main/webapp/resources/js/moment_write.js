@@ -95,14 +95,17 @@ $(() => {
 		
         e.preventDefault();
         
-        if(text==''){
-	        alert("내용을 작성해주세요");
+        if (text==''){
+	        swal('주의!', "내용을 작성해주세요", 'error');
 	        return;
-        }else if(category==''){
-        	alert("카테고리를 정해주세요");
+        }else if (category=='category'){
+        	swal('주의!', "카테고리를 정해주세요", 'error');
         	return;
-        }else if(writer==''){
-        	alert("로그인 해주세요.");
+    	}else if (location=='') {
+        	swal('주의!', "지역을 입력해주세요!", 'error');        	
+        	return;
+        }else if (writer==''){
+        	swal('주의!', "로그인을 해주세요!", 'error');        	
         	return;
         }
         

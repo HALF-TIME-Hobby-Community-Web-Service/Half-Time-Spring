@@ -45,7 +45,7 @@
 					<fieldset>
 						<input name="pwd" id="pwd" type="password" placeholder="비밀번호">
 					</fieldset>
-					<button class="login_button">로그인</button>
+					<button class="login_button" style="height:50px; font-weight: bolder; border-radius:5px;">로그인</button>
 				</form>
 			</div>
 		</div>
@@ -137,11 +137,11 @@
    
 		<br> <br>
 		<button class="login_findIDbtn"
-			onclick="location.href='http://localhost:8888/user/findid'">아이디 찾기</button>
+			onclick="location.href='http://localhost:8888/user/findid'" style="height:50px; font-weight: bolder; border-radius:5px;">아이디 찾기</button>
 		<button class="login_findPWbtn"
-			onclick="location.href='http://localhost:8888/user/findpw'">비밀번호 찾기</button>
+			onclick="location.href='http://localhost:8888/user/findpw'" style="height:50px; font-weight: bolder; border-radius:5px;">비밀번호 찾기</button>
 		<br> <br>
-		<button class="join_button" onclick="location.href='http://localhost:8888/user/join1'">가입하기</button>
+		<button class="join_button" onclick="location.href='http://localhost:8888/user/join1'" style="height:50px; font-weight: bolder; border-radius:5px;">가입하기</button>
 	</div>
 
 <script>

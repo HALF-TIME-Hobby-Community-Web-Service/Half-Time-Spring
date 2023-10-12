@@ -23,7 +23,16 @@ $(() => {
         success: (response) => {  
         //alert(response);
           if (response.trim() !== '') {
-            alert('회원의 아이디는[ '+response+' ]입니다')   
+          	const msg = '회원의 아이디는[ ' + response + ' ]입니다';
+            Swal.fire({
+				  title: '아이디 찾기 성공!',
+				  text: msg,
+				  icon: 'success'
+				}).then((result) => {
+				  if (result.isConfirmed) {								
+    				location.href="/user/login";
+				  }
+			});
           }
           else {
             alert('가입된 이력이 없습니다');
