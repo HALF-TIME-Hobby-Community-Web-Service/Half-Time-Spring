@@ -126,9 +126,9 @@ $(() => {
       response.forEach((p) => {
         const clone = $('.boardBox_clone').clone().addClass('boardBox').removeClass('boardBox_clone');
 
-        if (p.posttype == '1') 
+        if (p.posttype == '2') 
     	  clone.find('.board_posttype').text('📖게시글');
-        else if (p.posttype == '2')
+        else if (p.posttype == '1')
           clone.find('.board_posttype').text('📖공지사항');
         else 
           alert('posttype 오류~');

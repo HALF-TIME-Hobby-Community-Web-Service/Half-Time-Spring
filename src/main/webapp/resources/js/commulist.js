@@ -65,7 +65,7 @@ $(() => {
 						            method: 'get', // GET 요청
 						            data: { commuID: commuID },            
 						            success: (response) => {          	
-						                modal.style.display = 'none';
+						                modal.style.display4 = 'none';
 						                feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
 						            },
 						            error: (jqXhr, status) => {
