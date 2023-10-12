@@ -50,7 +50,7 @@ public class MyPageController {
 		
 		model.addAttribute("pnum", user.getPnum());
 		model.addAttribute("address", user.getAddress());
-		if(user.getGender()==1) {
+		if(user.getGender()==0 || user.getGender()==2) {
 			model.addAttribute("gender", "남");
 			}else {
 			model.addAttribute("gender", "여");
@@ -108,7 +108,7 @@ public class MyPageController {
 		model.addAttribute("categoryName", user.getCategoryName());
 		model.addAttribute("pnum", user.getPnum());
 		model.addAttribute("address", user.getAddress());
-		if(user.getGender()==1) {
+		if(user.getGender()==0 || user.getGender()==2) {
 			model.addAttribute("gender", "남");
 			}else {
 			model.addAttribute("gender", "여");

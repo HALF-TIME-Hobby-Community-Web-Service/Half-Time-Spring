@@ -4,7 +4,6 @@ $(() => {
 	const pnumUpdateBtn = $("#pnum_updateBtn");
 	const mypageContent = $(".mypageContent");
  	const mycommuContent = $(".mypageContainer_myCommu");
-
 	
 	updateinfoBtn.click((e)=>{
 	    $.ajax({
