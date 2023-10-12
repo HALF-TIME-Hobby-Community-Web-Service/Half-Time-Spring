@@ -90,12 +90,8 @@ $(() => {
    
         const category = $('.selectSmallCategory').val();
         const text = $('#uploadText').val();
-<<<<<<< HEAD
-=======
         const fileInput = $(".input_moment_file");
         const location = $("input[name=location]").val();
-        alert(location);
->>>>>>> 46dfa5a401b9947a512b9e1bae937cf975ff5346
 		
         e.preventDefault();
         
