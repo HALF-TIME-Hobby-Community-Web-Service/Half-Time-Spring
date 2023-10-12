@@ -26,9 +26,9 @@ $(() => {
         response.forEach((data) => {        
           const div = $('<div>').text('\t' + data.cauth + '\t' + data.gender + '\t' + data.birth); 
                     
-          if (data.gender == 1) 
+          if (data.gender == 0 || data.gender == 2) 
             var gender = '남';
-          else if (data.gender == 2 ) 
+          else if (data.gender == 1) 
             var gender = '여';        
           else
             var gender = '?';             

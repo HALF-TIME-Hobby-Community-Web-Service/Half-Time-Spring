@@ -150,11 +150,17 @@ public class CommuController {
 	}
 	
 	@PostMapping("/cmake")
-	public String cmake(@ModelAttribute commuSerise c) throws IOException {
+	public String cmake(HttpServletRequest request, @ModelAttribute commuSerise c) throws IOException {
+		
+
+		HttpSession session = request.getSession();
+        String id = (String) session.getAttribute("id");
+        log.info("cmkae/session: " + id);
+        c.setUserID(id);
+		
 		log.info("cmake: " + c.toString());
 		String result = service.cmake(c);
 		log.info("cmake:result: " + result);
-		
 		return result;
 	}
 	

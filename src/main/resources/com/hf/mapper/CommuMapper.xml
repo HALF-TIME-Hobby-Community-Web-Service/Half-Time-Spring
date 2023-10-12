@@ -142,7 +142,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <!-- TODO -->
    	<insert id="insertCommuManager">    	    
         <![CDATA[
-     	   INSERT INTO commumember VALUES (#{c.commuID}, #{c.cnickname}, 'sooyeol', 2)
+     	   INSERT INTO commumember VALUES (#{c.commuID}, #{c.cnickname}, #{c.userID}, 2)
         ]]> 
     </insert>	
 
