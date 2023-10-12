@@ -199,8 +199,13 @@ public class CommuService {
 		return mapper.getUserID(commuID, nickname);
 	}
 	public int getMaxCommuPostID() {
-		int intmax = mapper.getMaxCommuPostID();
-		return intmax;
+		Integer intmax = mapper.getMaxCommuPostID();
+		if(intmax!=null) {
+			return intmax;
+		}else {
+			return 1;
+		}
+		
 	}
 	public void fileUploadCommuBoard(CommuWithContent cwc) {
 		mapper.fileUploadCommuBoard(cwc);
