@@ -93,7 +93,7 @@ $(() => {
                     $.ajax({
 				        url: 'http://localhost:8888/content/getcontentsrc',
 				        method: 'POST',
-				        data: {referenceid: commuID, contenttype: 3},
+				        data: {referenceid: commuID, contenttype: 2},
 				        success: (response) => {		
                     		$('.modalimg').attr('src', response.contentPath1);
 				    	},
