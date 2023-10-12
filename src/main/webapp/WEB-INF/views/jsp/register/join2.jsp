@@ -6,10 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="/resources/css/join2.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/resources/js/join2.js"></script>
     <title>join page2</title>
+    
+     <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
 </head>
 
 <body>
@@ -23,14 +29,14 @@
                     관심지역
                     
                     <br>
-                    <select class="join_userlocation_select">
+                    <select class="form-select form-select-lg mb-3 join_userlocation_select" style="width:100%;">
 	                    <option value="집" selected>집</option>
 						<option value="회사" >회사</option>
 						<option value="관심지" >관심지</option>
 						<option value="기타" >기타</option>
                     </select>
                     
-                    <input class="join_userlocation_input" 
+                    <input class="form-control join_userlocation_input" 
                         type="text"
                         name="join_userlocation"
                         maxlength="15"
@@ -43,7 +49,7 @@
 
                 <div class="join_category_box">
                     관심취미
-                    <input class="join_category_input" 
+                    <input class="form-control join_category_input" 
                         type="text"
                         name="join_category"
                         maxlength="15"
@@ -53,7 +59,11 @@
                     <br><br>-->
                 </div><br>
             </div>
-            <button class="join_pagebtn">회원가입 완료</button>
+            
+            <button class="btn btn-light join_pagebtn">회원가입 완료</button>
+            
+            
+           <!--  <button class="join_pagebtn">회원가입 완료</button>  -->
         </form>
     </div>
 </body>

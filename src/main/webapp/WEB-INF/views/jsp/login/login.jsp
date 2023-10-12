@@ -45,6 +45,7 @@
 					<fieldset>
 						<input name="pwd" id="pwd" type="password" placeholder="비밀번호">
 					</fieldset>
+				
 					<button class="login_button" style="height:50px; font-weight: bolder; border-radius:5px;">로그인</button>
 				</form>
 			</div>

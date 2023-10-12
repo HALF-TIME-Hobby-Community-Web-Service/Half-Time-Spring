@@ -11,6 +11,11 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/resources/js/login_findPW.js"></script>
     <title>Login find_PW page</title>
+    
+      <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
 </head>
 
 <body>
@@ -22,25 +27,27 @@
         <div class="login_container_findPW">
             <h2>비밀번호 찾기</h2>
             <h3>회원정보에 등록한 휴대전화로 인증</h3>
+            <br>
         
             <form class="login_findPW_form">
 
                 <form class="login_findPW_ID_form">
                     <div class="login_findPW_box">
                         아이디
-                    <input class="login_findPW_input"
+                    <input class="form-control login_findPW_input"
                         type="text"
                         name="login_findPW_ID"
                         max="10"
                         placeholder="아이디를 입력하세요"
                         required="required">
-                    <button class="login_findPW_ID_checkbtn" type="button">확인</button>
+                        <br>
+                    <button class="btn btn-light login_findPW_ID_checkbtn" type="button">확인</button>
                     </div><br>
                 </form>
 
                 <div class="login_findPW_name_box">
                     이름
-                    <input class="login_findPW_name_input"
+                    <input class="form-control login_findPW_name_input"
                     type="text"
                     name="login_findPW_name"
                     max="10"
@@ -50,8 +57,8 @@
 
                 <div class="login_findPW_gender_box">
                     성별
-                    <select class="login_findPW_gender_select"
-                    name="login_findPW_gender">
+                    <select class="form-select form-select-lg mb-3 login_findPW_gender_select"
+                    name="login_findPW_gender" style="width:100%">
                         <option value="0" selected>남</option>
                         <option value="1">여</option>
                     </select>
@@ -59,7 +66,8 @@
 
                 <div class="login_findPW_birth_box">
                     생년월일
-                    <input class="login_findPW_birth_input"
+                    <br>
+                    <input class="form-control login_findPW_birth_input"
                         type="date"
                         name="login_findPW_birth"
                         required="required"> 
@@ -67,27 +75,28 @@
 
                 <div class="login_findPW_pnum_box">
                     핸드폰 번호
-                    <select class="login_findPW_pnum_select" name="login_findPW_pnum">
+                    <br>
+                    <select class="form-select form-select-lg mb-3 login_findPW_pnum_select" name="login_findPW_pnum" style="width:100%">
                         <option value="010" selected>010</option>
                         <option value="011">011</option>
                         <option value="017">017</option>
                     </select>
-                        <input class="login_findPW_pnum1_input"
+                        <input class="form-control login_findPW_pnum1_input"
                             type="tel"
                             maxlength="4"
                             name="login_findPW_pnum1"
                             oninput="this.value = this.value.replace(/[^0-9]/g, '');"
                             required="required"
-                            style="width: 70px;">
-                        <input class="login_findPW_pnum2_input"
+                            >
+                        <input class="form-control login_findPW_pnum2_input"
                         type="tel"
                         maxlength="4"
                         name="login_findPW_pnum2"
                         oninput="this.value = this.value.replace(/[^0-9]/g, '');"
                         required="required"
-                        style="width: 70px;">
+                       >
                         <br>
-                        <button class="login_findPW_pnum_checkbtn" type="button">비밀번호 찾기</button>
+                        <button class="btn btn-light login_findPW_pnum_checkbtn" type="button">비밀번호 찾기</button>
                 </div><br>
             </form>
         </div>
