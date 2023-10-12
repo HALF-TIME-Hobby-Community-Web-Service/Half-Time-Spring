@@ -17,8 +17,7 @@ $(() => {
         error: (jqXhr, status) => {
             swal('오류', '세션 에러', 'error');
         }
-    });    
-    
+    });        
     
     //AJAX로 서버에서 데이터 가져오기
     $.ajax({
@@ -35,16 +34,16 @@ $(() => {
                 communityBox.find('.commuName').html(community.commuName); // 커뮤니티 이름 설정
                 
                 $.ajax({
-				        url: 'http://localhost:8888/content/getcontentsrc',
-				        method: 'POST',
-				        data: {referenceid: commuID, contenttype: 3},
-				        success: (response) => {		
-                    		communityBox.find('.img').attr('src', response.contentPath1); // 이미지 설정
-				    	},
-				        error: (jqXhr, status) => {
-				        	communityBox.find('.img').attr('src', `/resources/items/commu_preview_default.png`); // 이미지 설정
-				        }
-			   		 });
+			        url: 'http://localhost:8888/content/getcontentsrc',
+			        method: 'POST',
+			        data: {referenceid: commuID, contenttype: 5},
+			        success: (response) => {		
+                		communityBox.find('.img').attr('src', response.contentPath1); // 이미지 설정
+			    	},
+			        error: (jqXhr, status) => {
+			        	communityBox.find('.img').attr('src', `/resources/items/commu_preview_default.png`); // 이미지 설정
+			        }
+		   		 });
                 
                 
                 communityBox.find('.commuintro').html(community.commuIntro); // 커뮤니티 소개 설정
@@ -65,7 +64,7 @@ $(() => {
 						            method: 'get', // GET 요청
 						            data: { commuID: commuID },            
 						            success: (response) => {          	
-						                modal.style.display4 = 'none';
+						                modal.style.display = 'none';
 						                feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
 						            },
 						            error: (jqXhr, status) => {

@@ -203,7 +203,7 @@ $(() => {
 		        method: 'POST',
 		        data: {referenceid: commuID, contenttype: 3},
 		        success: (response) => {				        	
-	        		clone.find('.history_box_img').attr('src', response);
+	        		clone.find('.history_box_img').attr('src', response.contentPath1);
 		    	},
 		        error: (jqXhr, status) => {
 		        	clone.find('.history_box_img').attr('src', '/resources/items/commu_preview_default.png');
