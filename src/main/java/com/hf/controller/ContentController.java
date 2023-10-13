@@ -1,5 +1,7 @@
 package com.hf.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,5 +26,11 @@ public class ContentController {
 	public Content5 join(@RequestParam("referenceid") String referenceid, @RequestParam("contenttype") String contenttype)	{		
 		log.info("getContentSrc: "  + referenceid + ", " + contenttype );
 		return service.getContentSrc(referenceid, contenttype);
+	}
+	
+	@PostMapping("/getboardsrc")
+	public Content5 board(@RequestParam("contenttype") String contenttype, @RequestParam("postid") int postid)	{		
+		Content5 content = service.getboardsrc( contenttype,postid);
+		return content;
 	}
 }

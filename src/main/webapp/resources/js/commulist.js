@@ -37,8 +37,9 @@ $(() => {
                 $.ajax({
 				        url: 'http://localhost:8888/content/getcontentsrc',
 				        method: 'POST',
-				        data: {referenceid: commuID, contenttype: 3},
-				        success: (response) => {		
+				        data: {referenceid: commuID, contenttype: 2},
+				        success: (response) => {	
+				        	console	
                     		communityBox.find('.img').attr('src', response.contentPath1); // 이미지 설정
 				    	},
 				        error: (jqXhr, status) => {

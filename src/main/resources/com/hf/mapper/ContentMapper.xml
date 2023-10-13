@@ -17,7 +17,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE 
 			referenceid = #{referenceid} and contenttype = #{contenttype}
         ]]>
-	</select>		
-	
+	</select>	
 		
+		
+	<select id="getboardsrc" resultType="com.hf.domain.Content5">
+        <![CDATA[
+		SELECT CP.*, CS.*
+  FROM COMMUPOST CP
+  LEFT JOIN CONTENTSRC CS ON CP.commupostid = CS.REFERENCEID
+  where CS.contenttype = #{contenttype} and CP.COMMUPOSTID = #{postid}
+        ]]>
+	</select>
+
 </mapper>

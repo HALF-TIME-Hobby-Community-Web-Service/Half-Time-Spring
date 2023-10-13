@@ -50,8 +50,6 @@ $(() => {
 			method: 'get', // GET 요청
 			dataType: "html",
 			success: (response) => {
-				console.log(response);
-
 				feedContent.html(response); // 페이지 내용을 .feed_content에 삽입
 			},
 			error: (jqXhr, status) => {
@@ -128,7 +126,6 @@ $(() => {
 			method: 'get',
 			dataType: "html",
 			success: (response) => {
-				console.log(response);
 				feedContent.html(response);
 			},
 			error: (jqXhr, status) => {

@@ -47,7 +47,7 @@ public class CommuController {
 	@PostMapping("/join")
 	public String join(@RequestParam("commuID") String commuID, @RequestParam("userID") String userID,
 				    @RequestParam("nickname") String nickname)	{		
-		log.info("join�뚢뫂�뱜嚥▲끇�쑎 "  + commuID + userID + nickname);
+		log.info("join占쎈슓維귨옙諭쒎슖�뼯�걞占쎌몠 "  + commuID + userID + nickname);
 		return service.join(commuID, userID, nickname);
 	}
 	
@@ -108,7 +108,7 @@ public class CommuController {
         String nickname = service.getMember(commuID, id);
         log.info("lmake/nickname: " + nickname);
 		
-		Gathering g = new Gathering(title, text, commuID, nickname, startTime, endTime, new BigDecimal(price.split("원")[0]), location, new BigDecimal(capacity.split("명")[0]));
+		Gathering g = new Gathering(title, text, commuID, nickname, startTime, endTime, new BigDecimal(price.split("�썝")[0]), location, new BigDecimal(capacity.split("紐�")[0]));
 		log.info("lmake: " + g.toString());    
 		service.lmake(g);
 		return "1";	
@@ -125,7 +125,7 @@ public class CommuController {
 	
 	@PostMapping("/location")
 	public List<CommuInfo> getCommuLocation(@RequestParam("search_loation") String location) {
-		log.info("�뚣끇占썬끇�빍占쎈뼒 占쎌맄燁살꼶�뮉?"+location);
+		log.info("占쎈슔�걞�뜝�뜫�걞占쎈퉵�뜝�럥堉� �뜝�럩留꾤뇖�궡瑗띰옙裕�?"+location);
 		List<CommuInfo> ci = service.getCommuListByLocation(location);
 		log.info(ci);
 		return ci;
@@ -170,7 +170,7 @@ public class CommuController {
 		Content content = new Content();
 	    String bucket = "halftimespring";
 	    int id = service.getMaxCommuID();
-		log.info("아이디"+id);
+		log.info("�븘�씠�뵒"+id);
 		int i =1;
 	    
 		content.setReferenceID(id);
@@ -184,7 +184,7 @@ public class CommuController {
 
 	   
 	            String fileName = file.getOriginalFilename();
-	            log.info("진짜 파일이름"+fileName);
+	            log.info("吏꾩쭨 �뙆�씪�씠由�"+fileName);
 	            String fileExtName = fileName.substring(fileName.lastIndexOf("."), fileName.length());
 	            String filenameuuid = id + fileExtName; 
 	            String filePath = "commu/rep/" + filenameuuid;
@@ -194,7 +194,7 @@ public class CommuController {
 	           
 	            
 	            String Url = amazonS3.getUrl(bucket, filepath).toString();
-	            log.info("유알엘"+Url);
+	            log.info("�쑀�븣�뿕"+Url);
 	            content.setContentPath1(Url);
 	        
 	        
@@ -210,16 +210,14 @@ public class CommuController {
 	public String s3Boardupload(@RequestParam("files") List<MultipartFile> files, @RequestParam("text") String text,@RequestParam("writer") String writer,@RequestParam("contenttype")String contenttype, @RequestParam("commuid") String commuid,@RequestParam("title") String title) throws IOException {
 		CommuWithContent cwc = new CommuWithContent();
 	    String bucket = "halftimespring";
-	    int id = service.getMaxCommuPostID();
-		log.info("아이디"+id);
+	    
 		int i =1;
 	    cwc.setCOMMUID(Integer.parseInt(commuid));
-	    cwc.setCOMMUPOSTID(id);
 	    cwc.setPOSTTYPE(Integer.parseInt(contenttype));
 		cwc.setTEXT(text);
 		cwc.setWRITER(writer);
 		cwc.setTITLE(title);
-		cwc.setReferenceID(id);
+		
 		
 		for (MultipartFile file : files) {
 		
@@ -233,11 +231,11 @@ public class CommuController {
 	     	 
 	        for (MultipartFile file : files) {
 	            String fileName = file.getOriginalFilename();
-	            log.info("파일 받아온거"+file);
+	            log.info("�뙆�씪 諛쏆븘�삩嫄�"+file);
 	            String fileExtName = fileName.substring(fileName.lastIndexOf("."), fileName.length());
-	            String filenameuuid = UUID.randomUUID().toString() + fileExtName; // S3에 저장될 파일 이름
+	            String filenameuuid = UUID.randomUUID().toString() + fileExtName; // S3�뿉 ���옣�맆 �뙆�씪 �씠由�
 	            String filePath = "commu/board/" + filenameuuid;
-	            // 파일 업로드
+	            // �뙆�씪 �뾽濡쒕뱶
 	            fileService.uploadFileCommu(bucket, filePath, file.getBytes(),file);
 	            String filepath = "commu/board/"+filenameuuid;
 	            String Url = amazonS3.getUrl(bucket, filepath).toString();
@@ -266,6 +264,9 @@ public class CommuController {
 	        
 	        }
 	        service.boardUpload(cwc);
+	        int id = service.getMaxCommuPostID();
+	        cwc.setCOMMUPOSTID(id);
+	        cwc.setReferenceID(id);
 	        service.fileUploadCommuBoard(cwc);
 	        	return "success";
 	        
