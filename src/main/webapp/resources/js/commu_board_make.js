@@ -3,6 +3,8 @@ $(document).ready(function() {
     var nickname;
     var commuid = sessionStorage.getItem('commuID');
 	var isloading= false;
+	var posttype;
+	var contenttype;
 	
     function getSessionData() {
         return $.ajax({
@@ -25,9 +27,11 @@ $(document).ready(function() {
     }
 
      function handleUpload(nickname) {
-        const contenttype = $('.commucategory').val();
+        posttype = $('.commucategory').val();
+        
         const text = $('.bmake_text').val();
         const title = $('.bmake_name').val();
+        
 
         if (text === '') {
             alert('내용을 작성해주세요');
@@ -39,6 +43,17 @@ $(document).ready(function() {
             alert('로그인 해주세요.');
             return $.Deferred().reject('로그인 해주세요').promise();
         }
+	
+		if(posttype=="1"){
+			contenttype="3";
+		}else if(posttype=="2"){
+			contenttype="4";
+		}else if(posttype=="3"){
+			contenttype="5";
+		}else{
+		alert("카테고리를 선택해주세요.");
+		return;
+		}
 
         const formData = new FormData();
         const inputFiles = $('#commu_board_file')[0].files;
@@ -52,7 +67,7 @@ $(document).ready(function() {
         formData.append('contenttype', contenttype);
         formData.append('commuid', commuid);
         formData.append('title', title);
-
+		formData.append('posttype', posttype);
         return $.ajax({
             url: 'http://localhost:8888/commu/commuBoardUploads3',
             method: 'POST',
@@ -67,6 +82,7 @@ $(document).ready(function() {
     });
 
     $('.commu_upload_btn').click(function(e) {
+    	
         e.preventDefault();
         console.log("dawda");
         if(isloading != true){
@@ -80,9 +96,10 @@ $(document).ready(function() {
                 return handleUpload(nickname);
             })
             .then(function() {
-                $('.mmake_content').css('display', 'none');
+            alert(posttype);
+                $('.mmake_content').remove();
                 alert('업로드가 완료되었습니다.');
-                location.href = '/hf';
+                
             })
             .fail(function(error) {
                 console.error('An error occurred:', error);

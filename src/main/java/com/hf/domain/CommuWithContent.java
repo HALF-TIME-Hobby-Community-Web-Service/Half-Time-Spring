@@ -20,6 +20,7 @@ public class CommuWithContent {
 		
 	    private int contentID;
 	    private int referenceID;
+	    private int contentType;
 	    private String contentPath1;
 	    private String contentPath2;
 	    private String contentPath3;

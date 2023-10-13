@@ -1,7 +1,7 @@
 $(() => {
   const backURL = 'http://localhost:8888/commu';
   const commuID = sessionStorage.getItem('commuID');
-	var postid;
+  var postid;
 	
 	
   /* 상단 탭 */
@@ -116,7 +116,7 @@ $(() => {
       response.forEach((p) => {
         const clone = $('.boardBox_clone').clone().addClass('boardBox').removeClass('boardBox_clone');
 		postid= p.commupostid;
-		alert(postid);
+		
         if (p.posttype == '2') 
     	  clone.find('.board_posttype').text('📖게시글');
         else if (p.posttype == '1')

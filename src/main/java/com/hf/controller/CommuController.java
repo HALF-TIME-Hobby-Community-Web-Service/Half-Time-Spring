@@ -207,17 +207,17 @@ public class CommuController {
 	
 	@PostMapping("/commuBoardUploads3")
 	@ResponseBody
-	public String s3Boardupload(@RequestParam("files") List<MultipartFile> files, @RequestParam("text") String text,@RequestParam("writer") String writer,@RequestParam("contenttype")String contenttype, @RequestParam("commuid") String commuid,@RequestParam("title") String title) throws IOException {
+	public String s3Boardupload(@RequestParam("files") List<MultipartFile> files, @RequestParam("posttype") String posttype, @RequestParam("text") String text,@RequestParam("writer") String writer,@RequestParam("contenttype")String contenttype, @RequestParam("commuid") String commuid,@RequestParam("title") String title) throws IOException {
 		CommuWithContent cwc = new CommuWithContent();
 	    String bucket = "halftimespring";
 	    
 		int i =1;
 	    cwc.setCOMMUID(Integer.parseInt(commuid));
-	    cwc.setPOSTTYPE(Integer.parseInt(contenttype));
+	    cwc.setPOSTTYPE(Integer.parseInt(posttype));
 		cwc.setTEXT(text);
 		cwc.setWRITER(writer);
 		cwc.setTITLE(title);
-		
+		cwc.setContentType(Integer.parseInt(contenttype));
 		
 		for (MultipartFile file : files) {
 		

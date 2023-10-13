@@ -226,7 +226,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     ) VALUES (
         CONTENTSRC_SEQ.nextval,
         #{referenceID},
-        #{POSTTYPE},
+        #{contentType},
         #{contentPath1, jdbcType=VARCHAR},
         #{contentPath2, jdbcType=VARCHAR},
         #{contentPath3, jdbcType=VARCHAR},
@@ -254,7 +254,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     ) VALUES (
         COMMUPOST_SEQ.nextval,
         #{COMMUID},
-        2,
+        #{POSTTYPE},
         #{WRITER},
         #{TITLE},
         #{TEXT},

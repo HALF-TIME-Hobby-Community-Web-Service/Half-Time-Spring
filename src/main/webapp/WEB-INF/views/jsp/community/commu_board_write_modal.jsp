@@ -11,9 +11,9 @@
         <div class="form-floating mb-3">
 	        <select name="" class="form-select commucategory">
 		        <option value="0">카테고리</option>
-			    <option value="3">공지사항</option>
-			    <option value="4">게시글</option>
-			    <option value="5">히스토리</option>
+			    <option value="1">공지사항</option>
+			    <option value="2">게시글</option>
+			    <option value="3">히스토리</option>
 			</select>
 		</div>
       
