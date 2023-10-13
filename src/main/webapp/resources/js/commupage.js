@@ -128,7 +128,6 @@ $(() => {
       response.forEach((p) => {
         const clone = $('.boardBox_clone').clone().addClass('boardBox').removeClass('boardBox_clone');
 		postid= p.commupostid;
-		alert(postid);
         if (p.posttype == '2') 
     	  clone.find('.board_posttype').text('📖게시글');
         else if (p.posttype == '1')
@@ -202,12 +201,11 @@ $(() => {
 	  data: { commuID: commuID },
 	  success: (response) => {
 	  	response.forEach((p) => {
-			const clone = $('.historyBox:first-child').clone();
-			
+			const clone = $('.historyBox:first-child').clone();			
 			$.ajax({
 		        url: 'http://localhost:8888/content/getcontentsrc',
 		        method: 'POST',
-		        data: {referenceid: commuID, contenttype: 5},
+		        data: {referenceid: p.commupostid, contenttype: 5},
 		        success: (response) => {				        	
 	        		clone.find('.history_box_img').attr('src', response.contentPath1);
 		    	},
@@ -220,6 +218,7 @@ $(() => {
 	  		clone.append(`<input type="hidden" name="writer" value=${p.writer}>`);
 	  		clone.append(`<input type="hidden" name="posttime" value=${p.posttime}>`);
 	  		clone.append(`<input type="hidden" name="text" value=${p.text}>`);
+	  		clone.append(`<input type="hidden" name="commupostid" value=${p.commupostid}>`);
 		    $('.history_container').append(clone);                 	           		
 	 	});     
 	 	$('.history_container .historyBox:first').css('display', 'none');  		 

@@ -60,7 +60,7 @@
   		<span class="margin-left20 history_time">⏰</span>
   	</div>
     <div class="history_modal_img_box">  	
-  	  <img src="/resources/items/moment/2.jpg" class="history_modal_img">
+  	  <img src="" alt="오류" class="history_modal_img">
   	</div>
   	<div class="history_modal_text">안녕</div>
   </div>
@@ -69,11 +69,9 @@
 <script>
   $(function() {
   	$('.history_modal_content').draggable({'cancel':'.history_modal_container', containment:'parent', scroll:false});
-  });
-    
+  });    
   
   $('.history_closebtn').click(()=> {
 	  $('.history_modal_content').css('display','none');
-  })  
-  
+  })    
 </script>
