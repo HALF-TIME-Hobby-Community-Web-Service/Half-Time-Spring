@@ -53,7 +53,7 @@ $(() => {
       $.ajax({
         url: 'http://localhost:8888/content/getcontentsrc',
         method: 'POST',
-        data: {referenceid: commuID, contenttype: 3},
+        data: {referenceid: commuID, contenttype: 2},
         success: (response) => {		
     		$('.mainImage').attr('src', response.contentPath1);
     	},
