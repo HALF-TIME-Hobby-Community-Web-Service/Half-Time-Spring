@@ -11,9 +11,18 @@
 	<script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="/resources/js/join_naver.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    .custom-bg {
+        background-color: #e5e2d1;
+    }
+	</style>
+	
 </head>
-<body>
-
+<body class="custom-bg">
  <div class="login_container_logo">
         <a class="navbar-brand" href="./login" id="logo">HALF-TIME</a>
     </div>
@@ -23,11 +32,12 @@
                 <div class="join_ID_box" hidden>
                 <!-- 아이디 안보이게 가리기 -->
                    	아이디
-                            <input class="join_ID_input" 
+                  
+                            <input class="form-control join_ID_input" 
                                 type="text"
                                 name="join_ID"
                                 maxlength="10"
-                                style="width: 180px; background-color: #bbb9b9;"
+                                style="background-color: #bbb9b9;"
                                 required="required"
                                 value="${naverID}"
                                 readonly>
@@ -49,7 +59,8 @@
                 
                 <div class="join_birth_box" >
                     생년월일
-                    <input class="join_birth_input"
+                    <br>
+                    <input class="form-control join_birth_input"
                         type="date"
                         name="join_birth"
                         required="required"> 
@@ -72,33 +83,37 @@
 
                 <div class="join_address_box">
                     주소
-                    <input class="join_address_input"
+                    <br>
+                    <input class="form-control join_address_input"
                     type="text"
                     name="join_address">
                 </div><br>
 
                 <div class="join_pnum_box">
                     핸드폰 번호
-                    <select class="join_pnum_select" name="join_pnum1">
+                    <br>
+                    <select class="form-select form-select-lg mb-3 join_pnum_select" name="join_pnum1" style="width:100%">
                         <option value="010" selected>010</option>
                         <option value="011">011</option>
                         <option value="017">017</option>
                     </select>
-                        <input class="join_pnum1_input"
+                    <br>
+                        <input class="form-control join_pnum1_input"
                             type="tel"
                             maxlength="4"
                             name="join_pnum2"
                             oninput="this.value = this.value.replace(/[^0-9]/g, '');"
                             required="required"
-                            style="width: 70px;">
-                        <input class="join_pnum2_input"
+                            >
+                            <br>
+                        <input class="form-control join_pnum2_input"
                         type="tel"
                         maxlength="4"
                         name="join_pnum3"
                         oninput="this.value = this.value.replace(/[^0-9]/g, '');"
                         required="required"
-                        style="width: 70px;">
-                        <button class="join_pnum_checkbtn" type="button">인증</button>
+                       >
+                       
                 </div><br>
                 
                 <div class="join_nickname_box" hidden>
@@ -114,7 +129,7 @@
                     >
                 </div><br>
             </div>
-            <button class="join_nextpagebtn1">다음</button>
+            <button class="btn btn-light join_nextpagebtn1">다음</button>
         </form>
     </div>
 </body>

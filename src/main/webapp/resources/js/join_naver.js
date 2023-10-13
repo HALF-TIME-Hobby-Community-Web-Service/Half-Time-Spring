@@ -13,14 +13,25 @@ $(() => {
       dataType: "JSON",
       
       success: (response) => {
-        alert('다음페이지로 이동합니다');
-        if (response == 1) {
-        //좀있다변경하기
-          location.href = 'http://localhost:8888/user/naver2';
-        } else {
-          alert('전부 작성해주세요');
-        }
-      },
+        swal('1페이지 작성완료!',"다음페이지로 이동합니다",'success')
+		.then(function(){
+			  if (response == 1) {
+            location.href = 'http://localhost:8888/user/naver2';
+          } else {
+          swal('1페이지 작성실패!',"전부작성해주세요",'error');
+          }
+		})
+        },
+      
+      
+       // alert('다음페이지로 이동합니다');
+      //  if (response == 1) {
+      //  //좀있다변경하기
+     //     location.href = 'http://localhost:8888/user/naver2';
+      //  } else {
+     //     alert('전부 작성해주세요');
+     //   }
+   //   },
       error: (jqXhr, status) => {
         alert(`실패: ${status}\n오류명:${jqXhr.statusCode}`);
       },
