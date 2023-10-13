@@ -2,7 +2,8 @@ $(document).ready(function() {
     var userid;
     var nickname;
     var commuid = sessionStorage.getItem('commuID');
-
+	var isloading= false;
+	
     function getSessionData() {
         return $.ajax({
             url: 'http://localhost:8888/getSession',
@@ -67,6 +68,8 @@ $(document).ready(function() {
 
     $('.commu_upload_btn').click(function(e) {
         e.preventDefault();
+        console.log("dawda");
+        if(isloading != true){
         getSessionData()
             .then(function(data) {
                 writer = data;
@@ -84,5 +87,7 @@ $(document).ready(function() {
             .fail(function(error) {
                 console.error('An error occurred:', error);
             });
+            isloading = true;
+            };
     });
 });

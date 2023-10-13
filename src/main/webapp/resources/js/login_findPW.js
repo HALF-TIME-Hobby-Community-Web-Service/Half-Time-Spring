@@ -25,10 +25,11 @@ $(() => {
         
       success: (response) => {  
         if (!response) {
-         alert('가입된 이력이 없습니다');
+         swal('실패!',"가입된 이력이 없습니다",'error');
+       		// alert('가입된 이력이 없습니다');
         } else {
-          
-           alert('회원의 비밀번호는[ '+response+' ]입니다');
+         swal('성공!',"회원의 비밀번호는[ "+response+" ]입니다",'success');
+           //alert('회원의 비밀번호는[ '+response+' ]입니다');
         }
       },
       error: (jqXhr, status) => {
@@ -53,9 +54,12 @@ $(() => {
        
       success: (response) => {
         if (!response) {
-          alert('존재하지 않는 아이디입니다!');
+          //alert('존재하지 않는 아이디입니다!');
+        swal('실패!',"존재하지 않는 아이디입니다",'error');
+          
         } else {
-          alert('존재하는 아이디 입니다!');
+        swal('성공!',"존재하는 아이디입니다",'success');
+          //alert('존재하는 아이디 입니다!');
         } 
       }, 
       error: (jqXhr, status) => {

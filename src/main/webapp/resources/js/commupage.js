@@ -1,6 +1,8 @@
 $(() => {
   const backURL = 'http://localhost:8888/commu';
   const commuID = sessionStorage.getItem('commuID');
+	var postid;
+	
 	
   /* 상단 탭 */
   {
@@ -125,7 +127,8 @@ $(() => {
     success: (response) => {
       response.forEach((p) => {
         const clone = $('.boardBox_clone').clone().addClass('boardBox').removeClass('boardBox_clone');
-
+		postid= p.commupostid;
+		alert(postid);
         if (p.posttype == '2') 
     	  clone.find('.board_posttype').text('📖게시글');
         else if (p.posttype == '1')
@@ -168,8 +171,9 @@ $(() => {
 	
         //사진
          $.ajax({
-	        url: 'http://localhost:8888/content/getcontentsrc',
-	        data: {referenceid: commuID, contenttype: 4},
+	        url: 'http://localhost:8888/content/getboardsrc',
+	        method : "POST",
+	        data: {contenttype: 4, postid: postid},
 	        success: (response) => {				        	
         		clone.find('.boardimg').attr('src', response.contentPath1);
 	    	},

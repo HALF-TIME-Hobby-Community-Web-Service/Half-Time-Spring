@@ -1,5 +1,7 @@
 package com.hf.content.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,8 @@ public class ContentService {
 	public Content5 getContentSrc(String referenceid, String contenttype) {
 		return mapper.getContentSrc(referenceid, contenttype);
 	}
-	
+	public Content5 getboardsrc(String contenttype,int postid) {
+		return mapper.getboardsrc(contenttype,postid);
+	}
 
 }
