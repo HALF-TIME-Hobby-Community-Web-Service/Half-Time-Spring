@@ -128,10 +128,7 @@ $(() => {
       response.forEach((p) => {
         const clone = $('.boardBox_clone').clone().addClass('boardBox').removeClass('boardBox_clone');
 		postid= p.commupostid;
-<<<<<<< HEAD
-		
-=======
->>>>>>> 25c3fd579764c3791edc3cf1b38fcdae7881bffd
+
         if (p.posttype == '2') 
     	  clone.find('.board_posttype').text('📖게시글');
         else if (p.posttype == '1')
