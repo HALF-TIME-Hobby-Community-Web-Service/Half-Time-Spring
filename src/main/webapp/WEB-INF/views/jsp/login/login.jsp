@@ -3,8 +3,6 @@
 <!DOCTYPE html>
 <html>
 
-
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,9 +26,14 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/resources/css/join.css">
 <link rel="stylesheet" href="/resources/css/login.css">
+    <style>
+    .custom-bg {
+        background-color: #e5e2d1;
+    }
+	</style>
 </head>
 
-<body>
+<body class="custom-bg">
 	<div class="login_class">
 		<div class="login_container_logo">
 			<a class="navbar-brand" href="../hf" id="logo">HALF-TIME</a>

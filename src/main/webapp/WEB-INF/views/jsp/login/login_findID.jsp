@@ -9,23 +9,23 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/resources/css/login_find.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+    <style>
+    .custom-bg {
+        background-color: #e5e2d1;
+    }
+	</style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
-	
     <script src="/resources/js/login_findID.js"></script>
     <title>Login find_ID page</title>
-    
      <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
     
 </head>
 
-<body>
+<body class="custom-bg">
     <div class="login_findID_class">
         <div class="login_container_logo">
             <a class="navbar-brand" href="./login" id="logo">HALF-TIME</a>
