@@ -128,9 +128,10 @@ $(() => {
             processData: false, // 데이터 처리 비활성화
             contentType: false, // 컨텐츠 유형 설정 비활성화
             success: function (data) {
-                    $('.mmake_content').css('display', 'none');
+                    $('.mmake_content').remove();
                     alert("업로드가 완료되었습니다.");
-                  location.href = "/hf";            
+                  //location.href = "/hf";
+                    location.reload();            
             },
             error: function (error) {
                 

@@ -2,6 +2,7 @@ package com.hf.controller;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -18,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hf.commu.service.CommuService;
+import com.hf.content.service.ContentService;
 import com.hf.domain.CommuInfo;
+import com.hf.domain.Content5;
 import com.hf.domain.User;
 import com.hf.user.service.MyPageService;
 
@@ -34,7 +37,7 @@ public class MyPageController {
 	
 	@Setter(onMethod_ = @Autowired)
 	public CommuService commuservice;
-
+	
 	@PostMapping("/mypage")
 	public String showMyPage(HttpServletRequest request, Model model) {
 
@@ -84,6 +87,7 @@ public class MyPageController {
         List<CommuInfo> ci = commuservice.getCommuListById(id);
         model.addAttribute("commu", ci);
         
+          
         
 		if (id.equals(user.getId())) {
 			return "./jsp/mypage/mypage";

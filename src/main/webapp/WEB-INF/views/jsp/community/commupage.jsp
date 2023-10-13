@@ -132,12 +132,25 @@
 	    var writer 	 = historyBox.find('input[name="writer"]').val();
 	    var posttime = historyBox.find('input[name="posttime"]').val();
 	    var text 	 = historyBox.find('input[name="text"]').val();
+	    var commupostid = historyBox.find('input[name="commupostid"]').val();
 	    
 	    // 이제 title, writer, posttime, text를 사용할 수 있습니다.	
 	    $('.history_title').text('📖' + title);
 	    $('.history_writer').text(writer);
 	    $('.history_time').text('⏰' + posttime);
-	    //$('.history_modal_img').attr('src',  '');
+	    
+	    $.ajax({
+	        url: 'http://localhost:8888/content/getcontentsrc',
+	        method: 'POST',
+	        data: {referenceid: commupostid, contenttype: 5},
+	        success: (response) => {				        	
+        		$('.history_modal_img').attr('src', response.contentPath1);
+	    	},
+	        error: (jqXhr, status) => {
+	        	$('.history_modal_img').attr('src', '/resources/items/commu_preview_default.png');
+	        }
+   		 }); 
+	    
 	   	$('.history_modal_text').text(' ' + text);
 	    
 	    $('.history_modal_content').css('display', 'block');	    

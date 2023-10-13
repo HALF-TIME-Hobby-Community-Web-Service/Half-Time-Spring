@@ -30,9 +30,8 @@
  	
     <div class="mypage_subtitle"><b>가입한 커뮤니티</b></div>
 	 	<div class="mypage_commu_container">
-		  <c:forEach items="${commu}" var="commuItem">
-	 		  <div class="mypage_commu_box">
-		          <img class="mypage_commu_img" src="/resources/items/commu/commu_page/1.jpg" alt="안녕" />
+		  <c:forEach items="${commu}" var="commuItem" varStatus="i">
+	 		  <div class="mypage_commu_box">		          
 		          <div style="float: left">
 		           	<div style="margin-top: 5px;">이름: ${commuItem.commuName}<span class="commu_name"></span></div>
 		           	<div>지역:${commuItem.commuLocation} <span class="commu_location"></span></div>

@@ -49,7 +49,19 @@ $(() => {
     data: { commuID: commuID },
     success: (c) => {
       $('.introTitle').text(c.commuName);
-      $('.mainImage').attr('src', `/resources/items/commu/commu_page/${c.commuID}.jpg`);
+            
+      $.ajax({
+        url: 'http://localhost:8888/content/getcontentsrc',
+        method: 'POST',
+        data: {referenceid: commuID, contenttype: 3},
+        success: (response) => {		
+    		$('.mainImage').attr('src', response.contentPath1);
+    	},
+        error: (jqXhr, status) => {
+            $('.mainImage').attr('src', '/resources/items/commu_preview_default.png');
+        }
+	 });    
+      
       
       if (c.commuCategory=='카테고리 소분류') 
       	c.commuCategory = '뭐든지';
@@ -116,7 +128,10 @@ $(() => {
       response.forEach((p) => {
         const clone = $('.boardBox_clone').clone().addClass('boardBox').removeClass('boardBox_clone');
 		postid= p.commupostid;
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 25c3fd579764c3791edc3cf1b38fcdae7881bffd
         if (p.posttype == '2') 
     	  clone.find('.board_posttype').text('📖게시글');
         else if (p.posttype == '1')
@@ -155,7 +170,8 @@ $(() => {
 
         //제목
         clone.find('.boardTitleIntro').text(p.title);
-
+	
+	
         //사진
          $.ajax({
 	        url: 'http://localhost:8888/content/getboardsrc',
@@ -165,9 +181,10 @@ $(() => {
         		clone.find('.boardimg').attr('src', response.contentPath1);
 	    	},
 	        error: (jqXhr, status) => {
-	        	clone.find('.boardimg').attr('src',`resources/items/commu_preview_default.jpg`);
+	        	clone.find('.boardimg').attr('src','/resources/items/commu_preview_default.png');
 	        }
-   		 });         
+   		 });
+   		          
         
         //텍스트
         clone.find('.boardText').html(p.text);
@@ -188,14 +205,13 @@ $(() => {
 	  data: { commuID: commuID },
 	  success: (response) => {
 	  	response.forEach((p) => {
-			const clone = $('.historyBox:first-child').clone();
-			
+			const clone = $('.historyBox:first-child').clone();			
 			$.ajax({
 		        url: 'http://localhost:8888/content/getcontentsrc',
 		        method: 'POST',
-		        data: {referenceid: commuID, contenttype: 5},
+		        data: {referenceid: p.commupostid, contenttype: 5},
 		        success: (response) => {				        	
-	        		clone.find('.history_box_img').attr('src', response);
+	        		clone.find('.history_box_img').attr('src', response.contentPath1);
 		    	},
 		        error: (jqXhr, status) => {
 		        	clone.find('.history_box_img').attr('src', '/resources/items/commu_preview_default.png');
@@ -206,6 +222,7 @@ $(() => {
 	  		clone.append(`<input type="hidden" name="writer" value=${p.writer}>`);
 	  		clone.append(`<input type="hidden" name="posttime" value=${p.posttime}>`);
 	  		clone.append(`<input type="hidden" name="text" value=${p.text}>`);
+	  		clone.append(`<input type="hidden" name="commupostid" value=${p.commupostid}>`);
 		    $('.history_container').append(clone);                 	           		
 	 	});     
 	 	$('.history_container .historyBox:first').css('display', 'none');  		 
