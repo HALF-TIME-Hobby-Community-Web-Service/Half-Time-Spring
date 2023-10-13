@@ -164,7 +164,8 @@ $(() => {
 
         //제목
         clone.find('.boardTitleIntro').text(p.title);
-
+	
+	
         //사진
          $.ajax({
 	        url: 'http://localhost:8888/content/getcontentsrc',
@@ -173,9 +174,10 @@ $(() => {
         		clone.find('.boardimg').attr('src', response.contentPath1);
 	    	},
 	        error: (jqXhr, status) => {
-	        	clone.find('.boardimg').attr('src',`resources/items/commu_preview_default.jpg`);
+	        	clone.find('.boardimg').attr('src','/resources/items/commu_preview_default.png');
 	        }
-   		 });         
+   		 });
+   		          
         
         //텍스트
         clone.find('.boardText').html(p.text);
