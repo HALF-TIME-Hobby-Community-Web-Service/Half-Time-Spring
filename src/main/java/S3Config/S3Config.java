@@ -12,12 +12,12 @@ public class S3Config {
 
     @Bean
     public AmazonS3 amazonS3Client() {
-        // AWS °èÁ¤ Á¤º¸ ¼³Á¤
-        BasicAWSCredentials awsCredentials = new BasicAWSCredentials("AKIASS6WBEKJCGYTD5ET", "IuRgMRm4ir8jkoaUBir99mNoOvkO8gh9SkhC9UEz");
+        // AWS ê³„ì • ì •ë³´ ì„¤ì •
+        BasicAWSCredentials awsCredentials = new BasicAWSCredentials("PUBLIC_API_KEY", "PRIVATE_KEY");
 
-        // AWS S3 Å¬¶óÀÌ¾ğÆ® »ı¼º
+        // AWS S3 í´ë¼ì´ì–¸íŠ¸ ìƒì„±
         return AmazonS3Client.builder()
-                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("https://s3.ap-northeast-2.amazonaws.com", "ap-northeast-2")) // ¿£µåÆ÷ÀÎÆ® ¹× ¸®Àü ¼³Á¤
+                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("https://s3.ap-northeast-2.amazonaws.com", "ap-northeast-2")) // ì—”ë“œí¬ì¸íŠ¸ ë° ë¦¬ì „ ì„¤ì •
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
                
                 .build();
